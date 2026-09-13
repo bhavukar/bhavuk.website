@@ -518,7 +518,7 @@ export default function Home() {
           </button>
           <div className="flex items-center gap-3">
             <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-[10px] font-bold tracking-[0.2em] text-white/20 uppercase">Network Stable</span>
+            <span className="text-[10px] font-bold tracking-[0.2em] text-white/20 uppercase">Network Stable • Edge Deployed</span>
           </div>
         </header>
 
@@ -535,7 +535,7 @@ export default function Home() {
                   </div>
                   <div className="space-y-6 px-4">
                     <div className="flex flex-col gap-3 sm:gap-4 items-center">
-                       <div className="px-3 py-1 rounded-full bg-emerald-500/5 border border-emerald-500/10 text-[9px] text-emerald-500/60 font-black uppercase tracking-[0.3em]">Architecting Reality</div>
+                       <div className="px-3 py-1 rounded-full bg-emerald-500/5 border border-emerald-500/10 text-[9px] text-emerald-500/60 font-black uppercase tracking-[0.3em]">Architecting Reality • 2026</div>
                        <h1 className="text-4xl sm:text-6xl font-black tracking-tighter text-white">Engineer.<br /><span className="text-emerald-500">Architect.</span></h1>
                     </div>
                     <p className="text-white/40 text-[13px] sm:text-sm max-w-sm mx-auto font-medium leading-relaxed">I build resilient digital ecosystems, from low-level CLI tools to high-performance mobile architectures.</p>
