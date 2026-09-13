@@ -102,6 +102,7 @@ const EXPERIENCES: ExperienceItem[] = [
     period: 'Dec 2022 – Jul 2023',
     url: 'https://www.suraasa.com',
     displayUrl: 'suraasa.com',
+    previewImage: '/suraasa_preview.jpg',
     summary:
       'Engineered core mobile software systems and learning infrastructure serving 100,000+ educators across 50+ international markets.',
     highlights: [
@@ -110,12 +111,6 @@ const EXPERIENCES: ExperienceItem[] = [
       'Collaborated with backend engineering teams to optimize REST APIs and serialization, reducing app startup latency by 35% and maintaining 99.8% crash-free sessions.'
     ],
     skills: ['Mobile Systems Architecture', 'Flutter & Dart', 'Offline Data Sync', 'REST APIs', 'Performance Optimization'],
-    previewFallback: {
-      title: 'Suraasa: Global Learning Platform',
-      subtitle: 'International teacher education & qualification infrastructure.',
-      badge: '100,000+ Educators • 4.7 ★',
-      details: 'Enterprise mobile software systems • Custom low-latency media player • Offline sync'
-    }
   },
   {
     id: 'iitd',
@@ -125,6 +120,7 @@ const EXPERIENCES: ExperienceItem[] = [
     period: 'Dec 2021 – May 2022',
     url: 'https://home.iitd.ac.in',
     displayUrl: 'iitd.ac.in',
+    previewImage: '/iitd_preview.png',
     summary:
       'Researched and built immersive virtual reality experiences and experimental brain-computer interface (BCI) systems.',
     highlights: [
@@ -133,12 +129,6 @@ const EXPERIENCES: ExperienceItem[] = [
       'Conducted live laboratory demonstrations introducing students and research peers to practical applications of VR and neuro-interfaces.'
     ],
     skills: ['Virtual Reality', 'EEG / Neural Spikes', 'Unity / C#', 'BCI Research'],
-    previewFallback: {
-      title: 'IIT Delhi — BCI & Neuro Lab',
-      subtitle: 'Experimental brain-computer interface research and immersive VR.',
-      badge: 'Neural Signal Processing',
-      details: 'EEG brain activity decoding • Real-time hardware control • Academic research'
-    }
   }
 ];
 
@@ -146,16 +136,10 @@ export default function Home() {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [hoveredExperience, setHoveredExperience] = useState<ExperienceItem | null>(null);
   const [activeExperience, setActiveExperience] = useState<ExperienceItem>(EXPERIENCES[0]);
-  const [loadedExperienceIds, setLoadedExperienceIds] = useState<Set<string>>(() => new Set(['fork']));
+  const [loadedExperienceIds, setLoadedExperienceIds] = useState<Set<string>>(
+    () => new Set(EXPERIENCES.map((e) => e.id))
+  );
   const hoverLeaveTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-  // Pre-warm remaining preview iframes after 1.5s idle so they display instantly without reload
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoadedExperienceIds(new Set(['fork', 'reve', 'mythyaverse']));
-    }, 1500);
-    return () => clearTimeout(timer);
-  }, []);
 
   // Cleanup hover timer on unmount
   useEffect(() => {
@@ -254,7 +238,7 @@ export default function Home() {
                 Bhavuk Arora
               </span>
               <span className="text-[11px] text-zinc-500 font-mono">
-                Product & Forward Deployed Engineer
+                Founder & Product Engineer
               </span>
             </div>
           </a>
@@ -298,23 +282,21 @@ export default function Home() {
           className="px-5 sm:px-10 py-16 sm:py-20 border-b border-zinc-200"
         >
           <div className="space-y-6 max-w-3xl">
-            {/* Open to work status bar */}
+            {/* Experience status bar */}
             <div className="flex flex-wrap items-center gap-2.5 text-xs font-mono text-zinc-500">
-              <span className="font-bold text-zinc-950 tracking-wider">OPEN TO WORK</span>
-              <span className="text-zinc-300">•</span>
-              <span>5+ YEARS EXPERIENCE</span>
+              <span className="font-bold text-zinc-950 tracking-wider">5+ YEARS EXPERIENCE</span>
               <span className="text-zinc-300">•</span>
               <span>DELHI · REMOTE</span>
             </div>
 
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-zinc-950 leading-[1.22] max-w-2xl">
-              Product engineer & founder building{' '}
+              Founder & product engineer building{' '}
               <mark className="bg-[#fde047] text-black px-1.5 py-0.5 font-semibold not-italic rounded-[2px]">
                 consumer products
               </mark>{' '}
-              and{' '}
+              from{' '}
               <mark className="bg-[#fde047] text-black px-1.5 py-0.5 font-semibold not-italic rounded-[2px]">
-                AI workflows
+                zero to scale
               </mark>.
             </h1>
 
@@ -538,18 +520,7 @@ export default function Home() {
           </div>
         </motion.section>
 
-        {/* ───────────────────────────────────────────────────────────
-            EDUCATION
-            ─────────────────────────────────────────────────────────── */}
-        <section className="px-5 sm:px-10 py-10 border-b border-zinc-200">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-mono">
-            <div>
-              <span className="font-bold text-zinc-950">Bachelor of Computer Applications (CGPA: 8.9)</span>
-              <span className="text-zinc-500"> — GGSIPU, Vivekananda Institute of Professional Studies</span>
-            </div>
-            <div className="text-zinc-500">Dec 2020 – Jul 2023 • New Delhi</div>
-          </div>
-        </section>
+
 
         {/* ───────────────────────────────────────────────────────────
             CONTACT & INVITATION SECTION
@@ -711,10 +682,9 @@ export default function Home() {
           </a>
         </div>
 
-        {/* Window Content: Real Iframes Cached & Kept Mounted */}
+        {/* Window Content: Real Iframes & High-Res Previews Cached */}
         <div className="relative w-full h-[260px] bg-zinc-900 overflow-hidden">
           {EXPERIENCES.map((exp) => {
-            if (!exp.embedUrl) return null;
             const isLoaded = loadedExperienceIds.has(exp.id);
             if (!isLoaded) return null;
 
@@ -727,22 +697,24 @@ export default function Home() {
                   isCurrent ? 'opacity-100 z-10 pointer-events-auto' : 'opacity-0 z-0 pointer-events-none'
                 }`}
               >
-                {/* Backdrop Screenshot for zero flicker */}
+                {/* Visual Screenshot (high-res preview for Suraasa, IITD, and backdrop for Fork/Reve/VRPlaced) */}
                 {exp.previewImage && (
                   <img
                     src={exp.previewImage}
                     alt={exp.displayUrl}
-                    className="absolute inset-0 w-full h-full object-cover object-top opacity-90"
+                    className="absolute inset-0 w-full h-full object-cover object-top"
                   />
                 )}
 
-                {/* Real Live Iframe View (Cached & Kept Mounted) */}
-                <iframe
-                  src={exp.embedUrl}
-                  title={exp.displayUrl}
-                  className="absolute inset-0 w-[840px] h-[520px] origin-top-left scale-50 border-0 bg-white"
-                  loading="eager"
-                />
+                {/* Real Live Iframe View (for embed-supported sites) */}
+                {exp.embedUrl && (
+                  <iframe
+                    src={exp.embedUrl}
+                    title={exp.displayUrl}
+                    className="absolute inset-0 w-[840px] h-[520px] origin-top-left scale-50 border-0 bg-white"
+                    loading="eager"
+                  />
+                )}
 
                 {/* Clickable Overlay */}
                 <a
@@ -755,32 +727,6 @@ export default function Home() {
               </div>
             );
           })}
-
-          {/* Fallback for same-origin protected sites like Suraasa or IITD */}
-          {!activeExperience.embedUrl && (
-            <div className="absolute inset-0 z-10 w-full h-full p-5 flex flex-col justify-between bg-gradient-to-br from-zinc-800 to-zinc-950 text-left">
-              <div className="space-y-2">
-                <div className="text-[10px] font-mono text-[#fde047] font-bold uppercase tracking-wider">
-                  {activeExperience.previewFallback?.badge || 'Official Product'}
-                </div>
-                <div className="text-base font-bold text-white">
-                  {activeExperience.previewFallback?.title || activeExperience.displayUrl}
-                </div>
-                <p className="text-xs text-zinc-300 leading-relaxed">
-                  {activeExperience.previewFallback?.subtitle || 'Visit official website for details.'}
-                </p>
-              </div>
-              <a
-                href={activeExperience.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-400 hover:text-white pt-3 border-t border-zinc-700/80"
-              >
-                <span>Open {activeExperience.displayUrl}</span>
-                <ArrowUpRight size={12} />
-              </a>
-            </div>
-          )}
         </div>
       </motion.div>
     </div>
