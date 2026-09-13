@@ -640,7 +640,7 @@ export default function Home() {
           1. MINIMAL STICKY HEADER
           ───────────────────────────────────────────────────────────── */}
       <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-zinc-200">
-        <div className="max-w-4xl mx-auto px-4 sm:px-8 h-14 sm:h-16 flex items-center justify-between">
+        <div className="max-w-4xl mx-auto px-5 sm:px-8 h-14 sm:h-16 flex items-center justify-between">
           <a href="#" className="flex items-center gap-2.5 sm:gap-3 group min-w-0">
             <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full overflow-hidden border border-zinc-200 shadow-2xs group-hover:scale-105 transition-transform flex-shrink-0">
               <img
@@ -660,34 +660,15 @@ export default function Home() {
             </div>
           </a>
 
-          <div className="flex items-center flex-shrink-0">
-            <nav className="flex items-center gap-2.5 sm:gap-6 text-[11px] sm:text-xs font-mono text-zinc-600">
-              <a href="#experience" className="hover:text-zinc-950 transition-colors">
-                Work
-              </a>
-              <a href="#craft" className="hover:text-zinc-950 transition-colors">
-                Craft
-              </a>
-              <a href="#writing" className="hover:text-zinc-950 transition-colors">
-                Writing
-              </a>
-              <a href="#skills" className="hidden md:inline hover:text-zinc-950 transition-colors">
-                Skills
-              </a>
-              <a href="#contact" className="hover:text-zinc-950 transition-colors">
-                Contact
-              </a>
-              <a
-                href="https://github.com/bhavukar"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-zinc-700 hover:text-zinc-950 transition-colors flex items-center gap-1"
-              >
-                <Github size={13} />
-                <span className="hidden md:inline">GitHub</span>
-              </a>
-            </nav>
-          </div>
+          <a
+            href="https://github.com/bhavukar"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 text-[11px] sm:text-xs font-mono text-zinc-600 hover:text-zinc-950 transition-colors flex-shrink-0"
+          >
+            <Github size={13} />
+            <span>GitHub</span>
+          </a>
         </div>
       </header>
 
@@ -700,7 +681,7 @@ export default function Home() {
             ─────────────────────────────────────────────────────────── */}
         <section
           id="hero"
-          className="px-4 sm:px-10 py-10 sm:py-16 md:py-20 border-b border-zinc-200"
+          className="px-5 sm:px-10 py-10 sm:py-16 md:py-20 border-b border-zinc-200"
         >
           <div className="space-y-4 sm:space-y-6 max-w-3xl">
             {/* Experience status bar */}
@@ -776,7 +757,7 @@ export default function Home() {
         {/* ───────────────────────────────────────────────────────────
             WORK EXPERIENCE (THE PRIMARY CENTERPIECE)
             ─────────────────────────────────────────────────────────── */}
-        <section id="experience" className="px-4 sm:px-10 py-12 sm:py-16 border-b border-zinc-200 relative">
+        <section id="experience" className="px-5 sm:px-10 py-12 sm:py-16 border-b border-zinc-200 relative">
           <div className="space-y-1 mb-8 sm:mb-12">
             <div className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-zinc-500">
               Work Experience
@@ -914,7 +895,7 @@ export default function Home() {
             ─────────────────────────────────────────────────────────── */}
         <section
           id="craft"
-          className="px-4 sm:px-10 py-12 sm:py-16 border-b border-zinc-200"
+          className="px-5 sm:px-10 py-12 sm:py-16 border-b border-zinc-200"
         >
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-10">
             <div className="space-y-1">
@@ -1038,7 +1019,7 @@ export default function Home() {
             ─────────────────────────────────────────────────────────── */}
         <section
           id="writing"
-          className="px-4 sm:px-10 py-12 sm:py-16 border-b border-zinc-200"
+          className="px-5 sm:px-10 py-12 sm:py-16 border-b border-zinc-200"
         >
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
             <div className="space-y-1">
@@ -1061,7 +1042,7 @@ export default function Home() {
           </div>
 
           {/* 3 Essay Cards Grid (Compact swipe on mobile, clean 3-col on desktop) */}
-          <div className="flex md:grid md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 overflow-x-auto pb-4 pt-1 snap-x snap-mandatory -mx-4 px-4 sm:mx-0 sm:px-0 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+          <div className="flex md:grid md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 overflow-x-auto pb-4 pt-1 snap-x snap-mandatory -mx-5 px-5 sm:mx-0 sm:px-0 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
             {SUBSTACK_POSTS.map((post) => (
               <a
                 key={post.id}
@@ -1120,7 +1101,7 @@ export default function Home() {
             ─────────────────────────────────────────────────────────── */}
         <section
           id="skills"
-          className="px-4 sm:px-10 py-12 sm:py-16 border-b border-zinc-200"
+          className="px-5 sm:px-10 py-12 sm:py-16 border-b border-zinc-200"
         >
           <div className="space-y-1 mb-8 sm:mb-10">
             <div className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-zinc-500">
@@ -1202,7 +1183,7 @@ export default function Home() {
             ─────────────────────────────────────────────────────────── */}
         <section
           id="contact"
-          className="px-4 sm:px-10 py-12 sm:py-16"
+          className="px-5 sm:px-10 py-12 sm:py-16"
         >
           <div className="rounded-2xl bg-zinc-950 text-white p-5 sm:p-8 md:p-10 border border-zinc-800 space-y-5 sm:space-y-6 shadow-xl">
             <div className="space-y-2 max-w-xl">
@@ -1332,7 +1313,7 @@ export default function Home() {
         {/* ───────────────────────────────────────────────────────────
             FOOTER (Clean & Simple)
             ─────────────────────────────────────────────────────────── */}
-        <footer className="border-t border-zinc-200 px-4 sm:px-10 py-5 sm:py-6 text-xs font-mono text-zinc-500 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3 text-center sm:text-left">
+        <footer className="border-t border-zinc-200 px-5 sm:px-10 py-5 sm:py-6 text-xs font-mono text-zinc-500 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3 text-center sm:text-left">
           <div>© {new Date().getFullYear()} Bhavuk Arora — Founder & CEO, Bluefork.</div>
           <div>Delhi, India.</div>
         </footer>
