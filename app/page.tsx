@@ -1042,7 +1042,7 @@ export default function Home() {
           </div>
 
           {/* 3 Essay Cards Grid (Compact swipe on mobile, clean 3-col on desktop) */}
-          <div className="flex md:grid md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 overflow-x-auto pb-4 pt-1 snap-x snap-mandatory -mx-5 px-5 sm:mx-0 sm:px-0 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+          <div className="flex md:grid md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 overflow-x-auto pb-4 pt-1 snap-x snap-mandatory -mx-5 px-5 scroll-pl-5 sm:mx-0 sm:px-0 sm:scroll-pl-0 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
             {SUBSTACK_POSTS.map((post) => (
               <a
                 key={post.id}
