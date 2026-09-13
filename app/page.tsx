@@ -635,7 +635,7 @@ export default function Home() {
       {mode === 'machine' ? (
         <MachineView onCopy={handleCopyMachineText} copied={copiedMachineText} />
       ) : (
-        <div className="min-h-screen bg-white text-zinc-900 font-sans selection:bg-[#fde047] selection:text-black relative">
+        <div className="min-h-screen bg-white text-zinc-900 font-sans selection:bg-[#e8e2d5] selection:text-zinc-950 relative">
       {/* ─────────────────────────────────────────────────────────────
           1. MINIMAL STICKY HEADER
           ───────────────────────────────────────────────────────────── */}
@@ -714,14 +714,14 @@ export default function Home() {
 
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-zinc-950 leading-[1.25] sm:leading-[1.22] max-w-2xl">
               Founder & CEO building{' '}
-              <span className="bg-[#fde047] text-black px-1.5 sm:px-2 py-0.5 rounded-sm">
+              <span className="bg-[#e8e2d5] text-zinc-950 px-1.5 sm:px-2 py-0.5 rounded-sm">
                 consumer
               </span>{' '}
-              <span className="bg-[#fde047] text-black px-1.5 sm:px-2 py-0.5 rounded-sm">
+              <span className="bg-[#e8e2d5] text-zinc-950 px-1.5 sm:px-2 py-0.5 rounded-sm">
                 products
               </span>{' '}
               from{' '}
-              <span className="bg-[#fde047] text-black px-1.5 sm:px-2 py-0.5 rounded-sm">
+              <span className="bg-[#e8e2d5] text-zinc-950 px-1.5 sm:px-2 py-0.5 rounded-sm">
                 zero to scale
               </span>
               .
@@ -879,7 +879,7 @@ export default function Home() {
                               )}
                               <span className="text-zinc-300 truncate">{exp.displayUrl}</span>
                             </div>
-                            <span className="text-[#fde047] font-semibold text-[10px] flex items-center gap-0.5">
+                            <span className="text-[#e8e2d5] font-semibold text-[10px] flex items-center gap-0.5">
                               <span>Open</span>
                               <ArrowUpRight size={11} />
                             </span>
@@ -1237,8 +1237,8 @@ export default function Home() {
                 >
                   {copiedEmail ? (
                     <>
-                      <Check size={13} className="text-[#fde047]" />
-                      <span className="text-[#fde047]">Copied</span>
+                      <Check size={13} className="text-[#e8e2d5]" />
+                      <span className="text-[#e8e2d5]">Copied</span>
                     </>
                   ) : (
                     <>
@@ -1249,7 +1249,7 @@ export default function Home() {
                 </button>
                 <a
                   href="mailto:bhavukarora03@gmail.com"
-                  className="px-3.5 sm:px-4 py-2 rounded-lg bg-[#fde047] hover:bg-yellow-300 text-black text-xs font-mono font-bold transition-all flex items-center justify-center gap-1 hover:translate-y-[-1px]"
+                  className="px-3.5 sm:px-4 py-2 rounded-lg bg-[#e8e2d5] hover:bg-[#ddd6c7] text-zinc-950 text-xs font-mono font-bold transition-all flex items-center justify-center gap-1 hover:translate-y-[-1px]"
                 >
                   <span>Mailto</span>
                   <ArrowUpRight size={13} />

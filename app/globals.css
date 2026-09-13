@@ -3,7 +3,7 @@
 @theme {
   --font-sans: var(--font-geist-sans), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: var(--font-geist-mono), 'JetBrains Mono', 'Fira Code', monospace;
-  --color-highlight: #fde047;
+  --color-highlight: #e8e2d5;
 }
 
 :root {
