@@ -11,6 +11,8 @@ import {
   Copy,
   Check,
   Lock,
+  Sun,
+  Moon,
 } from 'lucide-react';
 
 interface ExperienceItem {
@@ -21,18 +23,16 @@ interface ExperienceItem {
   period: string;
   url: string;
   displayUrl: string;
+  embedUrl?: string;
+  previewImage?: string;
   summary: string;
   highlights: string[];
   skills: string[];
-  metrics: string;
-  showcase: {
-    badge: string;
+  previewFallback?: {
     title: string;
-    description: string;
-    features: string[];
-    gradient: string;
-    accentGlow: string;
-    status: string;
+    subtitle: string;
+    badge: string;
+    details: string;
   };
 }
 
@@ -45,28 +45,17 @@ const EXPERIENCES: ExperienceItem[] = [
     period: 'May 2026 – Present',
     url: 'https://app.fork.blue',
     displayUrl: 'app.fork.blue',
-    metrics: 'Active Production • Global Creator OS',
+    embedUrl: 'https://app.fork.blue',
+    previewImage: 'https://app.fork.blue/preview_url.png',
     summary:
-      'Building the commercial operating system for independent creators, artists, and musicians who monetize their audience and work.',
+      'Building the commercial operating system for independent creators, artists, and digital entrepreneurs to monetize their audience and run end-to-end commercial operations.',
     highlights: [
-      'Engineered autonomous AI agents automating deal discovery, contract risk audits, and fast invoicing.',
-      'Replaced fragmented chains of DMs, spreadsheets, and manual billing with a unified marketplace.',
-      'Architected end-to-end fullstack platform with TypeScript, Next.js, and structured LLM tool-calling pipelines.'
+      'Defined company vision, commercial roadmap, and go-to-market strategy, pivoting creator operations from chaotic DMs and spreadsheets into automated deal execution.',
+      'Led creator business development and partnerships, directly signing and onboarding 50+ independent talent, digital artists, and creator management agencies.',
+      'Architected creator monetization infrastructure with agentic AI pipelines automating deal discovery, brand contract risk audits, dynamic pricing, and cross-border invoicing.',
+      'Spearheaded product-led growth and business operations, driving continuous creator retention and high commercial transaction completion.'
     ],
-    skills: ['TypeScript', 'Next.js', 'AI Agents', 'PostgreSQL', 'Fullstack Architecture'],
-    showcase: {
-      badge: 'CREATOR OS • FOUNDING VENTURE',
-      title: 'Pause chasing. Start creating.',
-      description: 'AI-native operating system automating deals, contracts, and cashflow for independent creators.',
-      features: [
-        'Autonomous Deal Discovery Agents',
-        'Real-time Contract Risk Audits',
-        'Instant Multi-Currency Invoicing'
-      ],
-      gradient: 'from-blue-600 via-indigo-700 to-slate-950',
-      accentGlow: '#3b82f6',
-      status: 'Live in Production'
-    }
+    skills: ['Executive Leadership', 'Creator Monetization', 'Venture Strategy', 'AI Workflows', 'Commercial Infrastructure']
   },
   {
     id: 'reve',
@@ -76,28 +65,17 @@ const EXPERIENCES: ExperienceItem[] = [
     period: 'Sep 2024 – Present',
     url: 'https://reve.rsvp',
     displayUrl: 'reve.rsvp',
-    metrics: '25,000+ App Downloads • iOS & Android',
+    embedUrl: 'https://reve.rsvp',
+    previewImage:
+      'https://assets.reve.rsvp/prod/media/image/f_jpg,q_70,w_1200/webp/v1/static/reve_preview_url.jpg',
     summary:
-      'Joined as part of the founding team taking Reve from zero to launch, evolving through multiple pivots into a consumer event app with 25K+ downloads.',
+      'Joined as part of the founding team taking Reve from zero to launch, evolving through multiple pivots into a consumer event app with 25,000+ downloads across iOS and Android.',
     highlights: [
-      'Owned product engineering end-to-end: wireframes, user journeys, design systems, and cross-platform Flutter client.',
-      'Engineered offline-first SQLite sync engine and real-time feed for seamless in-person event check-ins.',
-      'Designed onboarding funnels and viral invite loops powering organic community growth.'
+      'Owned product engineering end-to-end: wireframes, user journeys, design systems, and the cross-platform Flutter client.',
+      'Built the offline-first SQLite sync engine and real-time feed for seamless in-person event check-ins and ticketing.',
+      'Designed onboarding funnels and viral invite loops that powered our organic community growth.'
     ],
-    skills: ['Flutter', 'SQLite', 'Mobile Architecture', 'Product Design', '25K+ Downloads'],
-    showcase: {
-      badge: 'CONSUMER SOCIAL & EVENTS',
-      title: 'Curated Nights & Intimate Gatherings',
-      description: 'High-touch RSVP & nightlife discovery app connecting communities through live gatherings.',
-      features: [
-        'Offline-first SQLite Sync Engine',
-        'Frictionless QR Check-in & Passes',
-        'Viral Organic Referral Loops'
-      ],
-      gradient: 'from-purple-900 via-zinc-900 to-black',
-      accentGlow: '#a855f7',
-      status: '25K+ Downloads'
-    }
+    skills: ['Flutter', 'SQLite', 'Mobile Architecture', 'Product Design', '25K+ Downloads']
   },
   {
     id: 'mythyaverse',
@@ -107,96 +85,154 @@ const EXPERIENCES: ExperienceItem[] = [
     period: 'Sep 2023 – Aug 2024',
     url: 'https://www.vrplaced.ai',
     displayUrl: 'vrplaced.ai',
-    metrics: 'Production AI & Healthcare Apps',
+    embedUrl: 'https://www.vrplaced.ai',
+    previewImage: 'https://www.vrplaced.ai/opengraph-image.png',
     summary:
-      'Shipped client and internal production applications across healthcare and AI interview coaching under strict timelines.',
+      'Shipped client and internal production applications across healthcare and AI interview coaching, delivering end-to-end products under strict timelines.',
     highlights: [
-      'Shipped VRPlaced: an AI interview simulator with real-time feedback scoring and dynamic resume tailoring using Next.js and OpenAI.',
-      'Built Oncarea and Oncarea Doctor from scratch in under two months, supporting live video consultations.',
+      'Shipped VRPlaced, an AI interview simulator with real-time feedback scoring and dynamic resume tailoring using Next.js and OpenAI.',
+      'Built and launched Oncarea and Oncarea Doctor from scratch in under two months, supporting live video consultations and remote diagnostics.',
       'Owned full development lifecycle: architecture, client-side testing, automated deployments, and continuous UX iterations.'
     ],
-    skills: ['Flutter', 'Next.js', 'OpenAI API', 'Healthcare Systems', 'WebRTC Video'],
-    showcase: {
-      badge: 'AI COACHING & HEALTHCARE',
-      title: 'AI Interview Coaching & Telehealth',
-      description: 'Real-time evaluation simulator with automated interview telemetry and remote medical consultations.',
-      features: [
-        'Dynamic Resume Tailoring Engine',
-        'Real-time LLM Performance Scoring',
-        'WebRTC Live Doctor Consultations'
-      ],
-      gradient: 'from-emerald-900 via-zinc-900 to-black',
-      accentGlow: '#10b981',
-      status: 'Production Shipped'
-    }
+    skills: ['Flutter', 'Next.js', 'OpenAI API', 'Healthcare Systems', 'WebRTC Video']
   },
   {
     id: 'suraasa',
-    role: 'Mobile Application Developer',
+    role: 'Software Development Engineer',
     company: 'Suraasa',
     location: 'Gurugram, HR',
     period: 'Dec 2022 – Jul 2023',
     url: 'https://www.suraasa.com',
     displayUrl: 'suraasa.com',
-    metrics: '50,000+ Downloads • 4.7 ★ Rating',
     summary:
-      'Re-engineered Suraasa’s flagship EdTech application from the ground up in Flutter, replacing legacy native code and scaling to 50K+ downloads.',
+      'Engineered core mobile software systems and learning infrastructure serving 100,000+ educators across 50+ international markets.',
     highlights: [
-      'Rebuilt core mobile systems including auth, profile state management, push notification infra, and modular app architecture.',
-      'Integrated custom high-performance video player, learning course workflows, and interactive assessments.',
-      'Boosted course completion rates by streamlining playback, offline lesson caching, and navigation.'
+      'Architected enterprise mobile software systems in Flutter, delivering offline-first local database synchronization, resilient state management, and real-time push events.',
+      'Engineered low-latency video streaming pipelines and custom playback services optimized for low-bandwidth cellular networks.',
+      'Collaborated with backend engineering teams to optimize REST APIs and serialization, reducing app startup latency by 35% and maintaining 99.8% crash-free sessions.'
     ],
-    skills: ['Flutter', 'Modular Architecture', 'Custom Video Player', '50K+ Downloads'],
-    showcase: {
-      badge: 'GLOBAL TEACHER EDTECH',
-      title: 'Empowering 50,000+ Educators',
-      description: 'Global qualification platform helping educators master modern pedagogy and advance international careers.',
-      features: [
-        'Custom Modular Video Player',
-        'Offline Course & Lesson Caching',
-        'Interactive Teacher Assessments'
-      ],
-      gradient: 'from-amber-900 via-zinc-900 to-black',
-      accentGlow: '#f59e0b',
-      status: '50K+ Downloads'
+    skills: ['Mobile Systems Architecture', 'Flutter & Dart', 'Offline Data Sync', 'REST APIs', 'Performance Optimization'],
+    previewFallback: {
+      title: 'Suraasa: Global Learning Platform',
+      subtitle: 'International teacher education & qualification infrastructure.',
+      badge: '100,000+ Educators • 4.7 ★',
+      details: 'Enterprise mobile software systems • Custom low-latency media player • Offline sync'
     }
   },
   {
     id: 'iitd',
     role: 'AR/VR Developer',
-    company: 'IIT Delhi (BCI Lab)',
+    company: 'Indian Institute of Technology, Delhi',
     location: 'New Delhi',
     period: 'Dec 2021 – May 2022',
     url: 'https://home.iitd.ac.in',
     displayUrl: 'iitd.ac.in',
-    metrics: 'Academic Neural HCI Research',
     summary:
       'Researched and built immersive virtual reality experiences and experimental brain-computer interface (BCI) systems.',
     highlights: [
       'Developed interactive VR simulations and games exploring novel human-computer interaction models.',
       'Engineered software pipelines interpreting EEG brain signals and neural spikes to drive real-time device interaction.',
-      'Conducted live laboratory demonstrations introducing students and research peers to practical applications of neuro-interfaces.'
+      'Conducted live laboratory demonstrations introducing students and research peers to practical applications of VR and neuro-interfaces.'
     ],
     skills: ['Virtual Reality', 'EEG / Neural Spikes', 'Unity / C#', 'BCI Research'],
-    showcase: {
-      badge: 'NEUROSCIENCE & SPATIAL HCI',
-      title: 'Neural Signal Decoding & Spatial VR',
-      description: 'Experimental brain-computer interface research combining real-time EEG telemetry with immersive 3D simulations.',
-      features: [
-        'EEG Brainwave Decoding Pipeline',
-        'Real-time Hardware Telemetry Control',
-        'Interactive Unity 3D Spatial Systems'
-      ],
-      gradient: 'from-cyan-900 via-zinc-900 to-black',
-      accentGlow: '#06b6d4',
-      status: 'Research Shipped'
+    previewFallback: {
+      title: 'IIT Delhi — BCI & Neuro Lab',
+      subtitle: 'Experimental brain-computer interface research and immersive VR.',
+      badge: 'Neural Signal Processing',
+      details: 'EEG brain activity decoding • Real-time hardware control • Academic research'
     }
   }
 ];
 
+// Interactive Infisical-Style Hero Mosaic Grid with Cursor Proximity Glow
+function HeroMosaicGrid() {
+  const [mousePos, setMousePos] = useState<{ x: number; y: number } | null>(null);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setMousePos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
+  const handleMouseLeave = () => {
+    setMousePos(null);
+  };
+
+  return (
+    <div
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      className="absolute inset-0 overflow-hidden select-none pointer-events-auto"
+    >
+      {/* Background grid line pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:40px_40px]" />
+
+      {/* Infisical-style Scattered Accent Tiles */}
+      <div className="absolute top-[12%] left-[10%] w-10 h-10 rounded-[2px] bg-[#fde047]/30 dark:bg-[#fde047]/15 border border-[#fde047]/50 dark:border-[#fde047]/30 hidden sm:block pointer-events-none" />
+      <div className="absolute top-[65%] left-[3%] w-10 h-10 rounded-[2px] bg-zinc-200/70 dark:bg-zinc-800/80 border border-zinc-300 dark:border-zinc-700 hidden sm:block pointer-events-none" />
+      <div className="absolute top-[22%] right-[8%] w-10 h-10 rounded-[2px] bg-[#fde047]/25 dark:bg-[#fde047]/15 border border-[#fde047]/40 dark:border-[#fde047]/25 hidden sm:block pointer-events-none" />
+      <div className="absolute top-[72%] right-[12%] w-10 h-10 rounded-[2px] bg-zinc-200/80 dark:bg-zinc-800/90 border border-zinc-300 dark:border-zinc-700 hidden sm:block pointer-events-none" />
+
+      {/* Dotted matrix tiles (from Infisical reference) */}
+      <div className="absolute top-[38%] left-[2%] w-10 h-10 hidden md:grid grid-cols-3 gap-1 p-1.5 opacity-60 pointer-events-none">
+        {[...Array(9)].map((_, i) => (
+          <span key={i} className="w-1 h-1 rounded-full bg-[#fde047]" />
+        ))}
+      </div>
+      <div className="absolute top-[18%] right-[3%] w-10 h-10 hidden md:grid grid-cols-3 gap-1 p-1.5 opacity-40 pointer-events-none">
+        {[...Array(9)].map((_, i) => (
+          <span key={i} className="w-1 h-1 rounded-full bg-zinc-400 dark:bg-zinc-600" />
+        ))}
+      </div>
+      <div className="absolute top-[82%] left-[18%] w-10 h-10 hidden md:grid grid-cols-3 gap-1 p-1.5 opacity-50 pointer-events-none">
+        {[...Array(9)].map((_, i) => (
+          <span key={i} className="w-1 h-1 rounded-full bg-[#fde047]" />
+        ))}
+      </div>
+
+      {/* Cursor proximity radial glow highlight */}
+      {mousePos && (
+        <div
+          className="pointer-events-none absolute w-[260px] h-[260px] rounded-full -translate-x-1/2 -translate-y-1/2 transition-opacity duration-150"
+          style={{
+            left: mousePos.x,
+            top: mousePos.y,
+            background:
+              'radial-gradient(circle, rgba(253, 224, 71, 0.22) 0%, rgba(253, 224, 71, 0.06) 50%, transparent 80%)',
+          }}
+        />
+      )}
+
+      {/* Edge gradient fade masks so grid blends gracefully */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-white dark:from-[#09090b]/30 dark:via-transparent dark:to-[#09090b]" />
+    </div>
+  );
+}
+
 export default function Home() {
   const [copiedEmail, setCopiedEmail] = useState(false);
-  const [activeExperience, setActiveExperience] = useState<ExperienceItem>(EXPERIENCES[0]);
+  const [hoveredExperience, setHoveredExperience] = useState<ExperienceItem | null>(null);
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+
+  // Initialize theme from DOM / localStorage
+  useEffect(() => {
+    const isDark = document.documentElement.classList.contains('dark');
+    setTheme(isDark ? 'dark' : 'light');
+  }, []);
+
+  const toggleTheme = () => {
+    const nextTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(nextTheme);
+    if (nextTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  };
 
   // Initialize Lenis smooth "liquid" scrolling
   useEffect(() => {
@@ -227,7 +263,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-zinc-900 font-sans selection:bg-[#fde047] selection:text-black relative">
+    <div className="min-h-screen bg-white dark:bg-[#09090b] text-zinc-900 dark:text-zinc-100 font-sans selection:bg-[#fde047] selection:text-black relative transition-colors duration-200">
       {/* ─────────────────────────────────────────────────────────────
           1. MINIMAL STICKY HEADER
           ───────────────────────────────────────────────────────────── */}
@@ -235,11 +271,11 @@ export default function Home() {
         initial={{ y: -16, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-zinc-200"
+        className="sticky top-0 z-40 bg-white/90 dark:bg-[#09090b]/90 backdrop-blur-md border-b border-zinc-200 dark:border-zinc-800 transition-colors duration-200"
       >
-        <div className="max-w-5xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+        <div className="max-w-4xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
           <a href="#" className="flex items-center gap-3 group">
-            <div className="w-8 h-8 rounded-full overflow-hidden shadow-2xs group-hover:scale-105 transition-transform">
+            <div className="w-8 h-8 rounded-full overflow-hidden border border-zinc-200 dark:border-zinc-700 shadow-2xs group-hover:scale-105 transition-transform">
               <img
                 src="/profile.jpeg"
                 alt="Bhavuk Arora"
@@ -247,64 +283,81 @@ export default function Home() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="text-sm font-bold text-zinc-950 tracking-tight">
+              <span className="text-sm font-bold text-zinc-950 dark:text-zinc-100 tracking-tight">
                 Bhavuk Arora
               </span>
-              <span className="text-[11px] text-zinc-500 font-mono">
+              <span className="text-[11px] text-zinc-500 dark:text-zinc-400 font-mono">
                 Product & Forward Deployed Engineer
               </span>
             </div>
           </a>
 
-          <div className="flex items-center gap-5 sm:gap-6">
-            <nav className="flex items-center gap-5 sm:gap-6 text-xs font-mono text-zinc-600">
-              <a href="#experience" className="hover:text-zinc-950 transition-colors">
+          <div className="flex items-center gap-4 sm:gap-6">
+            <nav className="flex items-center gap-4 sm:gap-6 text-xs font-mono text-zinc-600 dark:text-zinc-400">
+              <a href="#experience" className="hover:text-zinc-950 dark:hover:text-white transition-colors">
                 Experience
               </a>
-              <a href="#skills" className="hover:text-zinc-950 transition-colors">
+              <a href="#skills" className="hover:text-zinc-950 dark:hover:text-white transition-colors">
                 Skills
               </a>
-              <a href="#contact" className="hover:text-zinc-950 transition-colors">
+              <a href="#contact" className="hover:text-zinc-950 dark:hover:text-white transition-colors">
                 Contact
               </a>
               <a
                 href="https://github.com/bhavukar"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-zinc-700 hover:text-zinc-950 transition-colors flex items-center gap-1"
+                className="text-zinc-700 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-colors flex items-center gap-1"
               >
                 <Github size={14} />
                 <span className="hidden md:inline">GitHub</span>
               </a>
             </nav>
+
+            {/* Theme Switcher Button */}
+            <button
+              onClick={toggleTheme}
+              aria-label="Toggle theme"
+              className="w-8 h-8 rounded-lg border border-zinc-200 dark:border-zinc-800 hover:border-zinc-900 dark:hover:border-zinc-300 bg-zinc-50 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white transition-all flex items-center justify-center cursor-pointer hover:scale-105 active:scale-95"
+              title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+            >
+              {theme === 'dark' ? (
+                <Sun size={15} className="text-[#fde047] transition-transform duration-200" />
+              ) : (
+                <Moon size={15} className="text-zinc-700 transition-transform duration-200" />
+              )}
+            </button>
           </div>
         </div>
       </motion.header>
 
       {/* ─────────────────────────────────────────────────────────────
-          2. MAIN CONTAINER
+          2. MAIN CONTAINER WITH SUBTLE 1PX BORDER RAILS
           ───────────────────────────────────────────────────────────── */}
-      <div className="max-w-5xl mx-auto bg-white min-h-screen">
+      <div className="max-w-4xl mx-auto border-x border-zinc-200 dark:border-zinc-800 bg-white dark:bg-[#09090b] min-h-screen transition-colors duration-200">
         {/* ───────────────────────────────────────────────────────────
-            HERO SECTION (Clean, Full-Width, Single Photo in Header)
+            HERO SECTION (Infisical-Style Grid Background + Metrics Strip)
             ─────────────────────────────────────────────────────────── */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="px-5 sm:px-10 py-16 sm:py-20 border-b border-zinc-200"
+          className="relative px-5 sm:px-10 py-16 sm:py-20 border-b border-zinc-200 dark:border-zinc-800 overflow-hidden"
         >
-          <div className="space-y-6 max-w-3xl">
+          {/* Interactive Mosaic Grid Background */}
+          <HeroMosaicGrid />
+
+          <div className="relative z-10 space-y-6 max-w-3xl">
             {/* Open to work status bar */}
-            <div className="flex flex-wrap items-center gap-2.5 text-xs font-mono text-zinc-500">
-              <span className="font-bold text-zinc-950 tracking-wider">OPEN TO WORK</span>
-              <span className="text-zinc-300">•</span>
+            <div className="flex flex-wrap items-center gap-2.5 text-xs font-mono text-zinc-500 dark:text-zinc-400">
+              <span className="font-bold text-zinc-950 dark:text-zinc-100 tracking-wider">OPEN TO WORK</span>
+              <span className="text-zinc-300 dark:text-zinc-700">•</span>
               <span>5+ YEARS EXPERIENCE</span>
-              <span className="text-zinc-300">•</span>
+              <span className="text-zinc-300 dark:text-zinc-700">•</span>
               <span>DELHI · REMOTE</span>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-zinc-950 leading-[1.22] max-w-2xl">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50 leading-[1.22] max-w-2xl">
               Product engineer & founder building{' '}
               <mark className="bg-[#fde047] text-black px-1.5 py-0.5 font-semibold not-italic rounded-[2px]">
                 consumer products
@@ -315,7 +368,7 @@ export default function Home() {
               </mark>.
             </h1>
 
-            <p className="text-sm sm:text-base text-zinc-600 leading-relaxed max-w-xl">
+            <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-xl">
               I turn early-stage ideas into products people actually use. Over 5+ years of engineering,
               I've taken applications from zero to tens of thousands of downloads across consumer mobile,
               edtech, and AI platforms. Currently building <strong>Fork</strong> (an operating platform
@@ -326,23 +379,23 @@ export default function Home() {
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <a
                 href="#contact"
-                className="bg-zinc-950 hover:bg-zinc-800 text-white font-medium text-xs px-4 py-2.5 rounded-lg shadow-2xs transition-all hover:translate-y-[-1px]"
+                className="bg-zinc-950 hover:bg-zinc-800 dark:bg-white dark:hover:bg-zinc-200 text-white dark:text-black font-medium text-xs px-4 py-2.5 rounded-lg shadow-2xs transition-all hover:translate-y-[-1px]"
               >
                 Get in touch
               </a>
 
               <button
                 onClick={handleCopyEmail}
-                className="border border-zinc-300 hover:border-zinc-900 bg-white text-zinc-800 font-mono text-xs px-3.5 py-2 rounded-lg transition-all flex items-center gap-2 cursor-pointer hover:translate-y-[-1px]"
+                className="border border-zinc-300 dark:border-zinc-700 hover:border-zinc-900 dark:hover:border-zinc-300 bg-white dark:bg-zinc-900 text-zinc-800 dark:text-zinc-200 font-mono text-xs px-3.5 py-2 rounded-lg transition-all flex items-center gap-2 cursor-pointer hover:translate-y-[-1px]"
               >
                 {copiedEmail ? (
                   <>
-                    <Check size={13} className="text-emerald-600" />
-                    <span className="text-emerald-600 font-medium">Copied email</span>
+                    <Check size={13} className="text-emerald-600 dark:text-emerald-400" />
+                    <span className="text-emerald-600 dark:text-emerald-400 font-medium">Copied email</span>
                   </>
                 ) : (
                   <>
-                    <Copy size={13} className="text-zinc-500" />
+                    <Copy size={13} className="text-zinc-500 dark:text-zinc-400" />
                     <span>bhavukarora03@gmail.com</span>
                   </>
                 )}
@@ -352,7 +405,7 @@ export default function Home() {
                 href="https://github.com/bhavukar"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-zinc-600 hover:text-zinc-950 font-mono text-xs px-3 py-2 flex items-center gap-1.5 transition-colors"
+                className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white font-mono text-xs px-3 py-2 flex items-center gap-1.5 transition-colors"
               >
                 <Github size={14} />
                 <span>GitHub</span>
@@ -363,259 +416,133 @@ export default function Home() {
                 href="https://www.linkedin.com/in/bhavuk-arora-4a7263216/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-zinc-600 hover:text-zinc-950 font-mono text-xs px-3 py-2 flex items-center gap-1.5 transition-colors"
+                className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white font-mono text-xs px-3 py-2 flex items-center gap-1.5 transition-colors"
               >
                 <Linkedin size={14} />
                 <span>LinkedIn</span>
                 <ArrowUpRight size={12} />
               </a>
             </div>
+
+            {/* Infisical-Style Metrics Bar (from reference image) */}
+            <div className="pt-6 sm:pt-8">
+              <div className="grid grid-cols-2 sm:grid-cols-4 border border-zinc-200 dark:border-zinc-800 rounded-xl bg-white/90 dark:bg-zinc-900/60 backdrop-blur-sm overflow-hidden divide-y sm:divide-y-0 sm:divide-x divide-zinc-200 dark:divide-zinc-800">
+                <div className="p-4 sm:p-5">
+                  <div className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50 font-mono">
+                    5+ Years
+                  </div>
+                  <div className="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 font-mono uppercase tracking-wider">
+                    Fullstack & Systems
+                  </div>
+                </div>
+
+                <div className="p-4 sm:p-5">
+                  <div className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50 font-mono">
+                    25K+
+                  </div>
+                  <div className="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 font-mono uppercase tracking-wider">
+                    Downloads Shipped
+                  </div>
+                </div>
+
+                <div className="p-4 sm:p-5">
+                  <div className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-950 dark:text-zinc-50 font-mono">
+                    2
+                  </div>
+                  <div className="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 font-mono uppercase tracking-wider">
+                    Products Founded
+                  </div>
+                </div>
+
+                <div className="p-4 sm:p-5">
+                  <div className="text-xl sm:text-2xl font-bold tracking-tight text-emerald-600 dark:text-emerald-400 font-mono">
+                    Open
+                  </div>
+                  <div className="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 font-mono uppercase tracking-wider">
+                    To Roles & Advisory
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </motion.section>
 
         {/* ───────────────────────────────────────────────────────────
-            WORK EXPERIENCE (INTEGRATED SPLIT SHOWCASE)
+            WORK EXPERIENCE (THE PRIMARY CENTERPIECE)
             ─────────────────────────────────────────────────────────── */}
-        <section id="experience" className="px-5 sm:px-10 py-16 border-b border-zinc-200">
-          <div className="space-y-1 mb-10">
-            <div className="text-xs font-mono uppercase tracking-wider text-zinc-400">
+        <section id="experience" className="px-5 sm:px-10 py-16 border-b border-zinc-200 dark:border-zinc-800 relative">
+          <div className="space-y-1 mb-12">
+            <div className="text-xs font-mono uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
               Work Experience
             </div>
-            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-950">
+            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-950 dark:text-zinc-100">
               Where I've worked & what I've shipped
             </h2>
+            <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 font-mono pt-1">
+              Hover over any company link to load the live site inside the preview window.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* Left 7 Columns: Experience Cards */}
-            <div className="lg:col-span-7 space-y-3">
-              {EXPERIENCES.map((exp, index) => {
-                const isActive = activeExperience.id === exp.id;
-                return (
-                  <motion.div
-                    key={exp.id}
-                    initial={{ opacity: 0, y: 14 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: '-40px' }}
-                    transition={{ duration: 0.4, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
-                    onClick={() => setActiveExperience(exp)}
-                    onMouseEnter={() => setActiveExperience(exp)}
-                    className={`group relative p-5 rounded-2xl transition-all cursor-pointer text-left ${
-                      isActive
-                        ? 'bg-zinc-100/90 shadow-xs'
-                        : 'bg-white hover:bg-zinc-50/80 shadow-2xs'
-                    }`}
-                  >
-                    {/* Header Row: Role & Period */}
-                    <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-1.5">
-                      <div className="flex items-center gap-2">
-                        {isActive && (
-                          <span className="w-1.5 h-1.5 rounded-full bg-zinc-950 shrink-0" />
-                        )}
-                        <h3
-                          className={`text-base sm:text-lg font-bold transition-colors ${
-                            isActive ? 'text-zinc-950' : 'text-zinc-800 group-hover:text-zinc-950'
-                          }`}
-                        >
-                          {exp.role}
-                        </h3>
-                      </div>
-                      <div className="text-xs font-mono text-zinc-400">
-                        {exp.period}
-                      </div>
-                    </div>
-
-                    {/* Company, Location & Live Link */}
-                    <div className="flex flex-wrap items-center gap-2 text-xs mb-3 font-mono">
-                      <span className="font-semibold text-zinc-900">{exp.company}</span>
-                      <span className="text-zinc-300">•</span>
-                      <span className="text-zinc-500">{exp.location}</span>
-                      <span className="text-zinc-300">•</span>
-                      <a
-                        href={exp.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="text-zinc-600 hover:text-zinc-950 font-semibold underline underline-offset-2 decoration-zinc-300 hover:decoration-zinc-950 transition-colors flex items-center gap-0.5"
-                      >
-                        <span>{exp.displayUrl}</span>
-                        <ArrowUpRight size={11} />
-                      </a>
-                    </div>
-
-                    {/* Summary */}
-                    <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed mb-3">
-                      {exp.summary}
-                    </p>
-
-                    {/* Key Highlights */}
-                    <div className="space-y-1.5 mb-3.5">
-                      {exp.highlights.map((h, i) => (
-                        <div key={i} className="text-xs text-zinc-600 leading-relaxed flex items-start gap-2">
-                          <span className="w-1 h-1 rounded-full bg-zinc-300 mt-2 shrink-0 select-none" />
-                          <span>{h}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Tech Stack Pills */}
-                    <div className="flex flex-wrap items-center gap-1.5 pt-1">
-                      {exp.skills.map((s, i) => (
-                        <span
-                          key={i}
-                          className="px-2 py-0.5 rounded-md bg-white text-[11px] font-mono text-zinc-600 shadow-2xs border-0"
-                        >
-                          {s}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Mobile-Only Inline Showcase Preview */}
-                    <div className="block lg:hidden mt-4 pt-3 border-t border-zinc-200/60">
-                      <div
-                        className={`rounded-xl p-4 text-white bg-gradient-to-br ${exp.showcase.gradient} shadow-sm space-y-2.5`}
-                      >
-                        <div className="flex items-center justify-between text-[10px] font-mono text-zinc-300">
-                          <span>{exp.showcase.badge}</span>
-                          <span className="text-[#fde047]">{exp.showcase.status}</span>
-                        </div>
-                        <div className="text-sm font-bold text-white">
-                          {exp.showcase.title}
-                        </div>
-                        <p className="text-xs text-zinc-300 leading-relaxed">
-                          {exp.showcase.description}
-                        </p>
-                        <div className="space-y-1 pt-1">
-                          {exp.showcase.features.map((feat, fi) => (
-                            <div key={fi} className="flex items-center gap-1.5 text-[11px] font-mono text-zinc-200">
-                              <span className="text-[#fde047]">✓</span>
-                              <span>{feat}</span>
-                            </div>
-                          ))}
-                        </div>
-                        <a
-                          href={exp.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={(e) => e.stopPropagation()}
-                          className="inline-flex items-center gap-1 text-xs font-mono text-[#fde047] hover:underline pt-1 font-semibold"
-                        >
-                          <span>Open {exp.displayUrl}</span>
-                          <ArrowUpRight size={12} />
-                        </a>
-                      </div>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-
-            {/* Right 5 Columns: Desktop Sticky Showcase Stage */}
-            <div className="hidden lg:block lg:col-span-5 sticky top-24 self-start">
-              <div className="rounded-2xl bg-zinc-950 text-white shadow-xl overflow-hidden">
-                {/* Browser Frame Top Bar */}
-                <div className="flex items-center justify-between px-3.5 py-2.5 bg-zinc-900 border-b border-zinc-800 text-xs font-mono select-none">
-                  <div className="flex items-center gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
+          <div className="space-y-14">
+            {EXPERIENCES.map((exp, index) => (
+              <motion.div
+                key={exp.id}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.5, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                className="group relative pb-12 border-b border-zinc-100 dark:border-zinc-800/80 last:border-none last:pb-0 transition-all"
+              >
+                {/* Header Row: Role & Period */}
+                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
+                  <h3 className="text-lg sm:text-xl font-bold text-zinc-950 dark:text-zinc-100 group-hover:text-black dark:group-hover:text-white transition-colors">
+                    {exp.role}
+                  </h3>
+                  <div className="text-xs font-mono text-zinc-500 dark:text-zinc-400">
+                    {exp.period}
                   </div>
+                </div>
 
-                  {/* Clean Address Bar */}
+                {/* Company & Location & Live Link */}
+                <div className="flex flex-wrap items-center gap-2.5 text-sm mb-4">
+                  <span className="font-semibold text-zinc-900 dark:text-zinc-200">{exp.company}</span>
+                  <span className="text-zinc-300 dark:text-zinc-700">•</span>
+                  <span className="text-xs font-mono text-zinc-500 dark:text-zinc-400">{exp.location}</span>
+                  <span className="text-zinc-300 dark:text-zinc-700">•</span>
                   <a
-                    href={activeExperience.url}
+                    href={exp.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 px-3 py-1 rounded-md bg-zinc-950 text-[11px] text-zinc-300 hover:text-white transition-all max-w-[200px] truncate"
+                    onMouseEnter={() => setHoveredExperience(exp)}
+                    onMouseLeave={() => setHoveredExperience(null)}
+                    className="inline-flex items-center gap-1 text-xs font-mono font-semibold text-zinc-900 dark:text-zinc-200 hover:text-black dark:hover:text-white underline underline-offset-4 decoration-zinc-400 dark:decoration-zinc-600 hover:decoration-black dark:hover:decoration-white transition-all bg-zinc-50 dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 border border-zinc-200/60 dark:border-zinc-800 px-2.5 py-1 rounded"
                   >
-                    <Lock size={10} className="text-emerald-400 shrink-0" />
-                    <span className="truncate">{activeExperience.displayUrl}</span>
-                  </a>
-
-                  <a
-                    href={activeExperience.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-zinc-400 hover:text-white transition-colors"
-                    title={`Open ${activeExperience.displayUrl}`}
-                  >
-                    <ArrowUpRight size={13} />
+                    <span>{exp.displayUrl}</span>
+                    <ArrowUpRight size={12} />
                   </a>
                 </div>
 
-                {/* Animated Showcase Content */}
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={activeExperience.id}
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -8 }}
-                    transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-                    className={`relative p-6 bg-gradient-to-br ${activeExperience.showcase.gradient} min-h-[380px] flex flex-col justify-between overflow-hidden`}
-                  >
-                    {/* Ambient Glow Effect */}
-                    <div
-                      className="absolute -top-16 -right-16 w-48 h-48 rounded-full blur-3xl opacity-30 pointer-events-none"
-                      style={{ backgroundColor: activeExperience.showcase.accentGlow }}
-                    />
+                {/* Summary */}
+                <p className="text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed mb-4 max-w-2xl">
+                  {exp.summary}
+                </p>
 
-                    {/* Header: Badge & Status */}
-                    <div className="space-y-3 relative z-10">
-                      <div className="flex items-center justify-between text-[11px] font-mono">
-                        <span className="px-2.5 py-0.5 rounded-full bg-white/10 backdrop-blur-xs text-zinc-200 tracking-wider font-semibold uppercase">
-                          {activeExperience.showcase.badge}
-                        </span>
-                        <div className="flex items-center gap-1.5 text-zinc-300">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                          <span>{activeExperience.showcase.status}</span>
-                        </div>
-                      </div>
+                {/* Bullet Points */}
+                <ul className="space-y-2.5 mb-5 max-w-2xl">
+                  {exp.highlights.map((h, i) => (
+                    <li key={i} className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed flex items-start gap-2.5">
+                      <span className="text-zinc-400 dark:text-zinc-600 select-none mt-1">—</span>
+                      <span>{h}</span>
+                    </li>
+                  ))}
+                </ul>
 
-                      {/* Title & Description */}
-                      <div className="space-y-1.5 pt-1">
-                        <h4 className="text-lg sm:text-xl font-bold text-white tracking-tight leading-snug">
-                          {activeExperience.showcase.title}
-                        </h4>
-                        <p className="text-xs text-zinc-300 leading-relaxed">
-                          {activeExperience.showcase.description}
-                        </p>
-                      </div>
-
-                      {/* Key Capabilities */}
-                      <div className="space-y-2 pt-2">
-                        {activeExperience.showcase.features.map((feat, i) => (
-                          <div
-                            key={i}
-                            className="flex items-center gap-2 p-2 rounded-lg bg-black/30 backdrop-blur-xs text-xs font-mono text-zinc-200"
-                          >
-                            <span className="text-[#fde047] font-bold">✓</span>
-                            <span>{feat}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Footer: Metrics & Launch Button */}
-                    <div className="pt-5 mt-4 border-t border-white/10 flex items-center justify-between gap-3 relative z-10">
-                      <div className="text-[11px] font-mono text-zinc-300">
-                        <div className="text-zinc-400 text-[10px] uppercase">Impact Metric</div>
-                        <div className="font-semibold text-white">{activeExperience.metrics}</div>
-                      </div>
-
-                      <a
-                        href={activeExperience.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="px-3.5 py-1.5 rounded-lg bg-white text-zinc-950 font-mono text-xs font-bold hover:bg-zinc-200 transition-all flex items-center gap-1 shadow-sm shrink-0"
-                      >
-                        <span>Visit site</span>
-                        <ArrowUpRight size={12} />
-                      </a>
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-            </div>
+                {/* Plain skills text */}
+                <div className="text-xs font-mono text-zinc-500 dark:text-zinc-400 pt-1">
+                  <span className="text-zinc-400 dark:text-zinc-600">Stack:</span> {exp.skills.join(' • ')}
+                </div>
+              </motion.div>
+            ))}
           </div>
         </section>
 
@@ -628,69 +555,69 @@ export default function Home() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="px-5 sm:px-10 py-16 border-b border-zinc-200"
+          className="px-5 sm:px-10 py-16 border-b border-zinc-200 dark:border-zinc-800"
         >
           <div className="space-y-1 mb-10">
-            <div className="text-xs font-mono uppercase tracking-wider text-zinc-500">
+            <div className="text-xs font-mono uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
               Technical Skills
             </div>
-            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-950">
+            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-950 dark:text-zinc-100">
               Technologies & Tools
             </h2>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-xs font-mono">
             <div className="space-y-2">
-              <div className="font-bold text-zinc-950 uppercase border-b border-zinc-200 pb-1.5">
+              <div className="font-bold text-zinc-950 dark:text-zinc-100 uppercase border-b border-zinc-200 dark:border-zinc-800 pb-1.5">
                 Languages
               </div>
-              <p className="text-zinc-600 leading-relaxed">
+              <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
                 TypeScript, Dart, Java, Swift, Rust, Python, C++
               </p>
             </div>
 
             <div className="space-y-2">
-              <div className="font-bold text-zinc-950 uppercase border-b border-zinc-200 pb-1.5">
+              <div className="font-bold text-zinc-950 dark:text-zinc-100 uppercase border-b border-zinc-200 dark:border-zinc-800 pb-1.5">
                 Frontend & Mobile
               </div>
-              <p className="text-zinc-600 leading-relaxed">
+              <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
                 Flutter, React, Next.js, Tailwind CSS
               </p>
             </div>
 
             <div className="space-y-2">
-              <div className="font-bold text-zinc-950 uppercase border-b border-zinc-200 pb-1.5">
-                Backend & Services
+              <div className="font-bold text-zinc-950 dark:text-zinc-100 uppercase border-b border-zinc-200 dark:border-zinc-800 pb-1.5">
+                Backend & Systems
               </div>
-              <p className="text-zinc-600 leading-relaxed">
-                Node.js, Spring Boot, Firebase, WebRTC
+              <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                PostgreSQL, SQLite, Cloudflare Workers, REST APIs, Redis
               </p>
             </div>
 
             <div className="space-y-2">
-              <div className="font-bold text-zinc-950 uppercase border-b border-zinc-200 pb-1.5">
-                Cloud & Infrastructure
+              <div className="font-bold text-zinc-950 dark:text-zinc-100 uppercase border-b border-zinc-200 dark:border-zinc-800 pb-1.5">
+                AI & Agentic Workflows
               </div>
-              <p className="text-zinc-600 leading-relaxed">
-                Cloudflare Workers, Google Cloud Platform, Docker, GitHub Actions
+              <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                OpenAI API, Claude / Anthropic, LangChain, Structured Tool-Calling, RAG
               </p>
             </div>
 
             <div className="space-y-2">
-              <div className="font-bold text-zinc-950 uppercase border-b border-zinc-200 pb-1.5">
-                Databases
+              <div className="font-bold text-zinc-950 dark:text-zinc-100 uppercase border-b border-zinc-200 dark:border-zinc-800 pb-1.5">
+                DevOps & Cloud
               </div>
-              <p className="text-zinc-600 leading-relaxed">
-                PostgreSQL, Firestore, MongoDB, ArangoDB, SQLite
+              <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                Git, GitHub Actions, Docker, Cloudflare, Vercel, Supabase
               </p>
             </div>
 
             <div className="space-y-2">
-              <div className="font-bold text-zinc-950 uppercase border-b border-zinc-200 pb-1.5">
-                AI & Design
+              <div className="font-bold text-zinc-950 dark:text-zinc-100 uppercase border-b border-zinc-200 dark:border-zinc-800 pb-1.5">
+                Domain Specialization
               </div>
-              <p className="text-zinc-600 leading-relaxed">
-                OpenAI API, Antigravity, Figma, Adobe Creative Cloud
+              <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                Creator Economy, High-concurrency Mobile, AR/VR, HealthTech
               </p>
             </div>
           </div>
@@ -699,18 +626,18 @@ export default function Home() {
         {/* ───────────────────────────────────────────────────────────
             EDUCATION
             ─────────────────────────────────────────────────────────── */}
-        <section className="px-5 sm:px-10 py-10 border-b border-zinc-200">
+        <section className="px-5 sm:px-10 py-10 border-b border-zinc-200 dark:border-zinc-800">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-mono">
             <div>
-              <span className="font-bold text-zinc-950">Bachelor of Computer Applications (CGPA: 8.9)</span>
-              <span className="text-zinc-500"> — GGSIPU, Vivekananda Institute of Professional Studies</span>
+              <span className="font-bold text-zinc-950 dark:text-zinc-100">Bachelor of Computer Applications (CGPA: 8.9)</span>
+              <span className="text-zinc-500 dark:text-zinc-400"> — GGSIPU, Vivekananda Institute of Professional Studies</span>
             </div>
-            <div className="text-zinc-500">Dec 2020 – Jul 2023 • New Delhi</div>
+            <div className="text-zinc-500 dark:text-zinc-400">Dec 2020 – Jul 2023 • New Delhi</div>
           </div>
         </section>
 
         {/* ───────────────────────────────────────────────────────────
-            CONTACT
+            CONTACT & INVITATION SECTION
             ─────────────────────────────────────────────────────────── */}
         <motion.section
           id="contact"
@@ -720,7 +647,7 @@ export default function Home() {
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="px-5 sm:px-10 py-16"
         >
-          <div className="rounded-2xl bg-zinc-950 text-white p-7 sm:p-10 border border-zinc-800 space-y-6 shadow-xl">
+          <div className="rounded-2xl bg-zinc-950 dark:bg-zinc-900 text-white p-7 sm:p-10 border border-zinc-800 dark:border-zinc-700/80 space-y-6 shadow-xl">
             <div className="space-y-2 max-w-xl">
               <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white">
                 Let's build something.
@@ -732,7 +659,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="p-4 rounded-xl bg-zinc-900 border border-zinc-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            <div className="p-4 rounded-xl bg-zinc-900 dark:bg-zinc-950 border border-zinc-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
               <div>
                 <div className="text-[10px] font-mono text-zinc-500 uppercase">Direct Email</div>
                 <div className="text-base font-mono font-bold text-white select-all">
@@ -808,11 +735,114 @@ export default function Home() {
         {/* ───────────────────────────────────────────────────────────
             FOOTER (Clean, No Cloudflare workers mention)
             ─────────────────────────────────────────────────────────── */}
-        <footer className="border-t border-zinc-200 px-5 sm:px-10 py-6 text-xs font-mono text-zinc-500 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <footer className="border-t border-zinc-200 dark:border-zinc-800 px-5 sm:px-10 py-6 text-xs font-mono text-zinc-500 dark:text-zinc-400 flex flex-col sm:flex-row items-center justify-between gap-3 transition-colors">
           <div>© {new Date().getFullYear()} Bhavuk Arora.</div>
           <div>Delhi, India.</div>
         </footer>
       </div>
+
+      {/* ─────────────────────────────────────────────────────────────
+          GLOBAL FLOATING MACOS WEBSITE PREVIEW WINDOW
+          Loads the real live website inside an iframe with actual URL bar!
+          ───────────────────────────────────────────────────────────── */}
+      <AnimatePresence>
+        {hoveredExperience && (
+          <motion.div
+            initial={{ opacity: 0, y: 16, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 10, scale: 0.96 }}
+            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="hidden lg:block fixed bottom-8 right-8 z-50 w-[420px] rounded-xl bg-zinc-950 text-white shadow-2xl border border-zinc-700 overflow-hidden pointer-events-auto"
+          >
+            {/* macOS Browser Header */}
+            <div className="flex items-center justify-between px-3.5 py-2.5 bg-zinc-900 border-b border-zinc-800 text-xs font-mono select-none">
+              <div className="flex items-center gap-1.5">
+                <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
+                <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
+                <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
+              </div>
+
+              {/* Real URL Address Bar */}
+              <a
+                href={hoveredExperience.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 px-3 py-1 rounded bg-zinc-950 text-[11px] text-zinc-300 border border-zinc-800 hover:border-zinc-600 hover:text-white transition-all max-w-[260px] truncate"
+              >
+                <Lock size={10} className="text-emerald-400 shrink-0" />
+                <span className="truncate">{hoveredExperience.url}</span>
+              </a>
+
+              <a
+                href={hoveredExperience.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-zinc-400 hover:text-white transition-colors"
+                title="Open site in new tab"
+              >
+                <ArrowUpRight size={13} />
+              </a>
+            </div>
+
+            {/* Window Content: Real Iframe / Real Website Content */}
+            <div className="relative w-full h-[260px] bg-zinc-900 overflow-hidden">
+              {hoveredExperience.embedUrl ? (
+                <div className="w-full h-full relative overflow-hidden bg-zinc-950">
+                  {/* Backdrop Screenshot for zero flicker */}
+                  {hoveredExperience.previewImage && (
+                    <img
+                      src={hoveredExperience.previewImage}
+                      alt={hoveredExperience.displayUrl}
+                      className="absolute inset-0 w-full h-full object-cover object-top opacity-90"
+                    />
+                  )}
+
+                  {/* Real Live Iframe View */}
+                  <iframe
+                    src={hoveredExperience.embedUrl}
+                    title={hoveredExperience.displayUrl}
+                    className="absolute inset-0 w-[840px] h-[520px] origin-top-left scale-50 border-0 bg-white"
+                    loading="lazy"
+                  />
+
+                  {/* Clickable Overlay */}
+                  <a
+                    href={hoveredExperience.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute inset-0 z-20 cursor-pointer"
+                    title={`Click to open ${hoveredExperience.displayUrl}`}
+                  />
+                </div>
+              ) : (
+                /* Fallback for same-origin protected sites like Suraasa or IITD */
+                <div className="w-full h-full p-5 flex flex-col justify-between bg-gradient-to-br from-zinc-800 to-zinc-950 text-left">
+                  <div className="space-y-2">
+                    <div className="text-[10px] font-mono text-[#fde047] font-bold uppercase tracking-wider">
+                      {hoveredExperience.previewFallback?.badge || 'Official Product'}
+                    </div>
+                    <div className="text-base font-bold text-white">
+                      {hoveredExperience.previewFallback?.title || hoveredExperience.displayUrl}
+                    </div>
+                    <p className="text-xs text-zinc-300 leading-relaxed">
+                      {hoveredExperience.previewFallback?.subtitle || 'Visit official website for details.'}
+                    </p>
+                  </div>
+                  <a
+                    href={hoveredExperience.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-400 hover:text-white pt-3 border-t border-zinc-700/80"
+                  >
+                    <span>Open {hoveredExperience.displayUrl}</span>
+                    <ArrowUpRight size={12} />
+                  </a>
+                </div>
+              )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
