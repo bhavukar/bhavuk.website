@@ -1,8 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
-import Lenis from 'lenis';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   Github,
   Linkedin,
@@ -295,28 +293,6 @@ export default function Home() {
     }, 120);
   };
 
-  // Initialize Lenis smooth "liquid" scrolling
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-    });
-
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
-    return () => {
-      lenis.destroy();
-    };
-  }, []);
-
   const handleCopyEmail = () => {
     navigator.clipboard.writeText('bhavukarora03@gmail.com');
     setCopiedEmail(true);
@@ -328,12 +304,7 @@ export default function Home() {
       {/* ─────────────────────────────────────────────────────────────
           1. MINIMAL STICKY HEADER
           ───────────────────────────────────────────────────────────── */}
-      <motion.header
-        initial={{ y: -16, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-zinc-200"
-      >
+      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-zinc-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-8 h-14 sm:h-16 flex items-center justify-between">
           <a href="#" className="flex items-center gap-2.5 sm:gap-3 group min-w-0">
             <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full overflow-hidden border border-zinc-200 shadow-2xs group-hover:scale-105 transition-transform flex-shrink-0">
@@ -383,7 +354,7 @@ export default function Home() {
             </nav>
           </div>
         </div>
-      </motion.header>
+      </header>
 
       {/* ─────────────────────────────────────────────────────────────
           2. MAIN CONTAINER WITH CLEAN BORDERS
@@ -392,10 +363,8 @@ export default function Home() {
         {/* ───────────────────────────────────────────────────────────
             HERO SECTION (Clean, Responsive Editorial)
             ─────────────────────────────────────────────────────────── */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        <section
+          id="hero"
           className="px-4 sm:px-10 py-10 sm:py-16 md:py-20 border-b border-zinc-200"
         >
           <div className="space-y-4 sm:space-y-6 max-w-3xl">
@@ -410,13 +379,17 @@ export default function Home() {
 
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-zinc-950 leading-[1.25] sm:leading-[1.22] max-w-2xl">
               Founder & CEO building{' '}
-              <mark className="bg-[#fde047] text-black px-1 sm:px-1.5 py-0.5 font-semibold not-italic rounded-[2px]">
-                consumer products
-              </mark>{' '}
+              <span className="bg-[#fde047] text-black px-1.5 sm:px-2 py-0.5 rounded-sm">
+                consumer
+              </span>{' '}
+              <span className="bg-[#fde047] text-black px-1.5 sm:px-2 py-0.5 rounded-sm">
+                products
+              </span>{' '}
               from{' '}
-              <mark className="bg-[#fde047] text-black px-1 sm:px-1.5 py-0.5 font-semibold not-italic rounded-[2px]">
+              <span className="bg-[#fde047] text-black px-1.5 sm:px-2 py-0.5 rounded-sm">
                 zero to scale
-              </mark>.
+              </span>
+              .
             </h1>
 
             <p className="text-sm sm:text-base text-zinc-600 leading-relaxed max-w-xl">
@@ -465,7 +438,7 @@ export default function Home() {
               </button>
             </div>
           </div>
-        </motion.section>
+        </section>
 
         {/* ───────────────────────────────────────────────────────────
             WORK EXPERIENCE (THE PRIMARY CENTERPIECE)
@@ -486,12 +459,8 @@ export default function Home() {
 
           <div className="space-y-10 sm:space-y-14">
             {EXPERIENCES.map((exp, index) => (
-              <motion.div
+              <div
                 key={exp.id}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.5, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
                 className="group relative pb-10 sm:pb-12 border-b border-zinc-100 last:border-none last:pb-0 transition-all"
               >
                 {/* Header Row: Company Logo + Role & Meta */}
@@ -614,7 +583,7 @@ export default function Home() {
                 <div className="text-[11px] sm:text-xs font-mono text-zinc-500 pt-1 leading-normal">
                   <span className="text-zinc-400">Stack:</span> {exp.skills.join(' • ')}
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </section>
@@ -622,12 +591,8 @@ export default function Home() {
         {/* ───────────────────────────────────────────────────────────
             DESIGN & MOTION CRAFT (BEHANCE SHOWCASE)
             ─────────────────────────────────────────────────────────── */}
-        <motion.section
+        <section
           id="craft"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="px-4 sm:px-10 py-12 sm:py-16 border-b border-zinc-200"
         >
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-10">
@@ -665,7 +630,7 @@ export default function Home() {
                     loop
                     muted
                     playsInline
-                    preload="metadata"
+                    preload="none"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10 pointer-events-none" />
@@ -745,17 +710,13 @@ export default function Home() {
               <ArrowUpRight size={12} />
             </a>
           </div>
-        </motion.section>
+        </section>
 
         {/* ───────────────────────────────────────────────────────────
             WRITING & ESSAYS (SUBSTACK SHOWCASE)
             ─────────────────────────────────────────────────────────── */}
-        <motion.section
+        <section
           id="writing"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="px-4 sm:px-10 py-12 sm:py-16 border-b border-zinc-200"
         >
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
@@ -831,17 +792,13 @@ export default function Home() {
               <ArrowUpRight size={12} />
             </a>
           </div>
-        </motion.section>
+        </section>
 
         {/* ───────────────────────────────────────────────────────────
             TECHNICAL SKILLS
             ─────────────────────────────────────────────────────────── */}
-        <motion.section
+        <section
           id="skills"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="px-4 sm:px-10 py-12 sm:py-16 border-b border-zinc-200"
         >
           <div className="space-y-1 mb-8 sm:mb-10">
@@ -917,17 +874,13 @@ export default function Home() {
               </p>
             </div>
           </div>
-        </motion.section>
+        </section>
 
         {/* ───────────────────────────────────────────────────────────
             CONTACT & INVITATION SECTION
             ─────────────────────────────────────────────────────────── */}
-        <motion.section
+        <section
           id="contact"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="px-4 sm:px-10 py-12 sm:py-16"
         >
           <div className="rounded-2xl bg-zinc-950 text-white p-5 sm:p-8 md:p-10 border border-zinc-800 space-y-5 sm:space-y-6 shadow-xl">
@@ -1053,7 +1006,7 @@ export default function Home() {
               <div className="text-[11px] sm:text-xs text-zinc-500">Rohini, Delhi, India (+91-8708254881)</div>
             </div>
           </div>
-        </motion.section>
+        </section>
 
         {/* ───────────────────────────────────────────────────────────
             FOOTER (Clean & Simple)
