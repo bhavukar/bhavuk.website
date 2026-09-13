@@ -10,6 +10,7 @@ import {
   ArrowUpRight,
   Copy,
   Check,
+  FileText,
 } from 'lucide-react';
 
 interface ExperienceItem {
@@ -293,6 +294,17 @@ export default function Home() {
                 Get in touch
               </a>
 
+              <a
+                href="/bhavuk_arora_resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border border-zinc-300 hover:border-zinc-900 bg-white text-zinc-800 font-mono text-xs px-3 sm:px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5 cursor-pointer hover:translate-y-[-1px]"
+              >
+                <FileText size={13} className="text-zinc-500" />
+                <span>Resume</span>
+                <ArrowUpRight size={12} />
+              </a>
+
               <button
                 onClick={handleCopyEmail}
                 className="border border-zinc-300 hover:border-zinc-900 bg-white text-zinc-800 font-mono text-xs px-3 sm:px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5 sm:gap-2 cursor-pointer hover:translate-y-[-1px]"
@@ -329,6 +341,16 @@ export default function Home() {
               >
                 <Linkedin size={14} />
                 <span>LinkedIn</span>
+                <ArrowUpRight size={12} />
+              </a>
+
+              <a
+                href="https://www.behance.net/bhavukarora1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-zinc-600 hover:text-zinc-950 font-mono text-xs px-2.5 sm:px-3 py-2 flex items-center gap-1.5 transition-colors"
+              >
+                <span>Behance</span>
                 <ArrowUpRight size={12} />
               </a>
             </div>
@@ -622,6 +644,16 @@ export default function Home() {
                 >
                   <Linkedin size={14} />
                   <span>LinkedIn</span>
+                </a>
+                <span className="text-zinc-700">•</span>
+                <a
+                  href="https://www.behance.net/bhavukarora1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 hover:text-white transition-colors"
+                >
+                  <span>Behance</span>
+                  <ArrowUpRight size={12} />
                 </a>
                 <span className="text-zinc-700">•</span>
                 <a

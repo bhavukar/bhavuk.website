@@ -203,6 +203,7 @@ const jsonLd = {
       sameAs: [
         'https://github.com/bhavukar',
         'https://www.linkedin.com/in/bhavuk-arora-4a7263216/',
+        'https://www.behance.net/bhavukarora1',
         'https://www.instagram.com/nobhavuk/',
         'https://x.com/nobhavuk',
         'https://app.fork.blue',
