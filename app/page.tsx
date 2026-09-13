@@ -140,114 +140,30 @@ const EXPERIENCES: ExperienceItem[] = [
   }
 ];
 
-interface ProjectItem {
-  id: string;
-  title: string;
-  category: string;
-  description: string;
-  tech: string[];
-  url: string;
-  displayUrl: string;
-  embedUrl?: string;
-  previewImage?: string;
-}
-
-const NOTABLE_PROJECTS: ProjectItem[] = [
-  {
-    id: 'vrplaced',
-    title: 'VRPlaced',
-    category: 'AI Platform • Web',
-    description:
-      '1-on-1 AI interview practice platform with OpenAI-driven resume customization and live feedback scoring, helping candidates prepare for technical and behavioral loops.',
-    tech: ['Next.js', 'OpenAI API', 'Tailwind CSS', 'Vercel'],
-    url: 'https://www.vrplaced.ai',
-    displayUrl: 'vrplaced.ai',
-    embedUrl: 'https://www.vrplaced.ai',
-    previewImage: 'https://www.vrplaced.ai/opengraph-image.png'
-  },
-  {
-    id: 'pakt',
-    title: 'Pakt',
-    category: 'Community • Realtime Mobile',
-    description:
-      'Cycling and athletic community platform where riders discover routes, coordinate group rides, and sync up with real-time GPS tracking and live activity feeds.',
-    tech: ['Flutter', 'Firebase', 'WebSockets', 'Maps API'],
-    url: 'https://getpakt.run',
-    displayUrl: 'getpakt.run',
-    embedUrl: 'https://getpakt.run',
-    previewImage:
-      'https://firebasestorage.googleapis.com/v0/b/spilll-be.firebasestorage.app/o/Screenshot%202026-04-01%20at%205.42.40%E2%80%AFAM.png?alt=media&token=8e0ead7e-b389-4aa7-9911-76739638012a'
-  },
-  {
-    id: 'subway-sim',
-    title: 'subway-sim',
-    category: 'Rust Systems CLI',
-    description:
-      'System-level network throttler and chaos simulator written in Rust. Injects jitter, packet loss, and flaky 3G latency into localhost sockets to stress-test app resilience.',
-    tech: ['Rust', 'Tokio', 'Unix Sockets', 'CLI'],
-    url: 'https://github.com/bhavukar/subway-sim.git',
-    displayUrl: 'github.com/bhavukar/subway-sim'
-  },
-  {
-    id: 'asset-vibe',
-    title: 'asset-vibe',
-    category: 'Rust Developer Toolchain',
-    description:
-      'Automated mobile asset compiler. Watches design directories to instantly generate 1x, 2x, 3x iOS and Android drawables with strongly-typed references in sub-milliseconds.',
-    tech: ['Rust', 'ImageRS', 'Rayon', 'File Watcher'],
-    url: 'https://github.com/bhavukar/asset-vibe.git',
-    displayUrl: 'github.com/bhavukar/asset-vibe'
-  },
-  {
-    id: 'overlay-keeb',
-    title: 'overlay_keeb',
-    category: 'Native Flutter Plugin',
-    description:
-      'High-performance Flutter plugin using native Swift and Kotlin method channels to maintain persistent floating UI layers above the system virtual keyboard.',
-    tech: ['Dart', 'Swift', 'Kotlin', 'Platform Channels'],
-    url: 'https://github.com/bhavukar/overlay_keeb.git',
-    displayUrl: 'github.com/bhavukar/overlay_keeb'
-  },
-  {
-    id: 'two-third',
-    title: 'Two Third Dimensions',
-    category: 'Game Engine & Procedural',
-    description:
-      'Trap-filled dungeon crawler with custom procedural room generation and lighting. Reached Top 5 Popularity in the BYOG 2021 Game Jam out of 155 global entries.',
-    tech: ['Unity', 'C#', 'Custom Shaders', 'Game Jam Winner'],
-    url: 'https://github.com/Bhavukarora03/Two-Third-Dimension.git',
-    displayUrl: 'github.com/Bhavukarora03/Two-Third-Dimension'
-  }
-];
-
 export default function Home() {
   const [copiedEmail, setCopiedEmail] = useState(false);
-  const [hoveredItem, setHoveredItem] = useState<{
-    id: string;
-    url: string;
-    displayUrl: string;
-    embedUrl?: string;
-    previewImage?: string;
-    fallbackTitle?: string;
-    fallbackSubtitle?: string;
-    fallbackBadge?: string;
-  } | null>(null);
+  const [hoveredExperience, setHoveredExperience] = useState<ExperienceItem | null>(null);
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText('bhavuk.arora03@gmail.com');
+    navigator.clipboard.writeText('bhavukarora03@gmail.com');
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2000);
   };
 
   return (
-    <div className="min-h-screen bg-white text-zinc-900 font-sans selection:bg-[#fde047] selection:text-black relative">
+    <div className="min-h-screen bg-white text-zinc-900 font-sans selection:bg-[#fde047] selection:text-black relative scroll-smooth">
       {/* ─────────────────────────────────────────────────────────────
           1. MINIMAL STICKY HEADER
           ───────────────────────────────────────────────────────────── */}
-      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-zinc-200">
+      <motion.header
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-zinc-200"
+      >
         <div className="max-w-4xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
           <a href="#" className="flex items-center gap-3 group">
-            <div className="w-8 h-8 rounded-full overflow-hidden border border-zinc-200 shadow-2xs">
+            <div className="w-8 h-8 rounded-full overflow-hidden border border-zinc-200 shadow-2xs group-hover:scale-105 transition-transform">
               <img
                 src="/profile.jpeg"
                 alt="Bhavuk Arora"
@@ -271,26 +187,37 @@ export default function Home() {
             <a href="#skills" className="hover:text-zinc-950 transition-colors">
               Skills
             </a>
-            <a href="#projects" className="hover:text-zinc-950 transition-colors">
-              Projects
-            </a>
             <a href="#contact" className="hover:text-zinc-950 transition-colors">
               Contact
             </a>
+            <a
+              href="https://github.com/bhavukar"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-zinc-700 hover:text-zinc-950 transition-colors flex items-center gap-1"
+            >
+              <Github size={14} />
+              <span className="hidden sm:inline">GitHub</span>
+            </a>
           </nav>
         </div>
-      </header>
+      </motion.header>
 
       {/* ─────────────────────────────────────────────────────────────
-          2. MAIN CONTAINER WITH 1PX BORDER RAILS
+          2. MAIN CONTAINER WITH SUBTLE 1PX BORDER RAILS
           ───────────────────────────────────────────────────────────── */}
       <div className="max-w-4xl mx-auto border-x border-zinc-200 bg-white min-h-screen">
         {/* ───────────────────────────────────────────────────────────
-            HERO SECTION
+            HERO SECTION (Smooth Entrance Animation)
             ─────────────────────────────────────────────────────────── */}
-        <section className="px-5 sm:px-10 py-14 border-b border-zinc-200">
+        <motion.section
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="px-5 sm:px-10 py-16 border-b border-zinc-200"
+        >
           <div className="flex flex-col-reverse sm:flex-row items-start sm:items-center justify-between gap-8">
-            <div className="space-y-4 max-w-2xl">
+            <div className="space-y-5 max-w-2xl">
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-zinc-950 leading-[1.18]">
                 Product engineer & founder building{' '}
                 <mark className="bg-[#fde047] text-black px-2 py-0.5 inline-block font-bold not-italic">
@@ -313,14 +240,14 @@ export default function Home() {
               <div className="flex flex-wrap items-center gap-3 pt-2">
                 <a
                   href="#contact"
-                  className="bg-zinc-950 hover:bg-zinc-800 text-white font-medium text-xs px-4 py-2.5 rounded-lg shadow-2xs transition-all"
+                  className="bg-zinc-950 hover:bg-zinc-800 text-white font-medium text-xs px-4 py-2.5 rounded-lg shadow-2xs transition-all hover:translate-y-[-1px]"
                 >
                   Get in touch
                 </a>
 
                 <button
                   onClick={handleCopyEmail}
-                  className="border border-zinc-300 hover:border-zinc-900 bg-white text-zinc-800 font-mono text-xs px-3.5 py-2 rounded-lg transition-all flex items-center gap-2 cursor-pointer"
+                  className="border border-zinc-300 hover:border-zinc-900 bg-white text-zinc-800 font-mono text-xs px-3.5 py-2 rounded-lg transition-all flex items-center gap-2 cursor-pointer hover:translate-y-[-1px]"
                 >
                   {copiedEmail ? (
                     <>
@@ -359,23 +286,28 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="shrink-0">
-              <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border border-zinc-200 shadow-sm">
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="shrink-0"
+            >
+              <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border border-zinc-200 shadow-sm hover:shadow-md transition-shadow">
                 <img
                   src="/profile.jpeg"
                   alt="Bhavuk Arora"
                   className="w-full h-full object-cover"
                 />
               </div>
-            </div>
+            </motion.div>
           </div>
-        </section>
+        </motion.section>
 
         {/* ───────────────────────────────────────────────────────────
-            WORK EXPERIENCE (PRIMARY FOCUS FROM RESUME)
+            WORK EXPERIENCE (THE PRIMARY CENTERPIECE)
             ─────────────────────────────────────────────────────────── */}
-        <section id="experience" className="px-5 sm:px-10 py-14 border-b border-zinc-200 relative">
-          <div className="space-y-1 mb-10">
+        <section id="experience" className="px-5 sm:px-10 py-16 border-b border-zinc-200 relative">
+          <div className="space-y-1 mb-12">
             <div className="text-xs font-mono uppercase tracking-wider text-zinc-500">
               Work Experience
             </div>
@@ -383,19 +315,23 @@ export default function Home() {
               Where I've worked & what I've shipped
             </h2>
             <p className="text-xs sm:text-sm text-zinc-500 font-mono pt-1">
-              Hover over any company link to load the live site preview.
+              Hover over any company link to load the live site inside the preview window.
             </p>
           </div>
 
-          <div className="space-y-12">
-            {EXPERIENCES.map(exp => (
-              <div
+          <div className="space-y-14">
+            {EXPERIENCES.map((exp, index) => (
+              <motion.div
                 key={exp.id}
-                className="group relative pb-10 border-b border-zinc-100 last:border-none last:pb-0 transition-all"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.5, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                className="group relative pb-12 border-b border-zinc-100 last:border-none last:pb-0 transition-all"
               >
                 {/* Header Row: Role & Period */}
-                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-1.5">
-                  <h3 className="text-xl font-bold text-zinc-950">
+                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
+                  <h3 className="text-xl font-bold text-zinc-950 group-hover:text-black transition-colors">
                     {exp.role}
                   </h3>
                   <div className="text-xs font-mono text-zinc-500">
@@ -403,8 +339,8 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Company & Location & Live URL trigger */}
-                <div className="flex flex-wrap items-center gap-2.5 text-sm mb-3">
+                {/* Company & Location & Hover Link */}
+                <div className="flex flex-wrap items-center gap-2.5 text-sm mb-4">
                   <span className="font-semibold text-zinc-900">{exp.company}</span>
                   <span className="text-zinc-300">•</span>
                   <span className="text-xs font-mono text-zinc-500">{exp.location}</span>
@@ -413,20 +349,9 @@ export default function Home() {
                     href={exp.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    onMouseEnter={() =>
-                      setHoveredItem({
-                        id: exp.id,
-                        url: exp.url,
-                        displayUrl: exp.displayUrl,
-                        embedUrl: exp.embedUrl,
-                        previewImage: exp.previewImage,
-                        fallbackTitle: exp.previewFallback?.title,
-                        fallbackSubtitle: exp.previewFallback?.subtitle,
-                        fallbackBadge: exp.previewFallback?.badge,
-                      })
-                    }
-                    onMouseLeave={() => setHoveredItem(null)}
-                    className="inline-flex items-center gap-1 text-xs font-mono font-semibold text-zinc-900 hover:text-black underline underline-offset-4 decoration-zinc-400 hover:decoration-black transition-all bg-zinc-50 hover:bg-zinc-100 px-2 py-0.5 rounded"
+                    onMouseEnter={() => setHoveredExperience(exp)}
+                    onMouseLeave={() => setHoveredExperience(null)}
+                    className="inline-flex items-center gap-1 text-xs font-mono font-semibold text-zinc-900 hover:text-black underline underline-offset-4 decoration-zinc-400 hover:decoration-black transition-all bg-zinc-50 hover:bg-zinc-100 px-2.5 py-1 rounded"
                   >
                     <span>{exp.displayUrl}</span>
                     <ArrowUpRight size={12} />
@@ -439,7 +364,7 @@ export default function Home() {
                 </p>
 
                 {/* Bullet Points from Resume */}
-                <ul className="space-y-2 mb-4 max-w-2xl">
+                <ul className="space-y-2.5 mb-5 max-w-2xl">
                   {exp.highlights.map((h, i) => (
                     <li key={i} className="text-xs sm:text-sm text-zinc-600 leading-relaxed flex items-start gap-2.5">
                       <span className="text-zinc-400 select-none mt-1">—</span>
@@ -452,7 +377,7 @@ export default function Home() {
                 <div className="text-xs font-mono text-zinc-500 pt-1">
                   <span className="text-zinc-400">Stack:</span> {exp.skills.join(' • ')}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </section>
@@ -460,8 +385,15 @@ export default function Home() {
         {/* ───────────────────────────────────────────────────────────
             TECHNICAL SKILLS
             ─────────────────────────────────────────────────────────── */}
-        <section id="skills" className="px-5 sm:px-10 py-14 border-b border-zinc-200">
-          <div className="space-y-1 mb-8">
+        <motion.section
+          id="skills"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="px-5 sm:px-10 py-16 border-b border-zinc-200"
+        >
+          <div className="space-y-1 mb-10">
             <div className="text-xs font-mono uppercase tracking-wider text-zinc-500">
               Technical Skills
             </div>
@@ -470,9 +402,9 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-xs font-mono">
-            <div className="space-y-1.5">
-              <div className="font-bold text-zinc-950 uppercase border-b border-zinc-200 pb-1">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-xs font-mono">
+            <div className="space-y-2">
+              <div className="font-bold text-zinc-950 uppercase border-b border-zinc-200 pb-1.5">
                 Languages
               </div>
               <p className="text-zinc-600 leading-relaxed">
@@ -480,8 +412,8 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="space-y-1.5">
-              <div className="font-bold text-zinc-950 uppercase border-b border-zinc-200 pb-1">
+            <div className="space-y-2">
+              <div className="font-bold text-zinc-950 uppercase border-b border-zinc-200 pb-1.5">
                 Frontend & Mobile
               </div>
               <p className="text-zinc-600 leading-relaxed">
@@ -489,8 +421,8 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="space-y-1.5">
-              <div className="font-bold text-zinc-950 uppercase border-b border-zinc-200 pb-1">
+            <div className="space-y-2">
+              <div className="font-bold text-zinc-950 uppercase border-b border-zinc-200 pb-1.5">
                 Backend & Services
               </div>
               <p className="text-zinc-600 leading-relaxed">
@@ -498,8 +430,8 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="space-y-1.5">
-              <div className="font-bold text-zinc-950 uppercase border-b border-zinc-200 pb-1">
+            <div className="space-y-2">
+              <div className="font-bold text-zinc-950 uppercase border-b border-zinc-200 pb-1.5">
                 Cloud & Infrastructure
               </div>
               <p className="text-zinc-600 leading-relaxed">
@@ -507,8 +439,8 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="space-y-1.5">
-              <div className="font-bold text-zinc-950 uppercase border-b border-zinc-200 pb-1">
+            <div className="space-y-2">
+              <div className="font-bold text-zinc-950 uppercase border-b border-zinc-200 pb-1.5">
                 Databases
               </div>
               <p className="text-zinc-600 leading-relaxed">
@@ -516,8 +448,8 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="space-y-1.5">
-              <div className="font-bold text-zinc-950 uppercase border-b border-zinc-200 pb-1">
+            <div className="space-y-2">
+              <div className="font-bold text-zinc-950 uppercase border-b border-zinc-200 pb-1.5">
                 AI & Design
               </div>
               <p className="text-zinc-600 leading-relaxed">
@@ -525,72 +457,7 @@ export default function Home() {
               </p>
             </div>
           </div>
-        </section>
-
-        {/* ───────────────────────────────────────────────────────────
-            NOTABLE ENGINEERING & PRODUCT PROJECTS
-            ─────────────────────────────────────────────────────────── */}
-        <section id="projects" className="px-5 sm:px-10 py-14 border-b border-zinc-200">
-          <div className="space-y-1 mb-8">
-            <div className="text-xs font-mono uppercase tracking-wider text-zinc-500">
-              Notable Projects
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-950">
-              Products, Systems & Open Source
-            </h2>
-            <p className="text-xs sm:text-sm text-zinc-500 font-mono pt-1">
-              Hover over live product links to inspect their web windows.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {NOTABLE_PROJECTS.map(proj => (
-              <div
-                key={proj.id}
-                className="p-6 rounded-xl border border-zinc-200 bg-white hover:border-zinc-400 transition-all flex flex-col justify-between"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400">
-                      {proj.category}
-                    </span>
-                    <a
-                      href={proj.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onMouseEnter={() =>
-                        setHoveredItem({
-                          id: proj.id,
-                          url: proj.url,
-                          displayUrl: proj.displayUrl,
-                          embedUrl: proj.embedUrl,
-                          previewImage: proj.previewImage,
-                        })
-                      }
-                      onMouseLeave={() => setHoveredItem(null)}
-                      className="text-xs font-mono text-zinc-700 hover:text-black font-semibold inline-flex items-center gap-1 underline underline-offset-2 decoration-zinc-300 hover:decoration-black"
-                    >
-                      <span>{proj.displayUrl}</span>
-                      <ArrowUpRight size={13} />
-                    </a>
-                  </div>
-
-                  <h3 className="text-lg font-bold text-zinc-950 mb-2">
-                    {proj.title}
-                  </h3>
-
-                  <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed mb-5">
-                    {proj.description}
-                  </p>
-                </div>
-
-                <div className="pt-3 border-t border-zinc-100 text-xs font-mono text-zinc-500">
-                  {proj.tech.join(' • ')}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
+        </motion.section>
 
         {/* ───────────────────────────────────────────────────────────
             EDUCATION
@@ -608,8 +475,15 @@ export default function Home() {
         {/* ───────────────────────────────────────────────────────────
             CONTACT
             ─────────────────────────────────────────────────────────── */}
-        <section id="contact" className="px-5 sm:px-10 py-14">
-          <div className="rounded-2xl bg-zinc-950 text-white p-6 sm:p-10 border border-zinc-800 space-y-5">
+        <motion.section
+          id="contact"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="px-5 sm:px-10 py-16"
+        >
+          <div className="rounded-2xl bg-zinc-950 text-white p-7 sm:p-10 border border-zinc-800 space-y-6 shadow-xl">
             <div className="space-y-2 max-w-xl">
               <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
                 Let's talk.
@@ -631,7 +505,7 @@ export default function Home() {
               <div className="flex items-center gap-2 w-full sm:w-auto">
                 <button
                   onClick={handleCopyEmail}
-                  className="flex-1 sm:flex-initial px-4 py-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-xs font-mono font-semibold text-white transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  className="flex-1 sm:flex-initial px-4 py-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-xs font-mono font-semibold text-white transition-all flex items-center justify-center gap-2 cursor-pointer hover:translate-y-[-1px]"
                 >
                   {copiedEmail ? (
                     <>
@@ -647,7 +521,7 @@ export default function Home() {
                 </button>
                 <a
                   href="mailto:bhavuk.arora03@gmail.com"
-                  className="px-4 py-2 rounded-lg bg-[#fde047] hover:bg-yellow-300 text-black text-xs font-mono font-bold transition-all flex items-center justify-center gap-1"
+                  className="px-4 py-2 rounded-lg bg-[#fde047] hover:bg-yellow-300 text-black text-xs font-mono font-bold transition-all flex items-center justify-center gap-1 hover:translate-y-[-1px]"
                 >
                   <span>Mailto</span>
                   <ArrowUpRight size={13} />
@@ -655,7 +529,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="pt-3 border-t border-zinc-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-zinc-400">
+            <div className="pt-4 border-t border-zinc-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-zinc-400">
               <div className="flex items-center gap-4">
                 <a
                   href="https://github.com/bhavukar"
@@ -691,28 +565,28 @@ export default function Home() {
               <div>Rohini, Delhi, India (+91-8708254881)</div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
         {/* ───────────────────────────────────────────────────────────
             FOOTER
             ─────────────────────────────────────────────────────────── */}
         <footer className="border-t border-zinc-200 px-5 sm:px-10 py-6 text-xs font-mono text-zinc-500 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div>© {new Date().getFullYear()} Bhavuk Arora.</div>
-          <div>Edge-deployed on Cloudflare Workers.</div>
+          <div>Deployed on Cloudflare Workers.</div>
         </footer>
       </div>
 
       {/* ─────────────────────────────────────────────────────────────
           GLOBAL FLOATING MACOS WEBSITE PREVIEW WINDOW
-          Loads the real website inside an iframe with real URL in chrome!
+          Loads the real live website inside an iframe with actual URL bar!
           ───────────────────────────────────────────────────────────── */}
       <AnimatePresence>
-        {hoveredItem && (
+        {hoveredExperience && (
           <motion.div
-            initial={{ opacity: 0, y: 15, scale: 0.95 }}
+            initial={{ opacity: 0, y: 16, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 10, scale: 0.95 }}
-            transition={{ duration: 0.18, ease: 'easeOut' }}
+            exit={{ opacity: 0, y: 10, scale: 0.96 }}
+            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="hidden lg:block fixed bottom-8 right-8 z-50 w-[420px] rounded-xl bg-zinc-950 text-white shadow-2xl border border-zinc-700 overflow-hidden pointer-events-auto"
           >
             {/* macOS Browser Header */}
@@ -725,17 +599,17 @@ export default function Home() {
 
               {/* Real URL Address Bar */}
               <a
-                href={hoveredItem.url}
+                href={hoveredExperience.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1.5 px-3 py-1 rounded bg-zinc-950 text-[11px] text-zinc-300 border border-zinc-800 hover:border-zinc-600 hover:text-white transition-all max-w-[260px] truncate"
               >
                 <Lock size={10} className="text-emerald-400 shrink-0" />
-                <span className="truncate">{hoveredItem.url}</span>
+                <span className="truncate">{hoveredExperience.url}</span>
               </a>
 
               <a
-                href={hoveredItem.url}
+                href={hoveredExperience.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-zinc-400 hover:text-white transition-colors"
@@ -747,32 +621,32 @@ export default function Home() {
 
             {/* Window Content: Real Iframe / Real Website Content */}
             <div className="relative w-full h-[260px] bg-zinc-900 overflow-hidden">
-              {hoveredItem.embedUrl ? (
+              {hoveredExperience.embedUrl ? (
                 <div className="w-full h-full relative overflow-hidden bg-zinc-950">
                   {/* Backdrop Screenshot for zero flicker */}
-                  {hoveredItem.previewImage && (
+                  {hoveredExperience.previewImage && (
                     <img
-                      src={hoveredItem.previewImage}
-                      alt={hoveredItem.displayUrl}
+                      src={hoveredExperience.previewImage}
+                      alt={hoveredExperience.displayUrl}
                       className="absolute inset-0 w-full h-full object-cover object-top opacity-90"
                     />
                   )}
 
                   {/* Real Live Iframe View */}
                   <iframe
-                    src={hoveredItem.embedUrl}
-                    title={hoveredItem.displayUrl}
+                    src={hoveredExperience.embedUrl}
+                    title={hoveredExperience.displayUrl}
                     className="absolute inset-0 w-[840px] h-[520px] origin-top-left scale-50 border-0 bg-white"
                     loading="lazy"
                   />
 
                   {/* Clickable Overlay */}
                   <a
-                    href={hoveredItem.url}
+                    href={hoveredExperience.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="absolute inset-0 z-20 cursor-pointer"
-                    title={`Click to open ${hoveredItem.displayUrl}`}
+                    title={`Click to open ${hoveredExperience.displayUrl}`}
                   />
                 </div>
               ) : (
@@ -780,22 +654,22 @@ export default function Home() {
                 <div className="w-full h-full p-5 flex flex-col justify-between bg-gradient-to-br from-zinc-800 to-zinc-950 text-left">
                   <div className="space-y-2">
                     <div className="text-[10px] font-mono text-[#fde047] font-bold uppercase tracking-wider">
-                      {hoveredItem.fallbackBadge || 'Official Product'}
+                      {hoveredExperience.previewFallback?.badge || 'Official Product'}
                     </div>
                     <div className="text-base font-bold text-white">
-                      {hoveredItem.fallbackTitle || hoveredItem.displayUrl}
+                      {hoveredExperience.previewFallback?.title || hoveredExperience.displayUrl}
                     </div>
                     <p className="text-xs text-zinc-300 leading-relaxed">
-                      {hoveredItem.fallbackSubtitle || 'Visit official website for details.'}
+                      {hoveredExperience.previewFallback?.subtitle || 'Visit official website for details.'}
                     </p>
                   </div>
                   <a
-                    href={hoveredItem.url}
+                    href={hoveredExperience.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-400 hover:text-white pt-3 border-t border-zinc-700/80"
                   >
-                    <span>Open {hoveredItem.displayUrl}</span>
+                    <span>Open {hoveredExperience.displayUrl}</span>
                     <ArrowUpRight size={12} />
                   </a>
                 </div>
