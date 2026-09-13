@@ -129,6 +129,54 @@ const EXPERIENCES: ExperienceItem[] = [
   }
 ];
 
+interface DesignProject {
+  id: string;
+  title: string;
+  category: string;
+  tools: string[];
+  summary: string;
+  coverImage: string;
+  videoSrc: string;
+  behanceUrl: string;
+  badge: string;
+}
+
+const DESIGN_PROJECTS: DesignProject[] = [
+  {
+    id: 'bluefork',
+    title: 'Bluefork',
+    category: 'Brand Identity & Motion Graphics',
+    tools: ['After Effects', 'Motion Design', 'Visual Systems', 'Figma'],
+    summary: 'Dynamic brand identity, kinetic motion system, and high-contrast visual direction crafted for the Bluefork creator platform.',
+    coverImage: '/behance_bluefork.png',
+    videoSrc: '/bluefork_motion.mp4',
+    behanceUrl: 'https://www.behance.net/gallery/253324443/Bluefork',
+    badge: '0:24 Motion Piece',
+  },
+  {
+    id: 'pulp-ai',
+    title: 'Pulp AI',
+    category: 'AI Engine Interface & Visual Direction',
+    tools: ['After Effects', 'AI UI/UX', 'Motion Direction', 'Branding'],
+    summary: "Visual architecture, spectral gradient aesthetics, and generative motion graphics for Fork's native frontier AI agent engine.",
+    coverImage: '/behance_pulp_ai.png',
+    videoSrc: '/pulp_ai_motion.mp4',
+    behanceUrl: 'https://www.behance.net/gallery/253324169/Pulp-AI',
+    badge: '0:27 Motion Piece',
+  },
+  {
+    id: 'ace-glitch',
+    title: 'ACE Glitch',
+    category: 'Kinetic Motion & Glitch Animation',
+    tools: ['Adobe After Effects', 'Kinetic Typography', 'Glitch VFX'],
+    summary: 'Experimental kinetic glitch animation, audio-reactive frame displacement, and geometric logo deconstruction crafted in After Effects.',
+    coverImage: '/behance_ace_glitch.jpg',
+    videoSrc: '/ace_glitch.mp4',
+    behanceUrl: 'https://www.behance.net/gallery/151738765/ace-glitch',
+    badge: '0:10 Motion Piece',
+  },
+];
+
 export default function Home() {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [hoveredExpId, setHoveredExpId] = useState<string | null>(null);
@@ -222,9 +270,12 @@ export default function Home() {
           <div className="flex items-center flex-shrink-0">
             <nav className="flex items-center gap-3 sm:gap-6 text-[11px] sm:text-xs font-mono text-zinc-600">
               <a href="#experience" className="hover:text-zinc-950 transition-colors">
-                Experience
+                Work
               </a>
-              <a href="#skills" className="hover:text-zinc-950 transition-colors">
+              <a href="#craft" className="hover:text-zinc-950 transition-colors">
+                Craft
+              </a>
+              <a href="#skills" className="hidden sm:inline hover:text-zinc-950 transition-colors">
                 Skills
               </a>
               <a href="#contact" className="hover:text-zinc-950 transition-colors">
@@ -490,6 +541,134 @@ export default function Home() {
         </section>
 
         {/* ───────────────────────────────────────────────────────────
+            DESIGN & MOTION CRAFT (BEHANCE SHOWCASE)
+            ─────────────────────────────────────────────────────────── */}
+        <motion.section
+          id="craft"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="px-4 sm:px-10 py-12 sm:py-16 border-b border-zinc-200"
+        >
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-10">
+            <div className="space-y-1">
+              <div className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-zinc-500">
+                Creative Direction
+              </div>
+              <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-950">
+                Design & Motion Craft
+              </h2>
+            </div>
+            <a
+              href="https://www.behance.net/bhavukarora1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-600 hover:text-zinc-950 transition-colors group"
+            >
+              <span>View Behance gallery</span>
+              <ArrowUpRight size={13} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </a>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+            {DESIGN_PROJECTS.map((project) => (
+              <div
+                key={project.id}
+                className="group border border-zinc-200 hover:border-zinc-300 rounded-xl overflow-hidden bg-white hover:bg-zinc-50/40 transition-all shadow-2xs hover:shadow-md flex flex-col"
+              >
+                {/* Visual / Motion Player Container */}
+                <div className="relative aspect-video bg-zinc-950 overflow-hidden">
+                  <video
+                    src={project.videoSrc}
+                    poster={project.coverImage}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="metadata"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10 pointer-events-none" />
+
+                  {/* Badges on Video */}
+                  <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5">
+                    <span className="px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-mono text-white/90 border border-white/10">
+                      {project.badge}
+                    </span>
+                  </div>
+
+                  <a
+                    href={project.behanceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full bg-white/90 hover:bg-white text-zinc-900 text-[10px] font-mono font-medium flex items-center gap-0.5 shadow-sm transition-transform hover:scale-105"
+                  >
+                    <span>Behance</span>
+                    <ArrowUpRight size={10} />
+                  </a>
+                </div>
+
+                {/* Card Info */}
+                <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
+                  <div>
+                    <div className="mb-1.5">
+                      <h3 className="text-base font-bold text-zinc-950 group-hover:text-blue-600 transition-colors">
+                        <a
+                          href={project.behanceUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-between gap-1"
+                        >
+                          <span>{project.title}</span>
+                          <ArrowUpRight size={14} className="text-zinc-400 group-hover:text-blue-600 transition-colors" />
+                        </a>
+                      </h3>
+                    </div>
+
+                    <div className="text-xs font-mono text-zinc-500 mb-2">
+                      {project.category}
+                    </div>
+
+                    <p className="text-xs text-zinc-600 leading-relaxed mb-4">
+                      {project.summary}
+                    </p>
+                  </div>
+
+                  {/* Tool chips */}
+                  <div className="pt-3 border-t border-zinc-100 flex flex-wrap gap-1.5">
+                    {project.tools.map((t, idx) => (
+                      <span
+                        key={idx}
+                        className="px-2 py-0.5 rounded bg-zinc-100 text-zinc-700 text-[10px] font-mono"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Context note linking to Behance */}
+          <div className="mt-6 pt-5 border-t border-zinc-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono text-zinc-500">
+            <div>
+              Motion graphics, audio-reactive glitch VFX, and visual identity crafted in Adobe After Effects.
+            </div>
+            <a
+              href="https://www.behance.net/bhavukarora1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-zinc-700 hover:text-zinc-950 font-semibold inline-flex items-center gap-1 transition-colors"
+            >
+              <span>behance.net/bhavukarora1</span>
+              <ArrowUpRight size={12} />
+            </a>
+          </div>
+        </motion.section>
+
+        {/* ───────────────────────────────────────────────────────────
             TECHNICAL SKILLS
             ─────────────────────────────────────────────────────────── */}
         <motion.section
@@ -561,6 +740,15 @@ export default function Home() {
               </div>
               <p className="text-zinc-600 leading-relaxed">
                 Creator Economy, High-concurrency Mobile, AR/VR, HealthTech
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <div className="font-bold text-zinc-950 uppercase border-b border-zinc-200 pb-1 sm:pb-1.5">
+                Creative & Motion
+              </div>
+              <p className="text-zinc-600 leading-relaxed">
+                Adobe After Effects, Motion Graphics, Figma, Visual Identity, Kinetic VFX
               </p>
             </div>
           </div>
