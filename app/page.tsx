@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Lenis from 'lenis';
 import {
   Github,
   Linkedin,
@@ -45,11 +46,11 @@ const EXPERIENCES: ExperienceItem[] = [
     embedUrl: 'https://app.fork.blue',
     previewImage: 'https://app.fork.blue/preview_url.png',
     summary:
-      'Building an AI-native operating platform for independent talent — creators, artists, musicians, actors, and craftspeople who monetize their audience and work.',
+      'Building the commercial operating system for independent creators, artists, musicians, and craftspeople who monetize their audience and work.',
     highlights: [
-      'Developing AI agents for discovering commercial opportunities, pricing work, automated contract review, invoicing, and everyday business decisions.',
-      'Creating a unified marketplace where talent and brands collaborate and transact directly, replacing fragmented workflows across DMs, spreadsheets, and manual tools.',
-      'Architecting end-to-end fullstack platform with TypeScript, Next.js, and structured LLM tool-calling pipelines.'
+      'Engineered AI agents that automate deal discovery, dynamic pricing models, contract risk audits, and fast invoicing.',
+      'Replaced fragmented chains of DMs, spreadsheets, and manual invoices with a unified collaborative marketplace for talent and brands.',
+      'Architected end-to-end fullstack platform with TypeScript, Next.js, and structured LLM tool-calling pipelines.'
     ],
     skills: ['TypeScript', 'Next.js', 'AI Agents', 'PostgreSQL', 'Fullstack Architecture']
   },
@@ -65,11 +66,11 @@ const EXPERIENCES: ExperienceItem[] = [
     previewImage:
       'https://assets.reve.rsvp/prod/media/image/f_jpg,q_70,w_1200/webp/v1/static/reve_preview_url.jpg',
     summary:
-      'Part of the founding team taking Reve from zero to launch, evolving through multiple pivots into a consumer event app with 25K+ downloads across iOS and Android.',
+      'Joined as part of the founding team taking Reve from zero to launch, evolving through multiple pivots into a consumer event app with 25,000+ downloads across iOS and Android.',
     highlights: [
-      'Shaped core user experiences across product, engineering, and design, taking critical features from early wireframes straight into production.',
-      'Engineered cross-platform mobile architecture with Flutter, including offline-first SQLite synchronization and real-time event feeds.',
-      'Built and optimized onboarding funnels, viral invite loops, and retention mechanics that drove organic community growth.'
+      'Owned product engineering end-to-end: wireframes, user journeys, design systems, and the cross-platform Flutter client.',
+      'Built the offline-first SQLite sync engine and real-time feed for seamless in-person event check-ins and ticketing.',
+      'Designed onboarding funnels and viral invite loops that powered our organic community growth.'
     ],
     skills: ['Flutter', 'SQLite', 'Mobile Architecture', 'Product Design', '25K+ Downloads']
   },
@@ -86,8 +87,8 @@ const EXPERIENCES: ExperienceItem[] = [
     summary:
       'Shipped client and internal production applications across healthcare and AI interview coaching, delivering end-to-end products under strict timelines.',
     highlights: [
-      'Built and launched Oncarea and Oncarea Doctor using Flutter in under two months, supporting live video consultations and remote diagnostic workflows.',
-      'Engineered VRPlaced, a Next.js platform for 1-on-1 interview practice featuring OpenAI-driven resume customization and live feedback.',
+      'Shipped VRPlaced, an AI interview simulator with real-time feedback scoring and dynamic resume tailoring using Next.js and OpenAI.',
+      'Built and launched Oncarea and Oncarea Doctor from scratch in under two months, supporting live video consultations and remote diagnostics.',
       'Owned full development lifecycle: architecture, client-side testing, automated deployments, and continuous UX iterations.'
     ],
     skills: ['Flutter', 'Next.js', 'OpenAI API', 'Healthcare Systems', 'WebRTC Video']
@@ -101,11 +102,11 @@ const EXPERIENCES: ExperienceItem[] = [
     url: 'https://www.suraasa.com',
     displayUrl: 'suraasa.com',
     summary:
-      'Re-engineered Suraasa’s flagship EdTech application from the ground up in Flutter, replacing legacy native code and scaling to 50K+ downloads.',
+      'Re-engineered Suraasa’s flagship EdTech application from the ground up in Flutter, replacing legacy native code and scaling to 50,000+ downloads.',
     highlights: [
       'Rebuilt core mobile systems including authentication, profile state management, push notification infrastructure, and modular app architecture.',
       'Integrated a custom high-performance video player, learning course workflows, and interactive assessment modules for teachers.',
-      'Collaborated closely with product and design teams to refine teacher learning journeys and boost student course completion rates.'
+      'Boosted teacher course completion rates by streamlining playback, offline lesson caching, and lesson navigation.'
     ],
     skills: ['Flutter', 'Modular Architecture', 'Custom Video Player', '50K+ Downloads'],
     previewFallback: {
@@ -144,6 +145,28 @@ export default function Home() {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [hoveredExperience, setHoveredExperience] = useState<ExperienceItem | null>(null);
 
+  // Initialize Lenis smooth "liquid" scrolling
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+    });
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
   const handleCopyEmail = () => {
     navigator.clipboard.writeText('bhavukarora03@gmail.com');
     setCopiedEmail(true);
@@ -151,12 +174,12 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-white text-zinc-900 font-sans selection:bg-[#fde047] selection:text-black relative scroll-smooth">
+    <div className="min-h-screen bg-white text-zinc-900 font-sans selection:bg-[#fde047] selection:text-black relative">
       {/* ─────────────────────────────────────────────────────────────
           1. MINIMAL STICKY HEADER
           ───────────────────────────────────────────────────────────── */}
       <motion.header
-        initial={{ y: -20, opacity: 0 }}
+        initial={{ y: -16, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-zinc-200"
@@ -180,26 +203,33 @@ export default function Home() {
             </div>
           </a>
 
-          <nav className="flex items-center gap-5 sm:gap-7 text-xs font-mono text-zinc-600">
-            <a href="#experience" className="hover:text-zinc-950 transition-colors">
-              Experience
-            </a>
-            <a href="#skills" className="hover:text-zinc-950 transition-colors">
-              Skills
-            </a>
-            <a href="#contact" className="hover:text-zinc-950 transition-colors">
-              Contact
-            </a>
-            <a
-              href="https://github.com/bhavukar"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-zinc-700 hover:text-zinc-950 transition-colors flex items-center gap-1"
-            >
-              <Github size={14} />
-              <span className="hidden sm:inline">GitHub</span>
-            </a>
-          </nav>
+          <div className="flex items-center gap-5 sm:gap-7">
+            <div className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-zinc-100 text-[10px] font-mono font-bold text-zinc-800 border border-zinc-200">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+              <span>OPEN TO WORK</span>
+            </div>
+
+            <nav className="flex items-center gap-5 sm:gap-6 text-xs font-mono text-zinc-600">
+              <a href="#experience" className="hover:text-zinc-950 transition-colors">
+                Experience
+              </a>
+              <a href="#skills" className="hover:text-zinc-950 transition-colors">
+                Skills
+              </a>
+              <a href="#contact" className="hover:text-zinc-950 transition-colors">
+                Contact
+              </a>
+              <a
+                href="https://github.com/bhavukar"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-zinc-700 hover:text-zinc-950 transition-colors flex items-center gap-1"
+              >
+                <Github size={14} />
+                <span className="hidden md:inline">GitHub</span>
+              </a>
+            </nav>
+          </div>
         </div>
       </motion.header>
 
@@ -208,98 +238,91 @@ export default function Home() {
           ───────────────────────────────────────────────────────────── */}
       <div className="max-w-4xl mx-auto border-x border-zinc-200 bg-white min-h-screen">
         {/* ───────────────────────────────────────────────────────────
-            HERO SECTION (Smooth Entrance Animation)
+            HERO SECTION (Clean, Full-Width, Single Photo in Header)
             ─────────────────────────────────────────────────────────── */}
         <motion.section
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="px-5 sm:px-10 py-16 border-b border-zinc-200"
+          className="px-5 sm:px-10 py-16 sm:py-20 border-b border-zinc-200"
         >
-          <div className="flex flex-col-reverse sm:flex-row items-start sm:items-center justify-between gap-8">
-            <div className="space-y-5 max-w-2xl">
-              <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-zinc-950 leading-[1.18]">
-                Product engineer & founder building{' '}
-                <mark className="bg-[#fde047] text-black px-2 py-0.5 inline-block font-bold not-italic">
-                  consumer apps
-                </mark>{' '}
-                and{' '}
-                <mark className="bg-[#fde047] text-black px-2 py-0.5 inline-block font-bold not-italic">
-                  AI tools
-                </mark>
-                .
-              </h1>
-
-              <p className="text-base text-zinc-600 leading-relaxed">
-                I'm Bhavuk, based in Delhi. Over the last 4+ years, I've built and shipped products
-                reaching 75K+ total users. Currently building Fork (an operating platform with AI agents
-                for independent talent) and founding engineer at Reve (scaled 0 to 25K+ downloads).
-                Previously built EdTech at Suraasa (50K+ downloads) and healthtech at MythyaVerse.
-              </p>
-
-              <div className="flex flex-wrap items-center gap-3 pt-2">
-                <a
-                  href="#contact"
-                  className="bg-zinc-950 hover:bg-zinc-800 text-white font-medium text-xs px-4 py-2.5 rounded-lg shadow-2xs transition-all hover:translate-y-[-1px]"
-                >
-                  Get in touch
-                </a>
-
-                <button
-                  onClick={handleCopyEmail}
-                  className="border border-zinc-300 hover:border-zinc-900 bg-white text-zinc-800 font-mono text-xs px-3.5 py-2 rounded-lg transition-all flex items-center gap-2 cursor-pointer hover:translate-y-[-1px]"
-                >
-                  {copiedEmail ? (
-                    <>
-                      <Check size={13} className="text-emerald-600" />
-                      <span className="text-emerald-600 font-medium">Copied email</span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy size={13} className="text-zinc-500" />
-                      <span>bhavukarora03@gmail.com</span>
-                    </>
-                  )}
-                </button>
-
-                <a
-                  href="https://github.com/bhavukar"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-zinc-600 hover:text-zinc-950 font-mono text-xs px-3 py-2 flex items-center gap-1.5 transition-colors"
-                >
-                  <Github size={14} />
-                  <span>GitHub</span>
-                  <ArrowUpRight size={12} />
-                </a>
-
-                <a
-                  href="https://www.linkedin.com/in/bhavuk-arora-4a7263216/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-zinc-600 hover:text-zinc-950 font-mono text-xs px-3 py-2 flex items-center gap-1.5 transition-colors"
-                >
-                  <Linkedin size={14} />
-                  <span>LinkedIn</span>
-                  <ArrowUpRight size={12} />
-                </a>
-              </div>
+          <div className="space-y-6 max-w-3xl">
+            {/* Open to work status bar */}
+            <div className="flex flex-wrap items-center gap-2.5 text-xs font-mono text-zinc-500">
+              <span className="font-bold text-zinc-950 tracking-wider">OPEN TO WORK</span>
+              <span className="text-zinc-300">•</span>
+              <span>5+ YEARS EXPERIENCE</span>
+              <span className="text-zinc-300">•</span>
+              <span>DELHI · REMOTE</span>
             </div>
 
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="shrink-0"
-            >
-              <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border border-zinc-200 shadow-sm hover:shadow-md transition-shadow">
-                <img
-                  src="/profile.jpeg"
-                  alt="Bhavuk Arora"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </motion.div>
+            <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-zinc-950 leading-[1.08]">
+              Product engineer & founder building{' '}
+              <mark className="bg-[#fde047] text-black px-2.5 py-0.5 inline-block font-bold not-italic">
+                consumer products
+              </mark>{' '}
+              and{' '}
+              <mark className="bg-[#fde047] text-black px-2.5 py-0.5 inline-block font-bold not-italic">
+                AI workflows
+              </mark>
+              .
+            </h1>
+
+            <p className="text-base sm:text-lg text-zinc-600 leading-relaxed max-w-2xl">
+              I turn early-stage ideas into products people actually use. Over 5+ years of engineering,
+              I've taken applications from zero to tens of thousands of downloads across consumer mobile,
+              edtech, and AI platforms. Currently building <strong>Fork</strong> (an operating platform
+              for independent creators) and part of the founding team at <strong>Reve</strong> (25K+ downloads).
+            </p>
+
+            {/* Quick Actions */}
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              <a
+                href="#contact"
+                className="bg-zinc-950 hover:bg-zinc-800 text-white font-medium text-xs px-4 py-2.5 rounded-lg shadow-2xs transition-all hover:translate-y-[-1px]"
+              >
+                Get in touch
+              </a>
+
+              <button
+                onClick={handleCopyEmail}
+                className="border border-zinc-300 hover:border-zinc-900 bg-white text-zinc-800 font-mono text-xs px-3.5 py-2 rounded-lg transition-all flex items-center gap-2 cursor-pointer hover:translate-y-[-1px]"
+              >
+                {copiedEmail ? (
+                  <>
+                    <Check size={13} className="text-emerald-600" />
+                    <span className="text-emerald-600 font-medium">Copied email</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy size={13} className="text-zinc-500" />
+                    <span>bhavukarora03@gmail.com</span>
+                  </>
+                )}
+              </button>
+
+              <a
+                href="https://github.com/bhavukar"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-zinc-600 hover:text-zinc-950 font-mono text-xs px-3 py-2 flex items-center gap-1.5 transition-colors"
+              >
+                <Github size={14} />
+                <span>GitHub</span>
+                <ArrowUpRight size={12} />
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/bhavuk-arora-4a7263216/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-zinc-600 hover:text-zinc-950 font-mono text-xs px-3 py-2 flex items-center gap-1.5 transition-colors"
+              >
+                <Linkedin size={14} />
+                <span>LinkedIn</span>
+                <ArrowUpRight size={12} />
+              </a>
+            </div>
           </div>
         </motion.section>
 
@@ -323,7 +346,7 @@ export default function Home() {
             {EXPERIENCES.map((exp, index) => (
               <motion.div
                 key={exp.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.5, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
@@ -339,7 +362,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Company & Location & Hover Link */}
+                {/* Company & Location & Live Link */}
                 <div className="flex flex-wrap items-center gap-2.5 text-sm mb-4">
                   <span className="font-semibold text-zinc-900">{exp.company}</span>
                   <span className="text-zinc-300">•</span>
@@ -363,7 +386,7 @@ export default function Home() {
                   {exp.summary}
                 </p>
 
-                {/* Bullet Points from Resume */}
+                {/* Bullet Points */}
                 <ul className="space-y-2.5 mb-5 max-w-2xl">
                   {exp.highlights.map((h, i) => (
                     <li key={i} className="text-xs sm:text-sm text-zinc-600 leading-relaxed flex items-start gap-2.5">
@@ -387,7 +410,7 @@ export default function Home() {
             ─────────────────────────────────────────────────────────── */}
         <motion.section
           id="skills"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
@@ -477,7 +500,7 @@ export default function Home() {
             ─────────────────────────────────────────────────────────── */}
         <motion.section
           id="contact"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
@@ -486,11 +509,12 @@ export default function Home() {
           <div className="rounded-2xl bg-zinc-950 text-white p-7 sm:p-10 border border-zinc-800 space-y-6 shadow-xl">
             <div className="space-y-2 max-w-xl">
               <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
-                Let's talk.
+                Let's build something.
               </h2>
               <p className="text-zinc-400 text-sm leading-relaxed">
-                Whether you're looking for a founding product engineer, want to discuss forward-deployed
-                AI roles, or just want to chat about building consumer products, feel free to reach out.
+                Open to founding product engineering roles, forward-deployed positions, or high-impact
+                contract work. Whether you have an early-stage venture or just want to chat software,
+                my inbox is open.
               </p>
             </div>
 
@@ -498,7 +522,7 @@ export default function Home() {
               <div>
                 <div className="text-[10px] font-mono text-zinc-500 uppercase">Direct Email</div>
                 <div className="text-base font-mono font-bold text-white select-all">
-                  bhavuk.arora03@gmail.com
+                  bhavukarora03@gmail.com
                 </div>
               </div>
 
@@ -520,7 +544,7 @@ export default function Home() {
                   )}
                 </button>
                 <a
-                  href="mailto:bhavuk.arora03@gmail.com"
+                  href="mailto:bhavukarora03@gmail.com"
                   className="px-4 py-2 rounded-lg bg-[#fde047] hover:bg-yellow-300 text-black text-xs font-mono font-bold transition-all flex items-center justify-center gap-1 hover:translate-y-[-1px]"
                 >
                   <span>Mailto</span>
@@ -568,11 +592,11 @@ export default function Home() {
         </motion.section>
 
         {/* ───────────────────────────────────────────────────────────
-            FOOTER
+            FOOTER (Clean, No Cloudflare workers mention)
             ─────────────────────────────────────────────────────────── */}
         <footer className="border-t border-zinc-200 px-5 sm:px-10 py-6 text-xs font-mono text-zinc-500 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div>© {new Date().getFullYear()} Bhavuk Arora.</div>
-          <div>Deployed on Cloudflare Workers.</div>
+          <div>Delhi, India.</div>
         </footer>
       </div>
 
