@@ -1,0 +1,21 @@
+{
+  "name": "Bhavuk Arora — Founder & Product Engineer",
+  "short_name": "Bhavuk Arora",
+  "description": "Founder & product engineer building consumer products from zero to scale.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/profile.jpeg",
+      "sizes": "800x800",
+      "type": "image/jpeg"
+    }
+  ]
+}

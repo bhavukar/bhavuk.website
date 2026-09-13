@@ -198,27 +198,28 @@ export default function Home() {
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-zinc-200"
       >
-        <div className="max-w-4xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
-          <a href="#" className="flex items-center gap-3 group">
-            <div className="w-8 h-8 rounded-full overflow-hidden border border-zinc-200 shadow-2xs group-hover:scale-105 transition-transform">
+        <div className="max-w-4xl mx-auto px-4 sm:px-8 h-14 sm:h-16 flex items-center justify-between">
+          <a href="#" className="flex items-center gap-2.5 sm:gap-3 group min-w-0">
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full overflow-hidden border border-zinc-200 shadow-2xs group-hover:scale-105 transition-transform flex-shrink-0">
               <img
                 src="/profile.jpeg"
                 alt="Bhavuk Arora"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="flex flex-col">
-              <span className="text-sm font-bold text-zinc-950 tracking-tight">
-                Bhavuk Arora
+            <div className="flex flex-col min-w-0">
+              <span className="text-sm font-bold text-zinc-950 tracking-tight leading-tight">
+                <span className="sm:hidden">Bhavuk</span>
+                <span className="hidden sm:inline">Bhavuk Arora</span>
               </span>
-              <span className="text-[11px] text-zinc-500 font-mono">
+              <span className="text-[10px] sm:text-[11px] text-zinc-500 font-mono hidden sm:inline leading-none mt-0.5">
                 Founder & Product Engineer
               </span>
             </div>
           </a>
 
-          <div className="flex items-center gap-5 sm:gap-6">
-            <nav className="flex items-center gap-5 sm:gap-6 text-xs font-mono text-zinc-600">
+          <div className="flex items-center flex-shrink-0">
+            <nav className="flex items-center gap-3 sm:gap-6 text-[11px] sm:text-xs font-mono text-zinc-600">
               <a href="#experience" className="hover:text-zinc-950 transition-colors">
                 Experience
               </a>
@@ -234,7 +235,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="text-zinc-700 hover:text-zinc-950 transition-colors flex items-center gap-1"
               >
-                <Github size={14} />
+                <Github size={13} />
                 <span className="hidden md:inline">GitHub</span>
               </a>
             </nav>
@@ -243,33 +244,33 @@ export default function Home() {
       </motion.header>
 
       {/* ─────────────────────────────────────────────────────────────
-          2. MAIN CONTAINER WITH SUBTLE 1PX BORDER RAILS
+          2. MAIN CONTAINER WITH CLEAN BORDERS
           ───────────────────────────────────────────────────────────── */}
-      <div className="max-w-4xl mx-auto border-x border-zinc-200 bg-white min-h-screen">
+      <div className="max-w-4xl mx-auto border-x-0 sm:border-x border-zinc-200 bg-white min-h-screen">
         {/* ───────────────────────────────────────────────────────────
-            HERO SECTION (Clean, Full-Width Minimalist Editorial)
+            HERO SECTION (Clean, Responsive Editorial)
             ─────────────────────────────────────────────────────────── */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="px-5 sm:px-10 py-16 sm:py-20 border-b border-zinc-200"
+          className="px-4 sm:px-10 py-10 sm:py-16 md:py-20 border-b border-zinc-200"
         >
-          <div className="space-y-6 max-w-3xl">
+          <div className="space-y-4 sm:space-y-6 max-w-3xl">
             {/* Experience status bar */}
-            <div className="flex flex-wrap items-center gap-2.5 text-xs font-mono text-zinc-500">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 text-[11px] sm:text-xs font-mono text-zinc-500">
               <span className="font-bold text-zinc-950 tracking-wider">5+ YEARS EXPERIENCE</span>
               <span className="text-zinc-300">•</span>
               <span>DELHI · REMOTE</span>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-zinc-950 leading-[1.22] max-w-2xl">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-zinc-950 leading-[1.25] sm:leading-[1.22] max-w-2xl">
               Founder & product engineer building{' '}
-              <mark className="bg-[#fde047] text-black px-1.5 py-0.5 font-semibold not-italic rounded-[2px]">
+              <mark className="bg-[#fde047] text-black px-1 sm:px-1.5 py-0.5 font-semibold not-italic rounded-[2px]">
                 consumer products
               </mark>{' '}
               from{' '}
-              <mark className="bg-[#fde047] text-black px-1.5 py-0.5 font-semibold not-italic rounded-[2px]">
+              <mark className="bg-[#fde047] text-black px-1 sm:px-1.5 py-0.5 font-semibold not-italic rounded-[2px]">
                 zero to scale
               </mark>.
             </h1>
@@ -282,17 +283,17 @@ export default function Home() {
             </p>
 
             {/* Quick Actions */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
+            <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-2">
               <a
                 href="#contact"
-                className="bg-zinc-950 hover:bg-zinc-800 text-white font-medium text-xs px-4 py-2.5 rounded-lg shadow-2xs transition-all hover:translate-y-[-1px]"
+                className="bg-zinc-950 hover:bg-zinc-800 text-white font-medium text-xs px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-lg shadow-2xs transition-all hover:translate-y-[-1px]"
               >
                 Get in touch
               </a>
 
               <button
                 onClick={handleCopyEmail}
-                className="border border-zinc-300 hover:border-zinc-900 bg-white text-zinc-800 font-mono text-xs px-3.5 py-2 rounded-lg transition-all flex items-center gap-2 cursor-pointer hover:translate-y-[-1px]"
+                className="border border-zinc-300 hover:border-zinc-900 bg-white text-zinc-800 font-mono text-xs px-3 sm:px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5 sm:gap-2 cursor-pointer hover:translate-y-[-1px]"
               >
                 {copiedEmail ? (
                   <>
@@ -311,7 +312,7 @@ export default function Home() {
                 href="https://github.com/bhavukar"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-zinc-600 hover:text-zinc-950 font-mono text-xs px-3 py-2 flex items-center gap-1.5 transition-colors"
+                className="text-zinc-600 hover:text-zinc-950 font-mono text-xs px-2.5 sm:px-3 py-2 flex items-center gap-1.5 transition-colors"
               >
                 <Github size={14} />
                 <span>GitHub</span>
@@ -322,7 +323,7 @@ export default function Home() {
                 href="https://www.linkedin.com/in/bhavuk-arora-4a7263216/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-zinc-600 hover:text-zinc-950 font-mono text-xs px-3 py-2 flex items-center gap-1.5 transition-colors"
+                className="text-zinc-600 hover:text-zinc-950 font-mono text-xs px-2.5 sm:px-3 py-2 flex items-center gap-1.5 transition-colors"
               >
                 <Linkedin size={14} />
                 <span>LinkedIn</span>
@@ -335,41 +336,42 @@ export default function Home() {
         {/* ───────────────────────────────────────────────────────────
             WORK EXPERIENCE (THE PRIMARY CENTERPIECE)
             ─────────────────────────────────────────────────────────── */}
-        <section id="experience" className="px-5 sm:px-10 py-16 border-b border-zinc-200 relative">
-          <div className="space-y-1 mb-12">
-            <div className="text-xs font-mono uppercase tracking-wider text-zinc-500">
+        <section id="experience" className="px-4 sm:px-10 py-12 sm:py-16 border-b border-zinc-200 relative">
+          <div className="space-y-1 mb-8 sm:mb-12">
+            <div className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-zinc-500">
               Work Experience
             </div>
             <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-950">
               Where I've worked & what I've shipped
             </h2>
             <p className="text-xs sm:text-sm text-zinc-500 font-mono pt-1">
-              Hover over any company link for a live preview.
+              <span className="hidden md:inline">Hover over any company link for a live preview.</span>
+              <span className="md:hidden">Tap company links to view live products.</span>
             </p>
           </div>
 
-          <div className="space-y-14">
+          <div className="space-y-10 sm:space-y-14">
             {EXPERIENCES.map((exp, index) => (
               <motion.div
                 key={exp.id}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-60px' }}
+                viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.5, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                className="group relative pb-12 border-b border-zinc-100 last:border-none last:pb-0 transition-all"
+                className="group relative pb-10 sm:pb-12 border-b border-zinc-100 last:border-none last:pb-0 transition-all"
               >
                 {/* Header Row: Role & Period */}
-                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
-                  <h3 className="text-lg sm:text-xl font-bold text-zinc-950 group-hover:text-black transition-colors">
+                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-1.5 sm:mb-2">
+                  <h3 className="text-base sm:text-xl font-bold text-zinc-950 group-hover:text-black transition-colors leading-snug">
                     {exp.role}
                   </h3>
-                  <div className="text-xs font-mono text-zinc-500">
+                  <div className="text-[11px] sm:text-xs font-mono text-zinc-500">
                     {exp.period}
                   </div>
                 </div>
 
                 {/* Company & Location & Live Link */}
-                <div className="flex flex-wrap items-center gap-2.5 text-sm mb-4">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 text-xs sm:text-sm mb-3 sm:mb-4">
                   <span
                     onMouseEnter={() => handleMouseEnter(exp.id)}
                     onMouseLeave={handleMouseLeave}
@@ -378,7 +380,7 @@ export default function Home() {
                     {exp.company}
                   </span>
                   <span className="text-zinc-300">•</span>
-                  <span className="text-xs font-mono text-zinc-500">{exp.location}</span>
+                  <span className="text-[11px] sm:text-xs font-mono text-zinc-500">{exp.location}</span>
                   <span className="text-zinc-300">•</span>
 
                   {/* Relative Anchor Container for Link & Popover Preview */}
@@ -389,13 +391,13 @@ export default function Home() {
                       rel="noopener noreferrer"
                       onMouseEnter={() => handleMouseEnter(exp.id)}
                       onMouseLeave={handleMouseLeave}
-                      className="inline-flex items-center gap-1 text-xs font-mono font-semibold text-zinc-900 hover:text-black underline underline-offset-4 decoration-zinc-400 hover:decoration-black transition-all bg-zinc-50 hover:bg-zinc-100 px-2.5 py-1 rounded"
+                      className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-mono font-semibold text-zinc-900 hover:text-black underline underline-offset-4 decoration-zinc-400 hover:decoration-black transition-all bg-zinc-50 hover:bg-zinc-100 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded"
                     >
                       <span>{exp.displayUrl}</span>
-                      <ArrowUpRight size={12} />
+                      <ArrowUpRight size={11} className="sm:size-3" />
                     </a>
 
-                    {/* Popover Preview Card anchored directly above the link */}
+                    {/* Popover Preview Card anchored directly above the link (desktop only) */}
                     <div
                       onMouseEnter={() => handleMouseEnter(exp.id)}
                       onMouseLeave={handleMouseLeave}
@@ -440,22 +442,22 @@ export default function Home() {
                 </div>
 
                 {/* Summary */}
-                <p className="text-sm text-zinc-700 leading-relaxed mb-4 max-w-2xl">
+                <p className="text-xs sm:text-sm text-zinc-700 leading-relaxed mb-3 sm:mb-4 max-w-2xl">
                   {exp.summary}
                 </p>
 
                 {/* Bullet Points */}
-                <ul className="space-y-2.5 mb-5 max-w-2xl">
+                <ul className="space-y-2 sm:space-y-2.5 mb-4 sm:mb-5 max-w-2xl">
                   {exp.highlights.map((h, i) => (
-                    <li key={i} className="text-xs sm:text-sm text-zinc-600 leading-relaxed flex items-start gap-2.5">
-                      <span className="text-zinc-400 select-none mt-1">—</span>
+                    <li key={i} className="text-xs sm:text-sm text-zinc-600 leading-relaxed flex items-start gap-2 sm:gap-2.5">
+                      <span className="text-zinc-400 select-none mt-0.5 sm:mt-1">—</span>
                       <span>{h}</span>
                     </li>
                   ))}
                 </ul>
 
                 {/* Plain skills text */}
-                <div className="text-xs font-mono text-zinc-500 pt-1">
+                <div className="text-[11px] sm:text-xs font-mono text-zinc-500 pt-1 leading-normal">
                   <span className="text-zinc-400">Stack:</span> {exp.skills.join(' • ')}
                 </div>
               </motion.div>
@@ -470,12 +472,12 @@ export default function Home() {
           id="skills"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
+          viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="px-5 sm:px-10 py-16 border-b border-zinc-200"
+          className="px-4 sm:px-10 py-12 sm:py-16 border-b border-zinc-200"
         >
-          <div className="space-y-1 mb-10">
-            <div className="text-xs font-mono uppercase tracking-wider text-zinc-500">
+          <div className="space-y-1 mb-8 sm:mb-10">
+            <div className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-zinc-500">
               Technical Skills
             </div>
             <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-950">
@@ -483,9 +485,9 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-xs font-mono">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 text-xs font-mono">
             <div className="space-y-2">
-              <div className="font-bold text-zinc-950 uppercase border-b border-zinc-200 pb-1.5">
+              <div className="font-bold text-zinc-950 uppercase border-b border-zinc-200 pb-1 sm:pb-1.5">
                 Languages
               </div>
               <p className="text-zinc-600 leading-relaxed">
@@ -494,7 +496,7 @@ export default function Home() {
             </div>
 
             <div className="space-y-2">
-              <div className="font-bold text-zinc-950 uppercase border-b border-zinc-200 pb-1.5">
+              <div className="font-bold text-zinc-950 uppercase border-b border-zinc-200 pb-1 sm:pb-1.5">
                 Frontend & Mobile
               </div>
               <p className="text-zinc-600 leading-relaxed">
@@ -503,7 +505,7 @@ export default function Home() {
             </div>
 
             <div className="space-y-2">
-              <div className="font-bold text-zinc-950 uppercase border-b border-zinc-200 pb-1.5">
+              <div className="font-bold text-zinc-950 uppercase border-b border-zinc-200 pb-1 sm:pb-1.5">
                 Backend & Systems
               </div>
               <p className="text-zinc-600 leading-relaxed">
@@ -512,7 +514,7 @@ export default function Home() {
             </div>
 
             <div className="space-y-2">
-              <div className="font-bold text-zinc-950 uppercase border-b border-zinc-200 pb-1.5">
+              <div className="font-bold text-zinc-950 uppercase border-b border-zinc-200 pb-1 sm:pb-1.5">
                 AI & Agentic Workflows
               </div>
               <p className="text-zinc-600 leading-relaxed">
@@ -521,7 +523,7 @@ export default function Home() {
             </div>
 
             <div className="space-y-2">
-              <div className="font-bold text-zinc-950 uppercase border-b border-zinc-200 pb-1.5">
+              <div className="font-bold text-zinc-950 uppercase border-b border-zinc-200 pb-1 sm:pb-1.5">
                 DevOps & Cloud
               </div>
               <p className="text-zinc-600 leading-relaxed">
@@ -530,7 +532,7 @@ export default function Home() {
             </div>
 
             <div className="space-y-2">
-              <div className="font-bold text-zinc-950 uppercase border-b border-zinc-200 pb-1.5">
+              <div className="font-bold text-zinc-950 uppercase border-b border-zinc-200 pb-1 sm:pb-1.5">
                 Domain Specialization
               </div>
               <p className="text-zinc-600 leading-relaxed">
@@ -539,8 +541,6 @@ export default function Home() {
             </div>
           </div>
         </motion.section>
-
-
 
         {/* ───────────────────────────────────────────────────────────
             CONTACT & INVITATION SECTION
@@ -551,24 +551,24 @@ export default function Home() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="px-5 sm:px-10 py-16"
+          className="px-4 sm:px-10 py-12 sm:py-16"
         >
-          <div className="rounded-2xl bg-zinc-950 text-white p-7 sm:p-10 border border-zinc-800 space-y-6 shadow-xl">
+          <div className="rounded-2xl bg-zinc-950 text-white p-5 sm:p-8 md:p-10 border border-zinc-800 space-y-5 sm:space-y-6 shadow-xl">
             <div className="space-y-2 max-w-xl">
               <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white">
                 Let's build something.
               </h2>
-              <p className="text-zinc-400 text-sm leading-relaxed">
+              <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed">
                 Open to founding product engineering roles, forward-deployed positions, or high-impact
                 contract work. Whether you have an early-stage venture or just want to chat software,
                 my inbox is open.
               </p>
             </div>
 
-            <div className="p-4 rounded-xl bg-zinc-900 border border-zinc-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-              <div>
-                <div className="text-[10px] font-mono text-zinc-500 uppercase">Direct Email</div>
-                <div className="text-base font-mono font-bold text-white select-all">
+            <div className="p-3.5 sm:p-4 rounded-xl bg-zinc-900 border border-zinc-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+              <div className="w-full sm:w-auto">
+                <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider">Direct Email</div>
+                <div className="text-sm sm:text-base font-mono font-bold text-white select-all break-all">
                   bhavukarora03@gmail.com
                 </div>
               </div>
@@ -576,7 +576,7 @@ export default function Home() {
               <div className="flex items-center gap-2 w-full sm:w-auto">
                 <button
                   onClick={handleCopyEmail}
-                  className="flex-1 sm:flex-initial px-4 py-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-xs font-mono font-semibold text-white transition-all flex items-center justify-center gap-2 cursor-pointer hover:translate-y-[-1px]"
+                  className="flex-1 sm:flex-initial px-3 sm:px-4 py-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-xs font-mono font-semibold text-white transition-all flex items-center justify-center gap-1.5 sm:gap-2 cursor-pointer hover:translate-y-[-1px]"
                 >
                   {copiedEmail ? (
                     <>
@@ -592,7 +592,7 @@ export default function Home() {
                 </button>
                 <a
                   href="mailto:bhavukarora03@gmail.com"
-                  className="px-4 py-2 rounded-lg bg-[#fde047] hover:bg-yellow-300 text-black text-xs font-mono font-bold transition-all flex items-center justify-center gap-1 hover:translate-y-[-1px]"
+                  className="px-3.5 sm:px-4 py-2 rounded-lg bg-[#fde047] hover:bg-yellow-300 text-black text-xs font-mono font-bold transition-all flex items-center justify-center gap-1 hover:translate-y-[-1px]"
                 >
                   <span>Mailto</span>
                   <ArrowUpRight size={13} />
@@ -600,8 +600,8 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="pt-4 border-t border-zinc-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-zinc-400">
-              <div className="flex items-center gap-4">
+            <div className="pt-4 border-t border-zinc-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 text-xs font-mono text-zinc-400">
+              <div className="flex flex-wrap items-center gap-3 sm:gap-4">
                 <a
                   href="https://github.com/bhavukar"
                   target="_blank"
@@ -633,21 +633,19 @@ export default function Home() {
                 </a>
               </div>
 
-              <div>Rohini, Delhi, India (+91-8708254881)</div>
+              <div className="text-[11px] sm:text-xs text-zinc-500">Rohini, Delhi, India (+91-8708254881)</div>
             </div>
           </div>
         </motion.section>
 
         {/* ───────────────────────────────────────────────────────────
-            FOOTER (Clean, No Cloudflare workers mention)
+            FOOTER (Clean & Simple)
             ─────────────────────────────────────────────────────────── */}
-        <footer className="border-t border-zinc-200 px-5 sm:px-10 py-6 text-xs font-mono text-zinc-500 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <footer className="border-t border-zinc-200 px-4 sm:px-10 py-5 sm:py-6 text-xs font-mono text-zinc-500 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3 text-center sm:text-left">
           <div>© {new Date().getFullYear()} Bhavuk Arora.</div>
           <div>Delhi, India.</div>
         </footer>
       </div>
-
-
     </div>
   );
 }
