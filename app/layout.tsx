@@ -10,21 +10,21 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://bhavuk.website'),
-  title: 'Bhavuk Arora — Forward Deployed AI Engineer & Systems',
+  title: 'Bhavuk Arora — Product Engineer & Founder',
   description:
-    'Forward Deployed AI Engineer specializing in deterministic agentic runtimes, low-latency edge inference, and distributed system architectures.',
+    'Product engineer & founder building consumer products and AI workflows. Founding engineer at Reve (25K+ downloads), building Fork.',
   keywords: [
     'Bhavuk Arora',
     'bhavuk.website',
     'bhavukar',
-    'Forward Deployed Engineer',
-    'AI Systems',
-    'Agentic Workflows',
-    'Edge Infrastructure',
-    'Cloudflare Workers',
-    'Rust',
-    'Next.js',
+    'Product Engineer',
+    'Founding Engineer',
+    'Fork',
     'Reve',
+    'Flutter',
+    'Next.js',
+    'Rust',
+    'AI Workflows',
   ],
   authors: [{ name: 'Bhavuk Arora', url: 'https://bhavuk.website' }],
   creator: 'Bhavuk Arora',
@@ -32,9 +32,9 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://bhavuk.website',
-    title: 'Bhavuk Arora — Forward Deployed AI Engineer & Systems',
+    title: 'Bhavuk Arora — Product Engineer & Founder',
     description:
-      'Forward Deployed AI Engineer specializing in deterministic agentic runtimes, low-latency edge inference, and distributed system architectures.',
+      'Product engineer & founder building consumer products and AI workflows. Founding engineer at Reve (25K+ downloads), building Fork.',
     siteName: 'Bhavuk Arora',
     images: [
       {
@@ -47,15 +47,15 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bhavuk Arora — Forward Deployed AI Engineer & Systems',
+    title: 'Bhavuk Arora — Product Engineer & Founder',
     description:
-      'Forward Deployed AI Engineer specializing in deterministic agentic runtimes, low-latency edge inference, and distributed system architectures.',
+      'Product engineer & founder building consumer products and AI workflows. Founding engineer at Reve (25K+ downloads), building Fork.',
     images: ['/profile.jpeg'],
   },
   icons: {
     icon: '/favicon.svg',
     shortcut: '/favicon.svg',
-    apple: '/profile.jpeg',
+    apple: '/favicon.svg',
   },
 };
 
