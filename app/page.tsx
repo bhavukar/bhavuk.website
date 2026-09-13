@@ -213,7 +213,7 @@ export default function Home() {
                 <span className="hidden sm:inline">Bhavuk Arora</span>
               </span>
               <span className="text-[10px] sm:text-[11px] text-zinc-500 font-mono hidden sm:inline leading-none mt-0.5">
-                Founder & Product Engineer
+                Founder & CEO · Blue Fork
               </span>
             </div>
           </a>
@@ -259,13 +259,15 @@ export default function Home() {
           <div className="space-y-4 sm:space-y-6 max-w-3xl">
             {/* Experience status bar */}
             <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 text-[11px] sm:text-xs font-mono text-zinc-500">
-              <span className="font-bold text-zinc-950 tracking-wider">5+ YEARS EXPERIENCE</span>
+              <span className="font-bold text-zinc-950 tracking-wider">FOUNDER & CEO · BLUE FORK</span>
+              <span className="text-zinc-300">•</span>
+              <span>5+ YEARS EXPERIENCE</span>
               <span className="text-zinc-300">•</span>
               <span>DELHI · REMOTE</span>
             </div>
 
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-zinc-950 leading-[1.25] sm:leading-[1.22] max-w-2xl">
-              Founder & product engineer building{' '}
+              Founder & CEO building{' '}
               <mark className="bg-[#fde047] text-black px-1 sm:px-1.5 py-0.5 font-semibold not-italic rounded-[2px]">
                 consumer products
               </mark>{' '}
@@ -276,10 +278,10 @@ export default function Home() {
             </h1>
 
             <p className="text-sm sm:text-base text-zinc-600 leading-relaxed max-w-xl">
-              I turn early-stage ideas into products people actually use. Over 5+ years of engineering,
+              Founder & CEO of <strong>Blue Fork</strong>, building the commercial operating system
+              for independent creators and digital entrepreneurs. Over 5+ years of engineering,
               I've taken applications from zero to scale across consumer mobile and edtech platforms
-              (10 Lakh+ downloads at Suraasa, 25K+ at Reve). Currently building <strong>Fork</strong> (commercial
-              operating system for independent creators).
+              (10 Lakh+ downloads at Suraasa, 25K+ at Reve).
             </p>
 
             {/* Quick Actions */}
@@ -642,7 +644,7 @@ export default function Home() {
             FOOTER (Clean & Simple)
             ─────────────────────────────────────────────────────────── */}
         <footer className="border-t border-zinc-200 px-4 sm:px-10 py-5 sm:py-6 text-xs font-mono text-zinc-500 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3 text-center sm:text-left">
-          <div>© {new Date().getFullYear()} Bhavuk Arora.</div>
+          <div>© {new Date().getFullYear()} Bhavuk Arora — Founder & CEO, Blue Fork.</div>
           <div>Delhi, India.</div>
         </footer>
       </div>
