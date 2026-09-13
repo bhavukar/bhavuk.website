@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Lenis from 'lenis';
 import {
@@ -145,6 +145,61 @@ const EXPERIENCES: ExperienceItem[] = [
 export default function Home() {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [hoveredExperience, setHoveredExperience] = useState<ExperienceItem | null>(null);
+  const [activeExperience, setActiveExperience] = useState<ExperienceItem>(EXPERIENCES[0]);
+  const [loadedExperienceIds, setLoadedExperienceIds] = useState<Set<string>>(() => new Set(['fork']));
+  const hoverLeaveTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Pre-warm remaining preview iframes after 1.5s idle so they display instantly without reload
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoadedExperienceIds(new Set(['fork', 'reve', 'mythyaverse']));
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Cleanup hover timer on unmount
+  useEffect(() => {
+    return () => {
+      if (hoverLeaveTimeoutRef.current) {
+        clearTimeout(hoverLeaveTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  const handleExperienceHover = (exp: ExperienceItem) => {
+    if (hoverLeaveTimeoutRef.current) {
+      clearTimeout(hoverLeaveTimeoutRef.current);
+      hoverLeaveTimeoutRef.current = null;
+    }
+    setHoveredExperience(exp);
+    setActiveExperience(exp);
+    setLoadedExperienceIds((prev) => {
+      if (prev.has(exp.id)) return prev;
+      const next = new Set(prev);
+      next.add(exp.id);
+      return next;
+    });
+  };
+
+  const handleExperienceLeave = () => {
+    if (hoverLeaveTimeoutRef.current) {
+      clearTimeout(hoverLeaveTimeoutRef.current);
+    }
+    hoverLeaveTimeoutRef.current = setTimeout(() => {
+      setHoveredExperience(null);
+    }, 250);
+  };
+
+  const handlePreviewWindowEnter = () => {
+    if (hoverLeaveTimeoutRef.current) {
+      clearTimeout(hoverLeaveTimeoutRef.current);
+      hoverLeaveTimeoutRef.current = null;
+    }
+  };
+
+  const handlePreviewWindowLeave = () => {
+    setHoveredExperience(null);
+  };
 
   // Initialize Lenis smooth "liquid" scrolling
   useEffect(() => {
@@ -359,7 +414,13 @@ export default function Home() {
 
                 {/* Company & Location & Live Link */}
                 <div className="flex flex-wrap items-center gap-2.5 text-sm mb-4">
-                  <span className="font-semibold text-zinc-900">{exp.company}</span>
+                  <span
+                    onMouseEnter={() => handleExperienceHover(exp)}
+                    onMouseLeave={handleExperienceLeave}
+                    className="font-semibold text-zinc-900 cursor-pointer hover:text-black transition-colors"
+                  >
+                    {exp.company}
+                  </span>
                   <span className="text-zinc-300">•</span>
                   <span className="text-xs font-mono text-zinc-500">{exp.location}</span>
                   <span className="text-zinc-300">•</span>
@@ -367,8 +428,8 @@ export default function Home() {
                     href={exp.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    onMouseEnter={() => setHoveredExperience(exp)}
-                    onMouseLeave={() => setHoveredExperience(null)}
+                    onMouseEnter={() => handleExperienceHover(exp)}
+                    onMouseLeave={handleExperienceLeave}
                     className="inline-flex items-center gap-1 text-xs font-mono font-semibold text-zinc-900 hover:text-black underline underline-offset-4 decoration-zinc-400 hover:decoration-black transition-all bg-zinc-50 hover:bg-zinc-100 px-2.5 py-1 rounded"
                   >
                     <span>{exp.displayUrl}</span>
@@ -597,106 +658,131 @@ export default function Home() {
 
       {/* ─────────────────────────────────────────────────────────────
           GLOBAL FLOATING MACOS WEBSITE PREVIEW WINDOW
-          Loads the real live website inside an iframe with actual URL bar!
+          Cached DOM with multi-slot iframe persistence:
+          - Iframes stay mounted once loaded so they NEVER reload on hover
+          - Smoothly fades and slides into view
+          - Real live URL address bar and click-through overlay
           ───────────────────────────────────────────────────────────── */}
-      <AnimatePresence>
-        {hoveredExperience && (
-          <motion.div
-            initial={{ opacity: 0, y: 16, scale: 0.96 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 10, scale: 0.96 }}
-            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="hidden lg:block fixed bottom-8 right-8 z-50 w-[420px] rounded-xl bg-zinc-950 text-white shadow-2xl border border-zinc-700 overflow-hidden pointer-events-auto"
+      <motion.div
+        initial={false}
+        animate={{
+          opacity: hoveredExperience ? 1 : 0,
+          y: hoveredExperience ? 0 : 16,
+          scale: hoveredExperience ? 1 : 0.96,
+        }}
+        transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+        style={{ pointerEvents: hoveredExperience ? 'auto' : 'none' }}
+        onMouseEnter={handlePreviewWindowEnter}
+        onMouseLeave={handlePreviewWindowLeave}
+        className="hidden lg:block fixed bottom-8 right-8 z-50 w-[420px] rounded-xl bg-zinc-950 text-white shadow-2xl border border-zinc-700 overflow-hidden"
+      >
+        {/* macOS Browser Header */}
+        <div className="flex items-center justify-between px-3.5 py-2.5 bg-zinc-900 border-b border-zinc-800 text-xs font-mono select-none">
+          <div className="flex items-center gap-1.5">
+            <button
+              onClick={() => setHoveredExperience(null)}
+              className="w-2.5 h-2.5 rounded-full bg-[#ff5f56] hover:opacity-80 transition-opacity cursor-pointer border-0 p-0"
+              title="Close preview"
+              type="button"
+            />
+            <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
+            <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
+          </div>
+
+          {/* Real URL Address Bar */}
+          <a
+            href={activeExperience.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 px-3 py-1 rounded bg-zinc-950 text-[11px] text-zinc-300 border border-zinc-800 hover:border-zinc-600 hover:text-white transition-all max-w-[260px] truncate"
           >
-            {/* macOS Browser Header */}
-            <div className="flex items-center justify-between px-3.5 py-2.5 bg-zinc-900 border-b border-zinc-800 text-xs font-mono select-none">
-              <div className="flex items-center gap-1.5">
-                <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
-                <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
-                <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
+            <Lock size={10} className="text-emerald-400 shrink-0" />
+            <span className="truncate">{activeExperience.url}</span>
+          </a>
+
+          <a
+            href={activeExperience.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-zinc-400 hover:text-white transition-colors"
+            title="Open site in new tab"
+          >
+            <ArrowUpRight size={13} />
+          </a>
+        </div>
+
+        {/* Window Content: Real Iframes Cached & Kept Mounted */}
+        <div className="relative w-full h-[260px] bg-zinc-900 overflow-hidden">
+          {EXPERIENCES.map((exp) => {
+            if (!exp.embedUrl) return null;
+            const isLoaded = loadedExperienceIds.has(exp.id);
+            if (!isLoaded) return null;
+
+            const isCurrent = activeExperience.id === exp.id;
+
+            return (
+              <div
+                key={exp.id}
+                className={`absolute inset-0 w-full h-full bg-zinc-950 transition-opacity duration-200 ${
+                  isCurrent ? 'opacity-100 z-10 pointer-events-auto' : 'opacity-0 z-0 pointer-events-none'
+                }`}
+              >
+                {/* Backdrop Screenshot for zero flicker */}
+                {exp.previewImage && (
+                  <img
+                    src={exp.previewImage}
+                    alt={exp.displayUrl}
+                    className="absolute inset-0 w-full h-full object-cover object-top opacity-90"
+                  />
+                )}
+
+                {/* Real Live Iframe View (Cached & Kept Mounted) */}
+                <iframe
+                  src={exp.embedUrl}
+                  title={exp.displayUrl}
+                  className="absolute inset-0 w-[840px] h-[520px] origin-top-left scale-50 border-0 bg-white"
+                  loading="eager"
+                />
+
+                {/* Clickable Overlay */}
+                <a
+                  href={exp.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 z-20 cursor-pointer"
+                  title={`Click to open ${exp.displayUrl}`}
+                />
               </div>
+            );
+          })}
 
-              {/* Real URL Address Bar */}
+          {/* Fallback for same-origin protected sites like Suraasa or IITD */}
+          {!activeExperience.embedUrl && (
+            <div className="absolute inset-0 z-10 w-full h-full p-5 flex flex-col justify-between bg-gradient-to-br from-zinc-800 to-zinc-950 text-left">
+              <div className="space-y-2">
+                <div className="text-[10px] font-mono text-[#fde047] font-bold uppercase tracking-wider">
+                  {activeExperience.previewFallback?.badge || 'Official Product'}
+                </div>
+                <div className="text-base font-bold text-white">
+                  {activeExperience.previewFallback?.title || activeExperience.displayUrl}
+                </div>
+                <p className="text-xs text-zinc-300 leading-relaxed">
+                  {activeExperience.previewFallback?.subtitle || 'Visit official website for details.'}
+                </p>
+              </div>
               <a
-                href={hoveredExperience.url}
+                href={activeExperience.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 px-3 py-1 rounded bg-zinc-950 text-[11px] text-zinc-300 border border-zinc-800 hover:border-zinc-600 hover:text-white transition-all max-w-[260px] truncate"
+                className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-400 hover:text-white pt-3 border-t border-zinc-700/80"
               >
-                <Lock size={10} className="text-emerald-400 shrink-0" />
-                <span className="truncate">{hoveredExperience.url}</span>
-              </a>
-
-              <a
-                href={hoveredExperience.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-zinc-400 hover:text-white transition-colors"
-                title="Open site in new tab"
-              >
-                <ArrowUpRight size={13} />
+                <span>Open {activeExperience.displayUrl}</span>
+                <ArrowUpRight size={12} />
               </a>
             </div>
-
-            {/* Window Content: Real Iframe / Real Website Content */}
-            <div className="relative w-full h-[260px] bg-zinc-900 overflow-hidden">
-              {hoveredExperience.embedUrl ? (
-                <div className="w-full h-full relative overflow-hidden bg-zinc-950">
-                  {/* Backdrop Screenshot for zero flicker */}
-                  {hoveredExperience.previewImage && (
-                    <img
-                      src={hoveredExperience.previewImage}
-                      alt={hoveredExperience.displayUrl}
-                      className="absolute inset-0 w-full h-full object-cover object-top opacity-90"
-                    />
-                  )}
-
-                  {/* Real Live Iframe View */}
-                  <iframe
-                    src={hoveredExperience.embedUrl}
-                    title={hoveredExperience.displayUrl}
-                    className="absolute inset-0 w-[840px] h-[520px] origin-top-left scale-50 border-0 bg-white"
-                    loading="lazy"
-                  />
-
-                  {/* Clickable Overlay */}
-                  <a
-                    href={hoveredExperience.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="absolute inset-0 z-20 cursor-pointer"
-                    title={`Click to open ${hoveredExperience.displayUrl}`}
-                  />
-                </div>
-              ) : (
-                /* Fallback for same-origin protected sites like Suraasa or IITD */
-                <div className="w-full h-full p-5 flex flex-col justify-between bg-gradient-to-br from-zinc-800 to-zinc-950 text-left">
-                  <div className="space-y-2">
-                    <div className="text-[10px] font-mono text-[#fde047] font-bold uppercase tracking-wider">
-                      {hoveredExperience.previewFallback?.badge || 'Official Product'}
-                    </div>
-                    <div className="text-base font-bold text-white">
-                      {hoveredExperience.previewFallback?.title || hoveredExperience.displayUrl}
-                    </div>
-                    <p className="text-xs text-zinc-300 leading-relaxed">
-                      {hoveredExperience.previewFallback?.subtitle || 'Visit official website for details.'}
-                    </p>
-                  </div>
-                  <a
-                    href={hoveredExperience.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-400 hover:text-white pt-3 border-t border-zinc-700/80"
-                  >
-                    <span>Open {hoveredExperience.displayUrl}</span>
-                    <ArrowUpRight size={12} />
-                  </a>
-                </div>
-              )}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          )}
+        </div>
+      </motion.div>
     </div>
   );
 }
