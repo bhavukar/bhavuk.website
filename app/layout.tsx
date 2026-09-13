@@ -4,26 +4,25 @@ import './globals.css';
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
-  themeColor: '#030303',
+  maximumScale: 5,
+  themeColor: '#ffffff',
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://bhavuk.website'),
-  title: 'Bhavuk Arora — Founding Member & Product Engineer',
+  title: 'Bhavuk Arora — Forward Deployed AI Engineer & Systems',
   description:
-    'Personal website & interactive portfolio of Bhavuk Arora. Founding member & Product Engineer at Reve. Building resilient digital ecosystems, from low-level CLI tools to high-performance mobile architectures.',
+    'Forward Deployed AI Engineer specializing in deterministic agentic runtimes, low-latency edge inference, and distributed system architectures.',
   keywords: [
     'Bhavuk Arora',
     'bhavuk.website',
-    'bhavukarora03',
-    'Product Engineer',
-    'Founding Engineer',
-    'Mobile Developer',
-    'Flutter',
+    'bhavukar',
+    'Forward Deployed Engineer',
+    'AI Systems',
+    'Agentic Workflows',
+    'Edge Infrastructure',
+    'Cloudflare Workers',
     'Rust',
-    'React',
     'Next.js',
     'Reve',
   ],
@@ -33,9 +32,9 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://bhavuk.website',
-    title: 'Bhavuk Arora — Founding Member & Product Engineer',
+    title: 'Bhavuk Arora — Forward Deployed AI Engineer & Systems',
     description:
-      'Personal website & interactive portfolio of Bhavuk Arora. Founding member & Product Engineer at Reve.',
+      'Forward Deployed AI Engineer specializing in deterministic agentic runtimes, low-latency edge inference, and distributed system architectures.',
     siteName: 'Bhavuk Arora',
     images: [
       {
@@ -48,9 +47,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bhavuk Arora — Founding Member & Product Engineer',
+    title: 'Bhavuk Arora — Forward Deployed AI Engineer & Systems',
     description:
-      'Personal website & interactive portfolio of Bhavuk Arora. Founding member & Product Engineer at Reve.',
+      'Forward Deployed AI Engineer specializing in deterministic agentic runtimes, low-latency edge inference, and distributed system architectures.',
     images: ['/profile.jpeg'],
   },
   icons: {
@@ -66,11 +65,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="scroll-smooth">
       <head>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
       </head>
-      <body className="bg-[#030303] text-white antialiased overflow-hidden font-sans">
+      <body className="bg-white text-zinc-900 antialiased min-h-screen selection:bg-[#fde047] selection:text-black">
         {children}
       </body>
     </html>
