@@ -1212,15 +1212,15 @@ export default function Home() {
             </a>
           </div>
 
-          {/* 3 Essay Cards Grid (Clean 4:5 Visual Cards) */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          {/* 3 Essay Cards Grid (Compact swipe on mobile, clean 3-col on desktop) */}
+          <div className="flex md:grid md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 overflow-x-auto pb-4 pt-1 snap-x snap-mandatory -mx-4 px-4 sm:mx-0 sm:px-0 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
             {SUBSTACK_POSTS.map((post) => (
               <a
                 key={post.id}
                 href={post.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group rounded-2xl border border-zinc-200 bg-white overflow-hidden shadow-2xs hover:shadow-md transition-all flex flex-col hover:-translate-y-1"
+                className="w-[230px] sm:w-[260px] md:w-auto shrink-0 snap-start group rounded-2xl border border-zinc-200 bg-white overflow-hidden shadow-2xs hover:shadow-md transition-all flex flex-col hover:-translate-y-1"
               >
                 {/* Visual Canvas (Substack Share Card, 4:5 ratio) */}
                 <div className="aspect-[4/5] relative overflow-hidden bg-zinc-100">
