@@ -6,7 +6,6 @@ import {
   Github,
   Linkedin,
   Twitter,
-  Mail,
   ArrowUpRight,
   Copy,
   Check,
@@ -21,14 +20,15 @@ interface ExperienceItem {
   period: string;
   url: string;
   displayUrl: string;
+  embedUrl?: string;
+  previewImage?: string;
   summary: string;
   highlights: string[];
   skills: string[];
-  preview: {
+  previewFallback?: {
     title: string;
-    tagline: string;
-    metric: string;
-    previewBg: string;
+    subtitle: string;
+    badge: string;
     details: string;
   };
 }
@@ -40,8 +40,10 @@ const EXPERIENCES: ExperienceItem[] = [
     company: 'Fork (Blue Fork)',
     location: 'Delhi',
     period: 'May 2026 – Present',
-    url: 'https://github.com/bhavukar',
-    displayUrl: 'fork.sh',
+    url: 'https://app.fork.blue',
+    displayUrl: 'app.fork.blue',
+    embedUrl: 'https://app.fork.blue',
+    previewImage: 'https://app.fork.blue/preview_url.png',
     summary:
       'Building an AI-native operating platform for independent talent — creators, artists, musicians, actors, and craftspeople who monetize their audience and work.',
     highlights: [
@@ -49,14 +51,7 @@ const EXPERIENCES: ExperienceItem[] = [
       'Creating a unified marketplace where talent and brands collaborate and transact directly, replacing fragmented workflows across DMs, spreadsheets, and manual tools.',
       'Architecting end-to-end fullstack platform with TypeScript, Next.js, and structured LLM tool-calling pipelines.'
     ],
-    skills: ['TypeScript', 'Next.js', 'AI Agents', 'PostgreSQL', 'Fullstack Architecture'],
-    preview: {
-      title: 'Fork — AI Platform for Talent',
-      tagline: 'Automating commercial workflows & contracts for independent creators.',
-      metric: 'AI-Native Talent Marketplace',
-      previewBg: 'from-amber-500/20 via-yellow-500/10 to-zinc-900',
-      details: 'Automated deal discovery • Smart contract review • Creator business tooling'
-    }
+    skills: ['TypeScript', 'Next.js', 'AI Agents', 'PostgreSQL', 'Fullstack Architecture']
   },
   {
     id: 'reve',
@@ -66,6 +61,9 @@ const EXPERIENCES: ExperienceItem[] = [
     period: 'Sep 2024 – Present',
     url: 'https://reve.rsvp',
     displayUrl: 'reve.rsvp',
+    embedUrl: 'https://reve.rsvp',
+    previewImage:
+      'https://assets.reve.rsvp/prod/media/image/f_jpg,q_70,w_1200/webp/v1/static/reve_preview_url.jpg',
     summary:
       'Part of the founding team taking Reve from zero to launch, evolving through multiple pivots into a consumer event app with 25K+ downloads across iOS and Android.',
     highlights: [
@@ -73,23 +71,18 @@ const EXPERIENCES: ExperienceItem[] = [
       'Engineered cross-platform mobile architecture with Flutter, including offline-first SQLite synchronization and real-time event feeds.',
       'Built and optimized onboarding funnels, viral invite loops, and retention mechanics that drove organic community growth.'
     ],
-    skills: ['Flutter', 'SQLite', 'Mobile Architecture', 'Product Design', '25K+ Downloads'],
-    preview: {
-      title: 'Reve — Event & Community Network',
-      tagline: 'Realtime event discovery, RSVP management, and community ticketing.',
-      metric: '25,000+ App Downloads',
-      previewBg: 'from-purple-500/20 via-pink-500/10 to-zinc-900',
-      details: 'Offline-first SQLite sync • Cross-platform iOS & Android • 0 to launch'
-    }
+    skills: ['Flutter', 'SQLite', 'Mobile Architecture', 'Product Design', '25K+ Downloads']
   },
   {
     id: 'mythyaverse',
     role: 'Software Development Engineer',
-    company: 'MythyaVerse',
+    company: 'MythyaVerse (VRPlaced & Oncarea)',
     location: 'Noida, UP',
     period: 'Sep 2023 – Aug 2024',
     url: 'https://www.vrplaced.ai',
     displayUrl: 'vrplaced.ai',
+    embedUrl: 'https://www.vrplaced.ai',
+    previewImage: 'https://www.vrplaced.ai/opengraph-image.png',
     summary:
       'Shipped client and internal production applications across healthcare and AI interview coaching, delivering end-to-end products under strict timelines.',
     highlights: [
@@ -97,14 +90,7 @@ const EXPERIENCES: ExperienceItem[] = [
       'Engineered VRPlaced, a Next.js platform for 1-on-1 interview practice featuring OpenAI-driven resume customization and live feedback.',
       'Owned full development lifecycle: architecture, client-side testing, automated deployments, and continuous UX iterations.'
     ],
-    skills: ['Flutter', 'Next.js', 'OpenAI API', 'Healthcare Systems', 'WebRTC Video'],
-    preview: {
-      title: 'VRPlaced & Oncarea Health',
-      tagline: 'AI interview practice platform & telemedicine video consultations.',
-      metric: 'End-to-End Delivery < 2 Months',
-      previewBg: 'from-blue-500/20 via-cyan-500/10 to-zinc-900',
-      details: 'OpenAI resume coaching • Flutter telemedicine • Full lifecycle engineering'
-    }
+    skills: ['Flutter', 'Next.js', 'OpenAI API', 'Healthcare Systems', 'WebRTC Video']
   },
   {
     id: 'suraasa',
@@ -122,12 +108,11 @@ const EXPERIENCES: ExperienceItem[] = [
       'Collaborated closely with product and design teams to refine teacher learning journeys and boost student course completion rates.'
     ],
     skills: ['Flutter', 'Modular Architecture', 'Custom Video Player', '50K+ Downloads'],
-    preview: {
-      title: 'Suraasa — Flagship EdTech App',
-      tagline: 'Teacher education and certification platform scaled across mobile.',
-      metric: '50,000+ App Downloads',
-      previewBg: 'from-emerald-500/20 via-teal-500/10 to-zinc-900',
-      details: 'Flutter rebuild of legacy native apps • Custom media player • Global reach'
+    previewFallback: {
+      title: 'Suraasa: For Teachers',
+      subtitle: 'Global EdTech platform for teacher education and qualification.',
+      badge: '50,000+ App Downloads • 4.7 ★',
+      details: 'Flutter rebuild of legacy native apps • Custom media player • Modular state'
     }
   },
   {
@@ -146,43 +131,107 @@ const EXPERIENCES: ExperienceItem[] = [
       'Conducted live laboratory demonstrations introducing students and research peers to practical applications of VR and neuro-interfaces.'
     ],
     skills: ['Virtual Reality', 'EEG / Neural Spikes', 'Unity / C#', 'BCI Research'],
-    preview: {
-      title: 'IIT Delhi — BCI & VR Research',
-      tagline: 'Experimental neural interface systems and immersive VR environments.',
-      metric: 'Neural Signal Processing',
-      previewBg: 'from-indigo-500/20 via-purple-500/10 to-zinc-900',
+    previewFallback: {
+      title: 'IIT Delhi — BCI & Neuro Lab',
+      subtitle: 'Experimental brain-computer interface research and immersive VR.',
+      badge: 'Neural Signal Processing',
       details: 'EEG brain activity decoding • Real-time hardware control • Academic research'
     }
   }
 ];
 
-const SIDE_PROJECTS = [
+interface ProjectItem {
+  id: string;
+  title: string;
+  category: string;
+  description: string;
+  tech: string[];
+  url: string;
+  displayUrl: string;
+  embedUrl?: string;
+  previewImage?: string;
+}
+
+const NOTABLE_PROJECTS: ProjectItem[] = [
   {
+    id: 'vrplaced',
+    title: 'VRPlaced',
+    category: 'AI Platform • Web',
+    description:
+      '1-on-1 AI interview practice platform with OpenAI-driven resume customization and live feedback scoring, helping candidates prepare for technical and behavioral loops.',
+    tech: ['Next.js', 'OpenAI API', 'Tailwind CSS', 'Vercel'],
+    url: 'https://www.vrplaced.ai',
+    displayUrl: 'vrplaced.ai',
+    embedUrl: 'https://www.vrplaced.ai',
+    previewImage: 'https://www.vrplaced.ai/opengraph-image.png'
+  },
+  {
+    id: 'pakt',
+    title: 'Pakt',
+    category: 'Community • Realtime Mobile',
+    description:
+      'Cycling and athletic community platform where riders discover routes, coordinate group rides, and sync up with real-time GPS tracking and live activity feeds.',
+    tech: ['Flutter', 'Firebase', 'WebSockets', 'Maps API'],
+    url: 'https://getpakt.run',
+    displayUrl: 'getpakt.run',
+    embedUrl: 'https://getpakt.run',
+    previewImage:
+      'https://firebasestorage.googleapis.com/v0/b/spilll-be.firebasestorage.app/o/Screenshot%202026-04-01%20at%205.42.40%E2%80%AFAM.png?alt=media&token=8e0ead7e-b389-4aa7-9911-76739638012a'
+  },
+  {
+    id: 'subway-sim',
     title: 'subway-sim',
+    category: 'Rust Systems CLI',
     description:
-      'Network chaos simulator written in Rust. Injects jitter, packet loss, and simulated 3G latency into localhost sockets to test how apps behave under bad subway connectivity.',
-    tech: 'Rust • Networking • CLI',
-    link: 'https://github.com/bhavukar/subway-sim.git'
+      'System-level network throttler and chaos simulator written in Rust. Injects jitter, packet loss, and flaky 3G latency into localhost sockets to stress-test app resilience.',
+    tech: ['Rust', 'Tokio', 'Unix Sockets', 'CLI'],
+    url: 'https://github.com/bhavukar/subway-sim.git',
+    displayUrl: 'github.com/bhavukar/subway-sim'
   },
   {
+    id: 'asset-vibe',
     title: 'asset-vibe',
+    category: 'Rust Developer Toolchain',
     description:
-      'High-speed mobile asset compilation tool written in Rust. Watches design folders to instantly generate 1x, 2x, 3x iOS and Android drawables with strongly-typed references in milliseconds.',
-    tech: 'Rust • Image Pipeline • Tooling',
-    link: 'https://github.com/bhavukar/asset-vibe.git'
+      'Automated mobile asset compiler. Watches design directories to instantly generate 1x, 2x, 3x iOS and Android drawables with strongly-typed references in sub-milliseconds.',
+    tech: ['Rust', 'ImageRS', 'Rayon', 'File Watcher'],
+    url: 'https://github.com/bhavukar/asset-vibe.git',
+    displayUrl: 'github.com/bhavukar/asset-vibe'
   },
   {
-    title: 'Monik',
+    id: 'overlay-keeb',
+    title: 'overlay_keeb',
+    category: 'Native Flutter Plugin',
     description:
-      'Windows display control utility built with C++ and Win32. Communicates over DDC/CI to adjust monitor inputs, brightness, and color profiles without physical buttons.',
-    tech: 'C++ • Win32 • Hardware DDC/CI',
-    link: 'https://github.com/bhavukar/monik.git'
+      'High-performance Flutter plugin using native Swift and Kotlin method channels to maintain persistent floating UI layers above the system virtual keyboard.',
+    tech: ['Dart', 'Swift', 'Kotlin', 'Platform Channels'],
+    url: 'https://github.com/bhavukar/overlay_keeb.git',
+    displayUrl: 'github.com/bhavukar/overlay_keeb'
+  },
+  {
+    id: 'two-third',
+    title: 'Two Third Dimensions',
+    category: 'Game Engine & Procedural',
+    description:
+      'Trap-filled dungeon crawler with custom procedural room generation and lighting. Reached Top 5 Popularity in the BYOG 2021 Game Jam out of 155 global entries.',
+    tech: ['Unity', 'C#', 'Custom Shaders', 'Game Jam Winner'],
+    url: 'https://github.com/Bhavukarora03/Two-Third-Dimension.git',
+    displayUrl: 'github.com/Bhavukarora03/Two-Third-Dimension'
   }
 ];
 
 export default function Home() {
   const [copiedEmail, setCopiedEmail] = useState(false);
-  const [hoveredExperience, setHoveredExperience] = useState<string | null>(null);
+  const [hoveredItem, setHoveredItem] = useState<{
+    id: string;
+    url: string;
+    displayUrl: string;
+    embedUrl?: string;
+    previewImage?: string;
+    fallbackTitle?: string;
+    fallbackSubtitle?: string;
+    fallbackBadge?: string;
+  } | null>(null);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText('bhavuk.arora03@gmail.com');
@@ -190,12 +239,10 @@ export default function Home() {
     setTimeout(() => setCopiedEmail(false), 2000);
   };
 
-  const activeExp = EXPERIENCES.find(e => e.id === hoveredExperience);
-
   return (
-    <div className="min-h-screen bg-white text-zinc-900 font-sans selection:bg-[#fde047] selection:text-black">
+    <div className="min-h-screen bg-white text-zinc-900 font-sans selection:bg-[#fde047] selection:text-black relative">
       {/* ─────────────────────────────────────────────────────────────
-          1. MINIMAL HEADER
+          1. MINIMAL STICKY HEADER
           ───────────────────────────────────────────────────────────── */}
       <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-zinc-200">
         <div className="max-w-4xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
@@ -217,7 +264,7 @@ export default function Home() {
             </div>
           </a>
 
-          <nav className="flex items-center gap-6 text-xs font-mono text-zinc-600">
+          <nav className="flex items-center gap-5 sm:gap-7 text-xs font-mono text-zinc-600">
             <a href="#experience" className="hover:text-zinc-950 transition-colors">
               Experience
             </a>
@@ -239,7 +286,7 @@ export default function Home() {
           ───────────────────────────────────────────────────────────── */}
       <div className="max-w-4xl mx-auto border-x border-zinc-200 bg-white min-h-screen">
         {/* ───────────────────────────────────────────────────────────
-            HERO SECTION (Clean, human, grounded)
+            HERO SECTION
             ─────────────────────────────────────────────────────────── */}
         <section className="px-5 sm:px-10 py-14 border-b border-zinc-200">
           <div className="flex flex-col-reverse sm:flex-row items-start sm:items-center justify-between gap-8">
@@ -325,7 +372,7 @@ export default function Home() {
         </section>
 
         {/* ───────────────────────────────────────────────────────────
-            WORK EXPERIENCE (PRIMARY STAR OF THE PAGE)
+            WORK EXPERIENCE (PRIMARY FOCUS FROM RESUME)
             ─────────────────────────────────────────────────────────── */}
         <section id="experience" className="px-5 sm:px-10 py-14 border-b border-zinc-200 relative">
           <div className="space-y-1 mb-10">
@@ -335,33 +382,29 @@ export default function Home() {
             <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-950">
               Where I've worked & what I've shipped
             </h2>
-            <p className="text-sm text-zinc-500 font-mono pt-1">
-              Hover over any company to preview the live product in a window.
+            <p className="text-xs sm:text-sm text-zinc-500 font-mono pt-1">
+              Hover over any company link to load the live site preview.
             </p>
           </div>
 
-          <div className="space-y-12 relative">
+          <div className="space-y-12">
             {EXPERIENCES.map(exp => (
               <div
                 key={exp.id}
-                onMouseEnter={() => setHoveredExperience(exp.id)}
-                onMouseLeave={() => setHoveredExperience(null)}
                 className="group relative pb-10 border-b border-zinc-100 last:border-none last:pb-0 transition-all"
               >
                 {/* Header Row: Role & Period */}
                 <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-1.5">
-                  <div className="flex items-center gap-2">
-                    <h3 className="text-xl font-bold text-zinc-950 group-hover:text-black transition-colors">
-                      {exp.role}
-                    </h3>
-                  </div>
+                  <h3 className="text-xl font-bold text-zinc-950">
+                    {exp.role}
+                  </h3>
                   <div className="text-xs font-mono text-zinc-500">
                     {exp.period}
                   </div>
                 </div>
 
-                {/* Company & Location & Interactive Hover Link */}
-                <div className="flex items-center gap-2.5 text-sm mb-3">
+                {/* Company & Location & Live URL trigger */}
+                <div className="flex flex-wrap items-center gap-2.5 text-sm mb-3">
                   <span className="font-semibold text-zinc-900">{exp.company}</span>
                   <span className="text-zinc-300">•</span>
                   <span className="text-xs font-mono text-zinc-500">{exp.location}</span>
@@ -370,7 +413,20 @@ export default function Home() {
                     href={exp.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-xs font-mono font-medium text-zinc-700 hover:text-black underline underline-offset-2 decoration-zinc-300 hover:decoration-black transition-all"
+                    onMouseEnter={() =>
+                      setHoveredItem({
+                        id: exp.id,
+                        url: exp.url,
+                        displayUrl: exp.displayUrl,
+                        embedUrl: exp.embedUrl,
+                        previewImage: exp.previewImage,
+                        fallbackTitle: exp.previewFallback?.title,
+                        fallbackSubtitle: exp.previewFallback?.subtitle,
+                        fallbackBadge: exp.previewFallback?.badge,
+                      })
+                    }
+                    onMouseLeave={() => setHoveredItem(null)}
+                    className="inline-flex items-center gap-1 text-xs font-mono font-semibold text-zinc-900 hover:text-black underline underline-offset-4 decoration-zinc-400 hover:decoration-black transition-all bg-zinc-50 hover:bg-zinc-100 px-2 py-0.5 rounded"
                   >
                     <span>{exp.displayUrl}</span>
                     <ArrowUpRight size={12} />
@@ -378,12 +434,12 @@ export default function Home() {
                 </div>
 
                 {/* Summary */}
-                <p className="text-sm text-zinc-700 leading-relaxed mb-4">
+                <p className="text-sm text-zinc-700 leading-relaxed mb-4 max-w-2xl">
                   {exp.summary}
                 </p>
 
                 {/* Bullet Points from Resume */}
-                <ul className="space-y-2 mb-4">
+                <ul className="space-y-2 mb-4 max-w-2xl">
                   {exp.highlights.map((h, i) => (
                     <li key={i} className="text-xs sm:text-sm text-zinc-600 leading-relaxed flex items-start gap-2.5">
                       <span className="text-zinc-400 select-none mt-1">—</span>
@@ -392,70 +448,25 @@ export default function Home() {
                   ))}
                 </ul>
 
-                {/* Plain skills text list (NO chips) */}
+                {/* Plain skills text */}
                 <div className="text-xs font-mono text-zinc-500 pt-1">
                   <span className="text-zinc-400">Stack:</span> {exp.skills.join(' • ')}
                 </div>
-
-                {/* ───────────────────────────────────────────────────
-                    HOVER WEBSITE PREVIEW WINDOW (MAC WINDOW POPUP)
-                    ─────────────────────────────────────────────────── */}
-                <AnimatePresence>
-                  {hoveredExperience === exp.id && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 12, scale: 0.96 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 8, scale: 0.96 }}
-                      transition={{ duration: 0.2, ease: 'easeOut' }}
-                      className="hidden lg:block absolute right-0 top-0 z-30 w-84 rounded-xl bg-zinc-950 text-white shadow-2xl border border-zinc-800 overflow-hidden pointer-events-none"
-                    >
-                      {/* macOS Window Title Bar */}
-                      <div className="flex items-center justify-between px-3 py-2 bg-zinc-900 border-b border-zinc-800 text-xs font-mono">
-                        <div className="flex items-center gap-1.5">
-                          <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
-                          <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
-                          <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
-                        </div>
-                        <div className="flex items-center gap-1 px-2 py-0.5 rounded bg-zinc-950 text-[10px] text-zinc-400 border border-zinc-800/80">
-                          <Lock size={9} className="text-emerald-400" />
-                          <span>{exp.displayUrl}</span>
-                        </div>
-                        <div className="w-6" />
-                      </div>
-
-                      {/* Mockup Preview Area */}
-                      <div className={`p-4 bg-gradient-to-br ${exp.preview.previewBg} space-y-2.5`}>
-                        <div className="text-[10px] font-mono text-[#fde047] font-bold uppercase tracking-wider">
-                          {exp.preview.metric}
-                        </div>
-                        <div className="text-sm font-bold text-white leading-snug">
-                          {exp.preview.title}
-                        </div>
-                        <p className="text-xs text-zinc-300 leading-relaxed">
-                          {exp.preview.tagline}
-                        </p>
-                        <div className="pt-2 border-t border-white/10 text-[10px] font-mono text-zinc-400">
-                          {exp.preview.details}
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
               </div>
             ))}
           </div>
         </section>
 
         {/* ───────────────────────────────────────────────────────────
-            TECHNICAL SKILLS (From Resume, Clean Typographic Columns)
+            TECHNICAL SKILLS
             ─────────────────────────────────────────────────────────── */}
         <section id="skills" className="px-5 sm:px-10 py-14 border-b border-zinc-200">
           <div className="space-y-1 mb-8">
             <div className="text-xs font-mono uppercase tracking-wider text-zinc-500">
-              Technical Arsenal
+              Technical Skills
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-950">
-              Skills & Proficiencies
+              Technologies & Tools
             </h2>
           </div>
 
@@ -489,7 +500,7 @@ export default function Home() {
 
             <div className="space-y-1.5">
               <div className="font-bold text-zinc-950 uppercase border-b border-zinc-200 pb-1">
-                Cloud & Infra
+                Cloud & Infrastructure
               </div>
               <p className="text-zinc-600 leading-relaxed">
                 Cloudflare Workers, Google Cloud Platform, Docker, GitHub Actions
@@ -517,42 +528,64 @@ export default function Home() {
         </section>
 
         {/* ───────────────────────────────────────────────────────────
-            SIDE PROJECTS (VERY SECONDARY)
+            NOTABLE ENGINEERING & PRODUCT PROJECTS
             ─────────────────────────────────────────────────────────── */}
         <section id="projects" className="px-5 sm:px-10 py-14 border-b border-zinc-200">
           <div className="space-y-1 mb-8">
             <div className="text-xs font-mono uppercase tracking-wider text-zinc-500">
-              Side Projects & Tools
+              Notable Projects
             </div>
-            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-950">
-              Personal experiments & developer utilities
+            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-950">
+              Products, Systems & Open Source
             </h2>
+            <p className="text-xs sm:text-sm text-zinc-500 font-mono pt-1">
+              Hover over live product links to inspect their web windows.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {SIDE_PROJECTS.map(proj => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {NOTABLE_PROJECTS.map(proj => (
               <div
-                key={proj.title}
-                className="p-5 rounded-xl border border-zinc-200 bg-white hover:border-zinc-300 transition-colors flex flex-col justify-between"
+                key={proj.id}
+                className="p-6 rounded-xl border border-zinc-200 bg-white hover:border-zinc-400 transition-all flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <h4 className="font-bold text-sm text-zinc-950">{proj.title}</h4>
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400">
+                      {proj.category}
+                    </span>
                     <a
-                      href={proj.link}
+                      href={proj.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-zinc-400 hover:text-zinc-950 transition-colors"
+                      onMouseEnter={() =>
+                        setHoveredItem({
+                          id: proj.id,
+                          url: proj.url,
+                          displayUrl: proj.displayUrl,
+                          embedUrl: proj.embedUrl,
+                          previewImage: proj.previewImage,
+                        })
+                      }
+                      onMouseLeave={() => setHoveredItem(null)}
+                      className="text-xs font-mono text-zinc-700 hover:text-black font-semibold inline-flex items-center gap-1 underline underline-offset-2 decoration-zinc-300 hover:decoration-black"
                     >
-                      <ArrowUpRight size={14} />
+                      <span>{proj.displayUrl}</span>
+                      <ArrowUpRight size={13} />
                     </a>
                   </div>
-                  <p className="text-xs text-zinc-600 leading-relaxed mb-4">
+
+                  <h3 className="text-lg font-bold text-zinc-950 mb-2">
+                    {proj.title}
+                  </h3>
+
+                  <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed mb-5">
                     {proj.description}
                   </p>
                 </div>
-                <div className="text-[11px] font-mono text-zinc-500 pt-2 border-t border-zinc-100">
-                  {proj.tech}
+
+                <div className="pt-3 border-t border-zinc-100 text-xs font-mono text-zinc-500">
+                  {proj.tech.join(' • ')}
                 </div>
               </div>
             ))}
@@ -573,7 +606,7 @@ export default function Home() {
         </section>
 
         {/* ───────────────────────────────────────────────────────────
-            CONTACT SECTION
+            CONTACT
             ─────────────────────────────────────────────────────────── */}
         <section id="contact" className="px-5 sm:px-10 py-14">
           <div className="rounded-2xl bg-zinc-950 text-white p-6 sm:p-10 border border-zinc-800 space-y-5">
@@ -665,9 +698,112 @@ export default function Home() {
             ─────────────────────────────────────────────────────────── */}
         <footer className="border-t border-zinc-200 px-5 sm:px-10 py-6 text-xs font-mono text-zinc-500 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div>© {new Date().getFullYear()} Bhavuk Arora.</div>
-          <div>Deployed on Cloudflare Workers.</div>
+          <div>Edge-deployed on Cloudflare Workers.</div>
         </footer>
       </div>
+
+      {/* ─────────────────────────────────────────────────────────────
+          GLOBAL FLOATING MACOS WEBSITE PREVIEW WINDOW
+          Loads the real website inside an iframe with real URL in chrome!
+          ───────────────────────────────────────────────────────────── */}
+      <AnimatePresence>
+        {hoveredItem && (
+          <motion.div
+            initial={{ opacity: 0, y: 15, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 10, scale: 0.95 }}
+            transition={{ duration: 0.18, ease: 'easeOut' }}
+            className="hidden lg:block fixed bottom-8 right-8 z-50 w-[420px] rounded-xl bg-zinc-950 text-white shadow-2xl border border-zinc-700 overflow-hidden pointer-events-auto"
+          >
+            {/* macOS Browser Header */}
+            <div className="flex items-center justify-between px-3.5 py-2.5 bg-zinc-900 border-b border-zinc-800 text-xs font-mono select-none">
+              <div className="flex items-center gap-1.5">
+                <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
+                <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
+                <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
+              </div>
+
+              {/* Real URL Address Bar */}
+              <a
+                href={hoveredItem.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 px-3 py-1 rounded bg-zinc-950 text-[11px] text-zinc-300 border border-zinc-800 hover:border-zinc-600 hover:text-white transition-all max-w-[260px] truncate"
+              >
+                <Lock size={10} className="text-emerald-400 shrink-0" />
+                <span className="truncate">{hoveredItem.url}</span>
+              </a>
+
+              <a
+                href={hoveredItem.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-zinc-400 hover:text-white transition-colors"
+                title="Open site in new tab"
+              >
+                <ArrowUpRight size={13} />
+              </a>
+            </div>
+
+            {/* Window Content: Real Iframe / Real Website Content */}
+            <div className="relative w-full h-[260px] bg-zinc-900 overflow-hidden">
+              {hoveredItem.embedUrl ? (
+                <div className="w-full h-full relative overflow-hidden bg-zinc-950">
+                  {/* Backdrop Screenshot for zero flicker */}
+                  {hoveredItem.previewImage && (
+                    <img
+                      src={hoveredItem.previewImage}
+                      alt={hoveredItem.displayUrl}
+                      className="absolute inset-0 w-full h-full object-cover object-top opacity-90"
+                    />
+                  )}
+
+                  {/* Real Live Iframe View */}
+                  <iframe
+                    src={hoveredItem.embedUrl}
+                    title={hoveredItem.displayUrl}
+                    className="absolute inset-0 w-[840px] h-[520px] origin-top-left scale-50 border-0 bg-white"
+                    loading="lazy"
+                  />
+
+                  {/* Clickable Overlay */}
+                  <a
+                    href={hoveredItem.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute inset-0 z-20 cursor-pointer"
+                    title={`Click to open ${hoveredItem.displayUrl}`}
+                  />
+                </div>
+              ) : (
+                /* Fallback for same-origin protected sites like Suraasa or IITD */
+                <div className="w-full h-full p-5 flex flex-col justify-between bg-gradient-to-br from-zinc-800 to-zinc-950 text-left">
+                  <div className="space-y-2">
+                    <div className="text-[10px] font-mono text-[#fde047] font-bold uppercase tracking-wider">
+                      {hoveredItem.fallbackBadge || 'Official Product'}
+                    </div>
+                    <div className="text-base font-bold text-white">
+                      {hoveredItem.fallbackTitle || hoveredItem.displayUrl}
+                    </div>
+                    <p className="text-xs text-zinc-300 leading-relaxed">
+                      {hoveredItem.fallbackSubtitle || 'Visit official website for details.'}
+                    </p>
+                  </div>
+                  <a
+                    href={hoveredItem.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-400 hover:text-white pt-3 border-t border-zinc-700/80"
+                  >
+                    <span>Open {hoveredItem.displayUrl}</span>
+                    <ArrowUpRight size={12} />
+                  </a>
+                </div>
+              )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
