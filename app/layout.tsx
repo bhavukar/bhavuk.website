@@ -206,6 +206,7 @@ const jsonLd = {
         'https://www.behance.net/bhavukarora1',
         'https://www.instagram.com/nobhavuk/',
         'https://x.com/nobhavuk',
+        'https://cenosolutio845814.substack.com',
         'https://app.fork.blue',
         'https://reve.rsvp',
         'https://www.suraasa.com',

@@ -177,8 +177,118 @@ const DESIGN_PROJECTS: DesignProject[] = [
   },
 ];
 
+interface SubstackPost {
+  id: string;
+  slug: string;
+  title: string;
+  subtitle: string;
+  url: string;
+  date: string;
+  readTime: string;
+  category: string;
+  defaultHeight: number;
+}
+
+const SUBSTACK_POSTS: SubstackPost[] = [
+  {
+    id: 'context-engineering',
+    slug: 'the-art-of-context-engineering-what',
+    title: 'The Art of Context Engineering: What Antigravity, Claude, and Codex Teach Us About AI Memory',
+    subtitle: 'Why more tokens won’t save bad architecture, and how modern agentic systems master context without drowning in it.',
+    url: 'https://cenosolutio845814.substack.com/p/the-art-of-context-engineering-what',
+    date: 'Sep 2026',
+    readTime: '4 min read',
+    category: 'AI Architecture',
+    defaultHeight: 480,
+  },
+  {
+    id: 'middle-class-creator',
+    slug: 'the-death-of-the-middle-class-creator',
+    title: 'The Death of the Middle-Class Creator: What Actually Happened to the Creator Economy in 2026',
+    subtitle: 'When the cost of generating content dropped to zero, raw information became worthless. Here is who is actually making money right now.',
+    url: 'https://cenosolutio845814.substack.com/p/the-death-of-the-middle-class-creator',
+    date: 'Sep 2026',
+    readTime: '4 min read',
+    category: 'Creator Economy',
+    defaultHeight: 390,
+  },
+  {
+    id: 'revenge-of-physical',
+    slug: 'the-revenge-of-the-physical-why-touching',
+    title: 'The Revenge of the Physical: Why "Touching Grass" Became the Ultimate Luxury in 2026',
+    subtitle: 'When our work, entertainment, and social feeds became 100% synthetic, physical friction became the only thing that felt real.',
+    url: 'https://cenosolutio845814.substack.com/p/the-revenge-of-the-physical-why-touching',
+    date: 'Sep 2026',
+    readTime: '4 min read',
+    category: 'Culture & Tech',
+    defaultHeight: 390,
+  },
+];
+
+function SubstackEmbedCard({ post }: { post: SubstackPost }) {
+  const [height, setHeight] = useState(post.defaultHeight);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  useEffect(() => {
+    const handleMessage = (e: MessageEvent) => {
+      if (
+        e.origin.includes('substack.com') &&
+        e.data &&
+        typeof e.data.iframeHeight === 'number'
+      ) {
+        if (iframeRef.current && iframeRef.current.contentWindow === e.source) {
+          setHeight(e.data.iframeHeight);
+        }
+      }
+    };
+    window.addEventListener('message', handleMessage);
+    return () => window.removeEventListener('message', handleMessage);
+  }, []);
+
+  return (
+    <div className="rounded-2xl border border-zinc-200 bg-white overflow-hidden shadow-2xs hover:shadow-md transition-all">
+      <div className="px-4 py-2.5 bg-zinc-50/90 border-b border-zinc-100 flex items-center justify-between text-xs font-mono">
+        <span className="text-zinc-500 text-[10px] sm:text-[11px] uppercase tracking-wider font-semibold">
+          {post.category}
+        </span>
+        <div className="flex items-center gap-2 text-[11px]">
+          <span className="text-zinc-400">{post.readTime}</span>
+          <span className="text-zinc-300">•</span>
+          <a
+            href={post.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-zinc-700 hover:text-zinc-950 font-medium inline-flex items-center gap-0.5 transition-colors"
+          >
+            <span>Substack</span>
+            <ArrowUpRight size={11} />
+          </a>
+        </div>
+      </div>
+      <div className="w-full flex justify-center bg-white p-1 sm:p-2">
+        <iframe
+          ref={iframeRef}
+          src={`https://cenosolutio845814.substack.com/embed/p/${post.slug}`}
+          style={{
+            width: '100%',
+            maxWidth: '540px',
+            height: `${height}px`,
+            border: 'none',
+            display: 'block',
+          }}
+          scrolling="no"
+          loading="lazy"
+          sandbox="allow-scripts allow-same-origin allow-top-navigation allow-popups"
+          title={post.title}
+        />
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const [activeEssayTab, setActiveEssayTab] = useState<string>('all');
   const [hoveredExpId, setHoveredExpId] = useState<string | null>(null);
   const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -268,14 +378,17 @@ export default function Home() {
           </a>
 
           <div className="flex items-center flex-shrink-0">
-            <nav className="flex items-center gap-3 sm:gap-6 text-[11px] sm:text-xs font-mono text-zinc-600">
+            <nav className="flex items-center gap-2.5 sm:gap-6 text-[11px] sm:text-xs font-mono text-zinc-600">
               <a href="#experience" className="hover:text-zinc-950 transition-colors">
                 Work
               </a>
               <a href="#craft" className="hover:text-zinc-950 transition-colors">
                 Craft
               </a>
-              <a href="#skills" className="hidden sm:inline hover:text-zinc-950 transition-colors">
+              <a href="#writing" className="hover:text-zinc-950 transition-colors">
+                Writing
+              </a>
+              <a href="#skills" className="hidden md:inline hover:text-zinc-950 transition-colors">
                 Skills
               </a>
               <a href="#contact" className="hover:text-zinc-950 transition-colors">
@@ -402,6 +515,16 @@ export default function Home() {
                 className="text-zinc-600 hover:text-zinc-950 font-mono text-xs px-2.5 sm:px-3 py-2 flex items-center gap-1.5 transition-colors"
               >
                 <span>Behance</span>
+                <ArrowUpRight size={12} />
+              </a>
+
+              <a
+                href="https://cenosolutio845814.substack.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-zinc-600 hover:text-zinc-950 font-mono text-xs px-2.5 sm:px-3 py-2 flex items-center gap-1.5 transition-colors"
+              >
+                <span>Substack</span>
                 <ArrowUpRight size={12} />
               </a>
             </div>
@@ -669,6 +792,90 @@ export default function Home() {
         </motion.section>
 
         {/* ───────────────────────────────────────────────────────────
+            WRITING & ESSAYS (SUBSTACK SHOWCASE)
+            ─────────────────────────────────────────────────────────── */}
+        <motion.section
+          id="writing"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="px-4 sm:px-10 py-12 sm:py-16 border-b border-zinc-200"
+        >
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6 sm:mb-8">
+            <div className="space-y-1">
+              <div className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-zinc-500">
+                Longform & Essays
+              </div>
+              <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-950">
+                Writing
+              </h2>
+            </div>
+            <a
+              href="https://cenosolutio845814.substack.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-600 hover:text-zinc-950 transition-colors group"
+            >
+              <span>Read on Substack</span>
+              <ArrowUpRight size={13} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </a>
+          </div>
+
+          {/* Filter / Category Pills */}
+          <div className="flex flex-wrap items-center gap-2 mb-6">
+            <button
+              onClick={() => setActiveEssayTab('all')}
+              className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all cursor-pointer ${
+                activeEssayTab === 'all'
+                  ? 'bg-zinc-950 text-white font-medium shadow-xs'
+                  : 'bg-zinc-100 hover:bg-zinc-200 text-zinc-600'
+              }`}
+            >
+              All Essays (3)
+            </button>
+            {SUBSTACK_POSTS.map((post) => (
+              <button
+                key={post.id}
+                onClick={() => setActiveEssayTab(post.id)}
+                className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all cursor-pointer ${
+                  activeEssayTab === post.id
+                    ? 'bg-zinc-950 text-white font-medium shadow-xs'
+                    : 'bg-zinc-100 hover:bg-zinc-200 text-zinc-600'
+                }`}
+              >
+                {post.category}
+              </button>
+            ))}
+          </div>
+
+          {/* Substack Official Embeds */}
+          <div className="space-y-6 max-w-2xl mx-auto">
+            {SUBSTACK_POSTS.filter(
+              (p) => activeEssayTab === 'all' || activeEssayTab === p.id
+            ).map((post) => (
+              <SubstackEmbedCard key={post.id} post={post} />
+            ))}
+          </div>
+
+          {/* Footer note */}
+          <div className="mt-8 pt-5 border-t border-zinc-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono text-zinc-500">
+            <div>
+              Essays exploring AI memory architecture, creator market dynamics, and post-synthetic culture.
+            </div>
+            <a
+              href="https://cenosolutio845814.substack.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-zinc-700 hover:text-zinc-950 font-semibold inline-flex items-center gap-1 transition-colors"
+            >
+              <span>cenosolutio845814.substack.com</span>
+              <ArrowUpRight size={12} />
+            </a>
+          </div>
+        </motion.section>
+
+        {/* ───────────────────────────────────────────────────────────
             TECHNICAL SKILLS
             ─────────────────────────────────────────────────────────── */}
         <motion.section
@@ -841,6 +1048,16 @@ export default function Home() {
                   className="flex items-center gap-1.5 hover:text-white transition-colors"
                 >
                   <span>Behance</span>
+                  <ArrowUpRight size={12} />
+                </a>
+                <span className="text-zinc-700">•</span>
+                <a
+                  href="https://cenosolutio845814.substack.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 hover:text-white transition-colors"
+                >
+                  <span>Substack</span>
                   <ArrowUpRight size={12} />
                 </a>
                 <span className="text-zinc-700">•</span>
