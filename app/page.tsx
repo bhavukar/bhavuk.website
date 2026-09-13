@@ -463,38 +463,32 @@ export default function Home() {
                 key={exp.id}
                 className="group relative pb-10 sm:pb-12 border-b border-zinc-100 last:border-none last:pb-0 transition-all"
               >
-                {/* Header Row: Company Logo + Role & Meta */}
-                <div className="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
-                  {exp.logo && (
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-zinc-50 border border-zinc-200/80 p-1 flex items-center justify-center shrink-0 shadow-2xs mt-0.5 group-hover:border-zinc-300 transition-colors overflow-hidden">
+                {/* Role & Period */}
+                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-1 sm:mb-1.5">
+                  <h3 className="text-base sm:text-xl font-bold text-zinc-950 group-hover:text-black transition-colors leading-snug">
+                    {exp.role}
+                  </h3>
+                  <div className="text-[11px] sm:text-xs font-mono text-zinc-500 shrink-0">
+                    {exp.period}
+                  </div>
+                </div>
+
+                {/* Company & Location & Live Link */}
+                <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 text-xs sm:text-sm mb-3 sm:mb-4">
+                  <span
+                    onMouseEnter={() => handleMouseEnter(exp.id)}
+                    onMouseLeave={handleMouseLeave}
+                    className="font-semibold text-zinc-900 cursor-pointer hover:text-black transition-colors inline-flex items-center gap-1.5"
+                  >
+                    {exp.logo && (
                       <img
                         src={exp.logo}
                         alt={`${exp.company} logo`}
-                        className="w-full h-full object-contain rounded-lg"
+                        className="w-4 h-4 sm:w-4.5 sm:h-4.5 rounded object-contain shrink-0 border border-zinc-200/80 p-[1px] bg-white shadow-2xs"
                       />
-                    </div>
-                  )}
-
-                  <div className="flex-1 min-w-0">
-                    {/* Role & Period */}
-                    <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-1 sm:mb-1.5">
-                      <h3 className="text-base sm:text-xl font-bold text-zinc-950 group-hover:text-black transition-colors leading-snug">
-                        {exp.role}
-                      </h3>
-                      <div className="text-[11px] sm:text-xs font-mono text-zinc-500 shrink-0">
-                        {exp.period}
-                      </div>
-                    </div>
-
-                    {/* Company & Location & Live Link */}
-                    <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 text-xs sm:text-sm">
-                      <span
-                        onMouseEnter={() => handleMouseEnter(exp.id)}
-                        onMouseLeave={handleMouseLeave}
-                        className="font-semibold text-zinc-900 cursor-pointer hover:text-black transition-colors"
-                      >
-                        {exp.company}
-                      </span>
+                    )}
+                    <span>{exp.company}</span>
+                  </span>
                       <span className="text-zinc-300">•</span>
                       <span className="text-[11px] sm:text-xs font-mono text-zinc-500">{exp.location}</span>
                       <span className="text-zinc-300">•</span>
@@ -561,8 +555,6 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
 
                 {/* Summary */}
                 <p className="text-xs sm:text-sm text-zinc-700 leading-relaxed mb-3 sm:mb-4 max-w-2xl">
