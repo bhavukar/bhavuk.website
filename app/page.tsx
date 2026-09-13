@@ -427,111 +427,42 @@ export default function Home() {
             </p>
 
             {/* Quick Actions */}
-            <div className="space-y-3 pt-2">
-              <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-                <a
-                  href="#contact"
-                  className="bg-zinc-950 hover:bg-zinc-800 text-white font-medium text-xs px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-lg shadow-2xs transition-all hover:translate-y-[-1px] shrink-0"
-                >
-                  Get in touch
-                </a>
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 pt-2">
+              <a
+                href="#contact"
+                className="bg-zinc-950 hover:bg-zinc-800 text-white font-medium text-xs px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-lg shadow-2xs transition-all hover:translate-y-[-1px] shrink-0"
+              >
+                Get in touch
+              </a>
 
-                <a
-                  href="/bhavuk_arora_resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="border border-zinc-300 hover:border-zinc-900 bg-white text-zinc-800 font-mono text-xs px-3 sm:px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5 cursor-pointer hover:translate-y-[-1px] shrink-0"
-                >
-                  <FileText size={13} className="text-zinc-500" />
-                  <span>Resume</span>
-                  <ArrowUpRight size={12} />
-                </a>
+              <a
+                href="/bhavuk_arora_resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border border-zinc-300 hover:border-zinc-900 bg-white text-zinc-800 font-mono text-xs px-3 sm:px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5 cursor-pointer hover:translate-y-[-1px] shrink-0"
+              >
+                <FileText size={13} className="text-zinc-500" />
+                <span>Resume</span>
+                <ArrowUpRight size={12} />
+              </a>
 
-                <button
-                  onClick={handleCopyEmail}
-                  className="border border-zinc-300 hover:border-zinc-900 bg-white text-zinc-800 font-mono text-xs px-3 sm:px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5 sm:gap-2 cursor-pointer hover:translate-y-[-1px] shrink-0"
-                >
-                  {copiedEmail ? (
-                    <>
-                      <Check size={13} className="text-emerald-600" />
-                      <span className="text-emerald-600 font-medium">Copied!</span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy size={13} className="text-zinc-500" />
-                      <span className="hidden sm:inline">bhavukarora03@gmail.com</span>
-                      <span className="sm:hidden">Copy email</span>
-                    </>
-                  )}
-                </button>
-              </div>
-
-              {/* Social profiles row */}
-              <div className="flex flex-wrap items-center gap-x-3.5 sm:gap-x-4 gap-y-1.5 pt-0.5">
-                <a
-                  href="https://github.com/bhavukar"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-zinc-500 hover:text-zinc-950 font-mono text-xs py-1 flex items-center gap-1.5 transition-colors shrink-0"
-                >
-                  <Github size={13} />
-                  <span>GitHub</span>
-                  <ArrowUpRight size={11} className="opacity-60" />
-                </a>
-
-                <a
-                  href="https://www.linkedin.com/in/bhavuk-arora-4a7263216/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-zinc-500 hover:text-zinc-950 font-mono text-xs py-1 flex items-center gap-1.5 transition-colors shrink-0"
-                >
-                  <Linkedin size={13} />
-                  <span>LinkedIn</span>
-                  <ArrowUpRight size={11} className="opacity-60" />
-                </a>
-
-                <a
-                  href="https://x.com/bhavukarora03"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-zinc-500 hover:text-zinc-950 font-mono text-xs py-1 flex items-center gap-1.5 transition-colors shrink-0"
-                >
-                  <XIcon size={12} />
-                  <span>X</span>
-                  <ArrowUpRight size={11} className="opacity-60" />
-                </a>
-
-                <a
-                  href="https://www.reddit.com/user/bhavuk15"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-zinc-500 hover:text-zinc-950 font-mono text-xs py-1 flex items-center gap-1.5 transition-colors shrink-0"
-                >
-                  <RedditIcon size={13} />
-                  <span>Reddit</span>
-                  <ArrowUpRight size={11} className="opacity-60" />
-                </a>
-
-                <a
-                  href="https://bhavuk3.substack.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-zinc-500 hover:text-zinc-950 font-mono text-xs py-1 flex items-center gap-1.5 transition-colors shrink-0"
-                >
-                  <span>Substack</span>
-                  <ArrowUpRight size={11} className="opacity-60" />
-                </a>
-
-                <a
-                  href="https://www.behance.net/bhavukarora1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-zinc-500 hover:text-zinc-950 font-mono text-xs py-1 flex items-center gap-1.5 transition-colors shrink-0"
-                >
-                  <span>Behance</span>
-                  <ArrowUpRight size={11} className="opacity-60" />
-                </a>
-              </div>
+              <button
+                onClick={handleCopyEmail}
+                className="border border-zinc-300 hover:border-zinc-900 bg-white text-zinc-800 font-mono text-xs px-3 sm:px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5 sm:gap-2 cursor-pointer hover:translate-y-[-1px] shrink-0"
+              >
+                {copiedEmail ? (
+                  <>
+                    <Check size={13} className="text-emerald-600" />
+                    <span className="text-emerald-600 font-medium">Copied!</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy size={13} className="text-zinc-500" />
+                    <span className="hidden sm:inline">bhavukarora03@gmail.com</span>
+                    <span className="sm:hidden">Copy email</span>
+                  </>
+                )}
+              </button>
             </div>
           </div>
         </motion.section>
@@ -545,7 +476,7 @@ export default function Home() {
               Work Experience
             </div>
             <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-950">
-              Where I've worked & what I've shipped
+              Where I've worked
             </h2>
             <p className="text-xs sm:text-sm text-zinc-500 font-mono pt-1">
               <span className="hidden md:inline">Hover over any company link for a live preview.</span>
