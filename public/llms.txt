@@ -1,0 +1,119 @@
+# Bhavuk Arora — Portfolio & System Context
+> Founder & CEO building consumer products from zero to scale.
+> Canonical URL: https://bhavuk.website
+> Source: https://bhavuk.website/llms.txt
+> Last Updated: 2026-09
+
+---
+
+## Executive Profile
+- **Name:** Bhavuk Arora
+- **Role:** Founder & CEO / Founding Product Engineer
+- **Company:** Bluefork (Fork)
+- **Location:** Delhi, India (Available for high-impact remote & global roles)
+- **Email:** bhavukarora03@gmail.com
+- **Phone:** +91-8708254881
+- **Focus:** Consumer software, creator economy monetization, agentic AI workflows, high-concurrency mobile & distributed backend architecture, motion design.
+
+---
+
+## Core Competencies
+- **Languages:** TypeScript, Dart, Java, Swift, Rust, Python, C++
+- **Frontend & Mobile:** Flutter, React, Next.js, Tailwind CSS, React Native, SwiftUI
+- **Backend & Systems:** PostgreSQL, SQLite, Cloudflare Workers, REST APIs, Redis, Node.js, GraphQL
+- **AI & Agentic Workflows:** OpenAI API, Claude / Anthropic, LangChain, Structured Tool-Calling, Retrieval-Augmented Generation (RAG), Autonomous Subagent Orchestration
+- **DevOps & Infrastructure:** Git, GitHub Actions CI/CD, Docker, Cloudflare Pages/Workers, Vercel, Supabase, Firebase
+- **Creative & Motion Systems:** Adobe After Effects, Motion Graphics, Figma, Visual Identity Systems, Kinetic VFX
+
+---
+
+## Work Experience & Track Record
+
+### 1. Fork (Bluefork)
+- **Role:** Founder & CEO
+- **Period:** May 2026 – Present
+- **Location:** Delhi, India
+- **URL:** https://app.fork.blue
+- **Summary:** Building the commercial operating system for independent creators, artists, and digital entrepreneurs to monetize their audience and run end-to-end commercial operations.
+- **Key Deliverables:**
+  - Defined company vision, commercial roadmap, and go-to-market strategy, pivoting creator operations from chaotic DMs and spreadsheets into automated deal execution.
+  - Led creator business development and partnerships, directly signing and onboarding 50+ independent talent, digital artists, and creator management agencies.
+  - Architected creator monetization infrastructure with agentic AI pipelines automating deal discovery, brand contract risk audits, dynamic pricing, and cross-border invoicing.
+  - Spearheaded product-led growth and business operations, driving continuous creator retention and high commercial transaction completion.
+- **Stack:** Executive Leadership, Creator Monetization, Venture Strategy, AI Workflows, Commercial Infrastructure
+
+### 2. Reve
+- **Role:** Founding Member – Product & Engineering
+- **Period:** Sep 2024 – Present
+- **Location:** Gurugram, HR, India
+- **URL:** https://reve.rsvp
+- **Summary:** Joined as part of the founding team taking Reve from zero to launch, evolving through multiple pivots into a consumer event app with 25,000+ downloads across iOS and Android.
+- **Key Deliverables:**
+  - Owned product engineering end-to-end: wireframes, user journeys, design systems, and the cross-platform Flutter client.
+  - Built the offline-first SQLite sync engine and real-time feed for seamless in-person event check-ins and ticketing.
+  - Designed onboarding funnels and viral invite loops that powered organic community growth.
+- **Stack:** Flutter, SQLite, Mobile Architecture, Product Design, 25K+ Downloads
+
+### 3. MythyaVerse (VRPlaced & Oncarea)
+- **Role:** Software Development Engineer
+- **Period:** Sep 2023 – Aug 2024
+- **Location:** Noida, UP, India
+- **URL:** https://vrplaced.ai
+- **Summary:** Shipped client and internal production applications across healthcare and AI interview coaching, delivering end-to-end products under strict timelines.
+- **Key Deliverables:**
+  - Shipped VRPlaced, an AI interview simulator with real-time feedback scoring and dynamic resume tailoring using Next.js and OpenAI.
+  - Built and launched Oncarea and Oncarea Doctor from scratch in under two months, supporting live video consultations and remote diagnostics.
+  - Owned full development lifecycle: architecture, client-side testing, automated deployments, and continuous UX iterations.
+- **Stack:** Flutter, Next.js, OpenAI API, Healthcare Systems, WebRTC Video
+
+### 4. Suraasa
+- **Role:** Software Development Engineer
+- **Period:** Dec 2022 – Jul 2023
+- **Location:** Gurugram, HR, India
+- **URL:** https://suraasa.com
+- **Summary:** Engineered core mobile software systems and learning infrastructure serving 10 Lakh+ downloads and educators across 50+ international markets.
+- **Key Deliverables:**
+  - Scaled mobile application architecture to support 10 Lakh+ downloads with 99.8% crash-free session reliability.
+  - Architected enterprise mobile software systems in Flutter, delivering offline-first local database synchronization, resilient state management, and real-time push events.
+  - Engineered low-latency video streaming pipelines and custom playback services optimized for low-bandwidth cellular networks.
+  - Collaborated with backend engineering teams to optimize REST APIs and serialization, reducing app startup latency by 35%.
+- **Stack:** Mobile Systems Architecture, Flutter & Dart, 10 Lakh+ Downloads, Offline Data Sync, Performance Optimization
+
+### 5. Indian Institute of Technology, Delhi (IIT Delhi)
+- **Role:** AR/VR Developer
+- **Period:** Dec 2021 – May 2022
+- **Location:** New Delhi, India
+- **URL:** https://iitd.ac.in
+- **Summary:** Researched and built immersive virtual reality experiences and experimental brain-computer interface (BCI) systems.
+- **Key Deliverables:**
+  - Developed interactive VR simulations and games exploring novel human-computer interaction models.
+  - Engineered software pipelines interpreting EEG brain signals and neural spikes to drive real-time device interaction.
+  - Conducted live laboratory demonstrations introducing students and research peers to practical applications of VR and neuro-interfaces.
+- **Stack:** Virtual Reality, EEG / Neural Spikes, Unity / C#, BCI Research
+
+---
+
+## Design & Motion Systems (Behance)
+- **Bluefork Brand Identity & Motion System:** Dynamic brand identity, kinetic motion system, and high-contrast visual direction crafted for the Bluefork creator platform. (https://www.behance.net/gallery/253324443/Bluefork)
+- **Pulp AI Generative Motion Graphics:** Visual architecture, spectral gradient aesthetics, and generative motion graphics for Fork's native frontier AI agent engine. (https://www.behance.net/gallery/253324169/Pulp-AI)
+- **ACE Glitch Kinetic Animation:** Experimental kinetic glitch animation, audio-reactive frame displacement, and geometric logo deconstruction crafted in After Effects. (https://www.behance.net/gallery/151738765/ACE-Glitch)
+
+---
+
+## Longform Technical Essays (Substack)
+- **The Art of Context Engineering:** What Antigravity, Claude, and Codex Teach Us About AI Memory. An architectural essay on context window economy, prompt routing, and recursive memory structures in autonomous AI systems. (https://cenosolutio845814.substack.com/p/the-art-of-context-engineering-what)
+- **The Death of the Middle-Class Creator:** What Actually Happened to the Creator Economy in 2026. An economic analysis of zero-cost content generation, algorithmic commoditization, and the transition of creators from influencers to software operators. (https://cenosolutio845814.substack.com/p/the-death-of-the-middle-class-creator)
+- **The Revenge of the Physical:** Why "Touching Grass" Became the Ultimate Luxury in 2026. A cultural critique of hyper-synthetic digital feeds and why authentic physical friction and tactile agency became the definitive status symbols. (https://cenosolutio845814.substack.com/p/the-revenge-of-the-physical-why-touching)
+
+---
+
+## Verification & Social Links
+- Website: https://bhavuk.website
+- GitHub: https://github.com/bhavukar
+- LinkedIn: https://www.linkedin.com/in/bhavuk-arora-4a7263216/
+- X: https://x.com/bhavukarora03
+- Reddit: https://www.reddit.com/user/bhavuk15
+- Substack: https://bhavuk3.substack.com
+- Behance: https://www.behance.net/bhavukarora1
+- Instagram: https://www.instagram.com/nobhavuk/
+- Resume: https://bhavuk.website/bhavuk_arora_resume.pdf
