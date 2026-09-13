@@ -875,14 +875,8 @@ export default function Home() {
           id="contact"
           className="px-4 sm:px-10 py-12 sm:py-16"
         >
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-b from-zinc-950 via-zinc-950 to-[#12110c] text-white p-5 sm:p-8 md:p-10 border border-zinc-800/90 space-y-5 sm:space-y-6 shadow-2xl">
-            {/* Ambient Bottom Gradient Lighting */}
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent pointer-events-none" />
-            <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-amber-500/15 via-amber-500/5 to-transparent pointer-events-none" />
-            <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 w-[70%] h-32 bg-gradient-to-t from-yellow-400/25 via-amber-500/10 to-transparent blur-2xl pointer-events-none" />
-            <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-yellow-400/60 to-transparent pointer-events-none" />
-
-            <div className="relative z-10 space-y-2 max-w-xl">
+          <div className="rounded-2xl bg-zinc-950 text-white p-5 sm:p-8 md:p-10 border border-zinc-800 space-y-5 sm:space-y-6 shadow-xl">
+            <div className="space-y-2 max-w-xl">
               <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white">
                 Let's build something.
               </h2>
@@ -893,7 +887,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="relative z-10 p-3.5 sm:p-4 rounded-xl bg-zinc-900/90 backdrop-blur-xs border border-zinc-800/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-sm">
+            <div className="p-3.5 sm:p-4 rounded-xl bg-zinc-900 border border-zinc-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
               <div className="w-full sm:w-auto">
                 <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider">Direct Email</div>
                 <div className="text-sm sm:text-base font-mono font-bold text-white select-all break-all">
@@ -928,7 +922,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative z-10 pt-4 border-t border-zinc-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 text-xs font-mono text-zinc-400">
+            <div className="pt-4 border-t border-zinc-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 text-xs font-mono text-zinc-400">
               <div className="flex flex-wrap items-center gap-3 sm:gap-4">
                 <a
                   href="https://github.com/bhavukar"
