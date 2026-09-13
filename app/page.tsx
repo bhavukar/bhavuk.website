@@ -6,12 +6,41 @@ import Lenis from 'lenis';
 import {
   Github,
   Linkedin,
-  Twitter,
   ArrowUpRight,
   Copy,
   Check,
   FileText,
 } from 'lucide-react';
+
+function XIcon({ size = 14, className }: { size?: number; className?: string }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  );
+}
+
+function RedditIcon({ size = 14, className }: { size?: number; className?: string }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-4.466 3.99a.327.327 0 0 0-.231.095.332.332 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/>
+    </svg>
+  );
+}
 
 interface ExperienceItem {
   id: string;
@@ -38,7 +67,7 @@ const EXPERIENCES: ExperienceItem[] = [
   {
     id: 'fork',
     role: 'Founder & CEO',
-    company: 'Fork (Blue Fork)',
+    company: 'Fork (Bluefork)',
     location: 'Delhi',
     period: 'May 2026 – Present',
     url: 'https://app.fork.blue',
@@ -314,7 +343,7 @@ export default function Home() {
                 <span className="hidden sm:inline">Bhavuk Arora</span>
               </span>
               <span className="text-[10px] sm:text-[11px] text-zinc-500 font-mono hidden sm:inline leading-none mt-0.5">
-                Founder & CEO · Blue Fork
+                Founder & CEO · Bluefork
               </span>
             </div>
           </a>
@@ -366,7 +395,7 @@ export default function Home() {
           <div className="space-y-4 sm:space-y-6 max-w-3xl">
             {/* Experience status bar */}
             <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 text-[11px] sm:text-xs font-mono text-zinc-500">
-              <span className="font-bold text-zinc-950 tracking-wider">FOUNDER & CEO · BLUE FORK</span>
+              <span className="font-bold text-zinc-950 tracking-wider">FOUNDER & CEO · BLUEFORK</span>
               <span className="text-zinc-300">•</span>
               <span>5+ YEARS EXPERIENCE</span>
               <span className="text-zinc-300">•</span>
@@ -385,90 +414,118 @@ export default function Home() {
             </h1>
 
             <p className="text-sm sm:text-base text-zinc-600 leading-relaxed max-w-xl">
-              Founder & CEO of <strong>Blue Fork</strong>, building the commercial operating system
+              Founder & CEO of <strong>Bluefork</strong>, building the commercial operating system
               for independent creators and digital entrepreneurs. Over 5+ years of engineering,
               I've taken applications from zero to scale across consumer mobile and edtech platforms
               (10 Lakh+ downloads at Suraasa, 25K+ at Reve).
             </p>
 
             {/* Quick Actions */}
-            <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 pt-2">
-              <a
-                href="#contact"
-                className="bg-zinc-950 hover:bg-zinc-800 text-white font-medium text-xs px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-lg shadow-2xs transition-all hover:translate-y-[-1px]"
-              >
-                Get in touch
-              </a>
+            <div className="space-y-3 pt-2">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                <a
+                  href="#contact"
+                  className="bg-zinc-950 hover:bg-zinc-800 text-white font-medium text-xs px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-lg shadow-2xs transition-all hover:translate-y-[-1px] shrink-0"
+                >
+                  Get in touch
+                </a>
 
-              <a
-                href="/bhavuk_arora_resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border border-zinc-300 hover:border-zinc-900 bg-white text-zinc-800 font-mono text-xs px-3 sm:px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5 cursor-pointer hover:translate-y-[-1px]"
-              >
-                <FileText size={13} className="text-zinc-500" />
-                <span>Resume</span>
-                <ArrowUpRight size={12} />
-              </a>
+                <a
+                  href="/bhavuk_arora_resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="border border-zinc-300 hover:border-zinc-900 bg-white text-zinc-800 font-mono text-xs px-3 sm:px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5 cursor-pointer hover:translate-y-[-1px] shrink-0"
+                >
+                  <FileText size={13} className="text-zinc-500" />
+                  <span>Resume</span>
+                  <ArrowUpRight size={12} />
+                </a>
 
-              <button
-                onClick={handleCopyEmail}
-                className="border border-zinc-300 hover:border-zinc-900 bg-white text-zinc-800 font-mono text-xs px-3 sm:px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5 sm:gap-2 cursor-pointer hover:translate-y-[-1px]"
-              >
-                {copiedEmail ? (
-                  <>
-                    <Check size={13} className="text-emerald-600" />
-                    <span className="text-emerald-600 font-medium">Copied email</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy size={13} className="text-zinc-500" />
-                    <span>bhavukarora03@gmail.com</span>
-                  </>
-                )}
-              </button>
+                <button
+                  onClick={handleCopyEmail}
+                  className="border border-zinc-300 hover:border-zinc-900 bg-white text-zinc-800 font-mono text-xs px-3 sm:px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5 sm:gap-2 cursor-pointer hover:translate-y-[-1px] shrink-0"
+                >
+                  {copiedEmail ? (
+                    <>
+                      <Check size={13} className="text-emerald-600" />
+                      <span className="text-emerald-600 font-medium">Copied!</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy size={13} className="text-zinc-500" />
+                      <span className="hidden sm:inline">bhavukarora03@gmail.com</span>
+                      <span className="sm:hidden">Copy email</span>
+                    </>
+                  )}
+                </button>
+              </div>
 
-              <a
-                href="https://github.com/bhavukar"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-zinc-600 hover:text-zinc-950 font-mono text-xs px-2.5 sm:px-3 py-2 flex items-center gap-1.5 transition-colors"
-              >
-                <Github size={14} />
-                <span>GitHub</span>
-                <ArrowUpRight size={12} />
-              </a>
+              {/* Social profiles row */}
+              <div className="flex flex-wrap items-center gap-x-3.5 sm:gap-x-4 gap-y-1.5 pt-0.5">
+                <a
+                  href="https://github.com/bhavukar"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-zinc-500 hover:text-zinc-950 font-mono text-xs py-1 flex items-center gap-1.5 transition-colors shrink-0"
+                >
+                  <Github size={13} />
+                  <span>GitHub</span>
+                  <ArrowUpRight size={11} className="opacity-60" />
+                </a>
 
-              <a
-                href="https://www.linkedin.com/in/bhavuk-arora-4a7263216/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-zinc-600 hover:text-zinc-950 font-mono text-xs px-2.5 sm:px-3 py-2 flex items-center gap-1.5 transition-colors"
-              >
-                <Linkedin size={14} />
-                <span>LinkedIn</span>
-                <ArrowUpRight size={12} />
-              </a>
+                <a
+                  href="https://www.linkedin.com/in/bhavuk-arora-4a7263216/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-zinc-500 hover:text-zinc-950 font-mono text-xs py-1 flex items-center gap-1.5 transition-colors shrink-0"
+                >
+                  <Linkedin size={13} />
+                  <span>LinkedIn</span>
+                  <ArrowUpRight size={11} className="opacity-60" />
+                </a>
 
-              <a
-                href="https://www.behance.net/bhavukarora1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-zinc-600 hover:text-zinc-950 font-mono text-xs px-2.5 sm:px-3 py-2 flex items-center gap-1.5 transition-colors"
-              >
-                <span>Behance</span>
-                <ArrowUpRight size={12} />
-              </a>
+                <a
+                  href="https://x.com/bhavukarora03"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-zinc-500 hover:text-zinc-950 font-mono text-xs py-1 flex items-center gap-1.5 transition-colors shrink-0"
+                >
+                  <XIcon size={12} />
+                  <span>X</span>
+                  <ArrowUpRight size={11} className="opacity-60" />
+                </a>
 
-              <a
-                href="https://bhavuk3.substack.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-zinc-600 hover:text-zinc-950 font-mono text-xs px-2.5 sm:px-3 py-2 flex items-center gap-1.5 transition-colors"
-              >
-                <span>Substack</span>
-                <ArrowUpRight size={12} />
-              </a>
+                <a
+                  href="https://www.reddit.com/user/bhavuk15"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-zinc-500 hover:text-zinc-950 font-mono text-xs py-1 flex items-center gap-1.5 transition-colors shrink-0"
+                >
+                  <RedditIcon size={13} />
+                  <span>Reddit</span>
+                  <ArrowUpRight size={11} className="opacity-60" />
+                </a>
+
+                <a
+                  href="https://bhavuk3.substack.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-zinc-500 hover:text-zinc-950 font-mono text-xs py-1 flex items-center gap-1.5 transition-colors shrink-0"
+                >
+                  <span>Substack</span>
+                  <ArrowUpRight size={11} className="opacity-60" />
+                </a>
+
+                <a
+                  href="https://www.behance.net/bhavukarora1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-zinc-500 hover:text-zinc-950 font-mono text-xs py-1 flex items-center gap-1.5 transition-colors shrink-0"
+                >
+                  <span>Behance</span>
+                  <ArrowUpRight size={11} className="opacity-60" />
+                </a>
+              </div>
             </div>
           </div>
         </motion.section>
@@ -986,13 +1043,23 @@ export default function Home() {
                 </a>
                 <span className="text-zinc-700">•</span>
                 <a
-                  href="https://www.behance.net/bhavukarora1"
+                  href="https://x.com/bhavukarora03"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 hover:text-white transition-colors"
                 >
-                  <span>Behance</span>
-                  <ArrowUpRight size={12} />
+                  <XIcon size={13} />
+                  <span>@bhavukarora03</span>
+                </a>
+                <span className="text-zinc-700">•</span>
+                <a
+                  href="https://www.reddit.com/user/bhavuk15"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 hover:text-white transition-colors"
+                >
+                  <RedditIcon size={14} />
+                  <span>u/bhavuk15</span>
                 </a>
                 <span className="text-zinc-700">•</span>
                 <a
@@ -1006,13 +1073,23 @@ export default function Home() {
                 </a>
                 <span className="text-zinc-700">•</span>
                 <a
+                  href="https://www.behance.net/bhavukarora1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 hover:text-white transition-colors"
+                >
+                  <span>Behance</span>
+                  <ArrowUpRight size={12} />
+                </a>
+                <span className="text-zinc-700">•</span>
+                <a
                   href="https://www.instagram.com/nobhavuk/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 hover:text-white transition-colors"
                 >
-                  <Twitter size={14} />
-                  <span>@nobhavuk</span>
+                  <span>Instagram</span>
+                  <ArrowUpRight size={12} />
                 </a>
               </div>
 
@@ -1025,7 +1102,7 @@ export default function Home() {
             FOOTER (Clean & Simple)
             ─────────────────────────────────────────────────────────── */}
         <footer className="border-t border-zinc-200 px-4 sm:px-10 py-5 sm:py-6 text-xs font-mono text-zinc-500 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3 text-center sm:text-left">
-          <div>© {new Date().getFullYear()} Bhavuk Arora — Founder & CEO, Blue Fork.</div>
+          <div>© {new Date().getFullYear()} Bhavuk Arora — Founder & CEO, Bluefork.</div>
           <div>Delhi, India.</div>
         </footer>
       </div>

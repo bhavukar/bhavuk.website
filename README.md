@@ -1,11 +1,11 @@
 # bhavuk.website
 
-Personal website and portfolio of **Bhavuk Arora** — Founder & CEO | Blue Fork.
+Personal website and portfolio of **Bhavuk Arora** — Founder & CEO | Bluefork.
 
 Built with **Next.js 16 (App Router, Turbopack)**, **React 19**, **TypeScript**, and **Tailwind CSS v4**, deployed globally on **Cloudflare Pages**.
 
 ## Overview
-- **Identity**: Founder & CEO, Blue Fork.
+- **Identity**: Founder & CEO, Bluefork.
 - **Track Record**: 10 Lakh+ downloads at Suraasa, 25K+ at Reve, IIT Delhi research.
 - **Tech Stack**: Flutter, Next.js, React, Tailwind CSS, TypeScript, Rust, SQLite, AI pipelines.
 
