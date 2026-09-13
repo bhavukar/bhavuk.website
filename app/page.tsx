@@ -46,6 +46,7 @@ interface ExperienceItem {
   id: string;
   role: string;
   company: string;
+  logo?: string;
   location: string;
   period: string;
   url: string;
@@ -68,6 +69,7 @@ const EXPERIENCES: ExperienceItem[] = [
     id: 'fork',
     role: 'Founder & CEO',
     company: 'Fork (Bluefork)',
+    logo: '/logos/fork.png',
     location: 'Delhi',
     period: 'May 2026 – Present',
     url: 'https://app.fork.blue',
@@ -87,6 +89,7 @@ const EXPERIENCES: ExperienceItem[] = [
     id: 'reve',
     role: 'Founding Member – Product & Engineering',
     company: 'Reve',
+    logo: '/logos/reve.png',
     location: 'Gurugram, HR',
     period: 'Sep 2024 – Present',
     url: 'https://reve.rsvp',
@@ -105,6 +108,7 @@ const EXPERIENCES: ExperienceItem[] = [
     id: 'mythyaverse',
     role: 'Software Development Engineer',
     company: 'MythyaVerse (VRPlaced & Oncarea)',
+    logo: '/logos/mythyaverse.png',
     location: 'Noida, UP',
     period: 'Sep 2023 – Aug 2024',
     url: 'https://www.vrplaced.ai',
@@ -123,6 +127,7 @@ const EXPERIENCES: ExperienceItem[] = [
     id: 'suraasa',
     role: 'Software Development Engineer',
     company: 'Suraasa',
+    logo: '/logos/suraasa.png',
     location: 'Gurugram, HR',
     period: 'Dec 2022 – Jul 2023',
     url: 'https://www.suraasa.com',
@@ -142,6 +147,7 @@ const EXPERIENCES: ExperienceItem[] = [
     id: 'iitd',
     role: 'AR/VR Developer',
     company: 'Indian Institute of Technology, Delhi',
+    logo: '/logos/iitd.svg',
     location: 'New Delhi',
     period: 'Dec 2021 – May 2022',
     url: 'https://home.iitd.ac.in',
@@ -557,83 +563,103 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
                 className="group relative pb-10 sm:pb-12 border-b border-zinc-100 last:border-none last:pb-0 transition-all"
               >
-                {/* Header Row: Role & Period */}
-                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-1.5 sm:mb-2">
-                  <h3 className="text-base sm:text-xl font-bold text-zinc-950 group-hover:text-black transition-colors leading-snug">
-                    {exp.role}
-                  </h3>
-                  <div className="text-[11px] sm:text-xs font-mono text-zinc-500">
-                    {exp.period}
-                  </div>
-                </div>
+                {/* Header Row: Company Logo + Role & Meta */}
+                <div className="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
+                  {exp.logo && (
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-zinc-50 border border-zinc-200/80 p-1 flex items-center justify-center shrink-0 shadow-2xs mt-0.5 group-hover:border-zinc-300 transition-colors overflow-hidden">
+                      <img
+                        src={exp.logo}
+                        alt={`${exp.company} logo`}
+                        className="w-full h-full object-contain rounded-lg"
+                      />
+                    </div>
+                  )}
 
-                {/* Company & Location & Live Link */}
-                <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 text-xs sm:text-sm mb-3 sm:mb-4">
-                  <span
-                    onMouseEnter={() => handleMouseEnter(exp.id)}
-                    onMouseLeave={handleMouseLeave}
-                    className="font-semibold text-zinc-900 cursor-pointer hover:text-black transition-colors"
-                  >
-                    {exp.company}
-                  </span>
-                  <span className="text-zinc-300">•</span>
-                  <span className="text-[11px] sm:text-xs font-mono text-zinc-500">{exp.location}</span>
-                  <span className="text-zinc-300">•</span>
+                  <div className="flex-1 min-w-0">
+                    {/* Role & Period */}
+                    <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-1 sm:mb-1.5">
+                      <h3 className="text-base sm:text-xl font-bold text-zinc-950 group-hover:text-black transition-colors leading-snug">
+                        {exp.role}
+                      </h3>
+                      <div className="text-[11px] sm:text-xs font-mono text-zinc-500 shrink-0">
+                        {exp.period}
+                      </div>
+                    </div>
 
-                  {/* Relative Anchor Container for Link & Popover Preview */}
-                  <div className="relative inline-flex items-center">
-                    <a
-                      href={exp.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onMouseEnter={() => handleMouseEnter(exp.id)}
-                      onMouseLeave={handleMouseLeave}
-                      className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-mono font-semibold text-zinc-900 hover:text-black underline underline-offset-4 decoration-zinc-400 hover:decoration-black transition-all bg-zinc-50 hover:bg-zinc-100 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded"
-                    >
-                      <span>{exp.displayUrl}</span>
-                      <ArrowUpRight size={11} className="sm:size-3" />
-                    </a>
+                    {/* Company & Location & Live Link */}
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 text-xs sm:text-sm">
+                      <span
+                        onMouseEnter={() => handleMouseEnter(exp.id)}
+                        onMouseLeave={handleMouseLeave}
+                        className="font-semibold text-zinc-900 cursor-pointer hover:text-black transition-colors"
+                      >
+                        {exp.company}
+                      </span>
+                      <span className="text-zinc-300">•</span>
+                      <span className="text-[11px] sm:text-xs font-mono text-zinc-500">{exp.location}</span>
+                      <span className="text-zinc-300">•</span>
 
-                    {/* Popover Preview Card anchored directly above the link (desktop only) */}
-                    <div
-                      onMouseEnter={() => handleMouseEnter(exp.id)}
-                      onMouseLeave={handleMouseLeave}
-                      className={`hidden md:block absolute bottom-full left-0 mb-3 w-[330px] rounded-xl bg-zinc-950 p-2 shadow-2xl border border-zinc-800 transition-all duration-200 ease-out origin-bottom-left z-50 pointer-events-auto ${
-                        hoveredExpId === exp.id
-                          ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto'
-                          : 'opacity-0 scale-95 translate-y-2 pointer-events-none'
-                      }`}
-                    >
-                      {/* Visual Viewport */}
-                      <div className="w-full h-[195px] rounded-lg overflow-hidden relative bg-zinc-900 border border-zinc-800/80">
-                        {exp.previewImage && (
-                          <img
-                            src={exp.previewImage}
-                            alt={exp.displayUrl}
-                            className="absolute inset-0 w-full h-full object-cover object-top"
-                          />
-                        )}
-                        {/* Clickable Overlay */}
+                      {/* Relative Anchor Container for Link & Popover Preview */}
+                      <div className="relative inline-flex items-center">
                         <a
                           href={exp.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="absolute inset-0 z-20 cursor-pointer"
-                          title={`Open ${exp.displayUrl}`}
-                        />
-                      </div>
+                          onMouseEnter={() => handleMouseEnter(exp.id)}
+                          onMouseLeave={handleMouseLeave}
+                          className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-mono font-semibold text-zinc-900 hover:text-black underline underline-offset-4 decoration-zinc-400 hover:decoration-black transition-all bg-zinc-50 hover:bg-zinc-100 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded"
+                        >
+                          <span>{exp.displayUrl}</span>
+                          <ArrowUpRight size={11} className="sm:size-3" />
+                        </a>
 
-                      {/* URL Footer */}
-                      <div className="flex items-center justify-between px-2 pt-2 pb-0.5 text-[11px] font-mono">
-                        <span className="text-zinc-300 truncate max-w-[220px]">{exp.displayUrl}</span>
-                        <span className="text-[#fde047] font-semibold text-[10px] flex items-center gap-0.5">
-                          <span>Open</span>
-                          <ArrowUpRight size={11} />
-                        </span>
-                      </div>
+                        {/* Popover Preview Card anchored directly above the link (desktop only) */}
+                        <div
+                          onMouseEnter={() => handleMouseEnter(exp.id)}
+                          onMouseLeave={handleMouseLeave}
+                          className={`hidden md:block absolute bottom-full left-0 mb-3 w-[330px] rounded-xl bg-zinc-950 p-2 shadow-2xl border border-zinc-800 transition-all duration-200 ease-out origin-bottom-left z-50 pointer-events-auto ${
+                            hoveredExpId === exp.id
+                              ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto'
+                              : 'opacity-0 scale-95 translate-y-2 pointer-events-none'
+                          }`}
+                        >
+                          {/* Visual Viewport */}
+                          <div className="w-full h-[195px] rounded-lg overflow-hidden relative bg-zinc-900 border border-zinc-800/80">
+                            {exp.previewImage && (
+                              <img
+                                src={exp.previewImage}
+                                alt={exp.displayUrl}
+                                className="absolute inset-0 w-full h-full object-cover object-top"
+                              />
+                            )}
+                            {/* Clickable Overlay */}
+                            <a
+                              href={exp.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="absolute inset-0 z-20 cursor-pointer"
+                              title={`Open ${exp.displayUrl}`}
+                            />
+                          </div>
 
-                      {/* Notch pointing directly down to the link */}
-                      <div className="absolute -bottom-1.5 left-6 w-3 h-3 bg-zinc-950 border-r border-b border-zinc-800 rotate-45" />
+                          {/* URL Footer */}
+                          <div className="flex items-center justify-between px-2 pt-2 pb-0.5 text-[11px] font-mono">
+                            <div className="flex items-center gap-1.5 truncate max-w-[220px]">
+                              {exp.logo && (
+                                <img src={exp.logo} alt="" className="w-3.5 h-3.5 rounded object-contain shrink-0" />
+                              )}
+                              <span className="text-zinc-300 truncate">{exp.displayUrl}</span>
+                            </div>
+                            <span className="text-[#fde047] font-semibold text-[10px] flex items-center gap-0.5">
+                              <span>Open</span>
+                              <ArrowUpRight size={11} />
+                            </span>
+                          </div>
+
+                          {/* Notch pointing directly down to the link */}
+                          <div className="absolute -bottom-1.5 left-6 w-3 h-3 bg-zinc-950 border-r border-b border-zinc-800 rotate-45" />
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
