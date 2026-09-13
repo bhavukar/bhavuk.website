@@ -195,37 +195,37 @@ const SUBSTACK_POSTS: SubstackPost[] = [
     id: 'context-engineering',
     slug: 'the-art-of-context-engineering-what',
     title: 'The Art of Context Engineering',
-    subtitle: 'What Antigravity, Claude, and Codex teach us about AI memory architecture. Why more tokens won’t save bad architecture, and how modern agentic systems master context.',
-    url: 'https://cenosolutio845814.substack.com/p/the-art-of-context-engineering-what',
+    subtitle: 'What Antigravity, Claude, and Codex teach us about AI memory architecture.',
+    url: 'https://bhavuk3.substack.com/p/the-art-of-context-engineering-what',
     date: 'Sep 2026',
     readTime: '4 min read',
     category: 'AI Architecture',
-    coverImage: '/essay_context_engineering.png',
-    tags: ['AI Memory', 'Context Engineering', 'Agentic Systems', 'LLM Architecture'],
+    coverImage: '/substack_context_engineering.jpg',
+    tags: ['AI Memory', 'Context Engineering', 'Agentic Systems'],
   },
   {
     id: 'middle-class-creator',
     slug: 'the-death-of-the-middle-class-creator',
     title: 'The Death of the Middle-Class Creator',
-    subtitle: 'What actually happened to the creator economy in 2026. When the cost of generating content dropped to zero, raw information became worthless — who is actually making money right now.',
-    url: 'https://cenosolutio845814.substack.com/p/the-death-of-the-middle-class-creator',
+    subtitle: 'What actually happened to the creator economy in 2026.',
+    url: 'https://bhavuk3.substack.com/p/the-death-of-the-middle-class-creator',
     date: 'Sep 2026',
     readTime: '4 min read',
     category: 'Creator Economy',
-    coverImage: '/essay_creator_economy.png',
-    tags: ['Creator Economy', 'Market Dynamics', 'Synthetic Media', 'Unit Economics'],
+    coverImage: '/substack_creator_economy.jpg',
+    tags: ['Creator Economy', 'Market Dynamics', 'Synthetic Media'],
   },
   {
     id: 'revenge-of-physical',
     slug: 'the-revenge-of-the-physical-why-touching',
     title: 'The Revenge of the Physical',
-    subtitle: 'Why "Touching Grass" became the ultimate luxury in 2026. When our work, entertainment, and social feeds became 100% synthetic, physical friction became the only thing that felt real.',
-    url: 'https://cenosolutio845814.substack.com/p/the-revenge-of-the-physical-why-touching',
+    subtitle: 'Why "Touching Grass" became the ultimate luxury in 2026.',
+    url: 'https://bhavuk3.substack.com/p/the-revenge-of-the-physical-why-touching',
     date: 'Sep 2026',
     readTime: '4 min read',
     category: 'Culture & Tech',
-    coverImage: '/essay_revenge_physical.png',
-    tags: ['Post-Synthetic', 'Proof of Friction', 'Culture', 'Analog Revival'],
+    coverImage: '/substack_revenge_physical.jpg',
+    tags: ['Post-Synthetic', 'Culture', 'Proof of Friction'],
   },
 ];
 
@@ -461,7 +461,7 @@ export default function Home() {
               </a>
 
               <a
-                href="https://cenosolutio845814.substack.com"
+                href="https://bhavuk3.substack.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-zinc-600 hover:text-zinc-950 font-mono text-xs px-2.5 sm:px-3 py-2 flex items-center gap-1.5 transition-colors"
@@ -754,7 +754,7 @@ export default function Home() {
               </h2>
             </div>
             <a
-              href="https://cenosolutio845814.substack.com"
+              href="https://bhavuk3.substack.com"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-600 hover:text-zinc-950 transition-colors group"
@@ -764,86 +764,41 @@ export default function Home() {
             </a>
           </div>
 
-          {/* 3 Essay Cards Grid (Exact Behance Card Design, Zero Filters) */}
+          {/* 3 Essay Cards Grid (Clean 4:5 Visual Cards) */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {SUBSTACK_POSTS.map((post) => (
-              <div
+              <a
                 key={post.id}
-                className="group rounded-2xl border border-zinc-200 bg-white overflow-hidden shadow-2xs hover:shadow-md transition-all flex flex-col"
+                href={post.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group rounded-2xl border border-zinc-200 bg-white overflow-hidden shadow-2xs hover:shadow-md transition-all flex flex-col hover:-translate-y-1"
               >
-                {/* Media Canvas (16:9 Image Preview) */}
-                <div className="aspect-video relative overflow-hidden bg-zinc-50 border-b border-zinc-100">
-                  <a
-                    href={post.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block w-full h-full"
-                  >
-                    <img
-                      src={post.coverImage}
-                      alt={post.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </a>
+                {/* Visual Canvas (Substack Share Card, 4:5 ratio) */}
+                <div className="aspect-[4/5] relative overflow-hidden bg-zinc-100">
+                  <img
+                    src={post.coverImage}
+                    alt={post.title}
+                    className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500"
+                  />
 
-                  {/* Read time badge */}
-                  <div className="absolute bottom-2.5 left-2.5 pointer-events-none">
-                    <span className="px-2 py-0.5 rounded-full bg-black/70 backdrop-blur-xs text-white text-[10px] font-mono font-medium tracking-tight">
-                      {post.readTime}
-                    </span>
-                  </div>
-
-                  {/* Substack link pill */}
-                  <a
-                    href={post.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full bg-white/90 hover:bg-white text-zinc-950 text-[10px] font-mono font-medium flex items-center gap-0.5 shadow-sm transition-transform hover:scale-105"
-                  >
-                    <span>Substack</span>
+                  {/* Read on Substack pill */}
+                  <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-xs text-zinc-950 text-[10px] font-mono font-medium flex items-center gap-0.5 shadow-sm transition-transform group-hover:scale-105">
+                    <span>Read</span>
                     <ArrowUpRight size={10} />
-                  </a>
-                </div>
-
-                {/* Card Info */}
-                <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
-                  <div>
-                    <div className="mb-1.5">
-                      <h3 className="text-base font-bold text-zinc-950 group-hover:text-blue-600 transition-colors">
-                        <a
-                          href={post.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center justify-between gap-1"
-                        >
-                          <span>{post.title}</span>
-                          <ArrowUpRight size={14} className="text-zinc-400 group-hover:text-blue-600 transition-colors flex-shrink-0" />
-                        </a>
-                      </h3>
-                    </div>
-
-                    <div className="text-xs font-mono text-zinc-500 mb-2">
-                      {post.category} · {post.date}
-                    </div>
-
-                    <p className="text-xs text-zinc-600 leading-relaxed mb-4">
-                      {post.subtitle}
-                    </p>
-                  </div>
-
-                  {/* Tag chips */}
-                  <div className="pt-3 border-t border-zinc-100 flex flex-wrap gap-1.5">
-                    {post.tags.map((t, idx) => (
-                      <span
-                        key={idx}
-                        className="px-2 py-0.5 rounded bg-zinc-100 text-zinc-700 text-[10px] font-mono"
-                      >
-                        {t}
-                      </span>
-                    ))}
                   </div>
                 </div>
-              </div>
+
+                {/* Minimal Card Footer */}
+                <div className="px-4 py-3 bg-white border-t border-zinc-100 flex items-center justify-between text-xs font-mono">
+                  <span className="font-semibold text-zinc-900 group-hover:text-blue-600 transition-colors">
+                    {post.category}
+                  </span>
+                  <span className="text-zinc-400">
+                    {post.readTime}
+                  </span>
+                </div>
+              </a>
             ))}
           </div>
 
@@ -853,12 +808,12 @@ export default function Home() {
               Essays exploring AI memory architecture, creator market dynamics, and post-synthetic culture.
             </div>
             <a
-              href="https://cenosolutio845814.substack.com"
+              href="https://bhavuk3.substack.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-zinc-700 hover:text-zinc-950 font-semibold inline-flex items-center gap-1 transition-colors"
             >
-              <span>cenosolutio845814.substack.com</span>
+              <span>bhavuk3.substack.com</span>
               <ArrowUpRight size={12} />
             </a>
           </div>
@@ -1041,7 +996,7 @@ export default function Home() {
                 </a>
                 <span className="text-zinc-700">•</span>
                 <a
-                  href="https://cenosolutio845814.substack.com"
+                  href="https://bhavuk3.substack.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 hover:text-white transition-colors"
