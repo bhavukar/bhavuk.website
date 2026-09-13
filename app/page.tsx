@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Lenis from 'lenis';
 import {
   Github,
@@ -10,7 +10,6 @@ import {
   ArrowUpRight,
   Copy,
   Check,
-  Lock,
 } from 'lucide-react';
 
 interface ExperienceItem {
@@ -104,13 +103,14 @@ const EXPERIENCES: ExperienceItem[] = [
     displayUrl: 'suraasa.com',
     previewImage: '/suraasa_preview.jpg',
     summary:
-      'Engineered core mobile software systems and learning infrastructure serving 100,000+ educators across 50+ international markets.',
+      'Engineered core mobile software systems and learning infrastructure serving 10 Lakh+ downloads and educators across 50+ international markets.',
     highlights: [
+      'Scaled mobile application architecture to support 10 Lakh+ downloads with 99.8% crash-free session reliability.',
       'Architected enterprise mobile software systems in Flutter, delivering offline-first local database synchronization, resilient state management, and real-time push events.',
       'Engineered low-latency video streaming pipelines and custom playback services optimized for low-bandwidth cellular networks.',
-      'Collaborated with backend engineering teams to optimize REST APIs and serialization, reducing app startup latency by 35% and maintaining 99.8% crash-free sessions.'
+      'Collaborated with backend engineering teams to optimize REST APIs and serialization, reducing app startup latency by 35%.'
     ],
-    skills: ['Mobile Systems Architecture', 'Flutter & Dart', 'Offline Data Sync', 'REST APIs', 'Performance Optimization'],
+    skills: ['Mobile Systems Architecture', 'Flutter & Dart', '10 Lakh+ Downloads', 'Offline Data Sync', 'Performance Optimization'],
   },
   {
     id: 'iitd',
@@ -134,55 +134,33 @@ const EXPERIENCES: ExperienceItem[] = [
 
 export default function Home() {
   const [copiedEmail, setCopiedEmail] = useState(false);
-  const [hoveredExperience, setHoveredExperience] = useState<ExperienceItem | null>(null);
-  const [activeExperience, setActiveExperience] = useState<ExperienceItem>(EXPERIENCES[0]);
-  const [loadedExperienceIds, setLoadedExperienceIds] = useState<Set<string>>(
-    () => new Set(EXPERIENCES.map((e) => e.id))
-  );
-  const hoverLeaveTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const [hoveredExpId, setHoveredExpId] = useState<string | null>(null);
+  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Cleanup hover timer on unmount
   useEffect(() => {
     return () => {
-      if (hoverLeaveTimeoutRef.current) {
-        clearTimeout(hoverLeaveTimeoutRef.current);
+      if (hoverTimeoutRef.current) {
+        clearTimeout(hoverTimeoutRef.current);
       }
     };
   }, []);
 
-  const handleExperienceHover = (exp: ExperienceItem) => {
-    if (hoverLeaveTimeoutRef.current) {
-      clearTimeout(hoverLeaveTimeoutRef.current);
-      hoverLeaveTimeoutRef.current = null;
+  const handleMouseEnter = (id: string) => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+      hoverTimeoutRef.current = null;
     }
-    setHoveredExperience(exp);
-    setActiveExperience(exp);
-    setLoadedExperienceIds((prev) => {
-      if (prev.has(exp.id)) return prev;
-      const next = new Set(prev);
-      next.add(exp.id);
-      return next;
-    });
+    setHoveredExpId(id);
   };
 
-  const handleExperienceLeave = () => {
-    if (hoverLeaveTimeoutRef.current) {
-      clearTimeout(hoverLeaveTimeoutRef.current);
+  const handleMouseLeave = () => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
     }
-    hoverLeaveTimeoutRef.current = setTimeout(() => {
-      setHoveredExperience(null);
-    }, 250);
-  };
-
-  const handlePreviewWindowEnter = () => {
-    if (hoverLeaveTimeoutRef.current) {
-      clearTimeout(hoverLeaveTimeoutRef.current);
-      hoverLeaveTimeoutRef.current = null;
-    }
-  };
-
-  const handlePreviewWindowLeave = () => {
-    setHoveredExperience(null);
+    hoverTimeoutRef.current = setTimeout(() => {
+      setHoveredExpId(null);
+    }, 120);
   };
 
   // Initialize Lenis smooth "liquid" scrolling
@@ -302,9 +280,9 @@ export default function Home() {
 
             <p className="text-sm sm:text-base text-zinc-600 leading-relaxed max-w-xl">
               I turn early-stage ideas into products people actually use. Over 5+ years of engineering,
-              I've taken applications from zero to tens of thousands of downloads across consumer mobile,
-              edtech, and AI platforms. Currently building <strong>Fork</strong> (an operating platform
-              for independent creators) and part of the founding team at <strong>Reve</strong> (25K+ downloads).
+              I've taken applications from zero to scale across consumer mobile and edtech platforms
+              (10 Lakh+ downloads at Suraasa, 25K+ at Reve). Currently building <strong>Fork</strong> (commercial
+              operating system for independent creators).
             </p>
 
             {/* Quick Actions */}
@@ -370,7 +348,7 @@ export default function Home() {
               Where I've worked & what I've shipped
             </h2>
             <p className="text-xs sm:text-sm text-zinc-500 font-mono pt-1">
-              Hover over any company link to load the live site inside the preview window.
+              Hover over any company link for a live preview.
             </p>
           </div>
 
@@ -397,8 +375,8 @@ export default function Home() {
                 {/* Company & Location & Live Link */}
                 <div className="flex flex-wrap items-center gap-2.5 text-sm mb-4">
                   <span
-                    onMouseEnter={() => handleExperienceHover(exp)}
-                    onMouseLeave={handleExperienceLeave}
+                    onMouseEnter={() => handleMouseEnter(exp.id)}
+                    onMouseLeave={handleMouseLeave}
                     className="font-semibold text-zinc-900 cursor-pointer hover:text-black transition-colors"
                   >
                     {exp.company}
@@ -406,17 +384,68 @@ export default function Home() {
                   <span className="text-zinc-300">•</span>
                   <span className="text-xs font-mono text-zinc-500">{exp.location}</span>
                   <span className="text-zinc-300">•</span>
-                  <a
-                    href={exp.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onMouseEnter={() => handleExperienceHover(exp)}
-                    onMouseLeave={handleExperienceLeave}
-                    className="inline-flex items-center gap-1 text-xs font-mono font-semibold text-zinc-900 hover:text-black underline underline-offset-4 decoration-zinc-400 hover:decoration-black transition-all bg-zinc-50 hover:bg-zinc-100 px-2.5 py-1 rounded"
-                  >
-                    <span>{exp.displayUrl}</span>
-                    <ArrowUpRight size={12} />
-                  </a>
+
+                  {/* Relative Anchor Container for Link & Popover Preview */}
+                  <div className="relative inline-flex items-center">
+                    <a
+                      href={exp.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onMouseEnter={() => handleMouseEnter(exp.id)}
+                      onMouseLeave={handleMouseLeave}
+                      className="inline-flex items-center gap-1 text-xs font-mono font-semibold text-zinc-900 hover:text-black underline underline-offset-4 decoration-zinc-400 hover:decoration-black transition-all bg-zinc-50 hover:bg-zinc-100 px-2.5 py-1 rounded"
+                    >
+                      <span>{exp.displayUrl}</span>
+                      <ArrowUpRight size={12} />
+                    </a>
+
+                    {/* Popover Preview Card anchored directly above the link */}
+                    <div
+                      onMouseEnter={() => handleMouseEnter(exp.id)}
+                      onMouseLeave={handleMouseLeave}
+                      className={`hidden md:block absolute bottom-full left-0 mb-3 w-[330px] rounded-xl bg-zinc-950 p-2 shadow-2xl border border-zinc-800 transition-all duration-200 ease-out origin-bottom-left z-50 pointer-events-auto ${
+                        hoveredExpId === exp.id
+                          ? 'opacity-100 scale-100 translate-y-0 pointer-events-auto'
+                          : 'opacity-0 scale-95 translate-y-2 pointer-events-none'
+                      }`}
+                    >
+                      {/* Visual Viewport */}
+                      <div className="w-full h-[180px] rounded-lg overflow-hidden relative bg-zinc-900 border border-zinc-800/80">
+                        {exp.previewImage && (
+                          <img
+                            src={exp.previewImage}
+                            alt={exp.displayUrl}
+                            className="absolute inset-0 w-full h-full object-cover object-top"
+                          />
+                        )}
+                        {exp.embedUrl && (
+                          <iframe
+                            src={exp.embedUrl}
+                            title={exp.displayUrl}
+                            className="absolute inset-0 w-[660px] h-[360px] origin-top-left scale-50 border-0 bg-white"
+                            loading="eager"
+                          />
+                        )}
+                        {/* Clickable Overlay */}
+                        <a
+                          href={exp.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="absolute inset-0 z-20 cursor-pointer"
+                          title={`Open ${exp.displayUrl}`}
+                        />
+                      </div>
+
+                      {/* URL Footer */}
+                      <div className="flex items-center justify-between px-2 pt-2 pb-0.5 text-[11px] font-mono">
+                        <span className="text-zinc-300 truncate max-w-[220px]">{exp.displayUrl}</span>
+                        <span className="text-[#fde047] font-semibold text-[10px]">Open ↗</span>
+                      </div>
+
+                      {/* Notch pointing directly down to the link */}
+                      <div className="absolute -bottom-1.5 left-6 w-3 h-3 bg-zinc-950 border-r border-b border-zinc-800 rotate-45" />
+                    </div>
+                  </div>
                 </div>
 
                 {/* Summary */}
@@ -627,108 +656,7 @@ export default function Home() {
         </footer>
       </div>
 
-      {/* ─────────────────────────────────────────────────────────────
-          GLOBAL FLOATING MACOS WEBSITE PREVIEW WINDOW
-          Cached DOM with multi-slot iframe persistence:
-          - Iframes stay mounted once loaded so they NEVER reload on hover
-          - Smoothly fades and slides into view
-          - Real live URL address bar and click-through overlay
-          ───────────────────────────────────────────────────────────── */}
-      <motion.div
-        initial={false}
-        animate={{
-          opacity: hoveredExperience ? 1 : 0,
-          y: hoveredExperience ? 0 : 16,
-          scale: hoveredExperience ? 1 : 0.96,
-        }}
-        transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-        style={{ pointerEvents: hoveredExperience ? 'auto' : 'none' }}
-        onMouseEnter={handlePreviewWindowEnter}
-        onMouseLeave={handlePreviewWindowLeave}
-        className="hidden lg:block fixed bottom-8 right-8 z-50 w-[420px] rounded-xl bg-zinc-950 text-white shadow-2xl border border-zinc-700 overflow-hidden"
-      >
-        {/* macOS Browser Header */}
-        <div className="flex items-center justify-between px-3.5 py-2.5 bg-zinc-900 border-b border-zinc-800 text-xs font-mono select-none">
-          <div className="flex items-center gap-1.5">
-            <button
-              onClick={() => setHoveredExperience(null)}
-              className="w-2.5 h-2.5 rounded-full bg-[#ff5f56] hover:opacity-80 transition-opacity cursor-pointer border-0 p-0"
-              title="Close preview"
-              type="button"
-            />
-            <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
-            <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
-          </div>
 
-          {/* Real URL Address Bar */}
-          <a
-            href={activeExperience.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-3 py-1 rounded bg-zinc-950 text-[11px] text-zinc-300 border border-zinc-800 hover:border-zinc-600 hover:text-white transition-all max-w-[260px] truncate"
-          >
-            <Lock size={10} className="text-emerald-400 shrink-0" />
-            <span className="truncate">{activeExperience.url}</span>
-          </a>
-
-          <a
-            href={activeExperience.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-zinc-400 hover:text-white transition-colors"
-            title="Open site in new tab"
-          >
-            <ArrowUpRight size={13} />
-          </a>
-        </div>
-
-        {/* Window Content: Real Iframes & High-Res Previews Cached */}
-        <div className="relative w-full h-[260px] bg-zinc-900 overflow-hidden">
-          {EXPERIENCES.map((exp) => {
-            const isLoaded = loadedExperienceIds.has(exp.id);
-            if (!isLoaded) return null;
-
-            const isCurrent = activeExperience.id === exp.id;
-
-            return (
-              <div
-                key={exp.id}
-                className={`absolute inset-0 w-full h-full bg-zinc-950 transition-opacity duration-200 ${
-                  isCurrent ? 'opacity-100 z-10 pointer-events-auto' : 'opacity-0 z-0 pointer-events-none'
-                }`}
-              >
-                {/* Visual Screenshot (high-res preview for Suraasa, IITD, and backdrop for Fork/Reve/VRPlaced) */}
-                {exp.previewImage && (
-                  <img
-                    src={exp.previewImage}
-                    alt={exp.displayUrl}
-                    className="absolute inset-0 w-full h-full object-cover object-top"
-                  />
-                )}
-
-                {/* Real Live Iframe View (for embed-supported sites) */}
-                {exp.embedUrl && (
-                  <iframe
-                    src={exp.embedUrl}
-                    title={exp.displayUrl}
-                    className="absolute inset-0 w-[840px] h-[520px] origin-top-left scale-50 border-0 bg-white"
-                    loading="eager"
-                  />
-                )}
-
-                {/* Clickable Overlay */}
-                <a
-                  href={exp.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="absolute inset-0 z-20 cursor-pointer"
-                  title={`Click to open ${exp.displayUrl}`}
-                />
-              </div>
-            );
-          })}
-        </div>
-      </motion.div>
     </div>
   );
 }

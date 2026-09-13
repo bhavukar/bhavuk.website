@@ -23,21 +23,21 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://bhavuk.website'),
-  title: 'Bhavuk Arora — Product Engineer & Founder',
+  title: 'Bhavuk Arora — Founder & Product Engineer',
   description:
-    'Product engineer & founder building consumer products and AI workflows. Founding engineer at Reve (25K+ downloads), building Fork.',
+    'Founder & product engineer building consumer products from zero to scale. Building Fork, founding member at Reve (25K+ downloads).',
   keywords: [
     'Bhavuk Arora',
     'bhavuk.website',
     'bhavukar',
+    'Founder',
     'Product Engineer',
-    'Founding Engineer',
     'Fork',
     'Reve',
     'Flutter',
     'Next.js',
     'Rust',
-    'AI Workflows',
+    'Consumer Tech',
   ],
   authors: [{ name: 'Bhavuk Arora', url: 'https://bhavuk.website' }],
   creator: 'Bhavuk Arora',
@@ -45,9 +45,9 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://bhavuk.website',
-    title: 'Bhavuk Arora — Product Engineer & Founder',
+    title: 'Bhavuk Arora — Founder & Product Engineer',
     description:
-      'Product engineer & founder building consumer products and AI workflows. Founding engineer at Reve (25K+ downloads), building Fork.',
+      'Founder & product engineer building consumer products from zero to scale. Building Fork, founding member at Reve (25K+ downloads).',
     siteName: 'Bhavuk Arora',
     images: [
       {
@@ -60,9 +60,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bhavuk Arora — Product Engineer & Founder',
+    title: 'Bhavuk Arora — Founder & Product Engineer',
     description:
-      'Product engineer & founder building consumer products and AI workflows. Founding engineer at Reve (25K+ downloads), building Fork.',
+      'Founder & product engineer building consumer products from zero to scale. Building Fork, founding member at Reve (25K+ downloads).',
     images: ['/profile.jpeg'],
   },
   icons: {
