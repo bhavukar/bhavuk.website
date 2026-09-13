@@ -378,330 +378,184 @@ Founder & CEO building consumer products from zero to scale. Over 5+ years of en
 - Resume: https://bhavuk.website/bhavuk_arora_resume.pdf
 `;
 
-function MachineView({ onCopy, copied }: { onCopy: () => void; copied: boolean }) {
+function MachineView({ onCopy, copied }: { onCopy?: () => void; copied?: boolean }) {
   return (
-    <div className="min-h-screen bg-[#0a0a0c] text-zinc-300 font-mono text-xs sm:text-sm selection:bg-[#fde047] selection:text-black pb-28">
-      {/* Top Sticky Bar */}
-      <header className="sticky top-0 z-40 bg-[#0a0a0c]/90 backdrop-blur-md border-b border-zinc-800/80 px-4 sm:px-8 h-14 flex items-center justify-between">
-        <div className="flex items-center gap-2 sm:gap-3">
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="text-zinc-500 text-xs font-mono">bhavuk.website</span>
-          <span className="text-zinc-700">/</span>
-          <span className="text-[#fde047] font-semibold text-xs">llms.txt</span>
-          <span className="hidden sm:inline-block px-1.5 py-0.5 rounded bg-zinc-900 border border-zinc-800 text-[10px] text-zinc-400">
-            AI AGENT / LLM VIEW
-          </span>
+    <div className="min-h-screen bg-black text-zinc-400 font-mono text-[13px] sm:text-[14px] leading-relaxed selection:bg-zinc-800 selection:text-white pb-32">
+      <main className="max-w-3xl mx-auto px-6 sm:px-10 py-16 sm:py-24 border-l border-zinc-900 min-h-screen">
+        {/* Frontmatter */}
+        <div className="text-zinc-600 text-xs sm:text-[13px] leading-relaxed mb-10 break-words">
+          --- title: &quot;Bhavuk Arora&quot; role: &quot;Founder &amp; CEO, Product Engineer&quot; description: &quot;Founder &amp; CEO building consumer products from zero to scale. Over 5+ years of engineering across mobile, agentic AI, and full-stack systems.&quot; canonical: &quot;https://bhavuk.website&quot; source-index: &quot;https://bhavuk.website/llms.txt&quot; ---
         </div>
 
-        <div className="flex items-center gap-2">
-          <button
-            onClick={onCopy}
-            className="px-2.5 sm:px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-white text-xs font-mono font-medium flex items-center gap-1.5 transition-colors cursor-pointer shadow-xs"
-          >
-            {copied ? (
-              <>
-                <Check size={12} className="text-emerald-400" />
-                <span className="text-emerald-400 font-semibold">Copied</span>
-              </>
-            ) : (
-              <>
-                <Copy size={12} />
-                <span>Copy Markdown</span>
-              </>
-            )}
-          </button>
-
-          <a
-            href="/llms.txt"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-2.5 sm:px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 hover:bg-zinc-800 text-zinc-400 hover:text-zinc-200 text-xs font-mono flex items-center gap-1 transition-colors"
-          >
-            <span>Raw .txt</span>
-            <ArrowUpRight size={11} />
-          </a>
-        </div>
-      </header>
-
-      {/* Monospace Document Content */}
-      <main className="max-w-3xl mx-auto px-4 sm:px-8 py-8 sm:py-12 space-y-8">
-        {/* YAML Frontmatter Block */}
-        <div className="rounded-xl bg-zinc-900/50 border border-zinc-800/80 p-4 sm:p-5 text-zinc-400 text-xs sm:text-[13px] leading-relaxed overflow-x-auto space-y-1">
-          <div className="text-zinc-600">---</div>
-          <div><span className="text-zinc-500">title:</span> <span className="text-white">"Bhavuk Arora"</span></div>
-          <div><span className="text-zinc-500">role:</span> <span className="text-white">"Founder & CEO, Product Engineer"</span></div>
-          <div><span className="text-zinc-500">description:</span> <span className="text-zinc-300">"Founder & CEO building consumer products from zero to scale. Over 5+ years of engineering across mobile, agentic AI, and full-stack systems."</span></div>
-          <div><span className="text-zinc-500">canonical:</span> <a href="https://bhavuk.website" className="text-[#fde047] hover:underline">"https://bhavuk.website"</a></div>
-          <div><span className="text-zinc-500">source-index:</span> <a href="/llms.txt" className="text-[#fde047] hover:underline">"https://bhavuk.website/llms.txt"</a></div>
-          <div><span className="text-zinc-500">email:</span> <span className="text-white">"bhavukarora03@gmail.com"</span></div>
-          <div><span className="text-zinc-500">location:</span> <span className="text-white">"Delhi, India"</span></div>
-          <div className="text-zinc-600">---</div>
-        </div>
-
-        {/* Title */}
-        <div className="space-y-3">
-          <h1 className="text-xl sm:text-2xl font-bold text-white tracking-tight flex items-center gap-2">
-            <span className="text-zinc-600 font-normal">#</span>
-            <span>Bhavuk Arora</span>
+        {/* Title & Bio */}
+        <div className="space-y-4 mb-10">
+          <h1 className="text-base sm:text-lg font-bold text-zinc-100 tracking-tight">
+            # Bhavuk Arora
           </h1>
-          <p className="text-zinc-300 leading-relaxed text-xs sm:text-sm">
-            Founder & CEO building <span className="text-[#fde047] font-semibold">consumer products from zero to scale</span>. Over 5+ years of engineering, I've taken applications from zero to scale across consumer mobile, creator platforms, and edtech (10 Lakh+ downloads at Suraasa, 25K+ at Reve).
+          <p className="text-zinc-300 leading-relaxed">
+            Founder &amp; CEO building <strong className="text-white font-semibold">**consumer products from zero to scale**</strong>. Over 5+ years of engineering, I&apos;ve taken applications from zero to scale across consumer mobile, creator platforms, and edtech (10 Lakh+ downloads at Suraasa, 25K+ at Reve).
           </p>
         </div>
 
         {/* Quick Facts */}
-        <div className="space-y-3 pt-2">
-          <h2 className="text-base sm:text-lg font-bold text-white tracking-tight flex items-center gap-2">
-            <span className="text-zinc-600 font-normal">##</span>
-            <span>Quick Facts</span>
+        <div className="space-y-2 mb-10">
+          <h2 className="text-sm sm:text-base font-bold text-zinc-100 tracking-tight">
+            ## Quick Facts
           </h2>
-          <ul className="space-y-1.5 text-zinc-300 pl-2">
-            <li><span className="text-zinc-600">- </span><strong className="text-white">Current Role:</strong> Founder & CEO at <a href="https://app.fork.blue" target="_blank" rel="noopener noreferrer" className="text-[#fde047] hover:underline">Fork (Bluefork)</a></li>
-            <li><span className="text-zinc-600">- </span><strong className="text-white">Previous:</strong> Founding Member (Product & Eng) at Reve, Software Engineer at MythyaVerse & Suraasa, AR/VR Developer at IIT Delhi</li>
-            <li><span className="text-zinc-600">- </span><strong className="text-white">Core Stacks:</strong> Flutter/Dart, React/Next.js, TypeScript, PostgreSQL, SQLite, Cloudflare Workers, OpenAI/Claude APIs</li>
-            <li><span className="text-zinc-600">- </span><strong className="text-white">Direct Contact:</strong> <a href="mailto:bhavukarora03@gmail.com" className="text-white underline underline-offset-4">bhavukarora03@gmail.com</a> / (+91) 8708254881</li>
-            <li><span className="text-zinc-600">- </span><strong className="text-white">Resume:</strong> <a href="/bhavuk_arora_resume.pdf" target="_blank" rel="noopener noreferrer" className="text-[#fde047] hover:underline">bhavuk_arora_resume.pdf ↗</a></li>
+          <ul className="space-y-1 text-zinc-400">
+            <li>- <strong className="text-zinc-200 font-medium">**Current Role:**</strong> Founder &amp; CEO at <a href="https://app.fork.blue" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">Fork (Bluefork)</a></li>
+            <li>- <strong className="text-zinc-200 font-medium">**Previous:**</strong> Founding Member (Product &amp; Eng) at Reve, Software Engineer at MythyaVerse &amp; Suraasa, AR/VR Developer at IIT Delhi</li>
+            <li>- <strong className="text-zinc-200 font-medium">**Core Stacks:**</strong> Flutter/Dart, React/Next.js, TypeScript, PostgreSQL, SQLite, Cloudflare Workers, OpenAI/Claude APIs</li>
+            <li>- <strong className="text-zinc-200 font-medium">**Direct Contact:**</strong> <a href="mailto:bhavukarora03@gmail.com" className="text-zinc-300 hover:text-white underline decoration-zinc-800">bhavukarora03@gmail.com</a> / (+91) 8708254881</li>
+            <li>- <strong className="text-zinc-200 font-medium">**Resume:**</strong> <a href="/bhavuk_arora_resume.pdf" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">bhavuk_arora_resume.pdf ↗</a></li>
           </ul>
         </div>
 
         {/* Work Experience */}
-        <div className="space-y-6 pt-2">
-          <h2 className="text-base sm:text-lg font-bold text-white tracking-tight flex items-center gap-2">
-            <span className="text-zinc-600 font-normal">##</span>
-            <span>Work Experience & Track Record</span>
+        <div className="space-y-6 mb-10">
+          <h2 className="text-sm sm:text-base font-bold text-zinc-100 tracking-tight">
+            ## Work Experience &amp; Track Record
           </h2>
 
           {/* 1. Fork */}
-          <div className="space-y-2.5 rounded-xl bg-zinc-900/30 border border-zinc-800/80 p-4 sm:p-5">
-            <h3 className="text-sm sm:text-base font-bold text-white flex items-center gap-2">
-              <span className="text-zinc-600 font-normal">###</span>
-              <span>1. Fork (Bluefork)</span>
+          <div className="space-y-1.5">
+            <h3 className="text-sm font-bold text-zinc-200">
+              ### 1. Fork (Bluefork)
             </h3>
-            <div className="space-y-1 text-zinc-400 pl-2 text-xs">
-              <div><span className="text-zinc-600">- </span><span className="text-zinc-300">Role:</span> <span className="text-white font-semibold">Founder & CEO</span></div>
-              <div><span className="text-zinc-600">- </span><span className="text-zinc-300">Period:</span> May 2026 – Present</div>
-              <div><span className="text-zinc-600">- </span><span className="text-zinc-300">Location:</span> Delhi, India</div>
-              <div><span className="text-zinc-600">- </span><span className="text-zinc-300">URL:</span> <a href="https://app.fork.blue" target="_blank" rel="noopener noreferrer" className="text-[#fde047] hover:underline">https://app.fork.blue ↗</a></div>
-              <div><span className="text-zinc-600">- </span><span className="text-zinc-300">Summary:</span> Building the commercial operating system for independent creators, artists, and digital entrepreneurs to monetize their audience and run end-to-end commercial operations.</div>
-            </div>
-            <div className="pt-2 pl-2 text-xs space-y-1 text-zinc-300">
-              <div className="text-zinc-400 font-semibold mb-1">Key Outcomes:</div>
-              <div className="pl-3 border-l border-zinc-800 space-y-1.5">
-                <div>• Defined company vision, commercial roadmap, and go-to-market strategy, pivoting creator operations from chaotic DMs and spreadsheets into automated deal execution.</div>
-                <div>• Led creator business development and partnerships, directly signing and onboarding 50+ independent talent, digital artists, and creator management agencies.</div>
-                <div>• Architected creator monetization infrastructure with agentic AI pipelines automating deal discovery, brand contract risk audits, dynamic pricing, and cross-border invoicing.</div>
-                <div>• Spearheaded product-led growth and business operations, driving continuous creator retention and high commercial transaction completion.</div>
-              </div>
-            </div>
-            <div className="pt-2 text-[11px] text-zinc-500 font-mono">
-              <span className="text-zinc-400 font-semibold">Stack:</span> Executive Leadership • Creator Monetization • Venture Strategy • AI Workflows • Commercial Infrastructure
-            </div>
+            <ul className="space-y-1 text-zinc-400">
+              <li>- <strong className="text-zinc-200 font-medium">**Role:**</strong> Founder &amp; CEO</li>
+              <li>- <strong className="text-zinc-200 font-medium">**Period:**</strong> May 2026 – Present</li>
+              <li>- <strong className="text-zinc-200 font-medium">**Location:**</strong> Delhi, India</li>
+              <li>- <strong className="text-zinc-200 font-medium">**URL:**</strong> <a href="https://app.fork.blue" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://app.fork.blue</a></li>
+              <li>- <strong className="text-zinc-200 font-medium">**Summary:**</strong> Building the commercial operating system for independent creators, artists, and digital entrepreneurs to monetize their audience and run end-to-end commercial operations.</li>
+              <li>- <strong className="text-zinc-200 font-medium">**Key Deliverables:**</strong></li>
+              <li className="pl-4 space-y-1 text-zinc-400">
+                <div>- Defined company vision, commercial roadmap, and go-to-market strategy, pivoting creator operations from chaotic DMs and spreadsheets into automated deal execution.</div>
+                <div>- Led creator business development and partnerships, directly signing and onboarding 50+ independent talent, digital artists, and creator management agencies.</div>
+                <div>- Architected creator monetization infrastructure with agentic AI pipelines automating deal discovery, brand contract risk audits, dynamic pricing, and cross-border invoicing.</div>
+                <div>- Spearheaded product-led growth and business operations, driving continuous creator retention and high commercial transaction completion.</div>
+              </li>
+              <li>- <strong className="text-zinc-200 font-medium">**Stack:**</strong> <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Executive Leadership`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Creator Monetization`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`AI Workflows`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Commercial Infrastructure`</code></li>
+            </ul>
           </div>
 
           {/* 2. Reve */}
-          <div className="space-y-2.5 rounded-xl bg-zinc-900/30 border border-zinc-800/80 p-4 sm:p-5">
-            <h3 className="text-sm sm:text-base font-bold text-white flex items-center gap-2">
-              <span className="text-zinc-600 font-normal">###</span>
-              <span>2. Reve</span>
+          <div className="space-y-1.5 pt-4">
+            <h3 className="text-sm font-bold text-zinc-200">
+              ### 2. Reve
             </h3>
-            <div className="space-y-1 text-zinc-400 pl-2 text-xs">
-              <div><span className="text-zinc-600">- </span><span className="text-zinc-300">Role:</span> <span className="text-white font-semibold">Founding Member – Product & Engineering</span></div>
-              <div><span className="text-zinc-600">- </span><span className="text-zinc-300">Period:</span> Sep 2024 – Present</div>
-              <div><span className="text-zinc-600">- </span><span className="text-zinc-300">Location:</span> Gurugram, HR, India</div>
-              <div><span className="text-zinc-600">- </span><span className="text-zinc-300">URL:</span> <a href="https://reve.rsvp" target="_blank" rel="noopener noreferrer" className="text-[#fde047] hover:underline">https://reve.rsvp ↗</a></div>
-              <div><span className="text-zinc-600">- </span><span className="text-zinc-300">Summary:</span> Joined as part of the founding team taking Reve from zero to launch, evolving through multiple pivots into a consumer event app with 25,000+ downloads across iOS and Android.</div>
-            </div>
-            <div className="pt-2 pl-2 text-xs space-y-1 text-zinc-300">
-              <div className="text-zinc-400 font-semibold mb-1">Key Outcomes:</div>
-              <div className="pl-3 border-l border-zinc-800 space-y-1.5">
-                <div>• Owned product engineering end-to-end: wireframes, user journeys, design systems, and the cross-platform Flutter client.</div>
-                <div>• Built the offline-first SQLite sync engine and real-time feed for seamless in-person event check-ins and ticketing.</div>
-                <div>• Designed onboarding funnels and viral invite loops that powered organic community growth.</div>
-              </div>
-            </div>
-            <div className="pt-2 text-[11px] text-zinc-500 font-mono">
-              <span className="text-zinc-400 font-semibold">Stack:</span> Flutter • SQLite • Mobile Architecture • Product Design • 25K+ Downloads
-            </div>
+            <ul className="space-y-1 text-zinc-400">
+              <li>- <strong className="text-zinc-200 font-medium">**Role:**</strong> Founding Member – Product &amp; Engineering</li>
+              <li>- <strong className="text-zinc-200 font-medium">**Period:**</strong> Sep 2024 – Present</li>
+              <li>- <strong className="text-zinc-200 font-medium">**Location:**</strong> Gurugram, HR, India</li>
+              <li>- <strong className="text-zinc-200 font-medium">**URL:**</strong> <a href="https://reve.rsvp" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://reve.rsvp</a></li>
+              <li>- <strong className="text-zinc-200 font-medium">**Summary:**</strong> Joined as part of the founding team taking Reve from zero to launch, evolving through multiple pivots into a consumer event app with 25,000+ downloads across iOS and Android.</li>
+              <li>- <strong className="text-zinc-200 font-medium">**Key Deliverables:**</strong></li>
+              <li className="pl-4 space-y-1 text-zinc-400">
+                <div>- Owned product engineering end-to-end: wireframes, user journeys, design systems, and the cross-platform Flutter client.</div>
+                <div>- Built the offline-first SQLite sync engine and real-time feed for seamless in-person event check-ins and ticketing.</div>
+                <div>- Designed onboarding funnels and viral invite loops that powered organic community growth.</div>
+              </li>
+              <li>- <strong className="text-zinc-200 font-medium">**Stack:**</strong> <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Flutter`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`SQLite`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Mobile Architecture`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`25K+ Downloads`</code></li>
+            </ul>
           </div>
 
           {/* 3. MythyaVerse */}
-          <div className="space-y-2.5 rounded-xl bg-zinc-900/30 border border-zinc-800/80 p-4 sm:p-5">
-            <h3 className="text-sm sm:text-base font-bold text-white flex items-center gap-2">
-              <span className="text-zinc-600 font-normal">###</span>
-              <span>3. MythyaVerse (VRPlaced & Oncarea)</span>
+          <div className="space-y-1.5 pt-4">
+            <h3 className="text-sm font-bold text-zinc-200">
+              ### 3. MythyaVerse (VRPlaced &amp; Oncarea)
             </h3>
-            <div className="space-y-1 text-zinc-400 pl-2 text-xs">
-              <div><span className="text-zinc-600">- </span><span className="text-zinc-300">Role:</span> <span className="text-white font-semibold">Software Development Engineer</span></div>
-              <div><span className="text-zinc-600">- </span><span className="text-zinc-300">Period:</span> Sep 2023 – Aug 2024</div>
-              <div><span className="text-zinc-600">- </span><span className="text-zinc-300">Location:</span> Noida, UP, India</div>
-              <div><span className="text-zinc-600">- </span><span className="text-zinc-300">URL:</span> <a href="https://vrplaced.ai" target="_blank" rel="noopener noreferrer" className="text-[#fde047] hover:underline">https://vrplaced.ai ↗</a></div>
-              <div><span className="text-zinc-600">- </span><span className="text-zinc-300">Summary:</span> Shipped client and internal production applications across healthcare and AI interview coaching, delivering end-to-end products under strict timelines.</div>
-            </div>
-            <div className="pt-2 pl-2 text-xs space-y-1 text-zinc-300">
-              <div className="text-zinc-400 font-semibold mb-1">Key Outcomes:</div>
-              <div className="pl-3 border-l border-zinc-800 space-y-1.5">
-                <div>• Shipped VRPlaced, an AI interview simulator with real-time feedback scoring and dynamic resume tailoring using Next.js and OpenAI.</div>
-                <div>• Built and launched Oncarea and Oncarea Doctor from scratch in under two months, supporting live video consultations and remote diagnostics.</div>
-                <div>• Owned full development lifecycle: architecture, client-side testing, automated deployments, and continuous UX iterations.</div>
-              </div>
-            </div>
-            <div className="pt-2 text-[11px] text-zinc-500 font-mono">
-              <span className="text-zinc-400 font-semibold">Stack:</span> Flutter • Next.js • OpenAI API • Healthcare Systems • WebRTC Video
-            </div>
+            <ul className="space-y-1 text-zinc-400">
+              <li>- <strong className="text-zinc-200 font-medium">**Role:**</strong> Software Development Engineer</li>
+              <li>- <strong className="text-zinc-200 font-medium">**Period:**</strong> Sep 2023 – Aug 2024</li>
+              <li>- <strong className="text-zinc-200 font-medium">**Location:**</strong> Noida, UP, India</li>
+              <li>- <strong className="text-zinc-200 font-medium">**URL:**</strong> <a href="https://vrplaced.ai" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://vrplaced.ai</a></li>
+              <li>- <strong className="text-zinc-200 font-medium">**Summary:**</strong> Shipped client and internal production applications across healthcare and AI interview coaching, delivering end-to-end products under strict timelines.</li>
+              <li>- <strong className="text-zinc-200 font-medium">**Key Deliverables:**</strong></li>
+              <li className="pl-4 space-y-1 text-zinc-400">
+                <div>- Shipped VRPlaced, an AI interview simulator with real-time feedback scoring and dynamic resume tailoring using Next.js and OpenAI.</div>
+                <div>- Built and launched Oncarea and Oncarea Doctor from scratch in under two months, supporting live video consultations and remote diagnostics.</div>
+                <div>- Owned full development lifecycle: architecture, client-side testing, automated deployments, and continuous UX iterations.</div>
+              </li>
+              <li>- <strong className="text-zinc-200 font-medium">**Stack:**</strong> <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Flutter`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Next.js`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`OpenAI API`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Healthcare Systems`</code></li>
+            </ul>
           </div>
 
           {/* 4. Suraasa */}
-          <div className="space-y-2.5 rounded-xl bg-zinc-900/30 border border-zinc-800/80 p-4 sm:p-5">
-            <h3 className="text-sm sm:text-base font-bold text-white flex items-center gap-2">
-              <span className="text-zinc-600 font-normal">###</span>
-              <span>4. Suraasa</span>
+          <div className="space-y-1.5 pt-4">
+            <h3 className="text-sm font-bold text-zinc-200">
+              ### 4. Suraasa
             </h3>
-            <div className="space-y-1 text-zinc-400 pl-2 text-xs">
-              <div><span className="text-zinc-600">- </span><span className="text-zinc-300">Role:</span> <span className="text-white font-semibold">Software Development Engineer</span></div>
-              <div><span className="text-zinc-600">- </span><span className="text-zinc-300">Period:</span> Dec 2022 – Jul 2023</div>
-              <div><span className="text-zinc-600">- </span><span className="text-zinc-300">Location:</span> Gurugram, HR, India</div>
-              <div><span className="text-zinc-600">- </span><span className="text-zinc-300">URL:</span> <a href="https://suraasa.com" target="_blank" rel="noopener noreferrer" className="text-[#fde047] hover:underline">https://suraasa.com ↗</a></div>
-              <div><span className="text-zinc-600">- </span><span className="text-zinc-300">Summary:</span> Engineered core mobile software systems and learning infrastructure serving 10 Lakh+ downloads and educators across 50+ international markets.</div>
-            </div>
-            <div className="pt-2 pl-2 text-xs space-y-1 text-zinc-300">
-              <div className="text-zinc-400 font-semibold mb-1">Key Outcomes:</div>
-              <div className="pl-3 border-l border-zinc-800 space-y-1.5">
-                <div>• Scaled mobile application architecture to support 10 Lakh+ downloads with 99.8% crash-free session reliability.</div>
-                <div>• Architected enterprise mobile software systems in Flutter, delivering offline-first local database synchronization, resilient state management, and real-time push events.</div>
-                <div>• Engineered low-latency video streaming pipelines and custom playback services optimized for low-bandwidth cellular networks.</div>
-                <div>• Collaborated with backend engineering teams to optimize REST APIs and serialization, reducing app startup latency by 35%.</div>
-              </div>
-            </div>
-            <div className="pt-2 text-[11px] text-zinc-500 font-mono">
-              <span className="text-zinc-400 font-semibold">Stack:</span> Mobile Systems Architecture • Flutter & Dart • 10 Lakh+ Downloads • Offline Data Sync • Performance Optimization
-            </div>
+            <ul className="space-y-1 text-zinc-400">
+              <li>- <strong className="text-zinc-200 font-medium">**Role:**</strong> Software Development Engineer</li>
+              <li>- <strong className="text-zinc-200 font-medium">**Period:**</strong> Dec 2022 – Jul 2023</li>
+              <li>- <strong className="text-zinc-200 font-medium">**Location:**</strong> Gurugram, HR, India</li>
+              <li>- <strong className="text-zinc-200 font-medium">**URL:**</strong> <a href="https://suraasa.com" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://suraasa.com</a></li>
+              <li>- <strong className="text-zinc-200 font-medium">**Summary:**</strong> Engineered core mobile software systems and learning infrastructure serving 10 Lakh+ downloads and educators across 50+ international markets.</li>
+              <li>- <strong className="text-zinc-200 font-medium">**Key Deliverables:**</strong></li>
+              <li className="pl-4 space-y-1 text-zinc-400">
+                <div>- Scaled mobile application architecture to support 10 Lakh+ downloads with 99.8% crash-free session reliability.</div>
+                <div>- Architected enterprise mobile software systems in Flutter, delivering offline-first local database synchronization, resilient state management, and real-time push events.</div>
+                <div>- Engineered low-latency video streaming pipelines and custom playback services optimized for low-bandwidth cellular networks.</div>
+              </li>
+              <li>- <strong className="text-zinc-200 font-medium">**Stack:**</strong> <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Flutter &amp; Dart`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`10 Lakh+ Downloads`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Offline Sync`</code></li>
+            </ul>
           </div>
 
           {/* 5. IIT Delhi */}
-          <div className="space-y-2.5 rounded-xl bg-zinc-900/30 border border-zinc-800/80 p-4 sm:p-5">
-            <h3 className="text-sm sm:text-base font-bold text-white flex items-center gap-2">
-              <span className="text-zinc-600 font-normal">###</span>
-              <span>5. Indian Institute of Technology, Delhi (IIT Delhi)</span>
+          <div className="space-y-1.5 pt-4">
+            <h3 className="text-sm font-bold text-zinc-200">
+              ### 5. Indian Institute of Technology, Delhi (IIT Delhi)
             </h3>
-            <div className="space-y-1 text-zinc-400 pl-2 text-xs">
-              <div><span className="text-zinc-600">- </span><span className="text-zinc-300">Role:</span> <span className="text-white font-semibold">AR/VR Developer</span></div>
-              <div><span className="text-zinc-600">- </span><span className="text-zinc-300">Period:</span> Dec 2021 – May 2022</div>
-              <div><span className="text-zinc-600">- </span><span className="text-zinc-300">Location:</span> New Delhi, India</div>
-              <div><span className="text-zinc-600">- </span><span className="text-zinc-300">URL:</span> <a href="https://iitd.ac.in" target="_blank" rel="noopener noreferrer" className="text-[#fde047] hover:underline">https://iitd.ac.in ↗</a></div>
-              <div><span className="text-zinc-600">- </span><span className="text-zinc-300">Summary:</span> Researched and built immersive virtual reality experiences and experimental brain-computer interface (BCI) systems.</div>
-            </div>
-            <div className="pt-2 pl-2 text-xs space-y-1 text-zinc-300">
-              <div className="text-zinc-400 font-semibold mb-1">Key Outcomes:</div>
-              <div className="pl-3 border-l border-zinc-800 space-y-1.5">
-                <div>• Developed interactive VR simulations and games exploring novel human-computer interaction models.</div>
-                <div>• Engineered software pipelines interpreting EEG brain signals and neural spikes to drive real-time device interaction.</div>
-                <div>• Conducted live laboratory demonstrations introducing students and research peers to practical applications of VR and neuro-interfaces.</div>
-              </div>
-            </div>
-            <div className="pt-2 text-[11px] text-zinc-500 font-mono">
-              <span className="text-zinc-400 font-semibold">Stack:</span> Virtual Reality • EEG / Neural Spikes • Unity / C# • BCI Research
-            </div>
+            <ul className="space-y-1 text-zinc-400">
+              <li>- <strong className="text-zinc-200 font-medium">**Role:**</strong> AR/VR Developer</li>
+              <li>- <strong className="text-zinc-200 font-medium">**Period:**</strong> Dec 2021 – May 2022</li>
+              <li>- <strong className="text-zinc-200 font-medium">**Location:**</strong> New Delhi, India</li>
+              <li>- <strong className="text-zinc-200 font-medium">**URL:**</strong> <a href="https://iitd.ac.in" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://iitd.ac.in</a></li>
+              <li>- <strong className="text-zinc-200 font-medium">**Summary:**</strong> Researched and built immersive virtual reality experiences and experimental brain-computer interface (BCI) systems.</li>
+              <li>- <strong className="text-zinc-200 font-medium">**Stack:**</strong> <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Virtual Reality`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`EEG / Neural Spikes`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Unity / C#`</code></li>
+            </ul>
           </div>
         </div>
 
         {/* Motion & Design Systems */}
-        <div className="space-y-3 pt-2">
-          <h2 className="text-base sm:text-lg font-bold text-white tracking-tight flex items-center gap-2">
-            <span className="text-zinc-600 font-normal">##</span>
-            <span>Motion & Design Systems (Behance)</span>
+        <div className="space-y-2 mb-10">
+          <h2 className="text-sm sm:text-base font-bold text-zinc-100 tracking-tight">
+            ## Design &amp; Motion Systems (Behance)
           </h2>
-          <ul className="space-y-2 text-zinc-300 pl-2 text-xs sm:text-sm">
-            <li>
-              <span className="text-zinc-600">- </span>
-              <a href="https://www.behance.net/gallery/253324443/Bluefork" target="_blank" rel="noopener noreferrer" className="text-white font-semibold hover:text-[#fde047] underline underline-offset-4">Bluefork</a>:
-              <span className="text-zinc-400"> Dynamic brand identity, kinetic motion system, and high-contrast visual direction.</span>
-            </li>
-            <li>
-              <span className="text-zinc-600">- </span>
-              <a href="https://www.behance.net/gallery/253324169/Pulp-AI" target="_blank" rel="noopener noreferrer" className="text-white font-semibold hover:text-[#fde047] underline underline-offset-4">Pulp AI</a>:
-              <span className="text-zinc-400"> Visual architecture, spectral gradient aesthetics, and generative motion graphics for Fork's native frontier AI agent engine.</span>
-            </li>
-            <li>
-              <span className="text-zinc-600">- </span>
-              <a href="https://www.behance.net/gallery/151738765/ACE-Glitch" target="_blank" rel="noopener noreferrer" className="text-white font-semibold hover:text-[#fde047] underline underline-offset-4">ACE Glitch</a>:
-              <span className="text-zinc-400"> Experimental kinetic glitch animation, audio-reactive frame displacement, and geometric logo deconstruction.</span>
-            </li>
+          <ul className="space-y-1.5 text-zinc-400">
+            <li>- <strong className="text-zinc-200 font-medium">**Bluefork Brand Identity &amp; Motion System:**</strong> Dynamic brand identity, kinetic motion system, and high-contrast visual direction crafted for the Bluefork creator platform. (<a href="https://www.behance.net/gallery/253324443/Bluefork" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://www.behance.net/gallery/253324443/Bluefork</a>)</li>
+            <li>- <strong className="text-zinc-200 font-medium">**Pulp AI Generative Motion Graphics:**</strong> Visual architecture, spectral gradient aesthetics, and generative motion graphics for Fork&apos;s native frontier AI agent engine. (<a href="https://www.behance.net/gallery/253324169/Pulp-AI" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://www.behance.net/gallery/253324169/Pulp-AI</a>)</li>
+            <li>- <strong className="text-zinc-200 font-medium">**ACE Glitch Kinetic Animation:**</strong> Experimental kinetic glitch animation, audio-reactive frame displacement, and geometric logo deconstruction. (<a href="https://www.behance.net/gallery/151738765/ACE-Glitch" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://www.behance.net/gallery/151738765/ACE-Glitch</a>)</li>
           </ul>
         </div>
 
         {/* Technical Essays */}
-        <div className="space-y-3 pt-2">
-          <h2 className="text-base sm:text-lg font-bold text-white tracking-tight flex items-center gap-2">
-            <span className="text-zinc-600 font-normal">##</span>
-            <span>Longform Technical Essays (Substack)</span>
+        <div className="space-y-2 mb-10">
+          <h2 className="text-sm sm:text-base font-bold text-zinc-100 tracking-tight">
+            ## Longform Technical Essays (Substack)
           </h2>
-          <ul className="space-y-2 text-zinc-300 pl-2 text-xs sm:text-sm">
-            <li>
-              <span className="text-zinc-600">- </span>
-              <a href="https://cenosolutio845814.substack.com/p/the-art-of-context-engineering-what" target="_blank" rel="noopener noreferrer" className="text-white font-semibold hover:text-[#fde047] underline underline-offset-4">The Art of Context Engineering</a>:
-              <span className="text-zinc-400"> What Antigravity, Claude, and Codex Teach Us About AI Memory. An architectural essay on context window economy and prompt routing.</span>
-            </li>
-            <li>
-              <span className="text-zinc-600">- </span>
-              <a href="https://cenosolutio845814.substack.com/p/the-death-of-the-middle-class-creator" target="_blank" rel="noopener noreferrer" className="text-white font-semibold hover:text-[#fde047] underline underline-offset-4">The Death of the Middle-Class Creator</a>:
-              <span className="text-zinc-400"> What Actually Happened to the Creator Economy in 2026. An economic analysis of zero-cost content generation and creator operator tooling.</span>
-            </li>
-            <li>
-              <span className="text-zinc-600">- </span>
-              <a href="https://cenosolutio845814.substack.com/p/the-revenge-of-the-physical-why-touching" target="_blank" rel="noopener noreferrer" className="text-white font-semibold hover:text-[#fde047] underline underline-offset-4">The Revenge of the Physical</a>:
-              <span className="text-zinc-400"> Why "Touching Grass" Became the Ultimate Luxury in 2026. A cultural critique of hyper-synthetic digital feeds and proof of physical friction.</span>
-            </li>
+          <ul className="space-y-1.5 text-zinc-400">
+            <li>- <strong className="text-zinc-200 font-medium">**The Art of Context Engineering:**</strong> What Antigravity, Claude, and Codex Teach Us About AI Memory. (<a href="https://cenosolutio845814.substack.com/p/the-art-of-context-engineering-what" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://cenosolutio845814.substack.com/p/the-art-of-context-engineering-what</a>)</li>
+            <li>- <strong className="text-zinc-200 font-medium">**The Death of the Middle-Class Creator:**</strong> What Actually Happened to the Creator Economy in 2026. (<a href="https://cenosolutio845814.substack.com/p/the-death-of-the-middle-class-creator" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://cenosolutio845814.substack.com/p/the-death-of-the-middle-class-creator</a>)</li>
+            <li>- <strong className="text-zinc-200 font-medium">**The Revenge of the Physical:**</strong> Why &quot;Touching Grass&quot; Became the Ultimate Luxury in 2026. (<a href="https://cenosolutio845814.substack.com/p/the-revenge-of-the-physical-why-touching" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://cenosolutio845814.substack.com/p/the-revenge-of-the-physical-why-touching</a>)</li>
           </ul>
         </div>
 
-        {/* Technical Stack */}
-        <div className="space-y-3 pt-2">
-          <h2 className="text-base sm:text-lg font-bold text-white tracking-tight flex items-center gap-2">
-            <span className="text-zinc-600 font-normal">##</span>
-            <span>Technical Stack & Competencies</span>
+        {/* Verification & Social Links */}
+        <div className="space-y-2 mb-10">
+          <h2 className="text-sm sm:text-base font-bold text-zinc-100 tracking-tight">
+            ## Verification &amp; Social Links
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-            <div className="rounded-lg bg-zinc-900/40 border border-zinc-800 p-3 space-y-1">
-              <div className="text-white font-semibold">Languages</div>
-              <div className="text-zinc-400">TypeScript, Dart, Java, Swift, Rust, Python, C++</div>
-            </div>
-            <div className="rounded-lg bg-zinc-900/40 border border-zinc-800 p-3 space-y-1">
-              <div className="text-white font-semibold">Frontend & Mobile</div>
-              <div className="text-zinc-400">Flutter, React, Next.js, Tailwind CSS, React Native, SwiftUI</div>
-            </div>
-            <div className="rounded-lg bg-zinc-900/40 border border-zinc-800 p-3 space-y-1">
-              <div className="text-white font-semibold">Backend & Systems</div>
-              <div className="text-zinc-400">PostgreSQL, SQLite, Cloudflare Workers, REST APIs, Redis, Node.js</div>
-            </div>
-            <div className="rounded-lg bg-zinc-900/40 border border-zinc-800 p-3 space-y-1">
-              <div className="text-white font-semibold">AI & Agentic Workflows</div>
-              <div className="text-zinc-400">OpenAI API, Claude / Anthropic, LangChain, Structured Tool-Calling, RAG</div>
-            </div>
-            <div className="rounded-lg bg-zinc-900/40 border border-zinc-800 p-3 space-y-1">
-              <div className="text-white font-semibold">DevOps & Cloud</div>
-              <div className="text-zinc-400">Git, GitHub Actions, Docker, Cloudflare, Vercel, Supabase</div>
-            </div>
-            <div className="rounded-lg bg-zinc-900/40 border border-zinc-800 p-3 space-y-1">
-              <div className="text-white font-semibold">Creative & Motion</div>
-              <div className="text-zinc-400">Adobe After Effects, Motion Graphics, Figma, Visual Identity, Kinetic VFX</div>
-            </div>
-          </div>
-        </div>
-
-        {/* Verified Channels */}
-        <div className="space-y-3 pt-2">
-          <h2 className="text-base sm:text-lg font-bold text-white tracking-tight flex items-center gap-2">
-            <span className="text-zinc-600 font-normal">##</span>
-            <span>Verified Channels & Contact</span>
-          </h2>
-          <ul className="space-y-1 text-zinc-300 pl-2 text-xs">
-            <li><span className="text-zinc-600">- </span><strong className="text-white">Email:</strong> <a href="mailto:bhavukarora03@gmail.com" className="text-white underline underline-offset-4">bhavukarora03@gmail.com</a></li>
-            <li><span className="text-zinc-600">- </span><strong className="text-white">GitHub:</strong> <a href="https://github.com/bhavukar" target="_blank" rel="noopener noreferrer" className="text-[#fde047] hover:underline">https://github.com/bhavukar ↗</a></li>
-            <li><span className="text-zinc-600">- </span><strong className="text-white">LinkedIn:</strong> <a href="https://www.linkedin.com/in/bhavuk-arora-4a7263216/" target="_blank" rel="noopener noreferrer" className="text-[#fde047] hover:underline">https://www.linkedin.com/in/bhavuk-arora-4a7263216/ ↗</a></li>
-            <li><span className="text-zinc-600">- </span><strong className="text-white">X:</strong> <a href="https://x.com/bhavukarora03" target="_blank" rel="noopener noreferrer" className="text-[#fde047] hover:underline">https://x.com/bhavukarora03 ↗</a></li>
-            <li><span className="text-zinc-600">- </span><strong className="text-white">Reddit:</strong> <a href="https://www.reddit.com/user/bhavuk15" target="_blank" rel="noopener noreferrer" className="text-[#fde047] hover:underline">https://www.reddit.com/user/bhavuk15 ↗</a></li>
-            <li><span className="text-zinc-600">- </span><strong className="text-white">Substack:</strong> <a href="https://bhavuk3.substack.com" target="_blank" rel="noopener noreferrer" className="text-[#fde047] hover:underline">https://bhavuk3.substack.com ↗</a></li>
-            <li><span className="text-zinc-600">- </span><strong className="text-white">Behance:</strong> <a href="https://www.behance.net/bhavukarora1" target="_blank" rel="noopener noreferrer" className="text-[#fde047] hover:underline">https://www.behance.net/bhavukarora1 ↗</a></li>
+          <ul className="space-y-1 text-zinc-400">
+            <li>- <strong className="text-zinc-200 font-medium">Website:</strong> <a href="https://bhavuk.website" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://bhavuk.website</a></li>
+            <li>- <strong className="text-zinc-200 font-medium">GitHub:</strong> <a href="https://github.com/bhavukar" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://github.com/bhavukar</a></li>
+            <li>- <strong className="text-zinc-200 font-medium">LinkedIn:</strong> <a href="https://www.linkedin.com/in/bhavuk-arora-4a7263216/" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://www.linkedin.com/in/bhavuk-arora-4a7263216/</a></li>
+            <li>- <strong className="text-zinc-200 font-medium">X:</strong> <a href="https://x.com/bhavukarora03" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://x.com/bhavukarora03</a></li>
+            <li>- <strong className="text-zinc-200 font-medium">Reddit:</strong> <a href="https://www.reddit.com/user/bhavuk15" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://www.reddit.com/user/bhavuk15</a></li>
+            <li>- <strong className="text-zinc-200 font-medium">Substack:</strong> <a href="https://bhavuk3.substack.com" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://bhavuk3.substack.com</a></li>
+            <li>- <strong className="text-zinc-200 font-medium">Behance:</strong> <a href="https://www.behance.net/bhavukarora1" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://www.behance.net/bhavukarora1</a></li>
+            <li>- <strong className="text-zinc-200 font-medium">Resume:</strong> <a href="/bhavuk_arora_resume.pdf" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://bhavuk.website/bhavuk_arora_resume.pdf</a></li>
           </ul>
         </div>
       </main>
@@ -1493,16 +1347,16 @@ export default function Home() {
   )}
 
       {/* ─────────────────────────────────────────────────────────────
-          FLOATING "HUMAN / MACHINE" TOGGLE PILL
+          FLOATING "HUMAN / MACHINE" TOGGLE
           ───────────────────────────────────────────────────────────── */}
       <aside aria-label="View Mode Switcher" className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
-        <div className="bg-[#121214]/95 border border-zinc-800 shadow-2xl backdrop-blur-md px-3.5 py-1.5 rounded-full flex items-center gap-3.5 select-none">
+        <div className="bg-[#121214] border border-zinc-800 shadow-2xl px-4 py-2 rounded-full flex items-center gap-4.5 select-none">
           <button
             onClick={() => {
               setMode('human');
               window.scrollTo({ top: 0, behavior: 'instant' });
             }}
-            className={`flex items-center gap-1.5 text-xs font-mono font-bold tracking-wider transition-colors cursor-pointer ${
+            className={`flex items-center gap-2 text-xs font-mono font-medium tracking-wider transition-colors cursor-pointer ${
               mode === 'human' ? 'text-white' : 'text-zinc-500 hover:text-zinc-300'
             }`}
           >
@@ -1514,14 +1368,12 @@ export default function Home() {
             <span>HUMAN</span>
           </button>
 
-          <span className="text-zinc-700 text-xs font-mono">•</span>
-
           <button
             onClick={() => {
               setMode('machine');
               window.scrollTo({ top: 0, behavior: 'instant' });
             }}
-            className={`flex items-center gap-1.5 text-xs font-mono font-bold tracking-wider transition-colors cursor-pointer ${
+            className={`flex items-center gap-2 text-xs font-mono font-medium tracking-wider transition-colors cursor-pointer ${
               mode === 'machine' ? 'text-white' : 'text-zinc-500 hover:text-zinc-300'
             }`}
           >
