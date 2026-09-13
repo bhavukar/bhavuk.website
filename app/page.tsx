@@ -42,8 +42,7 @@ const EXPERIENCES: ExperienceItem[] = [
     period: 'May 2026 – Present',
     url: 'https://app.fork.blue',
     displayUrl: 'app.fork.blue',
-    embedUrl: 'https://app.fork.blue',
-    previewImage: 'https://app.fork.blue/preview_url.png',
+    previewImage: '/fork_preview.png',
     summary:
       'Building the commercial operating system for independent creators, artists, and digital entrepreneurs to monetize their audience and run end-to-end commercial operations.',
     highlights: [
@@ -62,9 +61,7 @@ const EXPERIENCES: ExperienceItem[] = [
     period: 'Sep 2024 – Present',
     url: 'https://reve.rsvp',
     displayUrl: 'reve.rsvp',
-    embedUrl: 'https://reve.rsvp',
-    previewImage:
-      'https://assets.reve.rsvp/prod/media/image/f_jpg,q_70,w_1200/webp/v1/static/reve_preview_url.jpg',
+    previewImage: '/reve_preview.jpg',
     summary:
       'Joined as part of the founding team taking Reve from zero to launch, evolving through multiple pivots into a consumer event app with 25,000+ downloads across iOS and Android.',
     highlights: [
@@ -82,8 +79,7 @@ const EXPERIENCES: ExperienceItem[] = [
     period: 'Sep 2023 – Aug 2024',
     url: 'https://www.vrplaced.ai',
     displayUrl: 'vrplaced.ai',
-    embedUrl: 'https://www.vrplaced.ai',
-    previewImage: 'https://www.vrplaced.ai/opengraph-image.png',
+    previewImage: '/vrplaced_preview.jpg',
     summary:
       'Shipped client and internal production applications across healthcare and AI interview coaching, delivering end-to-end products under strict timelines.',
     highlights: [
@@ -410,20 +406,12 @@ export default function Home() {
                       }`}
                     >
                       {/* Visual Viewport */}
-                      <div className="w-full h-[180px] rounded-lg overflow-hidden relative bg-zinc-900 border border-zinc-800/80">
+                      <div className="w-full h-[195px] rounded-lg overflow-hidden relative bg-zinc-900 border border-zinc-800/80">
                         {exp.previewImage && (
                           <img
                             src={exp.previewImage}
                             alt={exp.displayUrl}
                             className="absolute inset-0 w-full h-full object-cover object-top"
-                          />
-                        )}
-                        {exp.embedUrl && (
-                          <iframe
-                            src={exp.embedUrl}
-                            title={exp.displayUrl}
-                            className="absolute inset-0 w-[660px] h-[360px] origin-top-left scale-50 border-0 bg-white"
-                            loading="eager"
                           />
                         )}
                         {/* Clickable Overlay */}
@@ -439,7 +427,10 @@ export default function Home() {
                       {/* URL Footer */}
                       <div className="flex items-center justify-between px-2 pt-2 pb-0.5 text-[11px] font-mono">
                         <span className="text-zinc-300 truncate max-w-[220px]">{exp.displayUrl}</span>
-                        <span className="text-[#fde047] font-semibold text-[10px]">Open ↗</span>
+                        <span className="text-[#fde047] font-semibold text-[10px] flex items-center gap-0.5">
+                          <span>Open</span>
+                          <ArrowUpRight size={11} />
+                        </span>
                       </div>
 
                       {/* Notch pointing directly down to the link */}
