@@ -203,12 +203,7 @@ export default function Home() {
             </div>
           </a>
 
-          <div className="flex items-center gap-5 sm:gap-7">
-            <div className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-zinc-100 text-[10px] font-mono font-bold text-zinc-800 border border-zinc-200">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-              <span>OPEN TO WORK</span>
-            </div>
-
+          <div className="flex items-center gap-5 sm:gap-6">
             <nav className="flex items-center gap-5 sm:gap-6 text-xs font-mono text-zinc-600">
               <a href="#experience" className="hover:text-zinc-950 transition-colors">
                 Experience
@@ -256,19 +251,18 @@ export default function Home() {
               <span>DELHI · REMOTE</span>
             </div>
 
-            <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-zinc-950 leading-[1.08]">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-zinc-950 leading-[1.22] max-w-2xl">
               Product engineer & founder building{' '}
-              <mark className="bg-[#fde047] text-black px-2.5 py-0.5 inline-block font-bold not-italic">
+              <mark className="bg-[#fde047] text-black px-1.5 py-0.5 font-semibold not-italic rounded-[2px]">
                 consumer products
               </mark>{' '}
               and{' '}
-              <mark className="bg-[#fde047] text-black px-2.5 py-0.5 inline-block font-bold not-italic">
+              <mark className="bg-[#fde047] text-black px-1.5 py-0.5 font-semibold not-italic rounded-[2px]">
                 AI workflows
-              </mark>
-              .
+              </mark>.
             </h1>
 
-            <p className="text-base sm:text-lg text-zinc-600 leading-relaxed max-w-2xl">
+            <p className="text-sm sm:text-base text-zinc-600 leading-relaxed max-w-xl">
               I turn early-stage ideas into products people actually use. Over 5+ years of engineering,
               I've taken applications from zero to tens of thousands of downloads across consumer mobile,
               edtech, and AI platforms. Currently building <strong>Fork</strong> (an operating platform
@@ -334,7 +328,7 @@ export default function Home() {
             <div className="text-xs font-mono uppercase tracking-wider text-zinc-500">
               Work Experience
             </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-950">
+            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-950">
               Where I've worked & what I've shipped
             </h2>
             <p className="text-xs sm:text-sm text-zinc-500 font-mono pt-1">
@@ -354,7 +348,7 @@ export default function Home() {
               >
                 {/* Header Row: Role & Period */}
                 <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-2">
-                  <h3 className="text-xl font-bold text-zinc-950 group-hover:text-black transition-colors">
+                  <h3 className="text-lg sm:text-xl font-bold text-zinc-950 group-hover:text-black transition-colors">
                     {exp.role}
                   </h3>
                   <div className="text-xs font-mono text-zinc-500">
@@ -420,7 +414,7 @@ export default function Home() {
             <div className="text-xs font-mono uppercase tracking-wider text-zinc-500">
               Technical Skills
             </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-zinc-950">
+            <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-950">
               Technologies & Tools
             </h2>
           </div>
@@ -508,7 +502,7 @@ export default function Home() {
         >
           <div className="rounded-2xl bg-zinc-950 text-white p-7 sm:p-10 border border-zinc-800 space-y-6 shadow-xl">
             <div className="space-y-2 max-w-xl">
-              <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
+              <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white">
                 Let's build something.
               </h2>
               <p className="text-zinc-400 text-sm leading-relaxed">
