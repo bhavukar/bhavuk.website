@@ -81,27 +81,16 @@ export default function RootLayout({
     <html
       lang="en"
       className={`scroll-smooth ${geistSans.variable} ${geistMono.variable}`}
-      suppressHydrationWarning
     >
       <head>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <script
           dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                const storedTheme = localStorage.getItem('theme');
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
-                  document.documentElement.classList.add('dark');
-                } else {
-                  document.documentElement.classList.remove('dark');
-                }
-              } catch (e) {}
-            `,
+            __html: `try { localStorage.removeItem('theme'); document.documentElement.classList.remove('dark'); } catch(e){}`,
           }}
         />
       </head>
-      <body className="bg-white dark:bg-[#09090b] text-zinc-900 dark:text-zinc-100 antialiased min-h-screen selection:bg-[#fde047] selection:text-black transition-colors duration-200 font-sans">
+      <body className="bg-white text-zinc-900 antialiased min-h-screen selection:bg-[#fde047] selection:text-black font-sans">
         {children}
       </body>
     </html>
