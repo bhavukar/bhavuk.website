@@ -85,9 +85,9 @@ export const metadata: Metadata = {
     siteName: 'Blue Fork',
     images: [
       {
-        url: '/profile.jpeg',
-        width: 800,
-        height: 800,
+        url: '/og.png',
+        width: 1200,
+        height: 630,
         alt: 'Bhavuk Arora — Founder & CEO | Blue Fork',
       },
     ],
@@ -99,7 +99,7 @@ export const metadata: Metadata = {
     title: 'Bhavuk Arora — Founder & CEO | Blue Fork',
     description:
       'Founder & CEO of Blue Fork. Building commercial operating infrastructure for independent creators. 10 Lakh+ downloads at Suraasa, 25K+ at Reve.',
-    images: ['/profile.jpeg'],
+    images: ['/og.png'],
   },
   robots: {
     index: true,
