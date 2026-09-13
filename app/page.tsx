@@ -266,7 +266,7 @@ const SUBSTACK_POSTS: SubstackPost[] = [
 const LLM_TEXT_CONTENT = `---
 title: "Bhavuk Arora"
 role: "Founder & CEO, Product Engineer"
-description: "Founder & CEO building consumer products from zero to scale. Over 5+ years of engineering across mobile, agentic AI, and full-stack systems."
+description: "Product engineer & founder building consumer products from zero to scale. Over 5+ years of engineering across mobile, agentic AI, and full-stack systems."
 canonical: "https://bhavuk.website"
 source-index: "https://bhavuk.website/llms.txt"
 email: "bhavukarora03@gmail.com"
@@ -275,7 +275,7 @@ location: "Delhi, India"
 
 # Bhavuk Arora
 
-Founder & CEO building consumer products from zero to scale. Over 5+ years of engineering, I've taken applications from zero to scale across consumer mobile, creator platforms, and edtech (10 Lakh+ downloads at Suraasa, 25K+ at Reve).
+Building consumer products from zero to scale. Over 5+ years of engineering, I've taken applications from zero to scale across consumer mobile, creator platforms, and edtech (10 Lakh+ downloads at Suraasa, 25K+ at Reve).
 
 ## Quick Facts
 - Current Role: Founder & CEO at Fork (Bluefork)
@@ -393,7 +393,7 @@ function MachineView({ onCopy, copied }: { onCopy?: () => void; copied?: boolean
             # Bhavuk Arora
           </h1>
           <p className="text-zinc-300 leading-relaxed">
-            Founder &amp; CEO building <strong className="text-white font-semibold">**consumer products from zero to scale**</strong>. Over 5+ years of engineering, I&apos;ve taken applications from zero to scale across consumer mobile, creator platforms, and edtech (10 Lakh+ downloads at Suraasa, 25K+ at Reve).
+            Building <strong className="text-white font-semibold">**consumer products from zero to scale**</strong>. Over 5+ years of engineering, I&apos;ve taken applications from zero to scale across consumer mobile, creator platforms, and edtech (10 Lakh+ downloads at Suraasa, 25K+ at Reve).
           </p>
         </div>
 
@@ -655,7 +655,7 @@ export default function Home() {
                 <span className="hidden sm:inline">Bhavuk Arora</span>
               </span>
               <span className="text-[10px] sm:text-[11px] text-zinc-500 font-mono hidden sm:inline leading-none mt-0.5">
-                Founder & CEO · Bluefork
+                Product Engineer
               </span>
             </div>
           </a>
@@ -705,15 +705,13 @@ export default function Home() {
           <div className="space-y-4 sm:space-y-6 max-w-3xl">
             {/* Experience status bar */}
             <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 text-[11px] sm:text-xs font-mono text-zinc-500">
-              <span className="font-bold text-zinc-950 tracking-wider">FOUNDER & CEO · BLUEFORK</span>
-              <span className="text-zinc-300">•</span>
-              <span>5+ YEARS EXPERIENCE</span>
+              <span className="font-bold text-zinc-950 tracking-wider">5+ YEARS EXPERIENCE</span>
               <span className="text-zinc-300">•</span>
               <span>DELHI · REMOTE</span>
             </div>
 
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-zinc-950 leading-[1.25] sm:leading-[1.22] max-w-2xl">
-              Founder & CEO building{' '}
+              Building{' '}
               <span className="bg-[#e8e2d5] text-zinc-950 px-1.5 sm:px-2 py-0.5 rounded-sm">
                 consumer
               </span>{' '}
@@ -786,10 +784,6 @@ export default function Home() {
             <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-950">
               Where I've worked
             </h2>
-            <p className="text-xs sm:text-sm text-zinc-500 font-mono pt-1">
-              <span className="hidden md:inline">Hover over any company link for a live preview.</span>
-              <span className="md:hidden">Tap company links to view live products.</span>
-            </p>
           </div>
 
           <div className="space-y-10 sm:space-y-14">
