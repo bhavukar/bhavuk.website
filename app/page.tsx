@@ -319,9 +319,10 @@ const DESIGN_PROJECTS: DesignProject[] = [
     category: 'Brand Identity & Motion Graphics',
     tools: ['After Effects', 'Motion Design', 'Visual Systems', 'Figma'],
     summary: 'Comprehensive brand visual system, dynamic layout architecture, and kinetic motion showcase crafted for Fork.',
-    embedUrl: 'https://www.behance.net/embed/project/253324319?ilo0=1',
-    behanceUrl: 'https://www.behance.net/gallery/253324319',
-    badge: 'Behance Piece',
+    coverImage: '/behance_fork_visual_system.png',
+    videoSrc: '/fork_visual_system_motion.mp4',
+    behanceUrl: 'https://www.behance.net/gallery/253324319/Fork-campaigns',
+    badge: '0:28 Motion Piece',
   },
   {
     id: 'pulp-ai',
@@ -1401,48 +1402,34 @@ export default function Home() {
               >
                 {/* Visual / Motion Player Container */}
                 <div className="relative aspect-video bg-zinc-950 overflow-hidden">
-                  {project.embedUrl ? (
-                    <iframe
-                      src={project.embedUrl}
-                      title={project.title}
-                      className="w-full h-full border-0"
-                      allowFullScreen
-                      loading="lazy"
-                      allow="clipboard-write"
-                      referrerPolicy="strict-origin-when-cross-origin"
-                    />
-                  ) : (
-                    <>
-                      <video
-                        src={project.videoSrc}
-                        poster={project.coverImage}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        preload="none"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10 pointer-events-none" />
+                  <video
+                    src={project.videoSrc}
+                    poster={project.coverImage}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="none"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10 pointer-events-none" />
 
-                      {/* Badges on Video */}
-                      <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5 pointer-events-none">
-                        <span className="px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-mono text-white/90 border border-white/10">
-                          {project.badge}
-                        </span>
-                      </div>
+                  {/* Badges on Video */}
+                  <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5 pointer-events-none">
+                    <span className="px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-mono text-white/90 border border-white/10">
+                      {project.badge}
+                    </span>
+                  </div>
 
-                      <a
-                        href={project.behanceUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full bg-white/90 hover:bg-white text-zinc-900 text-[10px] font-mono font-medium flex items-center gap-0.5 shadow-sm transition-transform hover:scale-105"
-                      >
-                        <span>Behance</span>
-                        <ArrowUpRight size={10} />
-                      </a>
-                    </>
-                  )}
+                  <a
+                    href={project.behanceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full bg-white/90 hover:bg-white text-zinc-900 text-[10px] font-mono font-medium flex items-center gap-0.5 shadow-sm transition-transform hover:scale-105"
+                  >
+                    <span>Behance</span>
+                    <ArrowUpRight size={10} />
+                  </a>
                 </div>
 
                 {/* Card Info */}
