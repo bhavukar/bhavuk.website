@@ -300,6 +300,8 @@ interface UIUXProject {
   category: string;
   badge: string;
   impact: string;
+  previewImage: string;
+  slideImage: string;
   rowImage: string;
   summary: string;
   screens: {
@@ -319,6 +321,8 @@ const UIUX_PROJECTS: UIUXProject[] = [
     category: 'Going Out • Social • Ticketing',
     badge: 'Phygital Experience',
     impact: '₹1.5 Cr+ GMV in < 2 Months • 20+ Events • 4,200+ Installs across DEL-NCR, BLR, GOA, HYD',
+    previewImage: '/reve_screens/reve_phygital_preview.webp',
+    slideImage: '/reve_screens/slide_page_2.webp',
     rowImage: '/reve_screens/reve_phygital_row.webp',
     summary:
       'End-to-end mobile UX and design system for Reve’s in-person going-out and ticketing app. Designed discovery feeds, event check-in flows with offline QR access, post-event social interactions, and direct messaging.',
@@ -364,6 +368,8 @@ const UIUX_PROJECTS: UIUXProject[] = [
     category: 'Dating • Social • Audio-First',
     badge: 'Audio-First Dating',
     impact: '$1.5M USD VC Soft Commitment • Prototyped Novel Dating Algorithm',
+    previewImage: '/reve_screens/reve_dating_preview.webp',
+    slideImage: '/reve_screens/slide_page_3.webp',
     rowImage: '/reve_screens/reve_dating_row.webp',
     summary:
       'Designed an audio-first, direct-to-date mobile experience eliminating endless superficial swiping. Users match through authentic voice answers, choose curated date spots, and coordinate real-world meetups.',
@@ -409,6 +415,8 @@ const UIUX_PROJECTS: UIUXProject[] = [
     category: 'Social • Content • Voice-Led',
     badge: 'IRL Social Graph',
     impact: '$5M USD VC Soft Commitment • Next-Gen IRL Social Concept',
+    previewImage: '/reve_screens/spilll_open_beta_preview.webp',
+    slideImage: '/reve_screens/slide_page_4.webp',
     rowImage: '/reve_screens/spilll_open_beta_row.webp',
     summary:
       'Designed a location-anchored audio social network where users discover trending local conversations, record voice spills with rich media attachments, and build real-time campus interest graphs.',
@@ -454,6 +462,8 @@ const UIUX_PROJECTS: UIUXProject[] = [
     category: 'Social • Audio-First • Campus Community',
     badge: 'Campus Network',
     impact: '1,700+ Spills in 5 Weeks • 10m 45s Avg Session Time • 15+ Delhi Campuses',
+    previewImage: '/reve_screens/spilll_closed_beta_preview.webp',
+    slideImage: '/reve_screens/slide_page_5.webp',
     rowImage: '/reve_screens/spilll_closed_beta_row.webp',
     summary:
       'Designed prompt-based audio community app for college campuses across Delhi NCR. Features included playful anonymous nickname generators, asynchronous audio circles, and live audio party rooms.',
@@ -1755,24 +1765,24 @@ export default function Home() {
                 key={item.id}
                 className="w-[300px] sm:w-[380px] md:w-[420px] shrink-0 snap-start group border border-zinc-200 hover:border-zinc-300 rounded-xl overflow-hidden bg-white hover:bg-zinc-50/40 transition-all shadow-2xs hover:shadow-md flex flex-col hover:-translate-y-0.5"
               >
-                {/* 6-Screen Multi-Screen Preview Banner */}
+                {/* 3-Phone Studio Composition Preview Banner */}
                 <div
                   onClick={() => {
                     setSelectedDesignProject(item);
                     setActiveScreenIndex(null);
                   }}
-                  className="relative aspect-[16/8] bg-zinc-950 overflow-hidden border-b border-zinc-100 cursor-pointer"
+                  className="relative aspect-[16/10] bg-[#0c0d10] overflow-hidden border-b border-zinc-100 cursor-pointer"
                 >
                   <img
-                    src={item.rowImage}
+                    src={item.previewImage}
                     alt={item.title}
-                    className="w-full h-full object-cover object-top group-hover:scale-103 transition-transform duration-500"
+                    className="w-full h-full object-cover object-center group-hover:scale-103 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10 opacity-60 group-hover:opacity-30 transition-opacity" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-40 group-hover:opacity-20 transition-opacity" />
 
                   {/* Top Badge */}
                   <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5 pointer-events-none">
-                    <span className="px-2 py-0.5 rounded-full bg-black/75 backdrop-blur-md text-[10px] font-mono text-white/90 border border-white/10">
+                    <span className="px-2.5 py-1 rounded-full bg-black/80 backdrop-blur-md text-[10px] font-mono font-medium text-white/95 border border-white/10 shadow-sm">
                       {item.badge}
                     </span>
                   </div>
@@ -1784,10 +1794,10 @@ export default function Home() {
                       setSelectedDesignProject(item);
                       setActiveScreenIndex(null);
                     }}
-                    className="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-md bg-white/95 hover:bg-white text-zinc-900 text-[11px] font-mono font-medium flex items-center gap-1.5 shadow-sm border border-zinc-200/80 transition-transform hover:scale-105 cursor-pointer"
+                    className="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-full bg-white/95 hover:bg-white text-zinc-950 text-[10px] font-mono font-bold flex items-center gap-1.5 shadow-md border border-zinc-200/80 transition-transform hover:scale-105 cursor-pointer"
                   >
                     <Maximize2 size={11} />
-                    <span>Inspect Flow (6 Screens)</span>
+                    <span>Inspect 6-Screen Flow</span>
                   </button>
                 </div>
 
@@ -2334,16 +2344,16 @@ export default function Home() {
 
             {/* Modal Scrollable Body */}
             <div className="overflow-y-auto py-5 space-y-6 pr-1 [scrollbar-width:thin]">
-              {/* Full Multi-Screen Banner Overview */}
+              {/* Full High-Resolution Case Study Presentation Slide */}
               <div className="space-y-2">
                 <div className="text-xs font-mono text-zinc-400 flex items-center justify-between">
-                  <span className="font-medium text-zinc-300">Complete 6-Screen Architecture</span>
-                  <span className="text-[11px] text-zinc-500 hidden sm:inline">Click any screen below for detail view</span>
+                  <span className="font-medium text-zinc-300">Case Study Presentation (5K High-Res)</span>
+                  <span className="text-[11px] text-zinc-500 hidden sm:inline">Click individual screens below to zoom</span>
                 </div>
-                <div className="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-900">
+                <div className="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-900 shadow-2xl">
                   <img
-                    src={selectedDesignProject.rowImage}
-                    alt={`${selectedDesignProject.title} workflow`}
+                    src={selectedDesignProject.slideImage}
+                    alt={`${selectedDesignProject.title} presentation slide`}
                     className="w-full h-auto object-cover"
                   />
                 </div>
