@@ -1587,6 +1587,53 @@ export default function Home() {
                 </div>
               </div>
             ))}
+
+            {/* View More Projects on GitHub Card */}
+            <div className="w-[290px] sm:w-[330px] md:w-[350px] shrink-0 snap-start group border border-dashed border-zinc-300 hover:border-zinc-900 rounded-xl overflow-hidden bg-zinc-50/70 hover:bg-zinc-50 transition-all shadow-2xs hover:shadow-md flex flex-col justify-between p-5 sm:p-6 hover:-translate-y-0.5 relative">
+              <a
+                href="https://github.com/bhavukar"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute inset-0 z-10"
+                aria-label="View more projects on GitHub"
+              />
+
+              <div className="flex-1 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-10 h-10 rounded-xl bg-white border border-zinc-200 shadow-2xs flex items-center justify-center text-zinc-900 group-hover:scale-105 group-hover:border-zinc-900 transition-all">
+                      <Github size={20} />
+                    </div>
+                    <span className="px-2.5 py-1 rounded-full bg-zinc-200/70 text-zinc-800 text-[10px] font-mono font-medium flex items-center gap-1 group-hover:bg-zinc-950 group-hover:text-white transition-colors">
+                      <span>GitHub</span>
+                      <ArrowUpRight size={10} />
+                    </span>
+                  </div>
+
+                  <div className="text-[11px] font-mono uppercase tracking-wider text-zinc-500 mb-1">
+                    Open Source &amp; Systems
+                  </div>
+
+                  <h3 className="text-lg sm:text-xl font-bold text-zinc-950 tracking-tight group-hover:text-black transition-colors flex items-center gap-1.5">
+                    View More Projects
+                  </h3>
+
+                  <p className="text-xs text-zinc-600 leading-relaxed mt-2.5">
+                    Explore 30+ public repositories, CLI tools, kernel experimenters, experimental UI prototypes, and autonomous agent frameworks.
+                  </p>
+                </div>
+
+                <div className="pt-4 mt-6 border-t border-zinc-200/80 flex items-center justify-between">
+                  <span className="text-xs font-mono font-bold text-zinc-900 group-hover:underline flex items-center gap-1">
+                    <span>github.com/bhavukar</span>
+                    <ArrowRight size={12} className="group-hover:translate-x-0.5 transition-transform" />
+                  </span>
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white border border-zinc-200 text-zinc-600">
+                    30+ Repos
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
