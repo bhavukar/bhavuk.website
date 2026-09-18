@@ -9,6 +9,8 @@ import {
   Check,
   FileText,
   Terminal,
+  ChevronLeft,
+  ChevronRight,
 } from 'lucide-react';
 
 function XIcon({ size = 14, className }: { size?: number; className?: string }) {
@@ -163,14 +165,138 @@ const EXPERIENCES: ExperienceItem[] = [
   }
 ];
 
+interface ProjectItem {
+  id: string;
+  title: string;
+  category: string;
+  badge: string;
+  url: string;
+  displayUrl: string;
+  githubUrl?: string;
+  previewImage: string;
+  summary: string;
+  highlights: string[];
+  skills: string[];
+}
+
+const PROJECTS: ProjectItem[] = [
+  {
+    id: 'manage-your-display',
+    title: 'Manage Your Display',
+    category: 'Open-Source Display Controller',
+    badge: 'macOS • Linux • Windows',
+    url: 'https://monik-alpha.vercel.app/',
+    displayUrl: 'monik-alpha.vercel.app',
+    githubUrl: 'https://github.com/bhavukarora/monik',
+    previewImage: '/manage_your_display_preview.png',
+    summary:
+      'Free, open-source BetterDisplay alternative for macOS, Windows, and Linux. Direct DDC/CI hardware brightness, contrast, volume, per-display power toggle, HiDPI Retina scaling, and refresh rates with zero telemetry under the MIT license.',
+    highlights: [
+      'Direct DDC/CI hardware I2C bus communication for Apple Silicon (M1–M4) and Intel Macs.',
+      'Discrete display power toggle without waking sleeping monitors via SkyLight window-server management and zero-gamma LUT blackout.',
+      'Custom HiDPI 2x Retina mode switching, high refresh rate support (up to 240Hz+), and geometric underscan/overscan sizing.'
+    ],
+    skills: ['Swift', 'AppKit', 'DDC/CI & I2C', 'SkyLight Engine', 'PyQt6', 'DXVA2', 'Flutter']
+  },
+  {
+    id: 'northern-art',
+    title: 'Northern Art Studio',
+    category: 'Luxury E-Commerce & Fine Art Gallery',
+    badge: 'Production Gallery',
+    url: 'https://northernart11.com/',
+    displayUrl: 'northernart11.com',
+    previewImage: '/northern_art_preview.png',
+    summary:
+      'A minimal, high-end online gallery and bespoke e-commerce platform showcasing curated collections of contemporary Indian fine art and original paintings handcrafted with organic earth pigments, gouache, and mineral ink.',
+    highlights: [
+      'High-fidelity artwork visualizer with high-res zoom, frame simulation, and dimension/medium inspection.',
+      'Fluid client-side cart, wishlist favorites state management, and seamless currency-formatted checkout flows.',
+      'Minimalist luxury typography and responsive editorial catalog designed for high-conversion collector discovery.'
+    ],
+    skills: ['Next.js', 'React', 'Tailwind CSS', 'E-Commerce', 'Editorial UX', 'High-Res Visualizer']
+  },
+  {
+    id: 'network-relay',
+    title: 'Network Relay (Subway-Sim)',
+    category: 'Kernel Network Chaos Platform',
+    badge: 'Rust • WinDivert • CLI',
+    url: 'https://network-relay-pgcu.vercel.app/',
+    displayUrl: 'network-relay.vercel.app',
+    githubUrl: 'https://github.com/bhavukar/network-relay',
+    previewImage: '/network_relay_preview.png',
+    summary:
+      'High-performance network chaos engineering platform built in Rust and Tokio. Intercepts, delays, drops, and jitters local TCP/UDP packets at the kernel level with zero proxy overhead.',
+    highlights: [
+      'Kernel-level packet interception using WinDivert driver filters with sub-microsecond overhead.',
+      'Multi-profile chaos simulations: spotty subway tunnels, elevator dead-zones, high jitter, and packet loss.',
+      'Interactive web scanner console and native CLI tool (cargo install subway-sim) for resilience testing.'
+    ],
+    skills: ['Rust', 'Tokio', 'WinDivert', 'Chaos Engineering', 'TCP/UDP', 'Kernel Systems']
+  },
+  {
+    id: 'firestore-exporter',
+    title: 'Firestore Exporter',
+    category: 'Developer Tooling & Database Visualizer',
+    badge: 'Universal Tooling',
+    url: 'https://firestore-exporter-website.vercel.app/',
+    displayUrl: 'firestore-exporter-website.vercel.app',
+    previewImage: '/firestore_exporter_preview.png',
+    summary:
+      'Zero-friction database visualizer and schema transformer for Cloud Firestore. Seamlessly connects to local emulators and live production clusters with collapsible JSON trees, spreadsheet layouts, Monaco scripting, and instant multi-format data exports.',
+    highlights: [
+      'Dual gateway architecture supporting local emulators (8080/TCP) and live cloud instances with sandboxed IAM key validation.',
+      'Interactive multi-mode workspace featuring collapsible schema trees, editable spreadsheet layouts, and in-browser Monaco scripting.',
+      'Multi-format data extraction engine supporting JSON, CSV, TSV, NDJSON, and TypeScript interface definition generation with safety read-only shields.'
+    ],
+    skills: ['React', 'TypeScript', 'Cloud Firestore', 'Firebase Emulator', 'Monaco Editor', 'Tailwind CSS']
+  },
+  {
+    id: 'aegis',
+    title: 'Aegis',
+    category: 'Zero-Trust Security & In-Stream DLP Proxy',
+    badge: 'Security Proxy • In-Stream DLP',
+    url: 'https://aegis-ten-gamma.vercel.app/',
+    displayUrl: 'aegis-ten-gamma.vercel.app',
+    githubUrl: 'https://github.com/bhavukar/aegis',
+    previewImage: '/aegis_preview.png',
+    summary:
+      'Zero-trust security proxy and in-stream DLP firewall for autonomous AI toolchains and agent execution environments. Real-time packet inspection intercepts destructive OS commands, blocks unauthorized database table drops, and scrubs sensitive credentials in-flight.',
+    highlights: [
+      'Real-time AST policy evaluation intercepting destructive shell commands (rm -rf, curl | sh) and unauthorized database drops.',
+      'In-stream DLP token scrubbing with <0.24ms inspection overhead to mask API keys, AWS credentials, and PII.',
+      'Interactive security console with attack payload sandboxes, JSON-RPC 2.0 telemetry, and live rule trigger simulation.'
+    ],
+    skills: ['TypeScript', 'Zero-Trust Security', 'AST Analysis', 'DLP Firewall', 'JSON-RPC 2.0', 'CLI Tooling']
+  },
+  {
+    id: 'spectra',
+    title: 'Spectra',
+    category: 'Precision Causal DAG Tracing & Time-Travel Debugger',
+    badge: 'DAG Tracing • Time-Travel Replay',
+    url: 'https://spectra-bice.vercel.app/',
+    displayUrl: 'spectra-bice.vercel.app',
+    githubUrl: 'https://github.com/bhavukar/spectra',
+    previewImage: '/spectra_preview.png',
+    summary:
+      'Deterministic observability and time-travel debugging engine for autonomous AI agents and MCP tool execution. Traces causal execution graphs in an in-memory 16MB ring buffer, detects token runaway anomalies, and steps backward through tool decision frames with sub-0.02ms overhead.',
+    highlights: [
+      'Interactive causal DAG topology visualizer mapping multi-hop agent tool dispatch and synthesis workflows.',
+      'Deterministic time-travel scrubber stepping backward and forward through decision frames, state mutations, and payloads.',
+      'In-memory ring buffer tracing architecture supporting MCP / JSON-RPC protocols with <0.02ms instrumentation overhead.'
+    ],
+    skills: ['TypeScript', 'Observability', 'DAG Visualization', 'Time-Travel Debugging', 'MCP / JSON-RPC', 'Performance']
+  }
+];
+
 interface DesignProject {
   id: string;
   title: string;
   category: string;
   tools: string[];
   summary: string;
-  coverImage: string;
-  videoSrc: string;
+  coverImage?: string;
+  videoSrc?: string;
+  embedUrl?: string;
   behanceUrl: string;
   badge: string;
 }
@@ -186,6 +312,16 @@ const DESIGN_PROJECTS: DesignProject[] = [
     videoSrc: '/bluefork_motion.mp4',
     behanceUrl: 'https://www.behance.net/gallery/253324443/Bluefork',
     badge: '0:24 Motion Piece',
+  },
+  {
+    id: 'fork-visual-system',
+    title: 'Fork Visual System',
+    category: 'Brand Identity & Motion Graphics',
+    tools: ['After Effects', 'Motion Design', 'Visual Systems', 'Figma'],
+    summary: 'Comprehensive brand visual system, dynamic layout architecture, and kinetic motion showcase crafted for Fork.',
+    embedUrl: 'https://www.behance.net/embed/project/253324319?ilo0=1',
+    behanceUrl: 'https://www.behance.net/gallery/253324319',
+    badge: 'Behance Piece',
   },
   {
     id: 'pulp-ai',
@@ -348,8 +484,75 @@ Building consumer products from zero to scale. Over 5+ years of engineering, I'v
   * Conducted live laboratory demonstrations introducing students and research peers to practical applications of VR and neuro-interfaces.
 - Stack: Virtual Reality • EEG / Neural Spikes • Unity / C# • BCI Research
 
+## Selected Projects & Software
+
+### Manage Your Display
+- Type: Open-Source Display Utility (macOS / Linux / Windows)
+- URL: https://monik-alpha.vercel.app
+- GitHub: https://github.com/bhavukarora/monik
+- Summary: Free, open-source BetterDisplay alternative for macOS, Windows, and Linux. Direct DDC/CI hardware brightness, contrast, volume, per-display power toggle, HiDPI Retina scaling, and refresh rates with zero telemetry under the MIT license.
+- Key Outcomes:
+  * Direct DDC/CI hardware I2C bus communication for Apple Silicon (M1–M4) and Intel Macs.
+  * Discrete display power management without waking sleeping monitors via SkyLight window-server control and zero-gamma LUT blackout.
+  * Custom HiDPI 2x Retina mode switching, high refresh rate support (up to 240Hz+), and geometric underscan/overscan.
+- Stack: Swift • AppKit • DDC/CI • SkyLight Engine • PyQt6 • DXVA2 • Flutter
+
+### Northern Art Studio
+- Type: Luxury E-Commerce & Contemporary Fine Art Gallery
+- URL: https://northernart11.com
+- Summary: A minimal, high-end online gallery and bespoke e-commerce platform showcasing curated collections of contemporary Indian fine art and original paintings handcrafted with organic earth pigments, gouache, and mineral ink.
+- Key Outcomes:
+  * High-fidelity artwork visualizer with high-res zoom, frame simulation, and dimension/medium inspection.
+  * Fluid client-side cart, wishlist favorites state management, and seamless currency-formatted checkout flows.
+  * Minimalist luxury typography and responsive editorial catalog designed for high-conversion collector discovery.
+- Stack: Next.js • React • Tailwind CSS • E-Commerce • Editorial UX
+
+### Network Relay (Subway-Sim)
+- Type: Kernel Network Chaos Platform
+- URL: https://network-relay-pgcu.vercel.app
+- GitHub: https://github.com/bhavukar/network-relay
+- Summary: High-performance network chaos engineering platform built in Rust and Tokio. Intercepts, delays, drops, and jitters local TCP/UDP packets at the kernel level with zero proxy overhead.
+- Key Outcomes:
+  * Kernel-level packet interception using WinDivert driver filters with sub-microsecond overhead.
+  * Multi-profile chaos simulations: spotty subway tunnels, elevator dead-zones, high jitter, and packet loss.
+  * Interactive web scanner console and native CLI tool (cargo install subway-sim) for resilience testing.
+- Stack: Rust • Tokio • WinDivert • Chaos Engineering • TCP/UDP • Kernel Systems
+
+### Firestore Exporter & Visualizer
+- Type: Developer Tooling & Firebase Database Visualizer
+- URL: https://firestore-exporter-website.vercel.app
+- Summary: Zero-friction database visualizer and schema transformer for Cloud Firestore. Seamlessly connects to local emulators and live production clusters with collapsible JSON trees, spreadsheet layouts, Monaco scripting, and instant multi-format data exports.
+- Key Outcomes:
+  * Dual gateway connection architecture supporting local emulators (8080/TCP) and secure live cloud instances with sandboxed IAM key validation.
+  * Interactive multi-mode workspace featuring collapsible schema trees, editable spreadsheet layouts, and in-browser Monaco code scripting.
+  * Multi-format data extraction engine supporting JSON, CSV, TSV, NDJSON, and TypeScript interface definition generation with safety read-only shields.
+- Stack: React • TypeScript • Cloud Firestore • Firebase Emulator • Monaco Editor • Tailwind CSS
+
+### Aegis
+- Type: Zero-Trust Security & In-Stream DLP Proxy
+- URL: https://aegis-ten-gamma.vercel.app
+- GitHub: https://github.com/bhavukar/aegis
+- Summary: Zero-trust security proxy and in-stream DLP firewall for autonomous AI toolchains and agent execution environments. Real-time packet inspection intercepts destructive OS commands, blocks unauthorized database table drops, and scrubs sensitive credentials in-flight.
+- Key Outcomes:
+  * Real-time AST policy evaluation intercepting destructive shell commands (rm -rf, curl | sh) and unauthorized database drops.
+  * In-stream DLP token scrubbing with <0.24ms inspection overhead to mask API keys, AWS credentials, and PII.
+  * Interactive security console with attack payload sandboxes, JSON-RPC 2.0 telemetry, and live rule trigger simulation.
+- Stack: TypeScript • Zero-Trust Security • AST Analysis • DLP Firewall • JSON-RPC 2.0 • CLI Tooling
+
+### Spectra
+- Type: Precision Causal DAG Tracing & Time-Travel Debugger
+- URL: https://spectra-bice.vercel.app
+- GitHub: https://github.com/bhavukar/spectra
+- Summary: Deterministic observability and time-travel debugging engine for autonomous AI agents and MCP tool execution. Traces causal execution graphs in an in-memory 16MB ring buffer, detects token runaway anomalies, and steps backward through tool decision frames with sub-0.02ms overhead.
+- Key Outcomes:
+  * Interactive causal DAG topology visualizer mapping multi-hop agent tool dispatch and synthesis workflows.
+  * Deterministic time-travel scrubber stepping backward and forward through decision frames, state mutations, and payloads.
+  * In-memory ring buffer tracing architecture supporting MCP / JSON-RPC protocols with <0.02ms instrumentation overhead.
+- Stack: TypeScript • Observability • DAG Visualization • Time-Travel Debugging • MCP / JSON-RPC • Performance
+
 ## Motion & Design Systems (Behance)
 - Bluefork: Dynamic brand identity, kinetic motion system, and high-contrast visual direction. (https://www.behance.net/gallery/253324443/Bluefork)
+- Fork Visual System: Comprehensive brand visual system, dynamic layout architecture, and kinetic motion showcase crafted for Fork. (https://www.behance.net/gallery/253324319)
 - Pulp AI: Visual architecture, spectral gradient aesthetics, and generative motion graphics for Fork's native frontier AI agent engine. (https://www.behance.net/gallery/253324169/Pulp-AI)
 - ACE Glitch: Experimental kinetic glitch animation, audio-reactive frame displacement, and geometric logo deconstruction. (https://www.behance.net/gallery/151738765/ACE-Glitch)
 
@@ -381,7 +584,7 @@ Building consumer products from zero to scale. Over 5+ years of engineering, I'v
 function MachineView({ onCopy, copied }: { onCopy?: () => void; copied?: boolean }) {
   return (
     <div className="min-h-screen bg-black text-zinc-400 font-mono text-[13px] sm:text-[14px] leading-relaxed selection:bg-zinc-800 selection:text-white pb-32">
-      <main className="max-w-3xl mx-auto px-6 sm:px-10 py-16 sm:py-24 border-l border-zinc-900 min-h-screen">
+      <main className="max-w-4xl mx-auto px-6 sm:px-10 py-16 sm:py-24 border-l border-zinc-900 min-h-screen">
         {/* Frontmatter */}
         <div className="text-zinc-600 text-xs sm:text-[13px] leading-relaxed mb-10 break-words">
           --- title: &quot;Bhavuk Arora&quot; role: &quot;Founder &amp; CEO, Product Engineer&quot; description: &quot;Founder &amp; CEO building consumer products from zero to scale. Over 5+ years of engineering across mobile, agentic AI, and full-stack systems.&quot; canonical: &quot;https://bhavuk.website&quot; source-index: &quot;https://bhavuk.website/llms.txt&quot; ---
@@ -518,6 +721,131 @@ function MachineView({ onCopy, copied }: { onCopy?: () => void; copied?: boolean
           </div>
         </div>
 
+        {/* Selected Projects */}
+        <div className="space-y-6 mb-10">
+          <h2 className="text-sm sm:text-base font-bold text-zinc-100 tracking-tight">
+            ## Selected Projects &amp; Software
+          </h2>
+
+          {/* Manage Your Display */}
+          <div className="space-y-1.5">
+            <h3 className="text-sm font-bold text-zinc-200">
+              ### Manage Your Display
+            </h3>
+            <ul className="space-y-1 text-zinc-400">
+              <li>- <strong className="text-zinc-200 font-medium">**Type:**</strong> Open-Source Display Utility (macOS / Linux / Windows)</li>
+              <li>- <strong className="text-zinc-200 font-medium">**URL:**</strong> <a href="https://monik-alpha.vercel.app" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://monik-alpha.vercel.app</a></li>
+              <li>- <strong className="text-zinc-200 font-medium">**GitHub:**</strong> <a href="https://github.com/bhavukarora/monik" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://github.com/bhavukarora/monik</a></li>
+              <li>- <strong className="text-zinc-200 font-medium">**Summary:**</strong> Free, open-source BetterDisplay alternative for macOS, Windows, and Linux. Direct DDC/CI hardware brightness, contrast, volume, per-display power toggle, HiDPI Retina scaling, and refresh rates with zero telemetry under the MIT license.</li>
+              <li>- <strong className="text-zinc-200 font-medium">**Key Deliverables:**</strong></li>
+              <li className="pl-4 space-y-1 text-zinc-400">
+                <div>- Direct DDC/CI hardware I2C bus communication for Apple Silicon (M1–M4) and Intel Macs.</div>
+                <div>- Discrete display power management without waking sleeping monitors via SkyLight window-server control and zero-gamma LUT blackout.</div>
+                <div>- Custom HiDPI 2x Retina mode switching, high refresh rate support (up to 240Hz+), and geometric underscan/overscan.</div>
+              </li>
+              <li>- <strong className="text-zinc-200 font-medium">**Stack:**</strong> <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Swift`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`AppKit`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`DDC/CI`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`SkyLight Engine`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`PyQt6`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`DXVA2`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Flutter`</code></li>
+            </ul>
+          </div>
+
+          {/* Northern Art */}
+          <div className="space-y-1.5 pt-4">
+            <h3 className="text-sm font-bold text-zinc-200">
+              ### Northern Art Studio
+            </h3>
+            <ul className="space-y-1 text-zinc-400">
+              <li>- <strong className="text-zinc-200 font-medium">**Type:**</strong> Luxury E-Commerce &amp; Contemporary Fine Art Gallery</li>
+              <li>- <strong className="text-zinc-200 font-medium">**URL:**</strong> <a href="https://northernart11.com" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://northernart11.com</a></li>
+              <li>- <strong className="text-zinc-200 font-medium">**Summary:**</strong> A minimal, high-end online gallery and bespoke e-commerce platform showcasing curated collections of contemporary Indian fine art and original paintings handcrafted with organic earth pigments, gouache, and mineral ink.</li>
+              <li>- <strong className="text-zinc-200 font-medium">**Key Deliverables:**</strong></li>
+              <li className="pl-4 space-y-1 text-zinc-400">
+                <div>- High-fidelity artwork visualizer with high-res zoom, frame simulation, and dimension/medium inspection.</div>
+                <div>- Fluid client-side cart, wishlist favorites state management, and seamless currency-formatted checkout flows.</div>
+                <div>- Minimalist luxury typography and responsive editorial catalog designed for high-conversion collector discovery.</div>
+              </li>
+              <li>- <strong className="text-zinc-200 font-medium">**Stack:**</strong> <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Next.js`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`React`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Tailwind CSS`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`E-Commerce`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Editorial UX`</code></li>
+            </ul>
+          </div>
+
+          {/* Network Relay */}
+          <div className="space-y-1.5 pt-4">
+            <h3 className="text-sm font-bold text-zinc-200">
+              ### Network Relay (Subway-Sim)
+            </h3>
+            <ul className="space-y-1 text-zinc-400">
+              <li>- <strong className="text-zinc-200 font-medium">**Type:**</strong> Kernel Network Chaos Platform (Rust &amp; WinDivert)</li>
+              <li>- <strong className="text-zinc-200 font-medium">**URL:**</strong> <a href="https://network-relay-pgcu.vercel.app" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://network-relay-pgcu.vercel.app</a></li>
+              <li>- <strong className="text-zinc-200 font-medium">**GitHub:**</strong> <a href="https://github.com/bhavukar/network-relay" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://github.com/bhavukar/network-relay</a></li>
+              <li>- <strong className="text-zinc-200 font-medium">**Summary:**</strong> High-performance network chaos engineering platform built in Rust and Tokio. Intercepts, delays, drops, and jitters local TCP/UDP packets at the kernel level with zero proxy overhead.</li>
+              <li>- <strong className="text-zinc-200 font-medium">**Key Deliverables:**</strong></li>
+              <li className="pl-4 space-y-1 text-zinc-400">
+                <div>- Kernel-level packet interception using WinDivert driver filters with sub-microsecond overhead.</div>
+                <div>- Multi-profile chaos simulations: spotty subway tunnels, elevator dead-zones, high jitter, and packet loss.</div>
+                <div>- Interactive web scanner console and native CLI tool (cargo install subway-sim) for resilience testing.</div>
+              </li>
+              <li>- <strong className="text-zinc-200 font-medium">**Stack:**</strong> <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Rust`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Tokio`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`WinDivert`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Chaos Engineering`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`TCP/UDP`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Kernel Systems`</code></li>
+            </ul>
+          </div>
+
+          {/* Firestore Exporter */}
+          <div className="space-y-1.5 pt-4">
+            <h3 className="text-sm font-bold text-zinc-200">
+              ### Firestore Exporter &amp; Visualizer
+            </h3>
+            <ul className="space-y-1 text-zinc-400">
+              <li>- <strong className="text-zinc-200 font-medium">**Type:**</strong> Developer Tooling &amp; Firebase Database Visualizer</li>
+              <li>- <strong className="text-zinc-200 font-medium">**URL:**</strong> <a href="https://firestore-exporter-website.vercel.app" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://firestore-exporter-website.vercel.app</a></li>
+              <li>- <strong className="text-zinc-200 font-medium">**Summary:**</strong> Zero-friction database visualizer and schema transformer for Cloud Firestore. Seamlessly connects to local emulators and live production clusters with collapsible JSON trees, spreadsheet layouts, Monaco scripting, and instant multi-format data exports.</li>
+              <li>- <strong className="text-zinc-200 font-medium">**Key Deliverables:**</strong></li>
+              <li className="pl-4 space-y-1 text-zinc-400">
+                <div>- Dual gateway connection architecture supporting local emulators (8080/TCP) and secure live cloud instances with sandboxed IAM key validation.</div>
+                <div>- Interactive multi-mode workspace featuring collapsible schema trees, editable spreadsheet layouts, and in-browser Monaco code scripting.</div>
+                <div>- Multi-format data extraction engine supporting JSON, CSV, TSV, NDJSON, and TypeScript interface definition generation with safety read-only shields.</div>
+              </li>
+              <li>- <strong className="text-zinc-200 font-medium">**Stack:**</strong> <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`React`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`TypeScript`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Cloud Firestore`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Firebase Emulator`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Monaco Editor`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Tailwind CSS`</code></li>
+            </ul>
+          </div>
+
+          {/* Aegis */}
+          <div className="space-y-1.5 pt-4">
+            <h3 className="text-sm font-bold text-zinc-200">
+              ### Aegis
+            </h3>
+            <ul className="space-y-1 text-zinc-400">
+              <li>- <strong className="text-zinc-200 font-medium">**Type:**</strong> Zero-Trust Security &amp; In-Stream DLP Proxy</li>
+              <li>- <strong className="text-zinc-200 font-medium">**URL:**</strong> <a href="https://aegis-ten-gamma.vercel.app" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://aegis-ten-gamma.vercel.app</a></li>
+              <li>- <strong className="text-zinc-200 font-medium">**GitHub:**</strong> <a href="https://github.com/bhavukar/aegis" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://github.com/bhavukar/aegis</a></li>
+              <li>- <strong className="text-zinc-200 font-medium">**Summary:**</strong> Zero-trust security proxy and in-stream DLP firewall for autonomous AI toolchains and agent execution environments. Real-time packet inspection intercepts destructive OS commands, blocks unauthorized database table drops, and scrubs sensitive credentials in-flight.</li>
+              <li>- <strong className="text-zinc-200 font-medium">**Key Deliverables:**</strong></li>
+              <li className="pl-4 space-y-1 text-zinc-400">
+                <div>- Real-time AST policy evaluation intercepting destructive shell commands (rm -rf, curl | sh) and unauthorized database drops.</div>
+                <div>- In-stream DLP token scrubbing with &lt;0.24ms inspection overhead to mask API keys, AWS credentials, and PII.</div>
+                <div>- Interactive security console with attack payload sandboxes, JSON-RPC 2.0 telemetry, and live rule trigger simulation.</div>
+              </li>
+              <li>- <strong className="text-zinc-200 font-medium">**Stack:**</strong> <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`TypeScript`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Zero-Trust Security`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`AST Analysis`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`DLP Firewall`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`JSON-RPC 2.0`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`CLI Tooling`</code></li>
+            </ul>
+          </div>
+
+          {/* Spectra */}
+          <div className="space-y-1.5 pt-4">
+            <h3 className="text-sm font-bold text-zinc-200">
+              ### Spectra
+            </h3>
+            <ul className="space-y-1 text-zinc-400">
+              <li>- <strong className="text-zinc-200 font-medium">**Type:**</strong> Precision Causal DAG Tracing &amp; Time-Travel Debugger</li>
+              <li>- <strong className="text-zinc-200 font-medium">**URL:**</strong> <a href="https://spectra-bice.vercel.app" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://spectra-bice.vercel.app</a></li>
+              <li>- <strong className="text-zinc-200 font-medium">**GitHub:**</strong> <a href="https://github.com/bhavukar/spectra" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://github.com/bhavukar/spectra</a></li>
+              <li>- <strong className="text-zinc-200 font-medium">**Summary:**</strong> Deterministic observability and time-travel debugging engine for autonomous AI agents and MCP tool execution. Traces causal execution graphs in an in-memory 16MB ring buffer, detects token runaway anomalies, and steps backward through tool decision frames with sub-0.02ms overhead.</li>
+              <li>- <strong className="text-zinc-200 font-medium">**Key Deliverables:**</strong></li>
+              <li className="pl-4 space-y-1 text-zinc-400">
+                <div>- Interactive causal DAG topology visualizer mapping multi-hop agent tool dispatch and synthesis workflows.</div>
+                <div>- Deterministic time-travel scrubber stepping backward and forward through decision frames, state mutations, and payloads.</div>
+                <div>- In-memory ring buffer tracing architecture supporting MCP / JSON-RPC protocols with &lt;0.02ms instrumentation overhead.</div>
+              </li>
+              <li>- <strong className="text-zinc-200 font-medium">**Stack:**</strong> <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`TypeScript`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Observability`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`DAG Visualization`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Time-Travel Debugging`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`MCP / JSON-RPC`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Performance`</code></li>
+            </ul>
+          </div>
+        </div>
+
         {/* Motion & Design Systems */}
         <div className="space-y-2 mb-10">
           <h2 className="text-sm sm:text-base font-bold text-zinc-100 tracking-tight">
@@ -525,6 +853,7 @@ function MachineView({ onCopy, copied }: { onCopy?: () => void; copied?: boolean
           </h2>
           <ul className="space-y-1.5 text-zinc-400">
             <li>- <strong className="text-zinc-200 font-medium">**Bluefork Brand Identity &amp; Motion System:**</strong> Dynamic brand identity, kinetic motion system, and high-contrast visual direction crafted for the Bluefork creator platform. (<a href="https://www.behance.net/gallery/253324443/Bluefork" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://www.behance.net/gallery/253324443/Bluefork</a>)</li>
+            <li>- <strong className="text-zinc-200 font-medium">**Fork Visual System:**</strong> Comprehensive brand visual system, dynamic layout architecture, and kinetic motion showcase crafted for Fork. (<a href="https://www.behance.net/gallery/253324319" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://www.behance.net/gallery/253324319</a>)</li>
             <li>- <strong className="text-zinc-200 font-medium">**Pulp AI Generative Motion Graphics:**</strong> Visual architecture, spectral gradient aesthetics, and generative motion graphics for Fork&apos;s native frontier AI agent engine. (<a href="https://www.behance.net/gallery/253324169/Pulp-AI" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://www.behance.net/gallery/253324169/Pulp-AI</a>)</li>
             <li>- <strong className="text-zinc-200 font-medium">**ACE Glitch Kinetic Animation:**</strong> Experimental kinetic glitch animation, audio-reactive frame displacement, and geometric logo deconstruction. (<a href="https://www.behance.net/gallery/151738765/ACE-Glitch" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://www.behance.net/gallery/151738765/ACE-Glitch</a>)</li>
           </ul>
@@ -630,6 +959,15 @@ export default function Home() {
     setTimeout(() => setCopiedMachineText(false), 2000);
   };
 
+  const projectsScrollRef = useRef<HTMLDivElement>(null);
+
+  const scrollProjects = (direction: 'left' | 'right') => {
+    if (projectsScrollRef.current) {
+      const scrollAmount = direction === 'left' ? -380 : 380;
+      projectsScrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       {mode === 'machine' ? (
@@ -640,7 +978,7 @@ export default function Home() {
           1. MINIMAL STICKY HEADER
           ───────────────────────────────────────────────────────────── */}
       <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-zinc-200">
-        <div className="max-w-4xl mx-auto px-5 sm:px-8 h-14 sm:h-16 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 h-14 sm:h-16 flex items-center justify-between">
           <a href="#" className="flex items-center gap-2.5 sm:gap-3 group min-w-0">
             <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full overflow-hidden border border-zinc-200 shadow-2xs group-hover:scale-105 transition-transform flex-shrink-0">
               <img
@@ -661,7 +999,7 @@ export default function Home() {
           </a>
 
           <a
-            href="https://github.com/bhavukar"
+            href="https://github.com/bhavukarora"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 text-[11px] sm:text-xs font-mono text-zinc-600 hover:text-zinc-950 transition-colors flex-shrink-0"
@@ -675,7 +1013,7 @@ export default function Home() {
       {/* ─────────────────────────────────────────────────────────────
           2. MAIN CONTAINER WITH CLEAN BORDERS
           ───────────────────────────────────────────────────────────── */}
-      <div className="max-w-4xl mx-auto border-x-0 sm:border-x border-zinc-200 bg-white min-h-screen">
+      <div className="max-w-6xl mx-auto border-x-0 sm:border-x border-zinc-200 bg-white min-h-screen">
         {/* ───────────────────────────────────────────────────────────
             HERO SECTION (Clean, Responsive Editorial)
             ─────────────────────────────────────────────────────────── */}
@@ -891,6 +1229,139 @@ export default function Home() {
         </section>
 
         {/* ───────────────────────────────────────────────────────────
+            SELECTED PROJECTS (HORIZONTAL SWIPER SHOWCASE)
+            ─────────────────────────────────────────────────────────── */}
+        <section
+          id="projects"
+          className="px-5 sm:px-10 py-12 sm:py-16 border-b border-zinc-200"
+        >
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6 sm:mb-8">
+            <div className="space-y-1">
+              <div className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-zinc-500">
+                Software Engineering
+              </div>
+              <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-950">
+                Selected Projects
+              </h2>
+            </div>
+            
+            <div className="flex items-center gap-3">
+              <span className="text-xs font-mono text-zinc-500 hidden sm:inline">
+                Swipe to explore
+              </span>
+              <div className="flex items-center gap-1.5">
+                <button
+                  onClick={() => scrollProjects('left')}
+                  className="w-8 h-8 rounded-lg border border-zinc-200 hover:border-zinc-900 bg-white hover:bg-zinc-50 text-zinc-700 hover:text-zinc-950 flex items-center justify-center transition-all cursor-pointer shadow-2xs active:scale-95"
+                  aria-label="Scroll left"
+                >
+                  <ChevronLeft size={16} />
+                </button>
+                <button
+                  onClick={() => scrollProjects('right')}
+                  className="w-8 h-8 rounded-lg border border-zinc-200 hover:border-zinc-900 bg-white hover:bg-zinc-50 text-zinc-700 hover:text-zinc-950 flex items-center justify-center transition-all cursor-pointer shadow-2xs active:scale-95"
+                  aria-label="Scroll right"
+                >
+                  <ChevronRight size={16} />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Horizontal Swiper Track */}
+          <div
+            ref={projectsScrollRef}
+            className="flex gap-5 sm:gap-6 overflow-x-auto pb-4 pt-1 snap-x snap-mandatory scroll-smooth -mx-5 px-5 scroll-pl-5 sm:mx-0 sm:px-0 sm:scroll-pl-0 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {PROJECTS.map((project) => (
+              <div
+                key={project.id}
+                className="w-[290px] sm:w-[330px] md:w-[350px] shrink-0 snap-start group border border-zinc-200 hover:border-zinc-300 rounded-xl overflow-hidden bg-white hover:bg-zinc-50/40 transition-all shadow-2xs hover:shadow-md flex flex-col hover:-translate-y-0.5"
+              >
+                {/* Visual / Screenshot Preview Container (Clean, Bright & Fully Visible) */}
+                <div className="relative aspect-[16/10] bg-zinc-100 overflow-hidden border-b border-zinc-100">
+                  <img
+                    src={project.previewImage}
+                    alt={project.title}
+                    className="w-full h-full object-cover object-top group-hover:scale-103 transition-transform duration-500"
+                  />
+
+                  {/* Clean Top-Right Live Pill */}
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute top-2.5 right-2.5 px-2.5 py-1 rounded-full bg-white/95 hover:bg-white text-zinc-900 text-[10px] font-mono font-medium flex items-center gap-0.5 shadow-sm border border-zinc-200/80 transition-transform hover:scale-105 z-10"
+                  >
+                    <span>Live</span>
+                    <ArrowUpRight size={10} />
+                  </a>
+
+                  {/* Full image link */}
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute inset-0 z-0"
+                    title={`Open ${project.title}`}
+                  />
+                </div>
+
+                {/* Card Info */}
+                <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
+                  <div>
+                    <div className="mb-1">
+                      <h3 className="text-base font-bold text-zinc-950 group-hover:text-blue-600 transition-colors">
+                        <a
+                          href={project.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-between gap-1"
+                        >
+                          <span>{project.title}</span>
+                          <ArrowUpRight size={14} className="text-zinc-400 group-hover:text-blue-600 transition-colors" />
+                        </a>
+                      </h3>
+                    </div>
+
+                    <div className="text-xs font-mono text-zinc-500 mb-2.5 flex items-center justify-between">
+                      <span className="truncate mr-2">{project.category}</span>
+                      {project.githubUrl && (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-[10px] text-zinc-600 hover:text-zinc-950 underline shrink-0"
+                        >
+                          <Github size={10} />
+                          <span>Source</span>
+                        </a>
+                      )}
+                    </div>
+
+                    <p className="text-xs text-zinc-600 leading-relaxed mb-4">
+                      {project.summary}
+                    </p>
+                  </div>
+
+                  {/* Tool chips */}
+                  <div className="pt-3 border-t border-zinc-100 flex flex-wrap gap-1.5">
+                    {project.skills.map((t, idx) => (
+                      <span
+                        key={idx}
+                        className="px-2 py-0.5 rounded bg-zinc-100 text-zinc-700 text-[10px] font-mono"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ───────────────────────────────────────────────────────────
             DESIGN & MOTION CRAFT (BEHANCE SHOWCASE)
             ─────────────────────────────────────────────────────────── */}
         <section
@@ -903,56 +1374,75 @@ export default function Home() {
                 Creative Direction
               </div>
               <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-950">
-                Design & Motion Craft
+                Design &amp; Motion Craft
               </h2>
             </div>
-            <a
-              href="https://www.behance.net/bhavukarora1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-600 hover:text-zinc-950 transition-colors group"
-            >
-              <span>View Behance gallery</span>
-              <ArrowUpRight size={13} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </a>
+            <div className="flex items-center justify-between sm:justify-end gap-3">
+              <span className="text-xs font-mono text-zinc-500 sm:hidden">
+                Swipe to explore
+              </span>
+              <a
+                href="https://www.behance.net/bhavukarora1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-mono text-zinc-600 hover:text-zinc-950 transition-colors group"
+              >
+                <span>View Behance gallery</span>
+                <ArrowUpRight size={13} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </a>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+          <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 overflow-x-auto sm:overflow-visible pb-4 sm:pb-0 pt-1 snap-x snap-mandatory sm:snap-none scroll-smooth -mx-5 px-5 scroll-pl-5 sm:mx-0 sm:px-0 sm:scroll-pl-0 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
             {DESIGN_PROJECTS.map((project) => (
               <div
                 key={project.id}
-                className="group border border-zinc-200 hover:border-zinc-300 rounded-xl overflow-hidden bg-white hover:bg-zinc-50/40 transition-all shadow-2xs hover:shadow-md flex flex-col"
+                className="w-[280px] sm:w-auto shrink-0 sm:shrink snap-start group border border-zinc-200 hover:border-zinc-300 rounded-xl overflow-hidden bg-white hover:bg-zinc-50/40 transition-all shadow-2xs hover:shadow-md flex flex-col"
               >
                 {/* Visual / Motion Player Container */}
                 <div className="relative aspect-video bg-zinc-950 overflow-hidden">
-                  <video
-                    src={project.videoSrc}
-                    poster={project.coverImage}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="none"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10 pointer-events-none" />
+                  {project.embedUrl ? (
+                    <iframe
+                      src={project.embedUrl}
+                      title={project.title}
+                      className="w-full h-full border-0"
+                      allowFullScreen
+                      loading="lazy"
+                      allow="clipboard-write"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                    />
+                  ) : (
+                    <>
+                      <video
+                        src={project.videoSrc}
+                        poster={project.coverImage}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        preload="none"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10 pointer-events-none" />
 
-                  {/* Badges on Video */}
-                  <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5">
-                    <span className="px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-mono text-white/90 border border-white/10">
-                      {project.badge}
-                    </span>
-                  </div>
+                      {/* Badges on Video */}
+                      <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5 pointer-events-none">
+                        <span className="px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-md text-[10px] font-mono text-white/90 border border-white/10">
+                          {project.badge}
+                        </span>
+                      </div>
 
-                  <a
-                    href={project.behanceUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full bg-white/90 hover:bg-white text-zinc-900 text-[10px] font-mono font-medium flex items-center gap-0.5 shadow-sm transition-transform hover:scale-105"
-                  >
-                    <span>Behance</span>
-                    <ArrowUpRight size={10} />
-                  </a>
+                      <a
+                        href={project.behanceUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full bg-white/90 hover:bg-white text-zinc-900 text-[10px] font-mono font-medium flex items-center gap-0.5 shadow-sm transition-transform hover:scale-105"
+                      >
+                        <span>Behance</span>
+                        <ArrowUpRight size={10} />
+                      </a>
+                    </>
+                  )}
                 </div>
 
                 {/* Card Info */}

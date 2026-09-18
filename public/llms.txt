@@ -93,8 +93,77 @@
 
 ---
 
+## Selected Projects & Software
+
+### Manage Your Display
+- **Type:** Open-Source Display Utility (macOS / Linux / Windows)
+- **URL:** https://monik-alpha.vercel.app
+- **GitHub:** https://github.com/bhavukarora/monik
+- **Summary:** Free, open-source BetterDisplay alternative for macOS, Windows, and Linux. Direct DDC/CI hardware brightness, contrast, volume, per-display power toggle, HiDPI Retina scaling, and refresh rates with zero telemetry under the MIT license.
+- **Key Deliverables:**
+  - Direct DDC/CI hardware I2C bus communication for Apple Silicon (M1–M4) and Intel Macs.
+  - Discrete display power management without waking sleeping monitors via SkyLight window-server control and zero-gamma LUT blackout.
+  - Custom HiDPI 2x Retina mode switching, high refresh rate support (up to 240Hz+), and geometric underscan/overscan.
+- **Stack:** Swift, AppKit, DDC/CI & I2C, SkyLight Engine, PyQt6, DXVA2, Flutter
+
+### Northern Art Studio
+- **Type:** Luxury E-Commerce & Contemporary Fine Art Gallery
+- **URL:** https://northernart11.com
+- **Summary:** A minimal, high-end online gallery and bespoke e-commerce platform showcasing curated collections of contemporary Indian fine art and original paintings handcrafted with organic earth pigments, gouache, and mineral ink.
+- **Key Deliverables:**
+  - High-fidelity artwork visualizer with high-res zoom, frame simulation, and dimension/medium inspection.
+  - Fluid client-side cart, wishlist favorites state management, and seamless currency-formatted checkout flows.
+  - Minimalist luxury typography and responsive editorial catalog designed for high-conversion collector discovery.
+- **Stack:** Next.js, React, Tailwind CSS, E-Commerce, Editorial UX, High-Res Visualizer
+
+### Network Relay (Subway-Sim)
+- **Type:** Kernel Network Chaos Platform (Rust & WinDivert)
+- **URL:** https://network-relay-pgcu.vercel.app
+- **GitHub:** https://github.com/bhavukar/network-relay
+- **Summary:** High-performance network chaos engineering platform built in Rust and Tokio. Intercepts, delays, drops, and jitters local TCP/UDP packets at the kernel level with zero proxy overhead.
+- **Key Deliverables:**
+  - Kernel-level packet interception using WinDivert driver filters with sub-microsecond overhead.
+  - Multi-profile chaos simulations: spotty subway tunnels, elevator dead-zones, high jitter, and packet loss.
+  - Interactive web scanner console and native CLI tool (cargo install subway-sim) for resilience testing.
+- **Stack:** Rust, Tokio, WinDivert, Chaos Engineering, TCP/UDP, Kernel Systems
+
+### Firestore Exporter & Visualizer
+- **Type:** Developer Tooling & Firebase Database Visualizer
+- **URL:** https://firestore-exporter-website.vercel.app
+- **Summary:** Zero-friction database visualizer and schema transformer for Cloud Firestore. Seamlessly connects to local emulators and live production clusters with collapsible JSON trees, spreadsheet layouts, Monaco scripting, and instant multi-format data exports.
+- **Key Deliverables:**
+  - Dual gateway connection architecture supporting local emulators (8080/TCP) and secure live cloud instances with sandboxed IAM key validation.
+  - Interactive multi-mode workspace featuring collapsible schema trees, editable spreadsheet layouts, and in-browser Monaco code scripting.
+  - Multi-format data extraction engine supporting JSON, CSV, TSV, NDJSON, and TypeScript interface definition generation with safety read-only shields.
+- **Stack:** React, TypeScript, Cloud Firestore, Firebase Emulator, Monaco Editor, Tailwind CSS
+
+### Aegis
+- **Type:** Zero-Trust Security & In-Stream DLP Proxy
+- **URL:** https://aegis-ten-gamma.vercel.app
+- **GitHub:** https://github.com/bhavukar/aegis
+- **Summary:** Zero-trust security proxy and in-stream DLP firewall for autonomous AI toolchains and agent execution environments. Real-time packet inspection intercepts destructive OS commands, blocks unauthorized database table drops, and scrubs sensitive credentials in-flight.
+- **Key Deliverables:**
+  - Real-time AST policy evaluation intercepting destructive shell commands (rm -rf, curl | sh) and unauthorized database drops.
+  - In-stream DLP token scrubbing with <0.24ms inspection overhead to mask API keys, AWS credentials, and PII.
+  - Interactive security console with attack payload sandboxes, JSON-RPC 2.0 telemetry, and live rule trigger simulation.
+- **Stack:** TypeScript, Zero-Trust Security, AST Analysis, DLP Firewall, JSON-RPC 2.0, CLI Tooling
+
+### Spectra
+- **Type:** Precision Causal DAG Tracing & Time-Travel Debugger
+- **URL:** https://spectra-bice.vercel.app
+- **GitHub:** https://github.com/bhavukar/spectra
+- **Summary:** Deterministic observability and time-travel debugging engine for autonomous AI agents and MCP tool execution. Traces causal execution graphs in an in-memory 16MB ring buffer, detects token runaway anomalies, and steps backward through tool decision frames with sub-0.02ms overhead.
+- **Key Deliverables:**
+  - Interactive causal DAG topology visualizer mapping multi-hop agent tool dispatch and synthesis workflows.
+  - Deterministic time-travel scrubber stepping backward and forward through decision frames, state mutations, and payloads.
+  - In-memory ring buffer tracing architecture supporting MCP / JSON-RPC protocols with <0.02ms instrumentation overhead.
+- **Stack:** TypeScript, Observability, DAG Visualization, Time-Travel Debugging, MCP / JSON-RPC, Performance
+
+---
+
 ## Design & Motion Systems (Behance)
 - **Bluefork Brand Identity & Motion System:** Dynamic brand identity, kinetic motion system, and high-contrast visual direction crafted for the Bluefork creator platform. (https://www.behance.net/gallery/253324443/Bluefork)
+- **Fork Visual System:** Comprehensive brand visual system, dynamic layout architecture, and kinetic motion showcase crafted for Fork. (https://www.behance.net/gallery/253324319)
 - **Pulp AI Generative Motion Graphics:** Visual architecture, spectral gradient aesthetics, and generative motion graphics for Fork's native frontier AI agent engine. (https://www.behance.net/gallery/253324169/Pulp-AI)
 - **ACE Glitch Kinetic Animation:** Experimental kinetic glitch animation, audio-reactive frame displacement, and geometric logo deconstruction crafted in After Effects. (https://www.behance.net/gallery/151738765/ACE-Glitch)
 
