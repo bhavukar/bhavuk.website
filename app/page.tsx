@@ -5,12 +5,18 @@ import {
   Github,
   Linkedin,
   ArrowUpRight,
+  ArrowRight,
   Copy,
   Check,
   FileText,
   Terminal,
   ChevronLeft,
   ChevronRight,
+  Sparkles,
+  Shield,
+  Cpu,
+  Smartphone,
+  Zap,
 } from 'lucide-react';
 
 function XIcon({ size = 14, className }: { size?: number; className?: string }) {
@@ -42,6 +48,79 @@ function RedditIcon({ size = 14, className }: { size?: number; className?: strin
     </svg>
   );
 }
+
+interface HeroPillar {
+  id: string;
+  label: string;
+  roleBadge: string;
+  headline: string;
+  description: string;
+  metric: string;
+  metricSubtitle: string;
+  tags: string[];
+  actionUrl: string;
+  actionLabel: string;
+  isExternal?: boolean;
+}
+
+const HERO_PILLARS: HeroPillar[] = [
+  {
+    id: 'venture',
+    label: '0 → 1 Venture',
+    roleBadge: 'Founder & CEO @ Fork',
+    headline: 'Commercial Operating System for Creators',
+    description:
+      'Architecting commercial infrastructure transforming chaotic creator DMs into automated agentic deal discovery, contract risk audits, dynamic pricing, and cross-border invoicing.',
+    metric: '50+ Creators',
+    metricSubtitle: 'Active Creator Onboarding',
+    tags: ['Venture Strategy', 'Creator Monetization', 'AI Workflows', 'Commercial Infra'],
+    actionUrl: 'https://app.fork.blue',
+    actionLabel: 'Launch app.fork.blue',
+    isExternal: true,
+  },
+  {
+    id: 'mobile',
+    label: 'Consumer Mobile',
+    roleBadge: 'Founding Member @ Reve • Mobile Eng @ Suraasa',
+    headline: 'High-Scale Mobile Apps & Offline SQLite Sync',
+    description:
+      'Scaled mobile architecture to 10 Lakh+ downloads at Suraasa with 99.8% crash-free reliability. Shipped Reve from inception to 25,000+ downloads with offline-first SQLite sync feeds.',
+    metric: '10 Lakh+',
+    metricSubtitle: 'Downloads Across Mobile Clients',
+    tags: ['Flutter & Dart', 'Offline SQLite', 'Mobile Architecture', 'Low-Latency Video'],
+    actionUrl: '#experience',
+    actionLabel: 'Explore Experience',
+    isExternal: false,
+  },
+  {
+    id: 'security',
+    label: 'Agentic AI & DLP',
+    roleBadge: 'Creator @ Aegis & Pulp AI',
+    headline: 'Zero-Trust Proxy & In-Stream DLP Firewall',
+    description:
+      'Real-time AST policy evaluation intercepting destructive shell commands and credential leaks with <0.24ms inspection overhead for autonomous AI agent execution environments.',
+    metric: '<0.24ms',
+    metricSubtitle: 'In-Stream Token Inspection',
+    tags: ['Zero-Trust Security', 'AST Analysis', 'In-Stream DLP', 'JSON-RPC 2.0'],
+    actionUrl: 'https://aegis-ten-gamma.vercel.app/',
+    actionLabel: 'Explore Aegis Proxy',
+    isExternal: true,
+  },
+  {
+    id: 'systems',
+    label: 'Kernel & Systems',
+    roleBadge: 'Creator @ Network Relay & Spectra',
+    headline: 'Kernel Packet Chaos & DAG Causal Replay',
+    description:
+      'Zero-proxy kernel packet interception and network chaos simulations via WinDivert drivers, paired with deterministic 16MB ring buffer causal DAG time-travel replay.',
+    metric: '<0.02ms',
+    metricSubtitle: 'Causal DAG Replay Buffer',
+    tags: ['Rust', 'Tokio', 'WinDivert', 'Causal DAGs', 'Time-Travel Debugger'],
+    actionUrl: 'https://network-relay-pgcu.vercel.app/',
+    actionLabel: 'Explore Network Relay',
+    isExternal: true,
+  },
+];
 
 interface ExperienceItem {
   id: string;
@@ -898,7 +977,22 @@ export default function Home() {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedMachineText, setCopiedMachineText] = useState(false);
   const [hoveredExpId, setHoveredExpId] = useState<string | null>(null);
+  const [activePillarId, setActivePillarId] = useState<string>('venture');
+  const [autoCycle, setAutoCycle] = useState(true);
   const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Auto-cycle through hero disciplines until user interacts
+  useEffect(() => {
+    if (!autoCycle) return;
+    const interval = setInterval(() => {
+      setActivePillarId((current) => {
+        const currentIndex = HERO_PILLARS.findIndex((p) => p.id === current);
+        const nextIndex = (currentIndex + 1) % HERO_PILLARS.length;
+        return HERO_PILLARS[nextIndex].id;
+      });
+    }, 4500);
+    return () => clearInterval(interval);
+  }, [autoCycle]);
 
   // Sync with URL query parameter (?mode=machine or #machine)
   useEffect(() => {
@@ -999,15 +1093,25 @@ export default function Home() {
             </div>
           </a>
 
-          <a
-            href="https://github.com/bhavukarora"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-[11px] sm:text-xs font-mono text-zinc-600 hover:text-zinc-950 transition-colors flex-shrink-0"
-          >
-            <Github size={13} />
-            <span>GitHub</span>
-          </a>
+          <div className="flex items-center gap-3 sm:gap-4">
+            <button
+              onClick={() => setMode('machine')}
+              className="hidden sm:inline-flex items-center gap-1.5 text-xs font-mono text-zinc-600 hover:text-zinc-950 transition-colors px-2.5 py-1 rounded-md border border-zinc-200 hover:border-zinc-300 bg-zinc-50/80 cursor-pointer"
+              title="Toggle Machine / LLM Markdown View"
+            >
+              <Terminal size={12} />
+              <span>Machine View</span>
+            </button>
+            <a
+              href="https://github.com/bhavukarora"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-[11px] sm:text-xs font-mono text-zinc-600 hover:text-zinc-950 transition-colors flex-shrink-0"
+            >
+              <Github size={13} />
+              <span>GitHub</span>
+            </a>
+          </div>
         </div>
       </header>
 
@@ -1016,47 +1120,48 @@ export default function Home() {
           ───────────────────────────────────────────────────────────── */}
       <div className="max-w-6xl mx-auto border-x-0 sm:border-x border-zinc-200 bg-white min-h-screen">
         {/* ───────────────────────────────────────────────────────────
-            HERO SECTION (Clean, Responsive Editorial)
+            HERO SECTION (Rotato-inspired Geometric Craft & Interactive Pillars)
             ─────────────────────────────────────────────────────────── */}
         <section
           id="hero"
-          className="px-5 sm:px-10 py-10 sm:py-16 md:py-20 border-b border-zinc-200"
+          className="px-5 sm:px-10 py-10 sm:py-16 md:py-20 border-b border-zinc-200 relative overflow-hidden"
         >
-          <div className="space-y-4 sm:space-y-6 max-w-3xl">
-            {/* Experience status bar */}
-            <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 text-[11px] sm:text-xs font-mono text-zinc-500">
-              <span className="font-bold text-zinc-950 tracking-wider">5+ YEARS EXPERIENCE</span>
-              <span className="text-zinc-300">•</span>
-              <span>DELHI · REMOTE</span>
+          <div className="space-y-6 sm:space-y-8 max-w-4xl">
+            {/* Availability & Live Status Bar */}
+            <div className="flex flex-wrap items-center justify-between gap-3 text-[11px] sm:text-xs font-mono">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200/80 text-emerald-800">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600" />
+                </span>
+                <span className="font-semibold tracking-wide">AVAILABLE FOR FRONTIER BUILDS &amp; ADVISORY</span>
+              </div>
+              <div className="flex items-center gap-2 text-zinc-500">
+                <span className="font-bold text-zinc-950">5+ YEARS EXP</span>
+                <span className="text-zinc-300">•</span>
+                <span>DELHI · REMOTE</span>
+              </div>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-zinc-950 leading-[1.25] sm:leading-[1.22] max-w-2xl">
-              Building{' '}
-              <span className="bg-[#e8e2d5] text-zinc-950 px-1.5 sm:px-2 py-0.5 rounded-sm">
-                consumer
-              </span>{' '}
-              <span className="bg-[#e8e2d5] text-zinc-950 px-1.5 sm:px-2 py-0.5 rounded-sm">
-                products
-              </span>{' '}
-              from{' '}
-              <span className="bg-[#e8e2d5] text-zinc-950 px-1.5 sm:px-2 py-0.5 rounded-sm">
-                zero to scale
-              </span>
-              .
-            </h1>
+            {/* Bold Geometric Headline (GT Walsheim / Plus Jakarta Sans style) */}
+            <div className="space-y-3.5">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-extrabold tracking-tight text-zinc-950 leading-[1.18] sm:leading-[1.14]">
+                Building <span className="text-zinc-950">consumer products</span>,{' '}
+                <span className="text-zinc-950">agentic AI</span>, and{' '}
+                <span className="font-serif italic font-normal text-zinc-800">frontier systems</span>{' '}
+                from zero to scale.
+              </h1>
 
-            <p className="text-sm sm:text-base text-zinc-600 leading-relaxed max-w-xl">
-              Founder & CEO of <strong>Bluefork</strong>, building the commercial operating system
-              for independent creators and digital entrepreneurs. Over 5+ years of engineering,
-              I've taken applications from zero to scale across consumer mobile and edtech platforms
-              (10 Lakh+ downloads at Suraasa, 25K+ at Reve).
-            </p>
+              <p className="text-sm sm:text-base md:text-lg text-zinc-600 leading-relaxed max-w-2xl font-normal">
+                Founder &amp; CEO of <strong className="font-semibold text-zinc-950">Bluefork</strong>, building the commercial operating system for independent creators and digital entrepreneurs. Over 5+ years of engineering across mobile architectures, agentic pipelines, and low-level kernel systems.
+              </p>
+            </div>
 
-            {/* Quick Actions */}
-            <div className="flex flex-wrap items-center gap-2 sm:gap-3 pt-2">
+            {/* Quick Action Controls */}
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 pt-1">
               <a
                 href="#contact"
-                className="bg-zinc-950 hover:bg-zinc-800 text-white font-medium text-xs px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-lg shadow-2xs transition-all hover:translate-y-[-1px] shrink-0"
+                className="bg-zinc-950 hover:bg-zinc-800 text-white font-medium text-xs px-4 py-2.5 rounded-lg shadow-2xs transition-all hover:translate-y-[-1px] shrink-0 cursor-pointer"
               >
                 Get in touch
               </a>
@@ -1065,7 +1170,7 @@ export default function Home() {
                 href="/bhavuk_arora_resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border border-zinc-300 hover:border-zinc-900 bg-white text-zinc-800 font-mono text-xs px-3 sm:px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5 cursor-pointer hover:translate-y-[-1px] shrink-0"
+                className="border border-zinc-300 hover:border-zinc-900 bg-white text-zinc-800 font-mono text-xs px-3.5 py-2.5 rounded-lg transition-all flex items-center gap-1.5 cursor-pointer hover:translate-y-[-1px] shrink-0"
               >
                 <FileText size={13} className="text-zinc-500" />
                 <span>Resume</span>
@@ -1074,7 +1179,7 @@ export default function Home() {
 
               <button
                 onClick={handleCopyEmail}
-                className="border border-zinc-300 hover:border-zinc-900 bg-white text-zinc-800 font-mono text-xs px-3 sm:px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5 sm:gap-2 cursor-pointer hover:translate-y-[-1px] shrink-0"
+                className="border border-zinc-300 hover:border-zinc-900 bg-white text-zinc-800 font-mono text-xs px-3.5 py-2.5 rounded-lg transition-all flex items-center gap-1.5 sm:gap-2 cursor-pointer hover:translate-y-[-1px] shrink-0"
               >
                 {copiedEmail ? (
                   <>
@@ -1089,6 +1194,129 @@ export default function Home() {
                   </>
                 )}
               </button>
+
+              <button
+                onClick={() => setMode('machine')}
+                className="hidden md:inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-zinc-200 hover:border-zinc-400 bg-zinc-50 text-zinc-600 hover:text-zinc-950 text-xs font-mono transition-all ml-auto cursor-pointer"
+                title="Switch to LLM / Machine markdown view (Press M)"
+              >
+                <Terminal size={12} />
+                <span>Agent View</span>
+                <span className="text-[10px] bg-zinc-200/80 px-1 py-0.2 rounded text-zinc-600">M</span>
+              </button>
+            </div>
+
+            {/* ─────────────────────────────────────────────────────────
+                TACTILE INTERACTIVE DISCIPLINE EXPLORER (Rotato-style)
+                ───────────────────────────────────────────────────────── */}
+            <div className="pt-3 sm:pt-5">
+              <div className="flex items-center justify-between gap-2 mb-3">
+                <div className="text-[11px] font-mono uppercase tracking-wider text-zinc-400 font-medium flex items-center gap-1.5">
+                  <Sparkles size={12} className="text-zinc-400" />
+                  <span>Interactive Focus &amp; Track Record</span>
+                </div>
+                <div className="text-[11px] font-mono text-zinc-400 hidden sm:inline">
+                  Click or tap to inspect
+                </div>
+              </div>
+
+              {/* Pill Tabs */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3">
+                {HERO_PILLARS.map((pillar) => {
+                  const isActive = activePillarId === pillar.id;
+                  return (
+                    <button
+                      key={pillar.id}
+                      onClick={() => {
+                        setActivePillarId(pillar.id);
+                        setAutoCycle(false);
+                      }}
+                      className={`text-left px-3 py-2.5 rounded-xl border transition-all cursor-pointer flex flex-col justify-between gap-1.5 ${
+                        isActive
+                          ? 'bg-zinc-950 text-white border-zinc-950 shadow-xs scale-[1.01]'
+                          : 'bg-zinc-50/80 hover:bg-zinc-100 text-zinc-700 border-zinc-200/80 hover:border-zinc-300'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className={`text-[10px] font-mono font-bold uppercase tracking-wider ${isActive ? 'text-zinc-400' : 'text-zinc-500'}`}>
+                          {pillar.label}
+                        </span>
+                        {isActive && (
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                        )}
+                      </div>
+                      <span className={`text-xs font-bold truncate ${isActive ? 'text-white' : 'text-zinc-900'}`}>
+                        {pillar.metric}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Active Pillar Card */}
+              {(() => {
+                const activePillar = HERO_PILLARS.find((p) => p.id === activePillarId) || HERO_PILLARS[0];
+                return (
+                  <div className="p-4 sm:p-5 rounded-2xl border border-zinc-200 bg-zinc-50/60 transition-all">
+                    <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-2.5">
+                      <div>
+                        <div className="inline-flex items-center gap-1.5 text-[10px] font-mono font-semibold text-zinc-500 uppercase tracking-wider mb-1">
+                          <span>{activePillar.roleBadge}</span>
+                        </div>
+                        <h3 className="text-base sm:text-lg font-bold text-zinc-950 tracking-tight">
+                          {activePillar.headline}
+                        </h3>
+                      </div>
+
+                      <div className="sm:text-right shrink-0">
+                        <div className="text-lg sm:text-xl font-mono font-extrabold text-zinc-950 tracking-tight">
+                          {activePillar.metric}
+                        </div>
+                        <div className="text-[10px] font-mono text-zinc-500">
+                          {activePillar.metricSubtitle}
+                        </div>
+                      </div>
+                    </div>
+
+                    <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed mb-3.5">
+                      {activePillar.description}
+                    </p>
+
+                    <div className="flex flex-wrap items-center justify-between gap-2.5 pt-2.5 border-t border-zinc-200/60">
+                      <div className="flex flex-wrap items-center gap-1.5">
+                        {activePillar.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-white border border-zinc-200 text-zinc-700 font-medium"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      {activePillar.isExternal ? (
+                        <a
+                          href={activePillar.actionUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-xs font-mono font-semibold text-zinc-900 hover:text-black hover:underline cursor-pointer"
+                        >
+                          <span>{activePillar.actionLabel}</span>
+                          <ArrowUpRight size={13} />
+                        </a>
+                      ) : (
+                        <a
+                          href={activePillar.actionUrl}
+                          className="inline-flex items-center gap-1 text-xs font-mono font-semibold text-zinc-900 hover:text-black hover:underline cursor-pointer"
+                        >
+                          <span>{activePillar.actionLabel}</span>
+                          <ArrowRight size={13} />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                );
+              })()}
             </div>
           </div>
         </section>
