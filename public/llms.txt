@@ -106,6 +106,17 @@
   - Custom HiDPI 2x Retina mode switching, high refresh rate support (up to 240Hz+), and geometric underscan/overscan.
 - **Stack:** Swift, AppKit, DDC/CI & I2C, SkyLight Engine, PyQt6, DXVA2, Flutter
 
+### Aegis
+- **Type:** Zero-Trust Security & In-Stream DLP Proxy
+- **URL:** https://aegis-ten-gamma.vercel.app
+- **GitHub:** https://github.com/bhavukar/aegis
+- **Summary:** Zero-trust security proxy and in-stream DLP firewall for autonomous AI toolchains and agent execution environments. Real-time packet inspection intercepts destructive OS commands, blocks unauthorized database table drops, and scrubs sensitive credentials in-flight.
+- **Key Deliverables:**
+  - Real-time AST policy evaluation intercepting destructive shell commands (rm -rf, curl | sh) and unauthorized database drops.
+  - In-stream DLP token scrubbing with <0.24ms inspection overhead to mask API keys, AWS credentials, and PII.
+  - Interactive security console with attack payload sandboxes, JSON-RPC 2.0 telemetry, and live rule trigger simulation.
+- **Stack:** TypeScript, Zero-Trust Security, AST Analysis, DLP Firewall, JSON-RPC 2.0, CLI Tooling
+
 ### Northern Art Studio
 - **Type:** Luxury E-Commerce & Contemporary Fine Art Gallery
 - **URL:** https://northernart11.com
@@ -127,27 +138,6 @@
   - Interactive web scanner console and native CLI tool (cargo install subway-sim) for resilience testing.
 - **Stack:** Rust, Tokio, WinDivert, Chaos Engineering, TCP/UDP, Kernel Systems
 
-### Firestore Exporter & Visualizer
-- **Type:** Developer Tooling & Firebase Database Visualizer
-- **URL:** https://firestore-exporter-website.vercel.app
-- **Summary:** Zero-friction database visualizer and schema transformer for Cloud Firestore. Seamlessly connects to local emulators and live production clusters with collapsible JSON trees, spreadsheet layouts, Monaco scripting, and instant multi-format data exports.
-- **Key Deliverables:**
-  - Dual gateway connection architecture supporting local emulators (8080/TCP) and secure live cloud instances with sandboxed IAM key validation.
-  - Interactive multi-mode workspace featuring collapsible schema trees, editable spreadsheet layouts, and in-browser Monaco code scripting.
-  - Multi-format data extraction engine supporting JSON, CSV, TSV, NDJSON, and TypeScript interface definition generation with safety read-only shields.
-- **Stack:** React, TypeScript, Cloud Firestore, Firebase Emulator, Monaco Editor, Tailwind CSS
-
-### Aegis
-- **Type:** Zero-Trust Security & In-Stream DLP Proxy
-- **URL:** https://aegis-ten-gamma.vercel.app
-- **GitHub:** https://github.com/bhavukar/aegis
-- **Summary:** Zero-trust security proxy and in-stream DLP firewall for autonomous AI toolchains and agent execution environments. Real-time packet inspection intercepts destructive OS commands, blocks unauthorized database table drops, and scrubs sensitive credentials in-flight.
-- **Key Deliverables:**
-  - Real-time AST policy evaluation intercepting destructive shell commands (rm -rf, curl | sh) and unauthorized database drops.
-  - In-stream DLP token scrubbing with <0.24ms inspection overhead to mask API keys, AWS credentials, and PII.
-  - Interactive security console with attack payload sandboxes, JSON-RPC 2.0 telemetry, and live rule trigger simulation.
-- **Stack:** TypeScript, Zero-Trust Security, AST Analysis, DLP Firewall, JSON-RPC 2.0, CLI Tooling
-
 ### Spectra
 - **Type:** Precision Causal DAG Tracing & Time-Travel Debugger
 - **URL:** https://spectra-bice.vercel.app
@@ -158,6 +148,16 @@
   - Deterministic time-travel scrubber stepping backward and forward through decision frames, state mutations, and payloads.
   - In-memory ring buffer tracing architecture supporting MCP / JSON-RPC protocols with <0.02ms instrumentation overhead.
 - **Stack:** TypeScript, Observability, DAG Visualization, Time-Travel Debugging, MCP / JSON-RPC, Performance
+
+### Firestore Exporter & Visualizer
+- **Type:** Developer Tooling & Firebase Database Visualizer
+- **URL:** https://firestore-exporter-website.vercel.app
+- **Summary:** Zero-friction database visualizer and schema transformer for Cloud Firestore. Seamlessly connects to local emulators and live production clusters with collapsible JSON trees, spreadsheet layouts, Monaco scripting, and instant multi-format data exports.
+- **Key Deliverables:**
+  - Dual gateway connection architecture supporting local emulators (8080/TCP) and secure live cloud instances with sandboxed IAM key validation.
+  - Interactive multi-mode workspace featuring collapsible schema trees, editable spreadsheet layouts, and in-browser Monaco code scripting.
+  - Multi-format data extraction engine supporting JSON, CSV, TSV, NDJSON, and TypeScript interface definition generation with safety read-only shields.
+- **Stack:** React, TypeScript, Cloud Firestore, Firebase Emulator, Monaco Editor, Tailwind CSS
 
 ---
 

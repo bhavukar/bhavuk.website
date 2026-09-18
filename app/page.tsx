@@ -199,6 +199,24 @@ const PROJECTS: ProjectItem[] = [
     skills: ['Swift', 'AppKit', 'DDC/CI & I2C', 'SkyLight Engine', 'PyQt6', 'DXVA2', 'Flutter']
   },
   {
+    id: 'aegis',
+    title: 'Aegis',
+    category: 'Zero-Trust Security & In-Stream DLP Proxy',
+    badge: 'Security Proxy • In-Stream DLP',
+    url: 'https://aegis-ten-gamma.vercel.app/',
+    displayUrl: 'aegis-ten-gamma.vercel.app',
+    githubUrl: 'https://github.com/bhavukar/aegis',
+    previewImage: '/aegis_preview.png',
+    summary:
+      'Zero-trust security proxy and in-stream DLP firewall for autonomous AI toolchains and agent execution environments. Real-time packet inspection intercepts destructive OS commands, blocks unauthorized database table drops, and scrubs sensitive credentials in-flight.',
+    highlights: [
+      'Real-time AST policy evaluation intercepting destructive shell commands (rm -rf, curl | sh) and unauthorized database drops.',
+      'In-stream DLP token scrubbing with <0.24ms inspection overhead to mask API keys, AWS credentials, and PII.',
+      'Interactive security console with attack payload sandboxes, JSON-RPC 2.0 telemetry, and live rule trigger simulation.'
+    ],
+    skills: ['TypeScript', 'Zero-Trust Security', 'AST Analysis', 'DLP Firewall', 'JSON-RPC 2.0', 'CLI Tooling']
+  },
+  {
     id: 'northern-art',
     title: 'Northern Art Studio',
     category: 'Luxury E-Commerce & Fine Art Gallery',
@@ -234,41 +252,6 @@ const PROJECTS: ProjectItem[] = [
     skills: ['Rust', 'Tokio', 'WinDivert', 'Chaos Engineering', 'TCP/UDP', 'Kernel Systems']
   },
   {
-    id: 'firestore-exporter',
-    title: 'Firestore Exporter',
-    category: 'Developer Tooling & Database Visualizer',
-    badge: 'Universal Tooling',
-    url: 'https://firestore-exporter-website.vercel.app/',
-    displayUrl: 'firestore-exporter-website.vercel.app',
-    previewImage: '/firestore_exporter_preview.png',
-    summary:
-      'Zero-friction database visualizer and schema transformer for Cloud Firestore. Seamlessly connects to local emulators and live production clusters with collapsible JSON trees, spreadsheet layouts, Monaco scripting, and instant multi-format data exports.',
-    highlights: [
-      'Dual gateway architecture supporting local emulators (8080/TCP) and live cloud instances with sandboxed IAM key validation.',
-      'Interactive multi-mode workspace featuring collapsible schema trees, editable spreadsheet layouts, and in-browser Monaco scripting.',
-      'Multi-format data extraction engine supporting JSON, CSV, TSV, NDJSON, and TypeScript interface definition generation with safety read-only shields.'
-    ],
-    skills: ['React', 'TypeScript', 'Cloud Firestore', 'Firebase Emulator', 'Monaco Editor', 'Tailwind CSS']
-  },
-  {
-    id: 'aegis',
-    title: 'Aegis',
-    category: 'Zero-Trust Security & In-Stream DLP Proxy',
-    badge: 'Security Proxy • In-Stream DLP',
-    url: 'https://aegis-ten-gamma.vercel.app/',
-    displayUrl: 'aegis-ten-gamma.vercel.app',
-    githubUrl: 'https://github.com/bhavukar/aegis',
-    previewImage: '/aegis_preview.png',
-    summary:
-      'Zero-trust security proxy and in-stream DLP firewall for autonomous AI toolchains and agent execution environments. Real-time packet inspection intercepts destructive OS commands, blocks unauthorized database table drops, and scrubs sensitive credentials in-flight.',
-    highlights: [
-      'Real-time AST policy evaluation intercepting destructive shell commands (rm -rf, curl | sh) and unauthorized database drops.',
-      'In-stream DLP token scrubbing with <0.24ms inspection overhead to mask API keys, AWS credentials, and PII.',
-      'Interactive security console with attack payload sandboxes, JSON-RPC 2.0 telemetry, and live rule trigger simulation.'
-    ],
-    skills: ['TypeScript', 'Zero-Trust Security', 'AST Analysis', 'DLP Firewall', 'JSON-RPC 2.0', 'CLI Tooling']
-  },
-  {
     id: 'spectra',
     title: 'Spectra',
     category: 'Precision Causal DAG Tracing & Time-Travel Debugger',
@@ -285,6 +268,23 @@ const PROJECTS: ProjectItem[] = [
       'In-memory ring buffer tracing architecture supporting MCP / JSON-RPC protocols with <0.02ms instrumentation overhead.'
     ],
     skills: ['TypeScript', 'Observability', 'DAG Visualization', 'Time-Travel Debugging', 'MCP / JSON-RPC', 'Performance']
+  },
+  {
+    id: 'firestore-exporter',
+    title: 'Firestore Exporter',
+    category: 'Developer Tooling & Database Visualizer',
+    badge: 'Universal Tooling',
+    url: 'https://firestore-exporter-website.vercel.app/',
+    displayUrl: 'firestore-exporter-website.vercel.app',
+    previewImage: '/firestore_exporter_preview.png',
+    summary:
+      'Zero-friction database visualizer and schema transformer for Cloud Firestore. Seamlessly connects to local emulators and live production clusters with collapsible JSON trees, spreadsheet layouts, Monaco scripting, and instant multi-format data exports.',
+    highlights: [
+      'Dual gateway architecture supporting local emulators (8080/TCP) and live cloud instances with sandboxed IAM key validation.',
+      'Interactive multi-mode workspace featuring collapsible schema trees, editable spreadsheet layouts, and in-browser Monaco scripting.',
+      'Multi-format data extraction engine supporting JSON, CSV, TSV, NDJSON, and TypeScript interface definition generation with safety read-only shields.'
+    ],
+    skills: ['React', 'TypeScript', 'Cloud Firestore', 'Firebase Emulator', 'Monaco Editor', 'Tailwind CSS']
   }
 ];
 
@@ -498,6 +498,17 @@ Building consumer products from zero to scale. Over 5+ years of engineering, I'v
   * Custom HiDPI 2x Retina mode switching, high refresh rate support (up to 240Hz+), and geometric underscan/overscan.
 - Stack: Swift • AppKit • DDC/CI • SkyLight Engine • PyQt6 • DXVA2 • Flutter
 
+### Aegis
+- Type: Zero-Trust Security & In-Stream DLP Proxy
+- URL: https://aegis-ten-gamma.vercel.app
+- GitHub: https://github.com/bhavukar/aegis
+- Summary: Zero-trust security proxy and in-stream DLP firewall for autonomous AI toolchains and agent execution environments. Real-time packet inspection intercepts destructive OS commands, blocks unauthorized database table drops, and scrubs sensitive credentials in-flight.
+- Key Outcomes:
+  * Real-time AST policy evaluation intercepting destructive shell commands (rm -rf, curl | sh) and unauthorized database drops.
+  * In-stream DLP token scrubbing with <0.24ms inspection overhead to mask API keys, AWS credentials, and PII.
+  * Interactive security console with attack payload sandboxes, JSON-RPC 2.0 telemetry, and live rule trigger simulation.
+- Stack: TypeScript • Zero-Trust Security • AST Analysis • DLP Firewall • JSON-RPC 2.0 • CLI Tooling
+
 ### Northern Art Studio
 - Type: Luxury E-Commerce & Contemporary Fine Art Gallery
 - URL: https://northernart11.com
@@ -519,27 +530,6 @@ Building consumer products from zero to scale. Over 5+ years of engineering, I'v
   * Interactive web scanner console and native CLI tool (cargo install subway-sim) for resilience testing.
 - Stack: Rust • Tokio • WinDivert • Chaos Engineering • TCP/UDP • Kernel Systems
 
-### Firestore Exporter & Visualizer
-- Type: Developer Tooling & Firebase Database Visualizer
-- URL: https://firestore-exporter-website.vercel.app
-- Summary: Zero-friction database visualizer and schema transformer for Cloud Firestore. Seamlessly connects to local emulators and live production clusters with collapsible JSON trees, spreadsheet layouts, Monaco scripting, and instant multi-format data exports.
-- Key Outcomes:
-  * Dual gateway connection architecture supporting local emulators (8080/TCP) and secure live cloud instances with sandboxed IAM key validation.
-  * Interactive multi-mode workspace featuring collapsible schema trees, editable spreadsheet layouts, and in-browser Monaco code scripting.
-  * Multi-format data extraction engine supporting JSON, CSV, TSV, NDJSON, and TypeScript interface definition generation with safety read-only shields.
-- Stack: React • TypeScript • Cloud Firestore • Firebase Emulator • Monaco Editor • Tailwind CSS
-
-### Aegis
-- Type: Zero-Trust Security & In-Stream DLP Proxy
-- URL: https://aegis-ten-gamma.vercel.app
-- GitHub: https://github.com/bhavukar/aegis
-- Summary: Zero-trust security proxy and in-stream DLP firewall for autonomous AI toolchains and agent execution environments. Real-time packet inspection intercepts destructive OS commands, blocks unauthorized database table drops, and scrubs sensitive credentials in-flight.
-- Key Outcomes:
-  * Real-time AST policy evaluation intercepting destructive shell commands (rm -rf, curl | sh) and unauthorized database drops.
-  * In-stream DLP token scrubbing with <0.24ms inspection overhead to mask API keys, AWS credentials, and PII.
-  * Interactive security console with attack payload sandboxes, JSON-RPC 2.0 telemetry, and live rule trigger simulation.
-- Stack: TypeScript • Zero-Trust Security • AST Analysis • DLP Firewall • JSON-RPC 2.0 • CLI Tooling
-
 ### Spectra
 - Type: Precision Causal DAG Tracing & Time-Travel Debugger
 - URL: https://spectra-bice.vercel.app
@@ -550,6 +540,16 @@ Building consumer products from zero to scale. Over 5+ years of engineering, I'v
   * Deterministic time-travel scrubber stepping backward and forward through decision frames, state mutations, and payloads.
   * In-memory ring buffer tracing architecture supporting MCP / JSON-RPC protocols with <0.02ms instrumentation overhead.
 - Stack: TypeScript • Observability • DAG Visualization • Time-Travel Debugging • MCP / JSON-RPC • Performance
+
+### Firestore Exporter & Visualizer
+- Type: Developer Tooling & Firebase Database Visualizer
+- URL: https://firestore-exporter-website.vercel.app
+- Summary: Zero-friction database visualizer and schema transformer for Cloud Firestore. Seamlessly connects to local emulators and live production clusters with collapsible JSON trees, spreadsheet layouts, Monaco scripting, and instant multi-format data exports.
+- Key Outcomes:
+  * Dual gateway connection architecture supporting local emulators (8080/TCP) and secure live cloud instances with sandboxed IAM key validation.
+  * Interactive multi-mode workspace featuring collapsible schema trees, editable spreadsheet layouts, and in-browser Monaco code scripting.
+  * Multi-format data extraction engine supporting JSON, CSV, TSV, NDJSON, and TypeScript interface definition generation with safety read-only shields.
+- Stack: React • TypeScript • Cloud Firestore • Firebase Emulator • Monaco Editor • Tailwind CSS
 
 ## Motion & Design Systems (Behance)
 - Bluefork: Dynamic brand identity, kinetic motion system, and high-contrast visual direction. (https://www.behance.net/gallery/253324443/Bluefork)
@@ -748,6 +748,26 @@ function MachineView({ onCopy, copied }: { onCopy?: () => void; copied?: boolean
             </ul>
           </div>
 
+          {/* Aegis */}
+          <div className="space-y-1.5 pt-4">
+            <h3 className="text-sm font-bold text-zinc-200">
+              ### Aegis
+            </h3>
+            <ul className="space-y-1 text-zinc-400">
+              <li>- <strong className="text-zinc-200 font-medium">**Type:**</strong> Zero-Trust Security &amp; In-Stream DLP Proxy</li>
+              <li>- <strong className="text-zinc-200 font-medium">**URL:**</strong> <a href="https://aegis-ten-gamma.vercel.app" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://aegis-ten-gamma.vercel.app</a></li>
+              <li>- <strong className="text-zinc-200 font-medium">**GitHub:**</strong> <a href="https://github.com/bhavukar/aegis" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://github.com/bhavukar/aegis</a></li>
+              <li>- <strong className="text-zinc-200 font-medium">**Summary:**</strong> Zero-trust security proxy and in-stream DLP firewall for autonomous AI toolchains and agent execution environments. Real-time packet inspection intercepts destructive OS commands, blocks unauthorized database table drops, and scrubs sensitive credentials in-flight.</li>
+              <li>- <strong className="text-zinc-200 font-medium">**Key Deliverables:**</strong></li>
+              <li className="pl-4 space-y-1 text-zinc-400">
+                <div>- Real-time AST policy evaluation intercepting destructive shell commands (rm -rf, curl | sh) and unauthorized database drops.</div>
+                <div>- In-stream DLP token scrubbing with &lt;0.24ms inspection overhead to mask API keys, AWS credentials, and PII.</div>
+                <div>- Interactive security console with attack payload sandboxes, JSON-RPC 2.0 telemetry, and live rule trigger simulation.</div>
+              </li>
+              <li>- <strong className="text-zinc-200 font-medium">**Stack:**</strong> <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`TypeScript`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Zero-Trust Security`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`AST Analysis`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`DLP Firewall`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`JSON-RPC 2.0`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`CLI Tooling`</code></li>
+            </ul>
+          </div>
+
           {/* Northern Art */}
           <div className="space-y-1.5 pt-4">
             <h3 className="text-sm font-bold text-zinc-200">
@@ -787,45 +807,6 @@ function MachineView({ onCopy, copied }: { onCopy?: () => void; copied?: boolean
             </ul>
           </div>
 
-          {/* Firestore Exporter */}
-          <div className="space-y-1.5 pt-4">
-            <h3 className="text-sm font-bold text-zinc-200">
-              ### Firestore Exporter &amp; Visualizer
-            </h3>
-            <ul className="space-y-1 text-zinc-400">
-              <li>- <strong className="text-zinc-200 font-medium">**Type:**</strong> Developer Tooling &amp; Firebase Database Visualizer</li>
-              <li>- <strong className="text-zinc-200 font-medium">**URL:**</strong> <a href="https://firestore-exporter-website.vercel.app" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://firestore-exporter-website.vercel.app</a></li>
-              <li>- <strong className="text-zinc-200 font-medium">**Summary:**</strong> Zero-friction database visualizer and schema transformer for Cloud Firestore. Seamlessly connects to local emulators and live production clusters with collapsible JSON trees, spreadsheet layouts, Monaco scripting, and instant multi-format data exports.</li>
-              <li>- <strong className="text-zinc-200 font-medium">**Key Deliverables:**</strong></li>
-              <li className="pl-4 space-y-1 text-zinc-400">
-                <div>- Dual gateway connection architecture supporting local emulators (8080/TCP) and secure live cloud instances with sandboxed IAM key validation.</div>
-                <div>- Interactive multi-mode workspace featuring collapsible schema trees, editable spreadsheet layouts, and in-browser Monaco code scripting.</div>
-                <div>- Multi-format data extraction engine supporting JSON, CSV, TSV, NDJSON, and TypeScript interface definition generation with safety read-only shields.</div>
-              </li>
-              <li>- <strong className="text-zinc-200 font-medium">**Stack:**</strong> <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`React`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`TypeScript`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Cloud Firestore`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Firebase Emulator`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Monaco Editor`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Tailwind CSS`</code></li>
-            </ul>
-          </div>
-
-          {/* Aegis */}
-          <div className="space-y-1.5 pt-4">
-            <h3 className="text-sm font-bold text-zinc-200">
-              ### Aegis
-            </h3>
-            <ul className="space-y-1 text-zinc-400">
-              <li>- <strong className="text-zinc-200 font-medium">**Type:**</strong> Zero-Trust Security &amp; In-Stream DLP Proxy</li>
-              <li>- <strong className="text-zinc-200 font-medium">**URL:**</strong> <a href="https://aegis-ten-gamma.vercel.app" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://aegis-ten-gamma.vercel.app</a></li>
-              <li>- <strong className="text-zinc-200 font-medium">**GitHub:**</strong> <a href="https://github.com/bhavukar/aegis" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://github.com/bhavukar/aegis</a></li>
-              <li>- <strong className="text-zinc-200 font-medium">**Summary:**</strong> Zero-trust security proxy and in-stream DLP firewall for autonomous AI toolchains and agent execution environments. Real-time packet inspection intercepts destructive OS commands, blocks unauthorized database table drops, and scrubs sensitive credentials in-flight.</li>
-              <li>- <strong className="text-zinc-200 font-medium">**Key Deliverables:**</strong></li>
-              <li className="pl-4 space-y-1 text-zinc-400">
-                <div>- Real-time AST policy evaluation intercepting destructive shell commands (rm -rf, curl | sh) and unauthorized database drops.</div>
-                <div>- In-stream DLP token scrubbing with &lt;0.24ms inspection overhead to mask API keys, AWS credentials, and PII.</div>
-                <div>- Interactive security console with attack payload sandboxes, JSON-RPC 2.0 telemetry, and live rule trigger simulation.</div>
-              </li>
-              <li>- <strong className="text-zinc-200 font-medium">**Stack:**</strong> <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`TypeScript`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Zero-Trust Security`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`AST Analysis`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`DLP Firewall`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`JSON-RPC 2.0`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`CLI Tooling`</code></li>
-            </ul>
-          </div>
-
           {/* Spectra */}
           <div className="space-y-1.5 pt-4">
             <h3 className="text-sm font-bold text-zinc-200">
@@ -843,6 +824,25 @@ function MachineView({ onCopy, copied }: { onCopy?: () => void; copied?: boolean
                 <div>- In-memory ring buffer tracing architecture supporting MCP / JSON-RPC protocols with &lt;0.02ms instrumentation overhead.</div>
               </li>
               <li>- <strong className="text-zinc-200 font-medium">**Stack:**</strong> <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`TypeScript`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Observability`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`DAG Visualization`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Time-Travel Debugging`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`MCP / JSON-RPC`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Performance`</code></li>
+            </ul>
+          </div>
+
+          {/* Firestore Exporter */}
+          <div className="space-y-1.5 pt-4">
+            <h3 className="text-sm font-bold text-zinc-200">
+              ### Firestore Exporter &amp; Visualizer
+            </h3>
+            <ul className="space-y-1 text-zinc-400">
+              <li>- <strong className="text-zinc-200 font-medium">**Type:**</strong> Developer Tooling &amp; Firebase Database Visualizer</li>
+              <li>- <strong className="text-zinc-200 font-medium">**URL:**</strong> <a href="https://firestore-exporter-website.vercel.app" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://firestore-exporter-website.vercel.app</a></li>
+              <li>- <strong className="text-zinc-200 font-medium">**Summary:**</strong> Zero-friction database visualizer and schema transformer for Cloud Firestore. Seamlessly connects to local emulators and live production clusters with collapsible JSON trees, spreadsheet layouts, Monaco scripting, and instant multi-format data exports.</li>
+              <li>- <strong className="text-zinc-200 font-medium">**Key Deliverables:**</strong></li>
+              <li className="pl-4 space-y-1 text-zinc-400">
+                <div>- Dual gateway connection architecture supporting local emulators (8080/TCP) and secure live cloud instances with sandboxed IAM key validation.</div>
+                <div>- Interactive multi-mode workspace featuring collapsible schema trees, editable spreadsheet layouts, and in-browser Monaco code scripting.</div>
+                <div>- Multi-format data extraction engine supporting JSON, CSV, TSV, NDJSON, and TypeScript interface definition generation with safety read-only shields.</div>
+              </li>
+              <li>- <strong className="text-zinc-200 font-medium">**Stack:**</strong> <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`React`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`TypeScript`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Cloud Firestore`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Firebase Emulator`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Monaco Editor`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Tailwind CSS`</code></li>
             </ul>
           </div>
         </div>
