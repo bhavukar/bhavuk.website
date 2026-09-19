@@ -12,9 +12,6 @@ import {
   Terminal,
   ChevronLeft,
   ChevronRight,
-  X as CloseIcon,
-  Maximize2,
-  Layers,
 } from 'lucide-react';
 
 function XIcon({ size = 14, className }: { size?: number; className?: string }) {
@@ -292,217 +289,6 @@ const PROJECTS: ProjectItem[] = [
   }
 ];
 
-interface UIUXProject {
-  id: string;
-  title: string;
-  role: string;
-  period: string;
-  category: string;
-  badge: string;
-  impact: string;
-  previewImage: string;
-  slideImage: string;
-  rowImage: string;
-  summary: string;
-  screens: {
-    title: string;
-    description: string;
-    image: string;
-  }[];
-  flows: string[];
-}
-
-const UIUX_PROJECTS: UIUXProject[] = [
-  {
-    id: 'reve-phygital',
-    title: 'Reve — Phygital Going-Out Platform',
-    role: 'Founding Product & Design Lead',
-    period: 'Q2–Q3 2025',
-    category: 'Going Out • Social • Ticketing',
-    badge: 'Phygital Experience',
-    impact: '₹1.5 Cr+ GMV in < 2 Months • 20+ Events • 4,200+ Installs across DEL-NCR, BLR, GOA, HYD',
-    previewImage: '/reve_screens/reve_phygital_light_duo.webp',
-    slideImage: '/reve_screens/slide_page_2.webp',
-    rowImage: '/reve_screens/reve_phygital_row.webp',
-    summary:
-      'End-to-end mobile UX and design system for Reve’s in-person going-out and ticketing app. Designed discovery feeds, event check-in flows with offline QR access, post-event social interactions, and direct messaging.',
-    screens: [
-      {
-        title: 'Reve Discovery',
-        description: 'Curated nightlife discovery feed featuring trending events, venue spotlights, and headliner DJ line-ups.',
-        image: '/reve_screens/reve_phygital_screen_1.webp',
-      },
-      {
-        title: 'Social Feed',
-        description: 'Media-rich event feed where attendees share live moments, photos, and post-party recaps.',
-        image: '/reve_screens/reve_phygital_screen_2.webp',
-      },
-      {
-        title: 'Post Creation',
-        description: 'Intuitive post composer allowing event attendees to tag companions, link event passes, and publish media.',
-        image: '/reve_screens/reve_phygital_screen_3.webp',
-      },
-      {
-        title: 'Make Friends',
-        description: 'Discovery radar connecting attendees going to the same music festivals and nightlife experiences.',
-        image: '/reve_screens/reve_phygital_screen_4.webp',
-      },
-      {
-        title: 'Offline QR Ticket',
-        description: 'Instant-access gate pass engineered with offline SQLite caching and scannable dynamic QR codes.',
-        image: '/reve_screens/reve_phygital_screen_5.webp',
-      },
-      {
-        title: 'Direct Messages',
-        description: 'Real-time conversational messaging and group coordination for attendee meetups.',
-        image: '/reve_screens/reve_phygital_screen_6.webp',
-      },
-    ],
-    flows: ['Event Discovery', 'Social Feed', 'Post Composer', 'Make Friends', 'Offline QR Pass', 'Direct Messaging'],
-  },
-  {
-    id: 'reve-dating',
-    title: 'Reve — Direct-to-Dates Matchmaking Engine',
-    role: 'Founding Product & Design Lead',
-    period: 'Q1 2025',
-    category: 'Dating • Social • Audio-First',
-    badge: 'Audio-First Dating',
-    impact: '$1.5M USD VC Soft Commitment • Prototyped Novel Dating Algorithm',
-    previewImage: '/reve_screens/reve_dating_light_duo.webp',
-    slideImage: '/reve_screens/slide_page_3.webp',
-    rowImage: '/reve_screens/reve_dating_row.webp',
-    summary:
-      'Designed an audio-first, direct-to-date mobile experience eliminating endless superficial swiping. Users match through authentic voice answers, choose curated date spots, and coordinate real-world meetups.',
-    screens: [
-      {
-        title: 'Date Spot Selection',
-        description: 'Curated directory of high-vibe cafes, cocktail bars, and art spots for planning verified first dates.',
-        image: '/reve_screens/reve_dating_screen_1.webp',
-      },
-      {
-        title: 'Voice Question Prompt',
-        description: 'Audio prompt studio where users record authentic 30-second voice responses to conversational questions.',
-        image: '/reve_screens/reve_dating_screen_2.webp',
-      },
-      {
-        title: 'Date Invite Feed',
-        description: 'Browse date proposals anchored to specific weekend times and locations rather than passive profile cards.',
-        image: '/reve_screens/reve_dating_screen_3.webp',
-      },
-      {
-        title: 'Audio Replies',
-        description: 'Listen to voice replies, assess chemistry and voice tone before accepting incoming date invites.',
-        image: '/reve_screens/reve_dating_screen_4.webp',
-      },
-      {
-        title: 'Match & Confirmation',
-        description: 'Direct date confirmation flow locking in time, venue location, and private meetup chat.',
-        image: '/reve_screens/reve_dating_screen_5.webp',
-      },
-      {
-        title: 'Date Planning Itinerary',
-        description: 'Integrated itinerary card with venue address, map navigation, and mutual icebreaker reminders.',
-        image: '/reve_screens/reve_dating_screen_6.webp',
-      },
-    ],
-    flows: ['Date Spot Selection', 'Voice Question Prompts', 'Date Invite Feed', 'Audio Chemistry Replies', 'Real-World Date Planning'],
-  },
-  {
-    id: 'spilll-open-beta',
-    title: 'Spilll (Open Beta) — Location-First Social Graph',
-    role: 'Founding Product & Design Lead',
-    period: 'Q3–Q4 2024',
-    category: 'Social • Content • Voice-Led',
-    badge: 'IRL Social Graph',
-    impact: '$5M USD VC Soft Commitment • Next-Gen IRL Social Concept',
-    previewImage: '/reve_screens/spilll_open_beta_light_duo.webp',
-    slideImage: '/reve_screens/slide_page_4.webp',
-    rowImage: '/reve_screens/spilll_open_beta_row.webp',
-    summary:
-      'Designed a location-anchored audio social network where users discover trending local conversations, record voice spills with rich media attachments, and build real-time campus interest graphs.',
-    screens: [
-      {
-        title: 'Hyperlocal Audio Feed',
-        description: 'Proximity-sorted audio stream surfacing trending voice snippets and discussions in your immediate area.',
-        image: '/reve_screens/spilll_open_beta_screen_1.webp',
-      },
-      {
-        title: 'Voice Spill Studio',
-        description: 'Quick-capture audio recording interface with waveform visualizer and background noise suppression.',
-        image: '/reve_screens/spilll_open_beta_screen_2.webp',
-      },
-      {
-        title: 'Media & Attachments',
-        description: 'Attach photos, poll cards, and context stickers directly onto audio spills to amplify engagement.',
-        image: '/reve_screens/spilll_open_beta_screen_3.webp',
-      },
-      {
-        title: 'Hyperlocal Trending',
-        description: 'Real-time trending topics and campus chatter heatmaps updating continuously.',
-        image: '/reve_screens/spilll_open_beta_screen_4.webp',
-      },
-      {
-        title: 'Topic Interest Graph',
-        description: 'Interactive clustering visualizing interconnected conversation nodes and active community discussions.',
-        image: '/reve_screens/spilll_open_beta_screen_5.webp',
-      },
-      {
-        title: 'Voice Profile & Spills',
-        description: 'Personal audio repository displaying user karma, top voice snippets, and shared audio moments.',
-        image: '/reve_screens/spilll_open_beta_screen_6.webp',
-      },
-    ],
-    flows: ['Location-Anchored Feed', 'Audio Spill Studio', 'Media Attachments', 'Hyperlocal Trends', 'Topic Interest Graph'],
-  },
-  {
-    id: 'spilll-closed-beta',
-    title: 'Spilll (Closed Beta) — Campus Audio-Social Network',
-    role: 'Founding Product & Design Lead',
-    period: 'Q2–Q4 2023',
-    category: 'Social • Audio-First • Campus Community',
-    badge: 'Campus Network',
-    impact: '1,700+ Spills in 5 Weeks • 10m 45s Avg Session Time • 15+ Delhi Campuses',
-    previewImage: '/reve_screens/spilll_closed_beta_light_duo.webp',
-    slideImage: '/reve_screens/slide_page_5.webp',
-    rowImage: '/reve_screens/spilll_closed_beta_row.webp',
-    summary:
-      'Designed prompt-based audio community app for college campuses across Delhi NCR. Features included playful anonymous nickname generators, asynchronous audio circles, and live audio party rooms.',
-    screens: [
-      {
-        title: 'Anonymous Nickname Generator',
-        description: 'Pseudonymous avatar and handle generator fostering honest and judgment-free campus conversations.',
-        image: '/reve_screens/spilll_closed_beta_screen_1.webp',
-      },
-      {
-        title: 'Daily Voice Prompts',
-        description: 'Campus-wide daily thought prompts sparking spontaneous voice contributions between lectures.',
-        image: '/reve_screens/spilll_closed_beta_screen_2.webp',
-      },
-      {
-        title: 'Audio Spill Creation',
-        description: 'One-tap voice recorder designed for frictionless recording in noisy outdoor campus environments.',
-        image: '/reve_screens/spilll_closed_beta_screen_3.webp',
-      },
-      {
-        title: 'Campus Audio Circles',
-        description: 'Micro-communities organized by college courses, campus hostels, and creative hobbies.',
-        image: '/reve_screens/spilll_closed_beta_screen_4.webp',
-      },
-      {
-        title: 'Live Audio Party Rooms',
-        description: 'Drop-in synchronous audio spaces for late-night campus debates, music jam sessions, and chill chats.',
-        image: '/reve_screens/spilll_closed_beta_screen_5.webp',
-      },
-      {
-        title: 'Campus Community Graph',
-        description: 'Verified student network connecting 15+ university colleges across Delhi NCR.',
-        image: '/reve_screens/spilll_closed_beta_screen_6.webp',
-      },
-    ],
-    flows: ['Pseudonymous Identity', 'Daily Voice Prompts', 'Audio Circles', 'Live Party Rooms', 'Campus Verification'],
-  },
-];
-
 interface DesignProject {
   id: string;
   title: string;
@@ -765,12 +551,6 @@ Building consumer products from zero to scale. Over 5+ years of engineering, I'v
   * Interactive multi-mode workspace featuring collapsible schema trees, editable spreadsheet layouts, and in-browser Monaco code scripting.
   * Multi-format data extraction engine supporting JSON, CSV, TSV, NDJSON, and TypeScript interface definition generation with safety read-only shields.
 - Stack: React • TypeScript • Cloud Firestore • Firebase Emulator • Monaco Editor • Tailwind CSS
-
-## UI/UX & Product Design Case Studies
-- Reve (Phygital Going-Out Platform): End-to-end mobile UX and design system for Reve's in-person ticketing and nightlife discovery client. (Impact: ₹1.5 Cr+ GMV in <2 months, 20+ events, 4,200+ installs across DEL-NCR, BLR, GOA, HYD)
-- Reve (Direct-to-Dates Matchmaking): Audio-first direct-to-date matchmaking engine with voice questions, venue selection, and real-world date planning. (Impact: $1.5M VC Soft Commitment)
-- Spilll Open Beta (Location-First Social Graph): Hyperlocal audio feed, voice spill recording studio, media attachments, and campus interest graph. (Impact: $5M VC Soft Commitment)
-- Spilll Closed Beta (Campus Audio Network): Prompt-based audio social network for Delhi university campuses with anonymous handles, audio circles, and live voice party rooms. (Impact: 1,700+ spills in 5 weeks, 10m45s avg session time)
 
 ## Motion & Design Systems (Behance)
 - Bluefork: Dynamic brand identity, kinetic motion system, and high-contrast visual direction. (https://www.behance.net/gallery/253324443/Bluefork)
@@ -1068,65 +848,6 @@ function MachineView({ onCopy, copied }: { onCopy?: () => void; copied?: boolean
           </div>
         </div>
 
-        {/* UI/UX & Product Design */}
-        <div className="space-y-6 mb-10">
-          <h2 className="text-sm sm:text-base font-bold text-zinc-100 tracking-tight">
-            ## UI/UX &amp; Product Design Case Studies
-          </h2>
-
-          {/* Reve Phygital */}
-          <div className="space-y-1.5">
-            <h3 className="text-sm font-bold text-zinc-200">
-              ### Reve — Phygital Going-Out Platform
-            </h3>
-            <ul className="space-y-1 text-zinc-400">
-              <li>- <strong className="text-zinc-200 font-medium">**Role:**</strong> Founding Product &amp; Design Lead (Q2–Q3 2025)</li>
-              <li>- <strong className="text-zinc-200 font-medium">**Impact:**</strong> ₹1.5 Cr+ GMV in &lt; 2 Months • 20+ Events • 4,200+ Installs (DEL-NCR, BLR, GOA, HYD)</li>
-              <li>- <strong className="text-zinc-200 font-medium">**Summary:**</strong> End-to-end mobile UX and design system for Reve&apos;s in-person going-out and ticketing app. Designed discovery feeds, event check-in flows with offline QR access, post-event social interactions, and direct messaging.</li>
-              <li>- <strong className="text-zinc-200 font-medium">**Flows:**</strong> Event Discovery Feed, Offline QR Gate Pass, Post-Event Social Feed, Make Friends Radar, Direct Messaging</li>
-            </ul>
-          </div>
-
-          {/* Reve Dating */}
-          <div className="space-y-1.5 pt-4">
-            <h3 className="text-sm font-bold text-zinc-200">
-              ### Reve — Direct-to-Dates Matchmaking Engine
-            </h3>
-            <ul className="space-y-1 text-zinc-400">
-              <li>- <strong className="text-zinc-200 font-medium">**Role:**</strong> Founding Product &amp; Design Lead (Q1 2025)</li>
-              <li>- <strong className="text-zinc-200 font-medium">**Impact:**</strong> $1.5M USD VC Soft Commitment • Prototyped Novel Dating Algorithm</li>
-              <li>- <strong className="text-zinc-200 font-medium">**Summary:**</strong> Designed an audio-first, direct-to-date mobile experience eliminating endless superficial swiping. Users match through authentic voice answers, choose curated date spots, and coordinate real-world meetups.</li>
-              <li>- <strong className="text-zinc-200 font-medium">**Flows:**</strong> Date Spot Selection, Voice Question Prompts, Date Proposal Feed, Audio Replies, Match &amp; Itinerary Planning</li>
-            </ul>
-          </div>
-
-          {/* Spilll Open Beta */}
-          <div className="space-y-1.5 pt-4">
-            <h3 className="text-sm font-bold text-zinc-200">
-              ### Spilll (Open Beta) — Location-First Social Graph
-            </h3>
-            <ul className="space-y-1 text-zinc-400">
-              <li>- <strong className="text-zinc-200 font-medium">**Role:**</strong> Founding Product &amp; Design Lead (Q3–Q4 2024)</li>
-              <li>- <strong className="text-zinc-200 font-medium">**Impact:**</strong> $5M USD VC Soft Commitment • Next-Gen IRL Social Concept</li>
-              <li>- <strong className="text-zinc-200 font-medium">**Summary:**</strong> Designed a location-anchored audio social network where users discover trending local conversations, record voice spills with rich media attachments, and build real-time campus interest graphs.</li>
-              <li>- <strong className="text-zinc-200 font-medium">**Flows:**</strong> Hyperlocal Audio Feed, Voice Spill Recording Studio, Media &amp; Poll Attachments, Topic Interest Graph</li>
-            </ul>
-          </div>
-
-          {/* Spilll Closed Beta */}
-          <div className="space-y-1.5 pt-4">
-            <h3 className="text-sm font-bold text-zinc-200">
-              ### Spilll (Closed Beta) — Campus Audio-Social Network
-            </h3>
-            <ul className="space-y-1 text-zinc-400">
-              <li>- <strong className="text-zinc-200 font-medium">**Role:**</strong> Founding Product &amp; Design Lead (Q2–Q4 2023)</li>
-              <li>- <strong className="text-zinc-200 font-medium">**Impact:**</strong> 1,700+ Spills in 5 Weeks • 10m 45s Avg Session Time • 15+ Delhi Campuses</li>
-              <li>- <strong className="text-zinc-200 font-medium">**Summary:**</strong> Designed prompt-based audio community app for college campuses across Delhi NCR. Features included playful anonymous nickname generators, asynchronous audio circles, and live audio party rooms.</li>
-              <li>- <strong className="text-zinc-200 font-medium">**Flows:**</strong> Pseudonymous Nickname Generator, Daily Voice Prompts, Audio Spill Creation, Campus Audio Circles, Live Party Rooms</li>
-            </ul>
-          </div>
-        </div>
-
         {/* Motion & Design Systems */}
         <div className="space-y-2 mb-10">
           <h2 className="text-sm sm:text-base font-bold text-zinc-100 tracking-tight">
@@ -1180,9 +901,6 @@ export default function Home() {
   const [hoveredExpId, setHoveredExpId] = useState<string | null>(null);
   const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  const [selectedDesignProject, setSelectedDesignProject] = useState<UIUXProject | null>(null);
-  const [activeScreenIndex, setActiveScreenIndex] = useState<number | null>(null);
-
   // Sync with URL query parameter (?mode=machine or #machine)
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -1193,33 +911,17 @@ export default function Home() {
     }
   }, []);
 
-  // Keyboard shortcut: Press M to toggle mode, Escape to close modal
+  // Keyboard shortcut: Press M to toggle mode
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (['INPUT', 'TEXTAREA'].includes((e.target as HTMLElement)?.tagName)) return;
       if (e.key === 'm' || e.key === 'M') {
         setMode((prev) => (prev === 'human' ? 'machine' : 'human'));
       }
-      if (e.key === 'Escape') {
-        setSelectedDesignProject(null);
-        setActiveScreenIndex(null);
-      }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
-
-  // Lock body scroll when design modal is open
-  useEffect(() => {
-    if (selectedDesignProject) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [selectedDesignProject]);
 
   // Cleanup hover timer on unmount
   useEffect(() => {
@@ -1260,19 +962,11 @@ export default function Home() {
   };
 
   const projectsScrollRef = useRef<HTMLDivElement>(null);
-  const designScrollRef = useRef<HTMLDivElement>(null);
 
   const scrollProjects = (direction: 'left' | 'right') => {
     if (projectsScrollRef.current) {
       const scrollAmount = direction === 'left' ? -380 : 380;
       projectsScrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
-  };
-
-  const scrollDesign = (direction: 'left' | 'right') => {
-    if (designScrollRef.current) {
-      const scrollAmount = direction === 'left' ? -420 : 420;
-      designScrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
 
@@ -1716,144 +1410,6 @@ export default function Home() {
         </section>
 
         {/* ───────────────────────────────────────────────────────────
-            UI/UX & PRODUCT DESIGN (INTERACTIVE CASE STUDIES)
-            ─────────────────────────────────────────────────────────── */}
-        <section
-          id="design"
-          className="px-5 sm:px-10 py-12 sm:py-16 border-b border-zinc-200"
-        >
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6 sm:mb-8">
-            <div className="space-y-1">
-              <div className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-zinc-500">
-                Product &amp; Systems
-              </div>
-              <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-950">
-                UI/UX &amp; Product Design
-              </h2>
-            </div>
-            
-            <div className="flex items-center gap-3">
-              <span className="text-xs font-mono text-zinc-500 hidden sm:inline">
-                Swipe to explore
-              </span>
-              <div className="flex items-center gap-1.5">
-                <button
-                  onClick={() => scrollDesign('left')}
-                  className="w-8 h-8 rounded-lg border border-zinc-200 hover:border-zinc-900 bg-white hover:bg-zinc-50 text-zinc-700 hover:text-zinc-950 flex items-center justify-center transition-all cursor-pointer shadow-2xs active:scale-95"
-                  aria-label="Scroll left"
-                >
-                  <ChevronLeft size={16} />
-                </button>
-                <button
-                  onClick={() => scrollDesign('right')}
-                  className="w-8 h-8 rounded-lg border border-zinc-200 hover:border-zinc-900 bg-white hover:bg-zinc-50 text-zinc-700 hover:text-zinc-950 flex items-center justify-center transition-all cursor-pointer shadow-2xs active:scale-95"
-                  aria-label="Scroll right"
-                >
-                  <ChevronRight size={16} />
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Horizontal Swiper Track */}
-          <div
-            ref={designScrollRef}
-            className="flex gap-5 sm:gap-6 overflow-x-auto pb-4 pt-1 snap-x snap-mandatory scroll-smooth -mx-5 px-5 scroll-pl-5 sm:mx-0 sm:px-0 sm:scroll-pl-0 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
-          >
-            {UIUX_PROJECTS.map((item) => (
-              <div
-                key={item.id}
-                className="w-[300px] sm:w-[380px] md:w-[420px] shrink-0 snap-start group border border-zinc-200 hover:border-zinc-300 rounded-xl overflow-hidden bg-white hover:bg-zinc-50/40 transition-all shadow-2xs hover:shadow-md flex flex-col hover:-translate-y-0.5"
-              >
-                {/* Clean Light Studio Device Mockup */}
-                <div
-                  onClick={() => {
-                    setSelectedDesignProject(item);
-                    setActiveScreenIndex(null);
-                  }}
-                  className="relative aspect-[16/10] bg-[#f8f9fb] overflow-hidden border-b border-zinc-200/80 cursor-pointer group-hover:bg-[#f3f4f6] transition-colors"
-                >
-                  <img
-                    src={item.previewImage}
-                    alt={item.title}
-                    className="w-full h-full object-cover object-center group-hover:scale-102 transition-transform duration-500"
-                  />
-
-                  {/* Top Badge (Clean White / Zinc Pill) */}
-                  <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5 pointer-events-none">
-                    <span className="px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-xs text-[10px] font-mono font-medium text-zinc-900 border border-zinc-200/90 shadow-2xs">
-                      {item.badge}
-                    </span>
-                  </div>
-
-                  {/* Inspect CTA Pill (Clean Dark Button) */}
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setSelectedDesignProject(item);
-                      setActiveScreenIndex(null);
-                    }}
-                    className="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-full bg-zinc-950 hover:bg-zinc-800 text-white text-[10px] font-mono font-medium flex items-center gap-1.5 shadow-sm transition-transform hover:scale-105 cursor-pointer"
-                  >
-                    <Maximize2 size={10} />
-                    <span>Inspect 6 Screens</span>
-                  </button>
-                </div>
-
-                {/* Card Info */}
-                <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center justify-between gap-2 mb-1">
-                      <h3
-                        onClick={() => {
-                          setSelectedDesignProject(item);
-                          setActiveScreenIndex(null);
-                        }}
-                        className="text-base font-bold text-zinc-950 group-hover:text-blue-600 transition-colors cursor-pointer"
-                      >
-                        {item.title}
-                      </h3>
-                    </div>
-
-                    <div className="text-xs font-mono text-zinc-500 mb-2 flex items-center justify-between">
-                      <span className="font-semibold text-zinc-700">{item.role}</span>
-                      <span className="text-zinc-400">{item.period}</span>
-                    </div>
-
-                    {/* Impact Metric Bar */}
-                    <div className="my-2.5 px-2.5 py-1.5 rounded-lg bg-zinc-50 border border-zinc-200/70 text-[11px] font-mono text-zinc-700 leading-snug">
-                      <span className="font-semibold text-zinc-900">Impact: </span>
-                      {item.impact}
-                    </div>
-
-                    <p className="text-xs text-zinc-600 leading-relaxed mb-4">
-                      {item.summary}
-                    </p>
-                  </div>
-
-                  {/* Flow Chips */}
-                  <div>
-                    <div className="text-[10px] font-mono text-zinc-400 uppercase tracking-wider mb-1.5">
-                      Flows Included
-                    </div>
-                    <div className="pt-1 border-t border-zinc-100 flex flex-wrap gap-1.5">
-                      {item.flows.map((flow, idx) => (
-                        <span
-                          key={idx}
-                          className="px-2 py-0.5 rounded bg-zinc-100 text-zinc-700 text-[10px] font-mono"
-                        >
-                          {flow}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* ───────────────────────────────────────────────────────────
             DESIGN & MOTION CRAFT (BEHANCE SHOWCASE)
             ─────────────────────────────────────────────────────────── */}
         <section
@@ -2288,178 +1844,6 @@ export default function Home() {
       </div>
     </div>
   )}
-
-      {/* ─────────────────────────────────────────────────────────────
-          UI/UX CASE STUDY LIGHTBOX / MODAL
-          ───────────────────────────────────────────────────────────── */}
-      {selectedDesignProject && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 md:p-8 overflow-y-auto animate-in fade-in duration-150"
-          onClick={() => {
-            setSelectedDesignProject(null);
-            setActiveScreenIndex(null);
-          }}
-        >
-          <div
-            className="max-w-5xl w-full bg-zinc-950 border border-zinc-800 rounded-2xl p-4 sm:p-7 md:p-8 text-white my-auto shadow-2xl relative overflow-hidden flex flex-col max-h-[92vh]"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Modal Header */}
-            <div className="flex items-start justify-between gap-4 pb-4 sm:pb-5 border-b border-zinc-800/80 shrink-0">
-              <div className="space-y-1 min-w-0">
-                <div className="flex flex-wrap items-center gap-2 text-[11px] font-mono text-zinc-400">
-                  <span className="px-2 py-0.5 rounded-full bg-zinc-800 text-zinc-200 font-medium">
-                    {selectedDesignProject.badge}
-                  </span>
-                  <span>•</span>
-                  <span>{selectedDesignProject.period}</span>
-                  <span>•</span>
-                  <span>{selectedDesignProject.role}</span>
-                </div>
-                <h3 className="text-lg sm:text-2xl font-bold tracking-tight text-white truncate">
-                  {selectedDesignProject.title}
-                </h3>
-                <div className="text-xs font-mono text-emerald-400 pt-0.5">
-                  ✦ {selectedDesignProject.impact}
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2 shrink-0">
-                <button
-                  onClick={() => {
-                    setSelectedDesignProject(null);
-                    setActiveScreenIndex(null);
-                  }}
-                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-zinc-400 hover:text-white flex items-center justify-center transition-colors cursor-pointer"
-                  title="Close (Esc)"
-                  aria-label="Close modal"
-                >
-                  <CloseIcon size={18} />
-                </button>
-              </div>
-            </div>
-
-            {/* Modal Scrollable Body */}
-            <div className="overflow-y-auto py-5 space-y-6 pr-1 [scrollbar-width:thin]">
-              {/* Full High-Resolution Case Study Presentation Slide */}
-              <div className="space-y-2">
-                <div className="text-xs font-mono text-zinc-400 flex items-center justify-between">
-                  <span className="font-medium text-zinc-300">Case Study Presentation (5K High-Res)</span>
-                  <span className="text-[11px] text-zinc-500 hidden sm:inline">Click individual screens below to zoom</span>
-                </div>
-                <div className="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-900 shadow-2xl">
-                  <img
-                    src={selectedDesignProject.slideImage}
-                    alt={`${selectedDesignProject.title} presentation slide`}
-                    className="w-full h-auto object-cover"
-                  />
-                </div>
-              </div>
-
-              {/* Single Screen Zoomed Spotlight View if user selected one */}
-              {activeScreenIndex !== null && (
-                <div className="p-4 sm:p-5 rounded-xl bg-zinc-900/90 border border-zinc-700/80 space-y-3">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <span className="px-2 py-0.5 rounded bg-blue-500/20 text-blue-400 font-mono text-xs font-bold">
-                        Screen 0{activeScreenIndex + 1} of 0{selectedDesignProject.screens.length}
-                      </span>
-                      <h4 className="text-sm sm:text-base font-bold text-white">
-                        {selectedDesignProject.screens[activeScreenIndex].title}
-                      </h4>
-                    </div>
-                    <div className="flex items-center gap-1.5">
-                      <button
-                        onClick={() =>
-                          setActiveScreenIndex((prev) =>
-                            prev !== null && prev > 0 ? prev - 1 : selectedDesignProject.screens.length - 1
-                          )
-                        }
-                        className="p-1 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-300 text-xs font-mono px-2 flex items-center gap-1 cursor-pointer"
-                      >
-                        <ChevronLeft size={14} />
-                        <span>Prev</span>
-                      </button>
-                      <button
-                        onClick={() =>
-                          setActiveScreenIndex((prev) =>
-                            prev !== null && prev < selectedDesignProject.screens.length - 1 ? prev + 1 : 0
-                          )
-                        }
-                        className="p-1 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-300 text-xs font-mono px-2 flex items-center gap-1 cursor-pointer"
-                      >
-                        <span>Next</span>
-                        <ChevronRight size={14} />
-                      </button>
-                      <button
-                        onClick={() => setActiveScreenIndex(null)}
-                        className="p-1 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-400 hover:text-white text-xs font-mono px-2 cursor-pointer ml-1"
-                      >
-                        Reset
-                      </button>
-                    </div>
-                  </div>
-                  <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
-                    {selectedDesignProject.screens[activeScreenIndex].description}
-                  </p>
-                  <div className="max-w-xs mx-auto rounded-lg overflow-hidden border border-zinc-700 shadow-xl">
-                    <img
-                      src={selectedDesignProject.screens[activeScreenIndex].image}
-                      alt={selectedDesignProject.screens[activeScreenIndex].title}
-                      className="w-full h-auto"
-                    />
-                  </div>
-                </div>
-              )}
-
-              {/* Individual Screen Flow Grid */}
-              <div className="space-y-3">
-                <div className="text-xs font-mono text-zinc-400">
-                  Individual Screen Breakdown
-                </div>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 sm:gap-4">
-                  {selectedDesignProject.screens.map((screen, idx) => (
-                    <div
-                      key={idx}
-                      onClick={() => setActiveScreenIndex(idx)}
-                      className={`group/card rounded-xl border p-2 bg-zinc-900/60 hover:bg-zinc-900 transition-all cursor-pointer flex flex-col justify-between ${
-                        activeScreenIndex === idx
-                          ? 'border-blue-500 ring-2 ring-blue-500/30'
-                          : 'border-zinc-800/80 hover:border-zinc-600'
-                      }`}
-                    >
-                      <div className="rounded-lg overflow-hidden border border-zinc-800 mb-2 aspect-[9/19] bg-zinc-950">
-                        <img
-                          src={screen.image}
-                          alt={screen.title}
-                          className="w-full h-full object-cover group-hover/card:scale-105 transition-transform duration-300"
-                        />
-                      </div>
-                      <div>
-                        <div className="text-[10px] font-mono text-blue-400 font-semibold mb-0.5">
-                          0{idx + 1}
-                        </div>
-                        <div className="text-xs font-semibold text-zinc-200 line-clamp-1 group-hover/card:text-white">
-                          {screen.title}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Modal Footer */}
-            <div className="pt-3 border-t border-zinc-800/80 flex items-center justify-between text-xs font-mono text-zinc-500 shrink-0">
-              <span className="hidden sm:inline">Press Esc or click outside to dismiss</span>
-              <span className="sm:hidden">Tap outside to close</span>
-              <span>Designed &amp; Shipped by Bhavuk Arora</span>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* ─────────────────────────────────────────────────────────────
           FLOATING "HUMAN / MACHINE" TOGGLE

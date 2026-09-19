@@ -161,38 +161,6 @@
 
 ---
 
-## UI/UX & Product Design Case Studies
-
-### 1. Reve — Phygital Going-Out Platform
-- **Role:** Founding Product & Design Lead (Q2–Q3 2025)
-- **Category:** Going Out • Content • Social • Mobile Client
-- **Impact:** ₹1.5 Cr+ GMV in < 2 Months • 20+ Events • 4,200+ Installs across DEL-NCR, BLR, GOA, HYD
-- **Summary:** End-to-end mobile UX and design system for Reve's in-person going-out and ticketing app. Designed discovery feeds, event check-in flows with offline QR access, post-event social interactions, and direct messaging.
-- **Key Flows:** Event Discovery Feed, Offline QR Gate Pass, Post-Event Social Feed, Make Friends Radar, Direct Messaging
-
-### 2. Reve — Direct-to-Dates Matchmaking Engine
-- **Role:** Founding Product & Design Lead (Q1 2025)
-- **Category:** Dating • Social • Audio-First
-- **Impact:** $1.5M USD VC Soft Commitment • Prototyped Novel Dating Algorithm
-- **Summary:** Designed an audio-first, direct-to-date mobile experience eliminating endless superficial swiping. Users match through authentic voice answers, choose curated date spots, and coordinate real-world meetups.
-- **Key Flows:** Date Spot Selection, Voice Question Prompts, Date Proposal Feed, Audio Replies, Match & Itinerary Planning
-
-### 3. Spilll (Open Beta) — Location-First Social Graph
-- **Role:** Founding Product & Design Lead (Q3–Q4 2024)
-- **Category:** Social • Content • Voice-Led
-- **Impact:** $5M USD VC Soft Commitment • Next-Gen IRL Social Concept
-- **Summary:** Designed a location-anchored audio social network where users discover trending local conversations, record voice spills with rich media attachments, and build real-time campus interest graphs.
-- **Key Flows:** Hyperlocal Audio Feed, Voice Spill Recording Studio, Media & Poll Attachments, Topic Interest Graph
-
-### 4. Spilll (Closed Beta) — Campus Audio-Social Network
-- **Role:** Founding Product & Design Lead (Q2–Q4 2023)
-- **Category:** Social • Audio-First • Campus Community
-- **Impact:** 1,700+ Spills in 5 Weeks • 10m 45s Avg Session Time • 15+ Delhi Campuses
-- **Summary:** Designed prompt-based audio community app for college campuses across Delhi NCR. Features included playful anonymous nickname generators, asynchronous audio circles, and live audio party rooms.
-- **Key Flows:** Pseudonymous Nickname Generator, Daily Voice Prompts, Audio Spill Creation, Campus Audio Circles, Live Party Rooms
-
----
-
 ## Design & Motion Systems (Behance)
 - **Bluefork Brand Identity & Motion System:** Dynamic brand identity, kinetic motion system, and high-contrast visual direction crafted for the Bluefork creator platform. (https://www.behance.net/gallery/253324443/Bluefork)
 - **Fork Visual System:** Comprehensive brand visual system, dynamic layout architecture, and kinetic motion showcase crafted for Fork. (https://www.behance.net/gallery/253324319)
