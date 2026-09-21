@@ -151,7 +151,7 @@ const jsonLd = {
       jobTitle: 'Founder & CEO',
       description:
         'Founder & CEO of Bluefork (Fork). Building commercial operating infrastructure for independent creators. Scaled Suraasa to 10 Lakh+ downloads, founding team at Reve.',
-      email: 'mailto:bhavukarora03@gmail.com',
+      email: 'mailto:bhavuk@fork.blue',
       telephone: '+91-8708254881',
       worksFor: {
         '@type': 'Organization',

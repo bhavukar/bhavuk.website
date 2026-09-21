@@ -9,7 +9,6 @@ import {
   Copy,
   Check,
   FileText,
-  Terminal,
   ChevronLeft,
   ChevronRight,
 } from 'lucide-react';
@@ -407,7 +406,7 @@ role: "Founder & CEO, Product Engineer"
 description: "Product engineer & founder building consumer products from zero to scale. Over 5+ years of engineering across mobile, agentic AI, and full-stack systems."
 canonical: "https://bhavuk.website"
 source-index: "https://bhavuk.website/llms.txt"
-email: "bhavukarora03@gmail.com"
+email: "bhavuk@fork.blue"
 location: "Delhi, India"
 ---
 
@@ -419,7 +418,7 @@ Building consumer products from zero to scale. Over 5+ years of engineering, I'v
 - Current Role: Founder & CEO at Fork (Bluefork)
 - Previous: Founding Member (Product & Eng) at Reve, Software Engineer at MythyaVerse & Suraasa, AR/VR Developer at IIT Delhi
 - Core Stacks: Flutter/Dart, React/Next.js, TypeScript, PostgreSQL, SQLite, Cloudflare Workers, OpenAI/Claude APIs
-- Direct Contact: bhavukarora03@gmail.com / (+91) 8708254881
+- Direct Contact: bhavuk@fork.blue / (+91) 8708254881
 - Resume: https://bhavuk.website/bhavuk_arora_resume.pdf
 
 ## Work Experience & Track Record
@@ -611,7 +610,7 @@ function MachineView({ onCopy, copied }: { onCopy?: () => void; copied?: boolean
             <li>- <strong className="text-zinc-200 font-medium">**Current Role:**</strong> Founder &amp; CEO at <a href="https://app.fork.blue" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">Fork (Bluefork)</a></li>
             <li>- <strong className="text-zinc-200 font-medium">**Previous:**</strong> Founding Member (Product &amp; Eng) at Reve, Software Engineer at MythyaVerse &amp; Suraasa, AR/VR Developer at IIT Delhi</li>
             <li>- <strong className="text-zinc-200 font-medium">**Core Stacks:**</strong> Flutter/Dart, React/Next.js, TypeScript, PostgreSQL, SQLite, Cloudflare Workers, OpenAI/Claude APIs</li>
-            <li>- <strong className="text-zinc-200 font-medium">**Direct Contact:**</strong> <a href="mailto:bhavukarora03@gmail.com" className="text-zinc-300 hover:text-white underline decoration-zinc-800">bhavukarora03@gmail.com</a> / (+91) 8708254881</li>
+            <li>- <strong className="text-zinc-200 font-medium">**Direct Contact:**</strong> <a href="mailto:bhavuk@fork.blue" className="text-zinc-300 hover:text-white underline decoration-zinc-800">bhavuk@fork.blue</a> / (+91) 8708254881</li>
             <li>- <strong className="text-zinc-200 font-medium">**Resume:**</strong> <a href="/bhavuk_arora_resume.pdf" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">bhavuk_arora_resume.pdf ↗</a></li>
           </ul>
         </div>
@@ -950,7 +949,7 @@ export default function Home() {
   };
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText('bhavukarora03@gmail.com');
+    navigator.clipboard.writeText('bhavuk@fork.blue');
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2000);
   };
@@ -999,26 +998,6 @@ export default function Home() {
               </span>
             </div>
           </a>
-
-          <div className="flex items-center gap-3 sm:gap-4">
-            <button
-              onClick={() => setMode('machine')}
-              className="hidden sm:inline-flex items-center gap-1.5 text-xs font-mono text-zinc-600 hover:text-zinc-950 transition-colors px-2.5 py-1 rounded-md border border-zinc-200 hover:border-zinc-300 bg-zinc-50/80 cursor-pointer"
-              title="Toggle Machine / LLM Markdown View"
-            >
-              <Terminal size={12} />
-              <span>Machine View</span>
-            </button>
-            <a
-              href="https://github.com/bhavukarora"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-[11px] sm:text-xs font-mono text-zinc-600 hover:text-zinc-950 transition-colors flex-shrink-0"
-            >
-              <Github size={13} />
-              <span>GitHub</span>
-            </a>
-          </div>
         </div>
       </header>
 
@@ -1060,35 +1039,6 @@ export default function Home() {
               >
                 Get in touch
               </a>
-
-              <a
-                href="/bhavuk_arora_resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border border-zinc-300 hover:border-zinc-900 bg-white text-zinc-800 font-mono text-xs px-3 sm:px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5 cursor-pointer hover:translate-y-[-1px] shrink-0"
-              >
-                <FileText size={13} className="text-zinc-500" />
-                <span>Resume</span>
-                <ArrowUpRight size={12} />
-              </a>
-
-              <button
-                onClick={handleCopyEmail}
-                className="border border-zinc-300 hover:border-zinc-900 bg-white text-zinc-800 font-mono text-xs px-3 sm:px-3.5 py-2 rounded-lg transition-all flex items-center gap-1.5 sm:gap-2 cursor-pointer hover:translate-y-[-1px] shrink-0"
-              >
-                {copiedEmail ? (
-                  <>
-                    <Check size={13} className="text-emerald-600" />
-                    <span className="text-emerald-600 font-medium">Copied!</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy size={13} className="text-zinc-500" />
-                    <span className="hidden sm:inline">bhavukarora03@gmail.com</span>
-                    <span className="sm:hidden">Copy email</span>
-                  </>
-                )}
-              </button>
             </div>
           </div>
         </section>
@@ -1725,7 +1675,7 @@ export default function Home() {
               <div className="w-full sm:w-auto">
                 <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-wider">Direct Email</div>
                 <div className="text-sm sm:text-base font-mono font-bold text-white select-all break-all">
-                  bhavukarora03@gmail.com
+                  bhavuk@fork.blue
                 </div>
               </div>
 
@@ -1747,7 +1697,7 @@ export default function Home() {
                   )}
                 </button>
                 <a
-                  href="mailto:bhavukarora03@gmail.com"
+                  href="mailto:bhavuk@fork.blue"
                   className="px-3.5 sm:px-4 py-2 rounded-lg bg-[#e8e2d5] hover:bg-[#ddd6c7] text-zinc-950 text-xs font-mono font-bold transition-all flex items-center justify-center gap-1 hover:translate-y-[-1px]"
                 >
                   <span>Mailto</span>
@@ -1758,6 +1708,17 @@ export default function Home() {
 
             <div className="pt-4 border-t border-zinc-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 text-xs font-mono text-zinc-400">
               <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+                <a
+                  href="/bhavuk_arora_resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 hover:text-white transition-colors"
+                >
+                  <FileText size={14} />
+                  <span>Resume</span>
+                  <ArrowUpRight size={12} />
+                </a>
+                <span className="text-zinc-700">•</span>
                 <a
                   href="https://github.com/bhavukar"
                   target="_blank"

@@ -11,7 +11,7 @@
 - **Role:** Founder & CEO / Founding Product Engineer
 - **Company:** Bluefork (Fork)
 - **Location:** Delhi, India (Available for high-impact remote & global roles)
-- **Email:** bhavukarora03@gmail.com
+- **Email:** bhavuk@fork.blue
 - **Phone:** +91-8708254881
 - **Focus:** Consumer software, creator economy monetization, agentic AI workflows, high-concurrency mobile & distributed backend architecture, motion design.
 
