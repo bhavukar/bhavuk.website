@@ -975,70 +975,51 @@ export default function Home() {
         <MachineView onCopy={handleCopyMachineText} copied={copiedMachineText} />
       ) : (
         <div className="min-h-screen bg-white text-zinc-900 font-sans selection:bg-[#e8e2d5] selection:text-zinc-950 relative">
-      {/* ─────────────────────────────────────────────────────────────
-          1. MINIMAL STICKY HEADER
-          ───────────────────────────────────────────────────────────── */}
-      <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-zinc-200">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 h-14 sm:h-16 flex items-center justify-between">
-          <a href="#" className="flex items-center gap-2.5 sm:gap-3 group min-w-0">
-            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full overflow-hidden border border-zinc-200 shadow-2xs group-hover:scale-105 transition-transform flex-shrink-0">
-              <img
-                src="/profile.jpeg"
-                alt="Bhavuk Arora"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="flex flex-col min-w-0">
-              <span className="text-sm font-bold text-zinc-950 tracking-tight leading-tight">
-                <span className="sm:hidden">Bhavuk</span>
-                <span className="hidden sm:inline">Bhavuk Arora</span>
-              </span>
-              <span className="text-[10px] sm:text-[11px] text-zinc-500 font-mono hidden sm:inline leading-none mt-0.5">
-                Product Engineer
-              </span>
-            </div>
-          </a>
-        </div>
-      </header>
+
 
       {/* ─────────────────────────────────────────────────────────────
           2. MAIN CONTAINER WITH CLEAN BORDERS
           ───────────────────────────────────────────────────────────── */}
       <div className="max-w-6xl mx-auto border-x-0 sm:border-x border-zinc-200 bg-white min-h-screen">
         {/* ───────────────────────────────────────────────────────────
-            HERO SECTION (Clean, Responsive Editorial)
+            HERO SECTION (Clean, Uncluttered Portrait Card)
             ─────────────────────────────────────────────────────────── */}
         <section
           id="hero"
-          className="px-5 sm:px-10 py-10 sm:py-16 md:py-20 border-b border-zinc-200"
+          className="p-4 sm:p-6 md:p-8 border-b border-zinc-200 bg-white"
         >
-          <div className="space-y-4 sm:space-y-6 max-w-3xl">
-            {/* Experience status bar */}
-            <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 text-[11px] sm:text-xs font-mono text-zinc-500">
-              <span className="font-bold text-zinc-950 tracking-wider">5+ YEARS EXPERIENCE</span>
-              <span className="text-zinc-300">•</span>
-              <span>DELHI · REMOTE</span>
-            </div>
+          <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-black text-white p-8 sm:p-12 md:p-16 min-h-[420px] sm:min-h-[460px] md:min-h-[480px] flex items-center border border-zinc-900 shadow-xl">
+            {/* Raw studio portrait - NO overlay layers */}
+            <img
+              src="/hero_bhavuk.png"
+              alt="Bhavuk Arora"
+              className="absolute inset-0 w-full h-full object-cover object-[75%_center] sm:object-right select-none pointer-events-none"
+            />
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-zinc-950 leading-[1.25] sm:leading-[1.22] max-w-2xl">
-              Building consumer products from zero to scale.
-            </h1>
-
-            <p className="text-sm sm:text-base text-zinc-600 leading-relaxed max-w-xl">
-              Founder &amp; CEO of <strong>Bluefork</strong>, building the commercial operating system
-              for independent creators and digital entrepreneurs. Over 5+ years of engineering,
-              I've taken applications from zero to scale across consumer mobile and edtech platforms
-              (10 Lakh+ downloads at Suraasa, 25K+ at Reve).
-            </p>
-
-            {/* Quick Actions */}
-            <div className="flex flex-wrap items-center gap-2 sm:gap-3 pt-2">
-              <a
-                href="#contact"
-                className="bg-zinc-950 hover:bg-zinc-800 text-white font-medium text-xs px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-lg shadow-2xs transition-all hover:translate-y-[-1px] shrink-0"
+            <div className="relative z-10 space-y-4 max-w-xs sm:max-w-sm md:max-w-md">
+              <h1
+                className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white font-hindi leading-none select-none"
+                aria-label="भावुक"
               >
-                Get in touch
-              </a>
+                भावुक
+              </h1>
+
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-zinc-100 leading-snug">
+                Building consumer products from zero to scale.
+              </h2>
+
+              <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-sans">
+                Founder &amp; CEO of <strong className="text-zinc-200 font-semibold">Bluefork</strong>. Over 5+ years engineering consumer products across mobile &amp; web.
+              </p>
+
+              <div className="pt-2">
+                <a
+                  href="#contact"
+                  className="inline-flex items-center justify-center bg-white hover:bg-zinc-200 text-zinc-950 font-medium text-xs px-4 sm:px-5 py-2.5 rounded-lg shadow-sm transition-all hover:translate-y-[-1px]"
+                >
+                  Get in touch
+                </a>
+              </div>
             </div>
           </div>
         </section>
