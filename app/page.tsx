@@ -181,6 +181,24 @@ interface ProjectItem {
 
 const PROJECTS: ProjectItem[] = [
   {
+    id: 'rolemetro',
+    title: 'RoleMetro',
+    category: 'Open-Source Mailmeteor for Startup Outreach',
+    badge: 'Outreach Engine • Mail Merge',
+    url: 'https://github.com/bhavukar/rolemetro',
+    displayUrl: 'github.com/bhavukar/rolemetro',
+    githubUrl: 'https://github.com/bhavukar/rolemetro',
+    previewImage: '/rolemetro_preview.png',
+    summary:
+      'The open-source Mailmeteor for startup roles. Ingests resumes, extracts high-signal proof-of-work metrics, matches curated YC & venture-backed tech roles, and generates anti-cliché <100-word cold emails with 1-click Gmail draft dispatch and batch mail merge campaigns.',
+    highlights: [
+      'Resume signal extractor parsing tech stacks, latency milestones, and key metrics into structured outreach variables.',
+      'Founder-tested cold pitch engine enforcing <100-word anti-cliché drafts with dynamic tokens and proof-of-work hooks.',
+      'Mailmeteor-style batch spreadsheet queue with live merge preview, CSV export, and 1-click zero-setup Gmail compose dispatch.'
+    ],
+    skills: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Mail Merge', 'Open Source']
+  },
+  {
     id: 'manage-your-display',
     title: 'Manage Your Display',
     category: 'Open-Source Display Controller',
