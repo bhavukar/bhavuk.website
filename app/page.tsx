@@ -1007,14 +1007,7 @@ export default function Home() {
           className="p-4 sm:p-6 md:p-8 border-b border-zinc-200 bg-white"
         >
           <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-black text-white p-8 sm:p-12 md:p-16 min-h-[420px] sm:min-h-[460px] md:min-h-[480px] flex items-center border border-zinc-900 shadow-xl">
-            {/* Raw studio portrait - NO overlay layers */}
-            <img
-              src="/hero_bhavuk.png"
-              alt="Bhavuk Arora"
-              className="absolute inset-0 w-full h-full object-cover object-[75%_center] sm:object-right select-none pointer-events-none"
-            />
-
-            <div className="relative z-10 space-y-4 max-w-xs sm:max-w-sm md:max-w-md">
+            <div className="relative z-10 space-y-4 max-w-2xl">
               <h1
                 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white font-hindi leading-none select-none"
                 aria-label="भावुक"
