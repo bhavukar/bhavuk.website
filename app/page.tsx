@@ -181,6 +181,24 @@ interface ProjectItem {
 
 const PROJECTS: ProjectItem[] = [
   {
+    id: 'sigma',
+    title: 'Sigma',
+    category: 'Collaborative Vector Design Engine',
+    badge: 'Rust • WASM • WebGL • Edge Sync',
+    url: 'https://sigma-sync.bhavuk-arora03.workers.dev',
+    displayUrl: 'sigma-sync.bhavuk-arora03.workers.dev',
+    githubUrl: 'https://github.com/bhavukar/sigma',
+    previewImage: '/sigma_preview.jpg',
+    summary:
+      'High-performance, zero-garbage-collection browser and desktop design tool built from scratch in Rust, WebAssembly, and WebGL with eframe/egui. Features real-time multiplayer sync with Cloudflare Workers & Durable Objects, Auto Layout, smart distance measurement guides, device artboards, and full SVG/CSS vector export.',
+    highlights: [
+      'Zero-GC Rust core with spatial R-tree indexing and 120 FPS WebGL rendering for instant pan and zoom.',
+      'Real-time multi-cursor collaboration powered by Cloudflare Workers Durable Objects over low-latency WebSockets.',
+      'Comprehensive design engine supporting Auto Layout (⇧A), device artboard presets, smart distance guides (⌥ Option), and full SVG/CSS export.'
+    ],
+    skills: ['Rust', 'WebAssembly', 'WebGL / egui', 'Cloudflare Workers', 'Durable Objects', 'WebSockets', 'Open Source']
+  },
+  {
     id: 'rolemetro',
     title: 'RoleMetro',
     category: 'Open-Source Mailmeteor for Startup Outreach',
@@ -505,6 +523,17 @@ Building consumer products from zero to scale. Over 5+ years of engineering, I'v
 
 ## Selected Projects & Software
 
+### Sigma
+- Type: Collaborative Vector Design Engine (Rust, WebAssembly & WebGL)
+- URL: https://sigma-sync.bhavuk-arora03.workers.dev
+- GitHub: https://github.com/bhavukar/sigma
+- Summary: High-performance, zero-garbage-collection browser and desktop design tool built from scratch in Rust, WebAssembly, and WebGL with eframe/egui. Features real-time multiplayer sync with Cloudflare Workers & Durable Objects, Auto Layout, smart distance measurement guides, device artboards, and full SVG/CSS vector export.
+- Key Outcomes:
+  * Zero-GC Rust core with spatial R-tree indexing and 120 FPS WebGL rendering for instant pan and zoom.
+  * Real-time multi-cursor collaboration powered by Cloudflare Workers Durable Objects over low-latency WebSockets.
+  * Comprehensive design engine supporting Auto Layout (⇧A), device artboard presets, smart distance guides (⌥ Option), and full SVG/CSS export.
+- Stack: Rust • WebAssembly • WebGL / egui • Cloudflare Workers • Durable Objects • WebSockets • Open Source
+
 ### Manage Your Display
 - Type: Open-Source Display Utility (macOS / Linux / Windows)
 - URL: https://monik-alpha.vercel.app
@@ -746,8 +775,28 @@ function MachineView({ onCopy, copied }: { onCopy?: () => void; copied?: boolean
             ## Selected Projects &amp; Software
           </h2>
 
-          {/* Manage Your Display */}
+          {/* Sigma */}
           <div className="space-y-1.5">
+            <h3 className="text-sm font-bold text-zinc-200">
+              ### Sigma
+            </h3>
+            <ul className="space-y-1 text-zinc-400">
+              <li>- <strong className="text-zinc-200 font-medium">**Type:**</strong> Collaborative Vector Design Engine (Rust, WebAssembly &amp; WebGL)</li>
+              <li>- <strong className="text-zinc-200 font-medium">**URL:**</strong> <a href="https://sigma-sync.bhavuk-arora03.workers.dev" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://sigma-sync.bhavuk-arora03.workers.dev</a></li>
+              <li>- <strong className="text-zinc-200 font-medium">**GitHub:**</strong> <a href="https://github.com/bhavukar/sigma" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://github.com/bhavukar/sigma</a></li>
+              <li>- <strong className="text-zinc-200 font-medium">**Summary:**</strong> High-performance, zero-garbage-collection browser and desktop design tool built from scratch in Rust, WebAssembly, and WebGL with eframe/egui. Features real-time multiplayer sync with Cloudflare Workers &amp; Durable Objects, Auto Layout, smart distance measurement guides, device artboards, and full SVG/CSS vector export.</li>
+              <li>- <strong className="text-zinc-200 font-medium">**Key Deliverables:**</strong></li>
+              <li className="pl-4 space-y-1 text-zinc-400">
+                <div>- Zero-GC Rust core with spatial R-tree indexing and 120 FPS WebGL rendering for instant pan and zoom.</div>
+                <div>- Real-time multi-cursor collaboration powered by Cloudflare Workers Durable Objects over low-latency WebSockets.</div>
+                <div>- Comprehensive design engine supporting Auto Layout (⇧A), device artboard presets, smart distance guides (⌥ Option), and full SVG/CSS export.</div>
+              </li>
+              <li>- <strong className="text-zinc-200 font-medium">**Stack:**</strong> <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Rust`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`WebAssembly`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`WebGL / egui`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Cloudflare Workers`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Durable Objects`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`WebSockets`</code></li>
+            </ul>
+          </div>
+
+          {/* Manage Your Display */}
+          <div className="space-y-1.5 pt-4">
             <h3 className="text-sm font-bold text-zinc-200">
               ### Manage Your Display
             </h3>

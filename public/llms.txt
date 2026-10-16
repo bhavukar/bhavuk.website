@@ -95,6 +95,17 @@
 
 ## Selected Projects & Software
 
+### Sigma
+- **Type:** Collaborative Vector Design Engine (Rust, WebAssembly & WebGL)
+- **URL:** https://sigma-sync.bhavuk-arora03.workers.dev
+- **GitHub:** https://github.com/bhavukar/sigma
+- **Summary:** High-performance, zero-garbage-collection browser and desktop design tool built from scratch in Rust, WebAssembly, and WebGL with eframe/egui. Features real-time multiplayer sync with Cloudflare Workers & Durable Objects, Auto Layout, smart distance measurement guides, device artboards, and full SVG/CSS vector export.
+- **Key Deliverables:**
+  - Zero-GC Rust core with spatial R-tree indexing and 120 FPS WebGL rendering for instant pan and zoom.
+  - Real-time multi-cursor collaboration powered by Cloudflare Workers Durable Objects over low-latency WebSockets.
+  - Comprehensive design engine supporting Auto Layout (⇧A), device artboard presets, smart distance guides (⌥ Option), and full SVG/CSS export.
+- **Stack:** Rust, WebAssembly, WebGL / egui, Cloudflare Workers, Durable Objects, WebSockets, Open Source
+
 ### Manage Your Display
 - **Type:** Open-Source Display Utility (macOS / Linux / Windows)
 - **URL:** https://monik-alpha.vercel.app
