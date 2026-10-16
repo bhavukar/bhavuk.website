@@ -1076,31 +1076,20 @@ export default function Home() {
           <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-zinc-50/60 p-6 sm:p-10 md:p-14 border border-zinc-200/80 shadow-2xs">
             <div className="relative z-10 space-y-6 max-w-2xl">
               {/* Small Avatar & Hindi Identity Row */}
-              <div className="flex items-center gap-3.5 sm:gap-4.5">
-                <div className="relative shrink-0">
-                  <img
-                    src="/avatar.jpg"
-                    alt="Bhavuk Arora"
-                    className="w-13 h-13 sm:w-16 sm:h-16 rounded-full object-cover object-top border-2 border-white shadow-xs ring-1 ring-zinc-200"
-                  />
-                  <span
-                    className="absolute bottom-0 right-0 w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-full bg-emerald-500 border-2 border-white shadow-xs"
-                    title="Active / Available"
-                  />
-                </div>
+              <div className="flex items-center gap-3.5 sm:gap-4">
+                <img
+                  src="/avatar.jpg"
+                  alt="Bhavuk Arora"
+                  className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full object-cover object-top border border-zinc-200 shadow-2xs shrink-0"
+                />
 
-                <div className="space-y-0.5">
-                  <div className="flex items-baseline gap-2.5">
-                    <h1
-                      className="text-3xl sm:text-4xl md:text-5xl font-normal text-zinc-950 font-hindi leading-tight select-none tracking-normal"
-                      aria-label="भावुक"
-                    >
-                      भावुक
-                    </h1>
-                    <span className="text-xs sm:text-sm font-mono text-zinc-400 font-normal select-none">
-                      / bhavuk /
-                    </span>
-                  </div>
+                <div className="space-y-1">
+                  <h1
+                    className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-zinc-950 font-hindi leading-none select-none"
+                    aria-label="भावुक"
+                  >
+                    भावुक
+                  </h1>
                   <div className="text-xs sm:text-sm text-zinc-500 font-medium">
                     Bhavuk Arora <span className="text-zinc-300">·</span> Founder &amp; CEO, Bluefork
                   </div>

@@ -4,7 +4,7 @@
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
   --font-serif: 'Playfair Display', Georgia, serif;
-  --font-hindi: 'Rozha One', 'Noto Serif Devanagari', 'Mukta', serif;
+  --font-hindi: 'Noto Sans Devanagari', 'Mukta', 'Kohinoor Devanagari', sans-serif;
   --color-highlight: #e8e2d5;
 }
 
@@ -12,7 +12,7 @@
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
   --font-serif: 'Playfair Display', Georgia, serif;
-  --font-hindi: 'Rozha One', 'Noto Serif Devanagari', 'Mukta', serif;
+  --font-hindi: 'Noto Sans Devanagari', 'Mukta', 'Kohinoor Devanagari', sans-serif;
 }
 
 html {
