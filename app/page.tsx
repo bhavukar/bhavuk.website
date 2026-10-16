@@ -1067,35 +1067,69 @@ export default function Home() {
           ───────────────────────────────────────────────────────────── */}
       <div className="max-w-6xl mx-auto border-x-0 sm:border-x border-zinc-200 bg-white min-h-screen">
         {/* ───────────────────────────────────────────────────────────
-            HERO SECTION (Clean, Uncluttered Portrait Card)
+            HERO SECTION (Editorial White-Themed Card with Small Avatar & Refined Hindi Typography)
             ─────────────────────────────────────────────────────────── */}
         <section
           id="hero"
           className="p-4 sm:p-6 md:p-8 border-b border-zinc-200 bg-white"
         >
-          <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-black text-white p-8 sm:p-12 md:p-16 min-h-[420px] sm:min-h-[460px] md:min-h-[480px] flex items-center border border-zinc-900 shadow-xl">
-            <div className="relative z-10 space-y-4 max-w-2xl">
-              <h1
-                className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white font-hindi leading-none select-none"
-                aria-label="भावुक"
-              >
-                भावुक
-              </h1>
+          <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-zinc-50/60 p-6 sm:p-10 md:p-14 border border-zinc-200/80 shadow-2xs">
+            <div className="relative z-10 space-y-6 max-w-2xl">
+              {/* Small Avatar & Hindi Identity Row */}
+              <div className="flex items-center gap-3.5 sm:gap-4.5">
+                <div className="relative shrink-0">
+                  <img
+                    src="/avatar.jpg"
+                    alt="Bhavuk Arora"
+                    className="w-13 h-13 sm:w-16 sm:h-16 rounded-full object-cover object-top border-2 border-white shadow-xs ring-1 ring-zinc-200"
+                  />
+                  <span
+                    className="absolute bottom-0 right-0 w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-full bg-emerald-500 border-2 border-white shadow-xs"
+                    title="Active / Available"
+                  />
+                </div>
 
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-zinc-100 leading-snug">
+                <div className="space-y-0.5">
+                  <div className="flex items-baseline gap-2.5">
+                    <h1
+                      className="text-3xl sm:text-4xl md:text-5xl font-normal text-zinc-950 font-hindi leading-tight select-none tracking-normal"
+                      aria-label="भावुक"
+                    >
+                      भावुक
+                    </h1>
+                    <span className="text-xs sm:text-sm font-mono text-zinc-400 font-normal select-none">
+                      / bhavuk /
+                    </span>
+                  </div>
+                  <div className="text-xs sm:text-sm text-zinc-500 font-medium">
+                    Bhavuk Arora <span className="text-zinc-300">·</span> Founder &amp; CEO, Bluefork
+                  </div>
+                </div>
+              </div>
+
+              {/* Headline */}
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-zinc-950 leading-snug">
                 Building consumer products from zero to scale.
               </h2>
 
-              <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-sans">
-                Founder &amp; CEO of <strong className="text-zinc-200 font-semibold">Bluefork</strong>. Over 5+ years engineering consumer products across mobile &amp; web.
+              {/* Bio */}
+              <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-sans max-w-xl">
+                Founder &amp; CEO of <strong className="text-zinc-900 font-semibold">Bluefork</strong>. Over 5+ years engineering consumer products across mobile &amp; web.
               </p>
 
-              <div className="pt-2">
+              {/* Action Buttons */}
+              <div className="pt-2 flex flex-wrap items-center gap-2.5 sm:gap-3">
                 <a
                   href="#contact"
-                  className="inline-flex items-center justify-center bg-white hover:bg-zinc-200 text-zinc-950 font-medium text-xs px-4 sm:px-5 py-2.5 rounded-lg shadow-sm transition-all hover:translate-y-[-1px]"
+                  className="inline-flex items-center justify-center bg-zinc-950 hover:bg-zinc-800 text-white font-medium text-xs sm:text-sm px-4 sm:px-5 py-2.5 rounded-lg shadow-xs transition-all hover:translate-y-[-1px]"
                 >
                   Get in touch
+                </a>
+                <a
+                  href="#experience"
+                  className="inline-flex items-center justify-center bg-white hover:bg-zinc-100 text-zinc-700 hover:text-zinc-950 font-medium text-xs sm:text-sm px-4 sm:px-5 py-2.5 rounded-lg border border-zinc-200 transition-all hover:translate-y-[-1px]"
+                >
+                  View experience ↓
                 </a>
               </div>
             </div>
