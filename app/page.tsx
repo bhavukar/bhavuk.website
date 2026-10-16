@@ -181,6 +181,24 @@ interface ProjectItem {
 
 const PROJECTS: ProjectItem[] = [
   {
+    id: 'native-splash-studio',
+    title: 'Native Splash Studio',
+    category: 'Native Mobile Motion Engine & MCP Agent',
+    badge: '120 FPS • AVD & Storyboard • MCP Agent',
+    url: 'https://native-splash-studio.bhavuk-arora03.workers.dev',
+    displayUrl: 'native-splash-studio.bhavuk-arora03.workers.dev',
+    githubUrl: 'https://github.com/bhavukar/native-splash-studio',
+    previewImage: '/native_splash_preview.jpg',
+    summary:
+      'Hardware-accelerated native animated splash screen studio and autonomous Model Context Protocol (MCP) agent. Generates Android 12+ AnimatedVectorDrawable (AVD) XML and iOS LaunchScreen storyboards for Flutter, React Native, Android, and iOS with automated non-destructive codebase injection.',
+    highlights: [
+      '24 production-grade native motion engines running at 120 FPS at the OS window manager level before Flutter/React Native runtimes initialize.',
+      'Autonomous Model Context Protocol (MCP) server enabling AI agents to inspect mobile codebases and inject assets non-destructively.',
+      'Built-in vector stroke tracer and local FFmpeg background removal engine with zero telemetry.'
+    ],
+    skills: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'MCP Protocol', 'Android AVD', 'SwiftUI', 'Cloudflare Workers']
+  },
+  {
     id: 'sigma',
     title: 'Sigma',
     category: 'Collaborative Vector Design Engine',
