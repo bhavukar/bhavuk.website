@@ -48,6 +48,17 @@ interface ExperienceLink {
   url: string;
 }
 
+interface PivotItem {
+  id: string;
+  name: string;
+  status: string;
+  tagline: string;
+  url?: string;
+  displayUrl?: string;
+  links?: ExperienceLink[];
+  highlights: string[];
+}
+
 interface ExperienceItem {
   id: string;
   role: string;
@@ -61,7 +72,8 @@ interface ExperienceItem {
   previewImage?: string;
   links?: ExperienceLink[];
   summary: string;
-  highlights: string[];
+  highlights?: string[];
+  pivots?: PivotItem[];
   skills: string[];
   previewFallback?: {
     title: string;
@@ -93,49 +105,59 @@ const EXPERIENCES: ExperienceItem[] = [
     skills: ['Executive Leadership', 'Creator Monetization', 'Venture Strategy', 'AI Workflows', 'Commercial Infrastructure']
   },
   {
-    id: 'giraffe',
-    role: 'Product & Engineering',
-    company: 'Giraffe (Perpetuum)',
-    logo: '/logos/giraffe.png',
-    location: 'Gurugram, HR',
-    period: '2024 – Present',
-    url: 'https://giraffe.to',
-    displayUrl: 'giraffe.to',
-    previewImage: '/giraffe_preview.jpg',
-    links: [
-      { label: 'perpetuum.co', url: 'https://perpetuum.co' }
-    ],
-    summary:
-      'Architecting and shipping the web & mobile platform for Giraffe: a community-driven IRL experience platform where women-led "Rooms" host recurring small-group trails (Padel, Reformer Pilates, Pottery) on Golf Course Road, Gurgaon.',
-    highlights: [
-      'Architecting and shipping the web & mobile platform for Giraffe: a community-driven IRL experience platform where women-led "Rooms" host recurring small-group trails (Padel, Reformer Pilates, Pottery) on Golf Course Road, Gurgaon.',
-      'Built end-to-end seat reservation, dynamic squad matching, and host revenue-share engine (12% delivered sales payout rails).'
-    ],
-    skills: ['Next.js', 'Mobile Platform', 'IRL Experience Engine', 'Payout Rails', 'Squad Matching']
-  },
-  {
-    id: 'reve',
+    id: 'perpetuum',
     role: 'Founding Member – Product & Engineering',
-    company: 'Reve',
-    logo: '/logos/reve.png',
+    company: 'Perpetuum',
+    logo: '/logos/perpetuum.svg',
     location: 'Gurugram, HR',
     period: 'Sep 2024 – Present',
-    url: 'https://reve.rsvp',
-    displayUrl: 'reve.rsvp',
-    previewImage: '/reve_preview.jpg',
-    links: [
-      { label: 'App Store', url: 'https://apps.apple.com/in/app/reve-meet-your-local-scene/id6745089742' },
-      { label: 'Play Store', url: 'https://play.google.com/store/apps/details?id=com.perpetuum.reve&hl=en_IN' }
-    ],
+    url: 'https://perpetuum.co',
+    displayUrl: 'perpetuum.co',
+    previewImage: '/giraffe_preview.jpg',
     summary:
-      'Joined as part of the founding team taking Reve from zero to launch, evolving through multiple pivots into a consumer event app with 25,000+ downloads across iOS and Android.',
-    highlights: [
-      'Owned product engineering end-to-end: wireframes, user journeys, design systems, and the cross-platform Flutter client for Reve (25,000+ downloads across iOS & Android).',
-      'Built the offline-first SQLite sync engine and real-time feed for seamless in-person event check-ins and ticketing.',
-      'Spilll (Audio-Social & IRL Discovery): Built prompt-led voice social app launched across 15+ university campuses in Delhi, driving 3,500+ installs, 1,700+ voice Spills, and an average session duration of 10m 45s.',
-      'Engineered low-latency audio capture/playback feeds and location-first interest graph that secured $5M in VC soft commitments.'
+      'Joined as part of the founding team building consumer platforms from zero to launch across 3 successive company pivots: Spilll (voice-social interest graph) → Reve (local scene & IRL ticketing, 25K+ downloads) → Giraffe (community-driven IRL experience trails).',
+    pivots: [
+      {
+        id: 'spilll',
+        name: '1. Spilll',
+        status: 'Pivot 1 · Audio-Social',
+        tagline: 'Prompt-led voice social app & campus-first interest graph that secured $5M in VC soft commitments.',
+        highlights: [
+          'Built prompt-led voice social app launched across 15+ university campuses in Delhi, driving 3,500+ installs, 1,700+ voice Spills, and an average session duration of 10m 45s.',
+          'Engineered low-latency audio capture/playback feeds and location-first interest graph that secured $5M in VC soft commitments.'
+        ]
+      },
+      {
+        id: 'reve',
+        name: '2. Reve',
+        status: 'Pivot 2 · 25K+ Downloads',
+        tagline: 'Consumer event ticketing and local scene app scaled to 25,000+ downloads across iOS and Android.',
+        url: 'https://reve.rsvp',
+        displayUrl: 'reve.rsvp',
+        links: [
+          { label: 'App Store', url: 'https://apps.apple.com/in/app/reve-meet-your-local-scene/id6745089742' },
+          { label: 'Play Store', url: 'https://play.google.com/store/apps/details?id=com.perpetuum.reve&hl=en_IN' }
+        ],
+        highlights: [
+          'Owned product engineering end-to-end: wireframes, user journeys, design systems, and cross-platform Flutter client.',
+          'Built the offline-first SQLite sync engine and real-time feed for seamless in-person event check-ins and ticketing.',
+          'Designed onboarding funnels and viral invite loops that powered organic community growth to 25K+ users.'
+        ]
+      },
+      {
+        id: 'giraffe',
+        name: '3. Giraffe',
+        status: 'Pivot 3 · Current',
+        tagline: 'Community-driven IRL experience platform where women-led "Rooms" host recurring small-group trails (Padel, Reformer Pilates, Pottery) on Golf Course Road, Gurgaon.',
+        url: 'https://giraffe.to',
+        displayUrl: 'giraffe.to',
+        highlights: [
+          'Architecting and shipping the web & mobile platform for Giraffe: recurring small-group trails and Room host infrastructure on Golf Course Road.',
+          'Built end-to-end seat reservation, dynamic squad matching, and host revenue-share engine (12% delivered sales payout rails).'
+        ]
+      }
     ],
-    skills: ['Flutter', 'SQLite', 'Mobile Architecture', 'Audio Streaming', '25K+ Downloads']
+    skills: ['Flutter & Dart', 'Next.js & React', 'SQLite Offline Sync', 'Audio Streaming', 'IRL Experience Engine', 'Payout Rails', '25K+ Downloads']
   },
   {
     id: 'mythyaverse',
@@ -522,34 +544,18 @@ Building consumer products from zero to scale. Over 5+ years of engineering, I'v
   * Spearheaded product-led growth and business operations, driving continuous creator retention and high commercial transaction completion.
 - Stack: Executive Leadership • Creator Monetization • Venture Strategy • AI Workflows • Commercial Infrastructure
 
-### 2. Giraffe (Perpetuum Innovations)
-- Role: Product & Engineering
-- Period: 2024 – Present (Current)
-- Location: Gurugram, HR, India
-- URL: https://giraffe.to
-- Parent Company URL: https://perpetuum.co
-- Summary: Community-driven IRL experience platform where women-led "Rooms" host recurring small-group trails (Padel, Reformer Pilates, Pottery) on Golf Course Road, Gurgaon.
-- Key Outcomes:
-  * Architecting and shipping the web & mobile platform for Giraffe: a community-driven IRL experience platform where women-led "Rooms" host recurring small-group trails (Padel, Reformer Pilates, Pottery) on Golf Course Road, Gurgaon.
-  * Built end-to-end seat reservation, dynamic squad matching, and host revenue-share engine (12% delivered sales payout rails).
-- Stack: Next.js • Mobile Platform • IRL Experience Engine • Payout Rails • Squad Matching
-
-### 3. Reve (Perpetuum Innovations)
+### 2. Perpetuum (Spilll → Reve → Giraffe)
 - Role: Founding Member – Product & Engineering
 - Period: Sep 2024 – Present
 - Location: Gurugram, HR, India
-- URL: https://reve.rsvp
-- App Store: https://apps.apple.com/in/app/reve-meet-your-local-scene/id6745089742
-- Play Store: https://play.google.com/store/apps/details?id=com.perpetuum.reve&hl=en_IN
-- Summary: Joined as part of the founding team taking Reve from zero to launch, evolving through multiple pivots into a consumer event app with 25,000+ downloads across iOS and Android.
-- Key Outcomes:
-  * Owned product engineering end-to-end: wireframes, user journeys, design systems, and the cross-platform Flutter client for Reve (25,000+ downloads across iOS & Android).
-  * Built the offline-first SQLite sync engine and real-time feed for seamless in-person event check-ins and ticketing.
-  * Spilll (Audio-Social & IRL Discovery): Built prompt-led voice social app launched across 15+ university campuses in Delhi, driving 3,500+ installs, 1,700+ voice Spills, and an average session duration of 10m 45s.
-  * Engineered low-latency audio capture/playback feeds and location-first interest graph that secured $5M in VC soft commitments.
-- Stack: Flutter • SQLite • Mobile Architecture • Audio Streaming • 25K+ Downloads
+- URL: https://perpetuum.co
+- Summary: Joined as part of the founding team building consumer platforms from zero to launch across 3 successive company pivots:
+  * Pivot 1 (Origin) · Spilll (Audio-Social & Voice Interest Graph): Built prompt-led voice social app launched across 15+ university campuses in Delhi, driving 3,500+ installs, 1,700+ voice Spills, and an average session duration of 10m 45s. Engineered low-latency audio capture/playback feeds and location-first interest graph that secured $5M in VC soft commitments.
+  * Pivot 2 · Reve (Local Scene & IRL Ticketing — 25K+ Downloads): Consumer event app (https://reve.rsvp / App Store / Play Store) scaled to 25,000+ downloads across iOS & Android. Owned product engineering end-to-end: wireframes, user journeys, design systems, and cross-platform Flutter client. Built offline-first SQLite sync engine and real-time feed for seamless in-person event check-ins and ticketing.
+  * Pivot 3 (Current) · Giraffe (Community-Driven IRL Trails): Web & mobile platform (https://giraffe.to) where women-led "Rooms" host recurring small-group trails (Padel, Reformer Pilates, Pottery) on Golf Course Road, Gurgaon. Built end-to-end seat reservation, dynamic squad matching, and host revenue-share engine (12% delivered sales payout rails).
+- Stack: Flutter & Dart • Next.js & React • SQLite • Audio Streaming • IRL Experience Engine • Payout Rails • 25K+ Downloads
 
-### 4. MythyaVerse (VRPlaced & Oncarea)
+### 3. MythyaVerse (VRPlaced & Oncarea)
 - Role: Software Development Engineer
 - Period: Sep 2023 – Aug 2024
 - Location: Noida, UP, India
@@ -561,7 +567,7 @@ Building consumer products from zero to scale. Over 5+ years of engineering, I'v
   * Owned full development lifecycle: architecture, client-side testing, automated deployments, and continuous UX iterations.
 - Stack: Flutter • Next.js • OpenAI API • Healthcare Systems • WebRTC Video
 
-### 5. Suraasa
+### 4. Suraasa
 - Role: Software Development Engineer
 - Period: Dec 2022 – Jul 2023
 - Location: Gurugram, HR, India
@@ -574,7 +580,7 @@ Building consumer products from zero to scale. Over 5+ years of engineering, I'v
   * Collaborated with backend engineering teams to optimize REST APIs and serialization, reducing app startup latency by 35%.
 - Stack: Mobile Systems Architecture • Flutter & Dart • 10 Lakh+ Downloads • Offline Data Sync • Performance Optimization
 
-### 6. Indian Institute of Technology, Delhi (IIT Delhi)
+### 5. Indian Institute of Technology, Delhi (IIT Delhi)
 - Role: AR/VR Developer
 - Period: Dec 2021 – May 2022
 - Location: New Delhi, India
@@ -755,53 +761,38 @@ function MachineView({ onCopy, copied }: { onCopy?: () => void; copied?: boolean
             </ul>
           </div>
 
-          {/* 2. Giraffe */}
+          {/* 2. Perpetuum */}
           <div className="space-y-1.5 pt-4">
             <h3 className="text-sm font-bold text-zinc-200">
-              ### 2. Giraffe (Perpetuum)
-            </h3>
-            <ul className="space-y-1 text-zinc-400">
-              <li>- <strong className="text-zinc-200 font-medium">**Role:**</strong> Product &amp; Engineering</li>
-              <li>- <strong className="text-zinc-200 font-medium">**Period:**</strong> 2024 – Present</li>
-              <li>- <strong className="text-zinc-200 font-medium">**Location:**</strong> Gurugram, HR, India</li>
-              <li>- <strong className="text-zinc-200 font-medium">**URL:**</strong> <a href="https://giraffe.to" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://giraffe.to</a> (<a href="https://perpetuum.co" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-zinc-200">https://perpetuum.co</a>)</li>
-              <li>- <strong className="text-zinc-200 font-medium">**Summary:**</strong> Community-driven IRL experience platform where women-led &quot;Rooms&quot; host recurring small-group trails (Padel, Reformer Pilates, Pottery) on Golf Course Road, Gurgaon.</li>
-              <li>- <strong className="text-zinc-200 font-medium">**Key Deliverables:**</strong></li>
-              <li className="pl-4 space-y-1 text-zinc-400">
-                <div>- Architecting and shipping the web &amp; mobile platform for Giraffe: a community-driven IRL experience platform where women-led &quot;Rooms&quot; host recurring small-group trails (Padel, Reformer Pilates, Pottery) on Golf Course Road, Gurgaon.</div>
-                <div>- Built end-to-end seat reservation, dynamic squad matching, and host revenue-share engine (12% delivered sales payout rails).</div>
-              </li>
-              <li>- <strong className="text-zinc-200 font-medium">**Stack:**</strong> <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Next.js`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Mobile Platform`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`IRL Experience Engine`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Payout Rails`</code></li>
-            </ul>
-          </div>
-
-          {/* 3. Reve */}
-          <div className="space-y-1.5 pt-4">
-            <h3 className="text-sm font-bold text-zinc-200">
-              ### 3. Reve
+              ### 2. Perpetuum (3 Pivots: Spilll → Reve → Giraffe)
             </h3>
             <ul className="space-y-1 text-zinc-400">
               <li>- <strong className="text-zinc-200 font-medium">**Role:**</strong> Founding Member – Product &amp; Engineering</li>
               <li>- <strong className="text-zinc-200 font-medium">**Period:**</strong> Sep 2024 – Present</li>
               <li>- <strong className="text-zinc-200 font-medium">**Location:**</strong> Gurugram, HR, India</li>
-              <li>- <strong className="text-zinc-200 font-medium">**URL:**</strong> <a href="https://reve.rsvp" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://reve.rsvp</a></li>
+              <li>- <strong className="text-zinc-200 font-medium">**URL:**</strong> <a href="https://perpetuum.co" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://perpetuum.co</a> (Giraffe: <a href="https://giraffe.to" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://giraffe.to</a> · Reve: <a href="https://reve.rsvp" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://reve.rsvp</a>)</li>
               <li>- <strong className="text-zinc-200 font-medium">**Apps:**</strong> <a href="https://apps.apple.com/in/app/reve-meet-your-local-scene/id6745089742" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">App Store</a> · <a href="https://play.google.com/store/apps/details?id=com.perpetuum.reve&hl=en_IN" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">Play Store</a></li>
-              <li>- <strong className="text-zinc-200 font-medium">**Summary:**</strong> Joined as part of the founding team taking Reve from zero to launch, evolving through multiple pivots into a consumer event app with 25,000+ downloads across iOS and Android.</li>
-              <li>- <strong className="text-zinc-200 font-medium">**Key Deliverables:**</strong></li>
-              <li className="pl-4 space-y-1 text-zinc-400">
-                <div>- Owned product engineering end-to-end: wireframes, user journeys, design systems, and the cross-platform Flutter client for Reve (25,000+ downloads across iOS &amp; Android).</div>
-                <div>- Built the offline-first SQLite sync engine and real-time feed for seamless in-person event check-ins and ticketing.</div>
-                <div>- <strong>Spilll (Audio-Social &amp; IRL Discovery):</strong> Built prompt-led voice social app launched across 15+ university campuses in Delhi, driving 3,500+ installs, 1,700+ voice Spills, and an average session duration of 10m 45s.</div>
-                <div>- Engineered low-latency audio capture/playback feeds and location-first interest graph that secured $5M in VC soft commitments.</div>
+              <li>- <strong className="text-zinc-200 font-medium">**Summary:**</strong> Joined as part of the founding team building consumer platforms from zero to launch across 3 successive company pivots:</li>
+              <li>- <strong className="text-zinc-200 font-medium">**Evolution &amp; Deliverables:**</strong></li>
+              <li className="pl-4 space-y-2 text-zinc-400">
+                <div>
+                  <strong className="text-zinc-200">Pivot 1 (Origin) · Spilll (Audio-Social &amp; Voice Discovery):</strong> Built prompt-led voice social app launched across 15+ university campuses in Delhi, driving 3,500+ installs, 1,700+ voice Spills, and an average session duration of 10m 45s. Engineered low-latency audio capture/playback feeds and location-first interest graph that secured $5M in VC soft commitments.
+                </div>
+                <div>
+                  <strong className="text-zinc-200">Pivot 2 · Reve (Local Scene &amp; IRL Ticketing — 25K+ Downloads):</strong> Scaled consumer event and local scene discovery platform (<a href="https://reve.rsvp" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">reve.rsvp</a>) to 25,000+ downloads across iOS &amp; Android. Owned product engineering end-to-end: wireframes, user journeys, design systems, and cross-platform Flutter client. Built offline-first SQLite sync engine and real-time feed for seamless in-person event check-ins and ticketing.
+                </div>
+                <div>
+                  <strong className="text-zinc-200">Pivot 3 (Current) · Giraffe (Community-Driven IRL Trails):</strong> Architecting and shipping the web &amp; mobile platform for Giraffe (<a href="https://giraffe.to" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">giraffe.to</a>): a community-driven IRL experience platform where women-led &quot;Rooms&quot; host recurring small-group trails (Padel, Reformer Pilates, Pottery) on Golf Course Road, Gurgaon. Built end-to-end seat reservation, dynamic squad matching, and host revenue-share engine (12% delivered sales payout rails).
+                </div>
               </li>
-              <li>- <strong className="text-zinc-200 font-medium">**Stack:**</strong> <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Flutter`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`SQLite`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Audio Streaming`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`25K+ Downloads`</code></li>
+              <li>- <strong className="text-zinc-200 font-medium">**Stack:**</strong> <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Flutter &amp; Dart`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Next.js`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`SQLite`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Audio Feeds`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`IRL Experience Engine`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Payout Rails`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`25K+ Downloads`</code></li>
             </ul>
           </div>
 
-          {/* 4. MythyaVerse */}
+          {/* 3. MythyaVerse */}
           <div className="space-y-1.5 pt-4">
             <h3 className="text-sm font-bold text-zinc-200">
-              ### 4. MythyaVerse (VRPlaced &amp; Oncarea)
+              ### 3. MythyaVerse (VRPlaced &amp; Oncarea)
             </h3>
             <ul className="space-y-1 text-zinc-400">
               <li>- <strong className="text-zinc-200 font-medium">**Role:**</strong> Software Development Engineer</li>
@@ -819,10 +810,10 @@ function MachineView({ onCopy, copied }: { onCopy?: () => void; copied?: boolean
             </ul>
           </div>
 
-          {/* 5. Suraasa */}
+          {/* 4. Suraasa */}
           <div className="space-y-1.5 pt-4">
             <h3 className="text-sm font-bold text-zinc-200">
-              ### 5. Suraasa
+              ### 4. Suraasa
             </h3>
             <ul className="space-y-1 text-zinc-400">
               <li>- <strong className="text-zinc-200 font-medium">**Role:**</strong> Software Development Engineer</li>
@@ -840,10 +831,10 @@ function MachineView({ onCopy, copied }: { onCopy?: () => void; copied?: boolean
             </ul>
           </div>
 
-          {/* 6. IIT Delhi */}
+          {/* 5. IIT Delhi */}
           <div className="space-y-1.5 pt-4">
             <h3 className="text-sm font-bold text-zinc-200">
-              ### 6. Indian Institute of Technology, Delhi (IIT Delhi)
+              ### 5. Indian Institute of Technology, Delhi (IIT Delhi)
             </h3>
             <ul className="space-y-1 text-zinc-400">
               <li>- <strong className="text-zinc-200 font-medium">**Role:**</strong> AR/VR Developer</li>
@@ -1327,15 +1318,113 @@ export default function Home() {
                   {exp.summary}
                 </p>
 
+                {/* 3 Pivots Evolution Display */}
+                {exp.pivots && exp.pivots.length > 0 && (
+                  <div className="my-5 max-w-2xl space-y-3">
+                    <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-3">
+                      <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-zinc-400 font-semibold">
+                        Company Pivots:
+                      </span>
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-mono bg-zinc-100 text-zinc-700 border border-zinc-200/80">
+                        <span>1. Spilll</span>
+                      </span>
+                      <span className="text-zinc-300 text-xs">→</span>
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-mono bg-zinc-100 text-zinc-700 border border-zinc-200/80">
+                        <span>2. Reve (25K+)</span>
+                      </span>
+                      <span className="text-zinc-300 text-xs">→</span>
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-mono bg-zinc-950 text-white font-medium shadow-2xs">
+                        <span>3. Giraffe (Current)</span>
+                      </span>
+                    </div>
+
+                    <div className="space-y-3">
+                      {exp.pivots.map((pivot) => (
+                        <div
+                          key={pivot.id}
+                          className={`p-3.5 sm:p-4 rounded-xl border transition-all ${
+                            pivot.id === 'giraffe'
+                              ? 'bg-zinc-50/70 border-zinc-300/90 shadow-2xs'
+                              : 'bg-white border-zinc-200/80'
+                          }`}
+                        >
+                          <div className="flex flex-wrap items-center justify-between gap-2 mb-1.5">
+                            <div className="flex items-center gap-2">
+                              <span className="font-bold text-zinc-950 text-xs sm:text-sm">
+                                {pivot.name}
+                              </span>
+                              <span
+                                className={`text-[10px] font-mono px-1.5 py-0.5 rounded font-medium ${
+                                  pivot.id === 'giraffe'
+                                    ? 'bg-zinc-950 text-white'
+                                    : 'bg-zinc-100 text-zinc-600 border border-zinc-200/60'
+                                }`}
+                              >
+                                {pivot.status}
+                              </span>
+                            </div>
+
+                            <div className="flex flex-wrap items-center gap-2 text-[11px] font-mono">
+                              {pivot.url && (
+                                <a
+                                  href={pivot.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center gap-0.5 text-zinc-900 hover:text-black font-semibold underline underline-offset-2 decoration-zinc-400 hover:decoration-black"
+                                >
+                                  <span>{pivot.displayUrl}</span>
+                                  <ArrowUpRight size={11} />
+                                </a>
+                              )}
+                              {pivot.links?.map((lnk, lIdx) => (
+                                <React.Fragment key={lIdx}>
+                                  <span className="text-zinc-300">•</span>
+                                  <a
+                                    href={lnk.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-0.5 text-zinc-600 hover:text-zinc-950 underline underline-offset-2 decoration-zinc-300 hover:decoration-black"
+                                  >
+                                    <span>{lnk.label}</span>
+                                    <ArrowUpRight size={11} className="text-zinc-400" />
+                                  </a>
+                                </React.Fragment>
+                              ))}
+                            </div>
+                          </div>
+
+                          <p className="text-xs sm:text-[13px] text-zinc-600 mb-2 leading-relaxed">
+                            {pivot.tagline}
+                          </p>
+
+                          <ul className="space-y-1.5">
+                            {pivot.highlights.map((h, hIdx) => (
+                              <li
+                                key={hIdx}
+                                className="text-xs text-zinc-600 leading-relaxed flex items-start gap-2"
+                              >
+                                <span className="text-zinc-400 select-none mt-0.5">—</span>
+                                <span>{h}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 {/* Bullet Points */}
-                <ul className="space-y-2 sm:space-y-2.5 mb-4 sm:mb-5 max-w-2xl">
-                  {exp.highlights.map((h, i) => (
-                    <li key={i} className="text-xs sm:text-sm text-zinc-600 leading-relaxed flex items-start gap-2 sm:gap-2.5">
-                      <span className="text-zinc-400 select-none mt-0.5 sm:mt-1">—</span>
-                      <span>{h}</span>
-                    </li>
-                  ))}
-                </ul>
+                {exp.highlights && exp.highlights.length > 0 && (
+                  <ul className="space-y-2 sm:space-y-2.5 mb-4 sm:mb-5 max-w-2xl">
+                    {exp.highlights.map((h, i) => (
+                      <li key={i} className="text-xs sm:text-sm text-zinc-600 leading-relaxed flex items-start gap-2 sm:gap-2.5">
+                        <span className="text-zinc-400 select-none mt-0.5 sm:mt-1">—</span>
+                        <span>{h}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
 
                 {/* Plain skills text */}
                 <div className="text-[11px] sm:text-xs font-mono text-zinc-500 pt-1 leading-normal">
