@@ -53,10 +53,10 @@
 - **Play Store:** https://play.google.com/store/apps/details?id=com.perpetuum.reve&hl=en_IN
 - **Summary:** Joined as part of the founding team building consumer platforms from zero to launch across 3 successive company pivots:
 - **Pivots & Deliverables:**
-  - **Pivot 1 (Origin) · Spilll (Audio-Social & Voice Interest Graph):** Built prompt-led voice social app launched across 15+ university campuses in Delhi, driving 3,500+ installs, 1,700+ voice Spills, and an average session duration of 10m 45s. Engineered low-latency audio capture/playback feeds and location-first interest graph that secured $5M in VC soft commitments.
+  - **Pivot 1 (Origin) · Spilll (Audio-Social & 4K+ MAU Voice Interest Graph):** Built prompt-led voice social app launched across 15+ university campuses in Delhi, driving 4,000+ MAU, 3,500+ installs, 1,700+ voice Spills, and an average session duration of 10m 45s. Engineered low-latency audio capture/playback feeds and location-first interest graph that secured $5M in VC soft commitments.
   - **Pivot 2 · Reve (Local Scene & IRL Ticketing — 25K+ Downloads):** Scaled consumer event and local scene discovery platform (reve.rsvp) to 25,000+ downloads across iOS & Android. Owned product engineering end-to-end: wireframes, user journeys, design systems, and cross-platform Flutter client. Built offline-first SQLite sync engine and real-time feed for seamless in-person event check-ins and ticketing.
   - **Pivot 3 (Current) · Giraffe (Community-Driven IRL Trails):** Architecting and shipping the web & mobile platform for Giraffe (giraffe.to): a community-driven IRL experience platform where women-led "Rooms" host recurring small-group trails (Padel, Reformer Pilates, Pottery) on Golf Course Road, Gurgaon. Built end-to-end seat reservation, dynamic squad matching, and host revenue-share engine (12% delivered sales payout rails).
-- **Stack:** Flutter & Dart, Next.js, SQLite, Audio Streaming, IRL Experience Engine, Payout Rails, 25K+ Downloads
+- **Stack:** Flutter & Dart, Next.js, SQLite, Audio Streaming, IRL Experience Engine, Payout Rails, 25K+ Downloads, 4K+ MAU
 
 ### 3. MythyaVerse (VRPlaced & Oncarea)
 - **Role:** Software Development Engineer

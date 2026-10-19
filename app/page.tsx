@@ -120,10 +120,10 @@ const EXPERIENCES: ExperienceItem[] = [
       {
         id: 'spilll',
         name: '1. Spilll',
-        status: 'Pivot 1 · Audio-Social',
-        tagline: 'Prompt-led voice social app & campus-first interest graph that secured $5M in VC soft commitments.',
+        status: 'Pivot 1 · 4K+ MAU · Audio-Social',
+        tagline: 'Prompt-led voice social app & campus-first interest graph reaching 4,000+ MAU and securing $5M in VC soft commitments.',
         highlights: [
-          'Built prompt-led voice social app launched across 15+ university campuses in Delhi, driving 3,500+ installs, 1,700+ voice Spills, and an average session duration of 10m 45s.',
+          'Built prompt-led voice social app launched across 15+ university campuses in Delhi, driving 4,000+ MAU, 3,500+ installs, 1,700+ voice Spills, and an average session duration of 10m 45s.',
           'Engineered low-latency audio capture/playback feeds and location-first interest graph that secured $5M in VC soft commitments.'
         ]
       },
@@ -157,7 +157,7 @@ const EXPERIENCES: ExperienceItem[] = [
         ]
       }
     ],
-    skills: ['Flutter & Dart', 'Next.js & React', 'SQLite Offline Sync', 'Audio Streaming', 'IRL Experience Engine', 'Payout Rails', '25K+ Downloads']
+    skills: ['Flutter & Dart', 'Next.js & React', 'SQLite Offline Sync', 'Audio Streaming', 'IRL Experience Engine', 'Payout Rails', '25K+ Downloads', '4K+ MAU']
   },
   {
     id: 'mythyaverse',
@@ -550,10 +550,10 @@ Building consumer products from zero to scale. Over 5+ years of engineering, I'v
 - Location: Gurugram, HR, India
 - URL: https://perpetuum.co
 - Summary: Joined as part of the founding team building consumer platforms from zero to launch across 3 successive company pivots:
-  * Pivot 1 (Origin) · Spilll (Audio-Social & Voice Interest Graph): Built prompt-led voice social app launched across 15+ university campuses in Delhi, driving 3,500+ installs, 1,700+ voice Spills, and an average session duration of 10m 45s. Engineered low-latency audio capture/playback feeds and location-first interest graph that secured $5M in VC soft commitments.
+  * Pivot 1 (Origin) · Spilll (Audio-Social & 4K+ MAU Voice Discovery): Built prompt-led voice social app launched across 15+ university campuses in Delhi, driving 4,000+ MAU, 3,500+ installs, 1,700+ voice Spills, and an average session duration of 10m 45s. Engineered low-latency audio capture/playback feeds and location-first interest graph that secured $5M in VC soft commitments.
   * Pivot 2 · Reve (Local Scene & IRL Ticketing — 25K+ Downloads): Consumer event app (https://reve.rsvp / App Store / Play Store) scaled to 25,000+ downloads across iOS & Android. Owned product engineering end-to-end: wireframes, user journeys, design systems, and cross-platform Flutter client. Built offline-first SQLite sync engine and real-time feed for seamless in-person event check-ins and ticketing.
   * Pivot 3 (Current) · Giraffe (Community-Driven IRL Trails): Web & mobile platform (https://giraffe.to) where women-led "Rooms" host recurring small-group trails (Padel, Reformer Pilates, Pottery) on Golf Course Road, Gurgaon. Built end-to-end seat reservation, dynamic squad matching, and host revenue-share engine (12% delivered sales payout rails).
-- Stack: Flutter & Dart • Next.js & React • SQLite • Audio Streaming • IRL Experience Engine • Payout Rails • 25K+ Downloads
+- Stack: Flutter & Dart • Next.js & React • SQLite • Audio Streaming • IRL Experience Engine • Payout Rails • 25K+ Downloads • 4K+ MAU
 
 ### 3. MythyaVerse (VRPlaced & Oncarea)
 - Role: Software Development Engineer
@@ -776,7 +776,7 @@ function MachineView({ onCopy, copied }: { onCopy?: () => void; copied?: boolean
               <li>- <strong className="text-zinc-200 font-medium">**Evolution &amp; Deliverables:**</strong></li>
               <li className="pl-4 space-y-2 text-zinc-400">
                 <div>
-                  <strong className="text-zinc-200">Pivot 1 (Origin) · Spilll (Audio-Social &amp; Voice Discovery):</strong> Built prompt-led voice social app launched across 15+ university campuses in Delhi, driving 3,500+ installs, 1,700+ voice Spills, and an average session duration of 10m 45s. Engineered low-latency audio capture/playback feeds and location-first interest graph that secured $5M in VC soft commitments.
+                  <strong className="text-zinc-200">Pivot 1 (Origin) · Spilll (Audio-Social &amp; 4K+ MAU Voice Discovery):</strong> Built prompt-led voice social app launched across 15+ university campuses in Delhi, driving 4,000+ MAU, 3,500+ installs, 1,700+ voice Spills, and an average session duration of 10m 45s. Engineered low-latency audio capture/playback feeds and location-first interest graph that secured $5M in VC soft commitments.
                 </div>
                 <div>
                   <strong className="text-zinc-200">Pivot 2 · Reve (Local Scene &amp; IRL Ticketing — 25K+ Downloads):</strong> Scaled consumer event and local scene discovery platform (<a href="https://reve.rsvp" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">reve.rsvp</a>) to 25,000+ downloads across iOS &amp; Android. Owned product engineering end-to-end: wireframes, user journeys, design systems, and cross-platform Flutter client. Built offline-first SQLite sync engine and real-time feed for seamless in-person event check-ins and ticketing.
@@ -785,7 +785,7 @@ function MachineView({ onCopy, copied }: { onCopy?: () => void; copied?: boolean
                   <strong className="text-zinc-200">Pivot 3 (Current) · Giraffe (Community-Driven IRL Trails):</strong> Architecting and shipping the web &amp; mobile platform for Giraffe (<a href="https://giraffe.to" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">giraffe.to</a>): a community-driven IRL experience platform where women-led &quot;Rooms&quot; host recurring small-group trails (Padel, Reformer Pilates, Pottery) on Golf Course Road, Gurgaon. Built end-to-end seat reservation, dynamic squad matching, and host revenue-share engine (12% delivered sales payout rails).
                 </div>
               </li>
-              <li>- <strong className="text-zinc-200 font-medium">**Stack:**</strong> <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Flutter &amp; Dart`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Next.js`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`SQLite`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Audio Feeds`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`IRL Experience Engine`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Payout Rails`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`25K+ Downloads`</code></li>
+              <li>- <strong className="text-zinc-200 font-medium">**Stack:**</strong> <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Flutter &amp; Dart`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Next.js`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`SQLite`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Audio Feeds`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`IRL Experience Engine`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Payout Rails`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`25K+ Downloads`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`4K+ MAU`</code></li>
             </ul>
           </div>
 
@@ -1326,7 +1326,7 @@ export default function Home() {
                         Company Pivots:
                       </span>
                       <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-mono bg-zinc-100 text-zinc-700 border border-zinc-200/80">
-                        <span>1. Spilll</span>
+                        <span>1. Spilll (4K+ MAU)</span>
                       </span>
                       <span className="text-zinc-300 text-xs">→</span>
                       <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-mono bg-zinc-100 text-zinc-700 border border-zinc-200/80">
