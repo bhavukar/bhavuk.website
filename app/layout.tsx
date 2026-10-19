@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     template: '%s | Bhavuk Arora — Founder & CEO | Bluefork',
   },
   description:
-    'Bhavuk Arora is the Founder & CEO of Bluefork (Fork). Building the commercial operating system for independent creators and digital entrepreneurs. Founding team at Reve (25K+ downloads), scaled Suraasa to 10 Lakh+ downloads.',
+    'Bhavuk Arora is the Founder & CEO of Bluefork (Fork). Building the commercial operating system for independent creators and digital entrepreneurs. Product & Engineering at Giraffe (Perpetuum), founding team at Reve (25K+ downloads), scaled Suraasa to 10 Lakh+ downloads.',
   keywords: [
     'Bhavuk',
     'Bhavuk Arora',
@@ -39,6 +39,10 @@ export const metadata: Metadata = {
     'Product Engineer',
     'Consumer Tech',
     'Creator Economy',
+    'Giraffe',
+    'Perpetuum',
+    'giraffe.to',
+    'Spilll',
     'Reve',
     'Suraasa',
     'Delhi',
@@ -197,6 +201,8 @@ const jsonLd = {
         'https://bhavuk3.substack.com',
         'https://www.instagram.com/nobhavuk/',
         'https://app.fork.blue',
+        'https://giraffe.to',
+        'https://perpetuum.co',
         'https://reve.rsvp',
         'https://www.suraasa.com',
       ],

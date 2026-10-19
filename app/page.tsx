@@ -43,6 +43,11 @@ function RedditIcon({ size = 14, className }: { size?: number; className?: strin
   );
 }
 
+interface ExperienceLink {
+  label: string;
+  url: string;
+}
+
 interface ExperienceItem {
   id: string;
   role: string;
@@ -54,6 +59,7 @@ interface ExperienceItem {
   displayUrl: string;
   embedUrl?: string;
   previewImage?: string;
+  links?: ExperienceLink[];
   summary: string;
   highlights: string[];
   skills: string[];
@@ -87,6 +93,27 @@ const EXPERIENCES: ExperienceItem[] = [
     skills: ['Executive Leadership', 'Creator Monetization', 'Venture Strategy', 'AI Workflows', 'Commercial Infrastructure']
   },
   {
+    id: 'giraffe',
+    role: 'Product & Engineering',
+    company: 'Giraffe (Perpetuum)',
+    logo: '/logos/giraffe.png',
+    location: 'Gurugram, HR',
+    period: '2024 – Present',
+    url: 'https://giraffe.to',
+    displayUrl: 'giraffe.to',
+    previewImage: '/giraffe_preview.jpg',
+    links: [
+      { label: 'perpetuum.co', url: 'https://perpetuum.co' }
+    ],
+    summary:
+      'Architecting and shipping the web & mobile platform for Giraffe: a community-driven IRL experience platform where women-led "Rooms" host recurring small-group trails (Padel, Reformer Pilates, Pottery) on Golf Course Road, Gurgaon.',
+    highlights: [
+      'Architecting and shipping the web & mobile platform for Giraffe: a community-driven IRL experience platform where women-led "Rooms" host recurring small-group trails (Padel, Reformer Pilates, Pottery) on Golf Course Road, Gurgaon.',
+      'Built end-to-end seat reservation, dynamic squad matching, and host revenue-share engine (12% delivered sales payout rails).'
+    ],
+    skills: ['Next.js', 'Mobile Platform', 'IRL Experience Engine', 'Payout Rails', 'Squad Matching']
+  },
+  {
     id: 'reve',
     role: 'Founding Member – Product & Engineering',
     company: 'Reve',
@@ -96,14 +123,19 @@ const EXPERIENCES: ExperienceItem[] = [
     url: 'https://reve.rsvp',
     displayUrl: 'reve.rsvp',
     previewImage: '/reve_preview.jpg',
+    links: [
+      { label: 'App Store', url: 'https://apps.apple.com/in/app/reve-meet-your-local-scene/id6745089742' },
+      { label: 'Play Store', url: 'https://play.google.com/store/apps/details?id=com.perpetuum.reve&hl=en_IN' }
+    ],
     summary:
       'Joined as part of the founding team taking Reve from zero to launch, evolving through multiple pivots into a consumer event app with 25,000+ downloads across iOS and Android.',
     highlights: [
-      'Owned product engineering end-to-end: wireframes, user journeys, design systems, and the cross-platform Flutter client.',
+      'Owned product engineering end-to-end: wireframes, user journeys, design systems, and the cross-platform Flutter client for Reve (25,000+ downloads across iOS & Android).',
       'Built the offline-first SQLite sync engine and real-time feed for seamless in-person event check-ins and ticketing.',
-      'Designed onboarding funnels and viral invite loops that powered our organic community growth.'
+      'Spilll (Audio-Social & IRL Discovery): Built prompt-led voice social app launched across 15+ university campuses in Delhi, driving 3,500+ installs, 1,700+ voice Spills, and an average session duration of 10m 45s.',
+      'Engineered low-latency audio capture/playback feeds and location-first interest graph that secured $5M in VC soft commitments.'
     ],
-    skills: ['Flutter', 'SQLite', 'Mobile Architecture', 'Product Design', '25K+ Downloads']
+    skills: ['Flutter', 'SQLite', 'Mobile Architecture', 'Audio Streaming', '25K+ Downloads']
   },
   {
     id: 'mythyaverse',
@@ -466,11 +498,11 @@ location: "Delhi, India"
 
 # Bhavuk Arora
 
-Building consumer products from zero to scale. Over 5+ years of engineering, I've taken applications from zero to scale across consumer mobile, creator platforms, and edtech (10 Lakh+ downloads at Suraasa, 25K+ at Reve).
+Building consumer products from zero to scale. Over 5+ years of engineering, I've taken applications from zero to scale across consumer mobile, creator platforms, and edtech (10 Lakh+ downloads at Suraasa, 25K+ at Reve, IRL platforms at Giraffe).
 
 ## Quick Facts
 - Current Role: Founder & CEO at Fork (Bluefork)
-- Previous: Founding Member (Product & Eng) at Reve, Software Engineer at MythyaVerse & Suraasa, AR/VR Developer at IIT Delhi
+- Active & Previous: Product & Engineering at Giraffe (Perpetuum), Founding Member (Product & Eng) at Reve, Software Engineer at MythyaVerse & Suraasa, AR/VR Developer at IIT Delhi
 - Core Stacks: Flutter/Dart, React/Next.js, TypeScript, PostgreSQL, SQLite, Cloudflare Workers, OpenAI/Claude APIs
 - Direct Contact: bhavuk@fork.blue / (+91) 8708254881
 - Resume: https://bhavuk.website/bhavuk_arora_resume.pdf
@@ -490,19 +522,34 @@ Building consumer products from zero to scale. Over 5+ years of engineering, I'v
   * Spearheaded product-led growth and business operations, driving continuous creator retention and high commercial transaction completion.
 - Stack: Executive Leadership • Creator Monetization • Venture Strategy • AI Workflows • Commercial Infrastructure
 
-### 2. Reve
+### 2. Giraffe (Perpetuum Innovations)
+- Role: Product & Engineering
+- Period: 2024 – Present (Current)
+- Location: Gurugram, HR, India
+- URL: https://giraffe.to
+- Parent Company URL: https://perpetuum.co
+- Summary: Community-driven IRL experience platform where women-led "Rooms" host recurring small-group trails (Padel, Reformer Pilates, Pottery) on Golf Course Road, Gurgaon.
+- Key Outcomes:
+  * Architecting and shipping the web & mobile platform for Giraffe: a community-driven IRL experience platform where women-led "Rooms" host recurring small-group trails (Padel, Reformer Pilates, Pottery) on Golf Course Road, Gurgaon.
+  * Built end-to-end seat reservation, dynamic squad matching, and host revenue-share engine (12% delivered sales payout rails).
+- Stack: Next.js • Mobile Platform • IRL Experience Engine • Payout Rails • Squad Matching
+
+### 3. Reve (Perpetuum Innovations)
 - Role: Founding Member – Product & Engineering
 - Period: Sep 2024 – Present
 - Location: Gurugram, HR, India
 - URL: https://reve.rsvp
+- App Store: https://apps.apple.com/in/app/reve-meet-your-local-scene/id6745089742
+- Play Store: https://play.google.com/store/apps/details?id=com.perpetuum.reve&hl=en_IN
 - Summary: Joined as part of the founding team taking Reve from zero to launch, evolving through multiple pivots into a consumer event app with 25,000+ downloads across iOS and Android.
 - Key Outcomes:
-  * Owned product engineering end-to-end: wireframes, user journeys, design systems, and the cross-platform Flutter client.
+  * Owned product engineering end-to-end: wireframes, user journeys, design systems, and the cross-platform Flutter client for Reve (25,000+ downloads across iOS & Android).
   * Built the offline-first SQLite sync engine and real-time feed for seamless in-person event check-ins and ticketing.
-  * Designed onboarding funnels and viral invite loops that powered organic community growth.
-- Stack: Flutter • SQLite • Mobile Architecture • Product Design • 25K+ Downloads
+  * Spilll (Audio-Social & IRL Discovery): Built prompt-led voice social app launched across 15+ university campuses in Delhi, driving 3,500+ installs, 1,700+ voice Spills, and an average session duration of 10m 45s.
+  * Engineered low-latency audio capture/playback feeds and location-first interest graph that secured $5M in VC soft commitments.
+- Stack: Flutter • SQLite • Mobile Architecture • Audio Streaming • 25K+ Downloads
 
-### 3. MythyaVerse (VRPlaced & Oncarea)
+### 4. MythyaVerse (VRPlaced & Oncarea)
 - Role: Software Development Engineer
 - Period: Sep 2023 – Aug 2024
 - Location: Noida, UP, India
@@ -514,7 +561,7 @@ Building consumer products from zero to scale. Over 5+ years of engineering, I'v
   * Owned full development lifecycle: architecture, client-side testing, automated deployments, and continuous UX iterations.
 - Stack: Flutter • Next.js • OpenAI API • Healthcare Systems • WebRTC Video
 
-### 4. Suraasa
+### 5. Suraasa
 - Role: Software Development Engineer
 - Period: Dec 2022 – Jul 2023
 - Location: Gurugram, HR, India
@@ -527,7 +574,7 @@ Building consumer products from zero to scale. Over 5+ years of engineering, I'v
   * Collaborated with backend engineering teams to optimize REST APIs and serialization, reducing app startup latency by 35%.
 - Stack: Mobile Systems Architecture • Flutter & Dart • 10 Lakh+ Downloads • Offline Data Sync • Performance Optimization
 
-### 5. Indian Institute of Technology, Delhi (IIT Delhi)
+### 6. Indian Institute of Technology, Delhi (IIT Delhi)
 - Role: AR/VR Developer
 - Period: Dec 2021 – May 2022
 - Location: New Delhi, India
@@ -708,31 +755,53 @@ function MachineView({ onCopy, copied }: { onCopy?: () => void; copied?: boolean
             </ul>
           </div>
 
-          {/* 2. Reve */}
+          {/* 2. Giraffe */}
           <div className="space-y-1.5 pt-4">
             <h3 className="text-sm font-bold text-zinc-200">
-              ### 2. Reve
+              ### 2. Giraffe (Perpetuum)
+            </h3>
+            <ul className="space-y-1 text-zinc-400">
+              <li>- <strong className="text-zinc-200 font-medium">**Role:**</strong> Product &amp; Engineering</li>
+              <li>- <strong className="text-zinc-200 font-medium">**Period:**</strong> 2024 – Present</li>
+              <li>- <strong className="text-zinc-200 font-medium">**Location:**</strong> Gurugram, HR, India</li>
+              <li>- <strong className="text-zinc-200 font-medium">**URL:**</strong> <a href="https://giraffe.to" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://giraffe.to</a> (<a href="https://perpetuum.co" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-zinc-200">https://perpetuum.co</a>)</li>
+              <li>- <strong className="text-zinc-200 font-medium">**Summary:**</strong> Community-driven IRL experience platform where women-led &quot;Rooms&quot; host recurring small-group trails (Padel, Reformer Pilates, Pottery) on Golf Course Road, Gurgaon.</li>
+              <li>- <strong className="text-zinc-200 font-medium">**Key Deliverables:**</strong></li>
+              <li className="pl-4 space-y-1 text-zinc-400">
+                <div>- Architecting and shipping the web &amp; mobile platform for Giraffe: a community-driven IRL experience platform where women-led &quot;Rooms&quot; host recurring small-group trails (Padel, Reformer Pilates, Pottery) on Golf Course Road, Gurgaon.</div>
+                <div>- Built end-to-end seat reservation, dynamic squad matching, and host revenue-share engine (12% delivered sales payout rails).</div>
+              </li>
+              <li>- <strong className="text-zinc-200 font-medium">**Stack:**</strong> <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Next.js`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Mobile Platform`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`IRL Experience Engine`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Payout Rails`</code></li>
+            </ul>
+          </div>
+
+          {/* 3. Reve */}
+          <div className="space-y-1.5 pt-4">
+            <h3 className="text-sm font-bold text-zinc-200">
+              ### 3. Reve
             </h3>
             <ul className="space-y-1 text-zinc-400">
               <li>- <strong className="text-zinc-200 font-medium">**Role:**</strong> Founding Member – Product &amp; Engineering</li>
               <li>- <strong className="text-zinc-200 font-medium">**Period:**</strong> Sep 2024 – Present</li>
               <li>- <strong className="text-zinc-200 font-medium">**Location:**</strong> Gurugram, HR, India</li>
               <li>- <strong className="text-zinc-200 font-medium">**URL:**</strong> <a href="https://reve.rsvp" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">https://reve.rsvp</a></li>
+              <li>- <strong className="text-zinc-200 font-medium">**Apps:**</strong> <a href="https://apps.apple.com/in/app/reve-meet-your-local-scene/id6745089742" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">App Store</a> · <a href="https://play.google.com/store/apps/details?id=com.perpetuum.reve&hl=en_IN" target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white underline decoration-zinc-800">Play Store</a></li>
               <li>- <strong className="text-zinc-200 font-medium">**Summary:**</strong> Joined as part of the founding team taking Reve from zero to launch, evolving through multiple pivots into a consumer event app with 25,000+ downloads across iOS and Android.</li>
               <li>- <strong className="text-zinc-200 font-medium">**Key Deliverables:**</strong></li>
               <li className="pl-4 space-y-1 text-zinc-400">
-                <div>- Owned product engineering end-to-end: wireframes, user journeys, design systems, and the cross-platform Flutter client.</div>
+                <div>- Owned product engineering end-to-end: wireframes, user journeys, design systems, and the cross-platform Flutter client for Reve (25,000+ downloads across iOS &amp; Android).</div>
                 <div>- Built the offline-first SQLite sync engine and real-time feed for seamless in-person event check-ins and ticketing.</div>
-                <div>- Designed onboarding funnels and viral invite loops that powered organic community growth.</div>
+                <div>- <strong>Spilll (Audio-Social &amp; IRL Discovery):</strong> Built prompt-led voice social app launched across 15+ university campuses in Delhi, driving 3,500+ installs, 1,700+ voice Spills, and an average session duration of 10m 45s.</div>
+                <div>- Engineered low-latency audio capture/playback feeds and location-first interest graph that secured $5M in VC soft commitments.</div>
               </li>
-              <li>- <strong className="text-zinc-200 font-medium">**Stack:**</strong> <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Flutter`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`SQLite`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Mobile Architecture`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`25K+ Downloads`</code></li>
+              <li>- <strong className="text-zinc-200 font-medium">**Stack:**</strong> <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Flutter`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`SQLite`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`Audio Streaming`</code>, <code className="bg-zinc-900 text-zinc-300 px-1 py-0.5 rounded text-xs">`25K+ Downloads`</code></li>
             </ul>
           </div>
 
-          {/* 3. MythyaVerse */}
+          {/* 4. MythyaVerse */}
           <div className="space-y-1.5 pt-4">
             <h3 className="text-sm font-bold text-zinc-200">
-              ### 3. MythyaVerse (VRPlaced &amp; Oncarea)
+              ### 4. MythyaVerse (VRPlaced &amp; Oncarea)
             </h3>
             <ul className="space-y-1 text-zinc-400">
               <li>- <strong className="text-zinc-200 font-medium">**Role:**</strong> Software Development Engineer</li>
@@ -750,10 +819,10 @@ function MachineView({ onCopy, copied }: { onCopy?: () => void; copied?: boolean
             </ul>
           </div>
 
-          {/* 4. Suraasa */}
+          {/* 5. Suraasa */}
           <div className="space-y-1.5 pt-4">
             <h3 className="text-sm font-bold text-zinc-200">
-              ### 4. Suraasa
+              ### 5. Suraasa
             </h3>
             <ul className="space-y-1 text-zinc-400">
               <li>- <strong className="text-zinc-200 font-medium">**Role:**</strong> Software Development Engineer</li>
@@ -771,10 +840,10 @@ function MachineView({ onCopy, copied }: { onCopy?: () => void; copied?: boolean
             </ul>
           </div>
 
-          {/* 5. IIT Delhi */}
+          {/* 6. IIT Delhi */}
           <div className="space-y-1.5 pt-4">
             <h3 className="text-sm font-bold text-zinc-200">
-              ### 5. Indian Institute of Technology, Delhi (IIT Delhi)
+              ### 6. Indian Institute of Technology, Delhi (IIT Delhi)
             </h3>
             <ul className="space-y-1 text-zinc-400">
               <li>- <strong className="text-zinc-200 font-medium">**Role:**</strong> AR/VR Developer</li>
@@ -1235,6 +1304,22 @@ export default function Home() {
                           <div className="absolute -bottom-1.5 left-6 w-3 h-3 bg-zinc-950 border-r border-b border-zinc-800 rotate-45" />
                         </div>
                       </div>
+
+                      {/* Extra Links (App Store, Play Store, perpetuum.co) */}
+                      {exp.links?.map((link, lIdx) => (
+                        <React.Fragment key={lIdx}>
+                          <span className="text-zinc-300">•</span>
+                          <a
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-mono font-semibold text-zinc-900 hover:text-black underline underline-offset-4 decoration-zinc-400 hover:decoration-black transition-all bg-zinc-50 hover:bg-zinc-100 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded"
+                          >
+                            <span>{link.label}</span>
+                            <ArrowUpRight size={11} className="sm:size-3" />
+                          </a>
+                        </React.Fragment>
+                      ))}
                     </div>
 
                 {/* Summary */}
